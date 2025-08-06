@@ -1,0 +1,39 @@
+import React, { useEffect, useState } from "react";
+import "./Offers-home.css";
+import { Link } from "react-router-dom";
+
+export default function Offers() {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/countries")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  return (
+    <section className="offers container">
+      <header className="header-section">
+        <h2> عروضنا </h2>
+        <p> اختر الدولة المناسبة واستمتع بافضل الاسعار </p>
+      </header>
+
+      <div className="offers-grid">
+        {countries.map((country) => (
+          <div className="offer-card" key={country._id}>
+            <img src={country.flag} alt="" />
+            <h4> {country.name} </h4>
+            <p> {country.description} </p>
+            <span> {country.salary} ريال </span>
+            <Link to="/"> أطلب الأن </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

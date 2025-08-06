@@ -1,0 +1,129 @@
+.login {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+}
+
+.login header {
+    margin-bottom: 30px;
+}
+.login header h4 {
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.login header p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+.login .login-form form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+
+.login .login-form form .name,
+.login .login-form form .mass {
+    grid-column: 1 / -1;
+}
+
+.login .login-form form > div {
+    margin-bottom: 12px;
+}
+.login .login-form form > div input,
+.login .login-form form > div select,
+.login .login-form form > div textarea {
+    border: 1px solid var(--main-color);
+    border-radius: var(--s-radius);
+    padding: 16px 24px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.login .login-form form > div select option {
+    font-weight: bold;
+    font-size: 16px;
+}
+label {  
+    display: block;
+    margin-bottom: 4px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.login .login-form form > div textarea {
+    width: 100%;
+    height: 160px;
+}
+
+.login .login-form form .submit {
+    text-align: center;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.login .login-form form .submit button {
+    border: 2px solid var(--main-color);
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 8px 24px;
+    border-radius: 1000px;
+    width: fit-content;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+}
+
+.login .login-form form .submit button .icon {
+    transform: rotate(270deg);
+    margin-right: 12px;
+}
+
+.login .login-form form .submit button:hover {
+    color: #fff;
+}
+.login .login-form form .submit button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.login .login-form form .submit button:hover::after {
+    width: 100%;
+}
+
+.login-map img {
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-color: red;
+}
+.login .map {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.login .map h5 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.login .map h5 .icon {
+    color: var(--main-color);
+}
+
+.login .map iframe {
+    border: none;
+    border-radius: var(--l-radius);
+    width: inherit;
+}

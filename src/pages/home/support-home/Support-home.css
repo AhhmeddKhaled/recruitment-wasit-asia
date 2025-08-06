@@ -1,0 +1,39 @@
+.support-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 16px;
+    margin-top: 60px;
+}
+
+.support-cards .support-card > div {
+    margin-bottom: 16px;
+}
+.support-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--l-radius);
+    padding: 16px;
+    transition: .5s ease;
+    width: 300px;
+}
+
+.support-card:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.support-card .contact-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.support-card .contact-icons .icon {
+    background-color: #ddd;
+    padding: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
