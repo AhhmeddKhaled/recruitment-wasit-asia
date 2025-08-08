@@ -8,10 +8,10 @@ import { AiFillMedicineBox } from "react-icons/ai";
 import { FiShuffle } from "react-icons/fi";
 import About from "./about-home/About-home";
 import Offers from "./offers-home/Offers-home";
-import Login from "./login-home/Login-home";
 import Services from "./services-home/Services-home";
 import Support from "./support-home/Support-home";
 import Statistics from "./statistics-home/Statistics-home";
+import Contact from "./contact-home/Contact-home";
 export default function Home() {
   return (
     <div className="home">
@@ -30,12 +30,12 @@ export default function Home() {
           </h1>
 
           <div className="btns">
-            <Button>
-              <AiFillMedicineBox className="btn-icon" />
+            <Button to="/طلب_إستقدام" >
+              <AiFillMedicineBox className="btn-icon"/>
               طلب استقدام
             </Button>
 
-            <ButtonFill>
+            <ButtonFill to="/طلب_نقل_خادمين">
               <FiShuffle className="btn-icon" />
               طلب نقل خدمات
             </ButtonFill>
@@ -53,7 +53,7 @@ export default function Home() {
 
       <Statistics />
 
-      <Login />
+      <Contact />
       
       <Footer />
     </div>

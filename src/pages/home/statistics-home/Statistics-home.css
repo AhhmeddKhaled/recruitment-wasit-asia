@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: 16px;
-    margin-top: 30px;
+    padding: 30px 0;
+    overflow: scroll;
 }
 
 .Statistics-boxs .box {

@@ -1,16 +1,6 @@
 .Recruitment_request {
     padding: 0 0 60px 0;
 }
-.Recruitment_request header {
-    background-color: var(--sub-color);
-    padding: 60px 5%;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.Recruitment_request header span {
-    margin: 0 16px;
-}
 
 .cv_inputs {
     padding-top: 60px;
@@ -73,7 +63,7 @@ select option {
 
 .cv_inputs .all-cv {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     gap: 16px;
 }
 
@@ -93,7 +83,7 @@ select option {
 }
 
 .cv_inputs .all-cv .cv .cv-info span {
-    font-size: .8rem;
+    font-size: 1rem;
 }
 .cv_inputs .all-cv .cv .cv-info p {
     color: red;
@@ -112,17 +102,28 @@ select option {
     padding-bottom: 16px;
 }
 
-.cv_inputs .all-cv .cv .cv-bottom span {
+.cv_inputs .all-cv .cv .cv-bottom a {
     border: 1px solid var(--main-color);
     padding: 12px 16px;
     border-radius: var(--l-radius);
     display: block;
-    font-size: 1rem;
+    font-size: .8rem;
     cursor: pointer;
     transition: .5s ease;
+    color: var(--text-color);
 }
 
-.cv_inputs .all-cv .cv .cv-bottom span:hover {
+.cv_inputs .all-cv .cv .cv-bottom a:hover {
     background-color: var(--main-color);
     color: #fff;
+}
+
+.not {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    color: red;
+    padding: 30px;
+    border-radius: var(--l-radius);
 }

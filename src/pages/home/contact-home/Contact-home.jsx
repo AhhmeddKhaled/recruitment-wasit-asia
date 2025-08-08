@@ -1,18 +1,17 @@
 import React, { useRef } from "react";
-import "./Login-home.css";
+import "./Contact-home.css";
 import { contactForm } from "../../../future/contactForm";
 
 import {
   FaUser,
   FaPhoneAlt,
-  FaEnvelope,
   FaPen,
   FaComment,
   FaPaperPlane,   
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-export default function Login() {
+export default function Contact() {
   const form = useRef();
 
   const handleSubmit = async (e) => {

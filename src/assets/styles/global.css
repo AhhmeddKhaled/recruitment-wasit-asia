@@ -42,20 +42,20 @@ a {
 }
 
 
-header.header-section {
+.header-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-header.header-section h2 {
+.header-section h2 {
     font-size: 3rem;
     color: var(--main-color);
     margin-bottom: 12px;
     position: relative;
 }
 
-header.header-section h2::after {
+.header-section h2::after {
   content: '';
   position: absolute;
   bottom: -30px;
@@ -66,7 +66,32 @@ header.header-section h2::after {
   margin-bottom: 24px;
 }
 
-header.header-section p {
+.header-section p {
     color: var(--text-color);
+    font-size: 1rem;
+}
+
+
+.page-header {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.page-header .container {
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.page-header .container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.page-header .container p {
     font-size: 1rem;
 }

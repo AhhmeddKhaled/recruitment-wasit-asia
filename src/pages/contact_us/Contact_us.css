@@ -1,0 +1,46 @@
+.information {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    padding: 60px 0;
+}
+
+.info-contact {
+    
+}
+
+.info-contact h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.info-contact > div {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.info-contact > div:hover .icon {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.info-contact > div .icon {
+    margin-left: 10px;
+    font-size: 40px;
+    padding: 10px;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    border-radius: 50%;
+    transition: .5s;
+}
+.info-contact > div h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.info-contact > div a {
+    color: var(--main-color);
+    font-weight: bold;
+    cursor: pointer;
+}

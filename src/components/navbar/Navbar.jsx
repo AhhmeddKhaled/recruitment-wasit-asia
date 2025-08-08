@@ -21,9 +21,11 @@ export default function Navbar() {
         </div>
 
         <ul className={`nav-links ${isOpen ? "open" : "close"}`}>
-          <li>
+            <li>
             <Link to="/">الرئيسية</Link>
-          </li>
+            </li>
+
+        
 
           <li
             className="nav-link"
@@ -42,7 +44,7 @@ export default function Navbar() {
               </li>
 
               <li>
-                <Link to="/drivers">طلب نقل خادمين</Link>
+                <Link to="/طلب_إستقدام">طلب نقل خادمين</Link>
               </li>
             </ul>
           </li>
@@ -60,14 +62,14 @@ export default function Navbar() {
             )}
               <ul>
                 <li>
-                  <Link to="/maids">عن الاستقدام</Link>
+                  <Link to="/عن_الإستقدام">عن الاستقدام</Link>
                 </li>
                 <li>
-                  <Link to="/drivers">وصول العمالة</Link>
+                  <Link to="/وصول_العمالة">وصول العمالة</Link>
                 </li>
 
                 <li>
-                  <Link to="/drivers">اختيار العمالة</Link>
+                  <Link to="/إختيار_العمالة">اختيار العمالة</Link>
                 </li>
               </ul>
             
@@ -86,7 +88,7 @@ export default function Navbar() {
             )}
               <ul>
                 <li>
-                  <Link to="/policy">سياسات الاستقدام</Link>
+                  <Link to="/سياسات_الإستقدام">سياسات الإستقدام</Link>
                 </li>
               </ul>
           </li>
@@ -105,18 +107,14 @@ export default function Navbar() {
             
               <ul>
                 <li>
-                  <Link to="/policy">مقالات تهمك</Link>
+                  <Link to="/articals">مقالات تهمك</Link>
+                </li>
+                                <li>
+                  <Link to="/تواصل_معنا">تواصل معنا</Link>
                 </li>
 
                 <li>
-                  <Link to="/policy">مركز المساعدة</Link>
-                </li>
-                <li>
-                  <Link to="/policy">تواصل معنا</Link>
-                </li>
-
-                <li>
-                  <Link to="/policy">خدمة العملاء</Link>
+                  <Link to="/خدمة_العملاء">خدمة العملاء</Link>
                 </li>
               </ul>
             
