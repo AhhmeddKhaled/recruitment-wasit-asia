@@ -120,7 +120,7 @@ export default function Navbar() {
             
           </li>
 
-          <ButtonFill to="/login">تسجيل الدخول</ButtonFill>
+          <ButtonFill to="/register">تسجيل الدخول</ButtonFill>
         </ul>
 
         <span className="toggle-mobile" onClick={() => setIsopen(!isOpen)}>

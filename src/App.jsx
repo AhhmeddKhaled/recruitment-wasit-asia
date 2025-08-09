@@ -24,6 +24,7 @@ function App() {
       <Route path="/تواصل_معنا" element={<Contact_us />} />
       <Route path="/خدمة_العملاء" element={<Customer_service />} />
       <Route path="/وصول_العمالة" element={<Workers_arrival />} />
+      <Route path="/register" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin_dashboard" element={<AdminDashboard />} />
       <Route path="/articals" element={<Articals />} />

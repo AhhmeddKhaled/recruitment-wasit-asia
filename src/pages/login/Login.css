@@ -98,8 +98,15 @@
     cursor: pointer;
 }
 
-.form form .login p span {
+.form form .login p a {
     color: var(--main-color);
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.form form select {
+    width: 100%;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -124,4 +131,19 @@
 .form form .social .icon:hover {
     transform: scale(1.1);
     box-shadow: 0 0 60px var(--main-color);
+}
+
+.status {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    border-radius: var(--s-radius);
+    color: #fff;
+    font-weight: bold;
+    width: 50%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgb(0,0,0,.5);
 }

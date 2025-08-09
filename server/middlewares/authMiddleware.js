@@ -1,26 +1,30 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-exports.verifyAdmin = async (req, res, next) => {
-  const authHeader = req.headers.authorization;
+exports.protect = async (req, res, next) => {
+  let token;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "غير مصرح" });
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    try {
+      token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.id).select('-password');
+      next();
+    } catch (error) {
+      res.status(401).json({ message: 'Not authorized, token failed' });
+    }
   }
 
-  const token = authHeader.split(" ")[1];
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
-
-    if (!user || user.role !== "admin") {
-      return res.status(403).json({ message: "ممنوع الوصول - ليس أدمن" });
-    }
-
-    req.user = user;
-    next();
-  } catch (err) {
-    return res.status(401).json({ message: "رمز غير صالح" });
+  if (!token) {
+    res.status(401).json({ message: 'Not authorized, no token' });
   }
 };
+
+exports.adminOnly = (req, res, next) => {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  } else {
+    res.status(403).json({ message: 'Admins only' });
+  }
+};
+
