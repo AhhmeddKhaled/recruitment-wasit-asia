@@ -1,55 +1,100 @@
 import React from "react";
-import "./Footer.css";
-
+import style from "./Footer.module.css";
+import "../../assets/styles/global.css";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-container container">
-
-        <div className="footer-section about">
-          <h3> وسيط أسيا  </h3>
+    <footer>
+      <div className={`${style.container} container`}>
+        <div className={`${style.footer_section}  ${style.about}`}>
+          <h4 className="m-b-16 font-b"> وسيط أسيا </h4>
           <p>
-            أفضل مكتب استقدام العمالة المنزلية بمعايير دولية ومهنية عالية.
-            نوفر أيدى عاملة مميزة ومدربة بحرفية.
+            أفضل مكتب استقدام العمالة المنزلية بمعايير دولية ومهنية عالية. نوفر
+            أيدى عاملة مميزة ومدربة بحرفية.
           </p>
         </div>
 
-        <div className="footer-section links">
-          <h4>خدمتنا</h4>
+        <div className={`${style.footer_section}  ${style.links}`}>
+          <h4 className="m-b-16 font-b">خدمتنا</h4>
           <ul>
-            <li>اختيار العمالة</li>
-            <li>تعاقد الاستقدام</li>
-            <li>وصول العمالة</li>
-            <li>سياسات الاستقدام</li>
-            <li>مركز المساعدة</li>
-            <li>الأسئلة الشائعة</li>
-            <li>المقالات</li>
+            <li>
+              <Link to="/إختيار_العمالة">اختيار العمالة</Link>
+            </li>
+            <li>
+              <Link to="/عن_الإستقدام">تعاقد الاستقدام</Link>
+            </li>
+            <li>
+              <Link to="/وصول_العمالة">وصول العمالة</Link>
+            </li>
+            <li>
+              <Link to="/سياسات_الإستقدام">سياسات الاستقدام</Link>
+            </li>
+            <li>
+              <Link
+                to='/articals'>
+                المقالات
+              </Link>
+            </li>
           </ul>
         </div>
 
-        <div className="footer-section contact">
-          <h4>معلومات التواصل</h4>
-          <p><strong>مدير نقل الخدمات:</strong> 966555653289</p>
-          <p><strong>العنوان:</strong> الشيخ جابر الاحمد، حي المعيزيلة، الرياض</p>
-          <p><strong>البريد الإلكتروني:</strong> info@rawafdnajd.sa</p>
-          <p><strong>المبيعات:</strong> 8003030309</p>
-          <p><strong>الشكاوي:</strong> 8003030309</p>
-          <p><strong>سجل تجاري:</strong> 1010595382</p>
-          <p><strong>رقم المنشأة:</strong> 41012064</p>
-        </div>
-
-        <div className="footer-section external">
-          <h4>روابط هامة</h4>
+        <div className={`${style.footer_section}  ${style.contact}`}>
+          <h4 className="m-b-16 font-b">معلومات التواصل</h4>
           <ul>
-            <li><a href="https://maroof.sa/" target="_blank">منصة معروف</a></li>
-            <li><a href="https://musaned.com.sa/home" target="_blank">مساند</a></li>
-            <li><a href="https://www.tarafalamal.sa/" target="_blank">طرف الأعمال</a></li>
+            <li>
+              مدير نقل الخدمات:
+              <a href="tel:966555653289">966555653289</a>
+            </li>
+            <li>
+              العنوان:
+              <a href="">الشيخ جابر الاحمد، حي المعيزيلة، الرياض</a>
+            </li>
+            <li>
+              البريد الإلكتروني:
+              <a href="mailto:info@rawafdnajd.sa">info@rawafdnajd.sa</a>
+            </li>
+            <li>
+              المبيعات:
+              <a href="tel:8003030309">8003030309</a>
+            </li>
+            <li>
+              الشكاوي:
+              <a href="tel:8003030309">8003030309</a>
+            </li>
+            <li>
+              سجل تجاري:
+              <a href="">1010595382</a>
+            </li>
+            <li>
+              رقم المنشأة
+              <a href="">41012064</a>
+            </li>
           </ul>
         </div>
 
+        <div className={`${style.footer_section}  ${style.external}`}>
+          <h4 className="m-b-16 font-b">روابط هامة</h4>
+          <ul>
+            <li>
+              <a href="https://maroof.sa/" target="_blank">
+                منصة معروف
+              </a>
+            </li>
+            <li>
+              <a href="https://musaned.com.sa/home" target="_blank">
+                مساند
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tarafalamal.sa/" target="_blank">
+                طرف الأعمال
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div className="footer-bottom">
+      <div className={style.copy}>
         <p>© 2025 جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
       </div>
     </footer>

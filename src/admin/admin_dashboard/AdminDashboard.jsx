@@ -8,7 +8,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     fetch("http://localhost:5000/api/security/", {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("adminToken"), // لو فيه JWT token
+        Authorization: "Bearer " + localStorage.getItem("adminToken"), 
       },
     })
       .then((res) => res.json())

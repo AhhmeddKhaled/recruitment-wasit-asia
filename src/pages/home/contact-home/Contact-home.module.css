@@ -1,15 +1,19 @@
+/* parent style*/
 .login {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 40px;
 }
 
+/* header style*/
 .login header {
     margin-bottom: 30px;
 }
+
 .login header h4 {
     font-size: 3rem;
     color: var(--main-color);
+    text-align: center;
 }
 
 .login header p {
@@ -17,24 +21,27 @@
     color: var(--text-color);
     font-weight: bold;
 }
-.login .login-form form {
+
+
+.login form.contact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
+.login form.contact > div {
+    margin-bottom: 12px;
+}
 
-.login .login-form form .name,
-.login .login-form form .mass {
+.login form.contact .name,
+.login form.contact .mass {
     grid-column: 1 / -1;
 }
 
-.login .login-form form > div {
-    margin-bottom: 12px;
-}
-.login .login-form form > div input,
-.login .login-form form > div select,
-.login .login-form form > div textarea {
+
+.login form.contact > div input,
+.login form.contact > div select,
+.login form.contact > div textarea {
     border: 1px solid var(--main-color);
     border-radius: var(--s-radius);
     padding: 16px 24px;
@@ -42,10 +49,12 @@
     cursor: pointer;
 }
 
-.login .login-form form > div select option {
+
+.login form.contact > div select option {
     font-weight: bold;
     font-size: 16px;
 }
+
 label {  
     display: block;
     margin-bottom: 4px;
@@ -53,19 +62,19 @@ label {
     font-weight: bold;
 }
 
-.login .login-form form > div textarea {
+.login form.contact > div textarea {
     width: 100%;
     height: 160px;
 }
 
-.login .login-form form .submit {
+.login form.contact .submit {
     text-align: center;
     margin-top: 16px;
     display: flex;
     justify-content: center;
 }
 
-.login .login-form form .submit button {
+.login form.contact .submit button {
     border: 2px solid var(--main-color);
     font-size: 22px;
     font-weight: bold;
@@ -79,15 +88,16 @@ label {
     transition: .5s;
 }
 
-.login .login-form form .submit button .icon {
+.login form.contact .submit button .icon {
     transform: rotate(270deg);
     margin-right: 12px;
 }
 
-.login .login-form form .submit button:hover {
+.login form.contact .submit button:hover {
     color: #fff;
 }
-.login .login-form form .submit button::after {
+
+.login form.contact .submit button::after {
     content: '';
     position: absolute;
     left: 0;
@@ -99,15 +109,19 @@ label {
     transition: .5s;
 }
 
-.login .login-form form .submit button:hover::after {
+.login form.contact .submit button:hover::after {
     width: 100%;
+}
+
+.login-map {
+    display: flex;
+    justify-content: center;
 }
 
 .login-map img {
     max-width: 100%;
-    background-repeat: no-repeat;
-    background-color: red;
 }
+
 .login .map {
     grid-column: 1 / -1;
     width: 100%;
@@ -126,4 +140,11 @@ label {
     border: none;
     border-radius: var(--l-radius);
     width: inherit;
+}
+
+@media (max-width: 1155px) {
+
+.login-map {
+    display: none;
+}
 }

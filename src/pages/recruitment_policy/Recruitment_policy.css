@@ -16,11 +16,13 @@
 }
 
 .Recruitment_policy-header:after {
-    background: url('../../../public/imgs/وصول.jpg');
+    background: url('../../../public/imgs/سياسات.jpg');
+    background-position: center;
+    background-size: cover;
     z-index: -1;
 }
 
-.Recruitment_policy-header::before {
+.page-header::before {
     background-color: rgb(0,0,0,.7);
     z-index: 1;
 }
@@ -47,9 +49,19 @@
 .Recruitment_policy-header  .container .pdf a {
     color: #fff;
     font-size: 1rem;
-    display: block;
     background-color: var(--secondary-color);
     padding: 8px 16px;
     border-radius: var(--s-radius);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .5s ease;
+}
+
+.Recruitment_policy-header  .container .pdf a:hover {
+    transform: calc(1.02);
+    box-shadow: 0 0 30px var(--main-color);
+}
+.Recruitment_policy-header  .container .pdf a .i {
+    margin-right: 8px;
 }

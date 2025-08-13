@@ -1,35 +1,50 @@
 .form {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 60px 0;
 }
 
 .form form {
-    margin-top: -200px;
     padding: 60px;
     box-shadow: var(--box-shadow);
     border-radius: var(--l-radius);
     width: 500px;
     transition: .5s ease;
     background-color: #fff;
-    position: absolute;
+    position: relative;
 }
 
 .form form:hover {
     box-shadow: 0 0 100px var(--main-color);
 }
 
+.form form .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form form img {
+    max-width: 300px;
+}
+
 .form form h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 30px;
     color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .2;
 }
 
 .form form > div {
     margin-bottom: 30px;
 }
+
 .form form label {
     font-size: 1rem;
     color: var(--main-color);
@@ -55,6 +70,7 @@
     display: flex;
     justify-content: center;
 }
+
 .form form button[type="submit"] {
     background-color: var(--main-color);
     color: #fff;
@@ -134,13 +150,13 @@
 }
 
 .status {
-    position: absolute;
-    top: 0;
-    left: 25%;
+    position: fixed;
+    top: 20%;
+    left: calc(50% - 150px);
     border-radius: var(--s-radius);
     color: #fff;
     font-weight: bold;
-    width: 50%;
+    width: 300px;
     height: 60px;
     display: flex;
     align-items: center;

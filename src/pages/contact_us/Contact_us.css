@@ -4,14 +4,31 @@
     padding: 60px 0;
 }
 
-.info-contact {
-    
+.information .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 .info-contact h4 {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 16px;
+    padding: 8px 12px;
+    color: var(--main-color);
+    width: fit-content;
+    border: 1px solid #999;
+    border-radius: var(--l-radius);
+    position: relative;
+}
+
+.info-contact h4::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background-color: var(--main-color);
+    top: 50%;
+    left: -200%;
 }
 
 .info-contact > div {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Login.css";
+import  style from  "./Login.module.css";
 import Layout from "../../layout/layout";
-import { FaUser, FaMapMarkerAlt } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import { BsSendCheck } from "react-icons/bs";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
@@ -10,8 +10,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 export default function Login() {
   const location = useLocation();
   const navigate = useNavigate();
-  
-  const isLogin = location.pathname === '/login';
+
+  const isLogin = location.pathname === "/login";
   const url = isLogin
     ? "http://localhost:5000/api/auth/login"
     : "http://localhost:5000/api/auth/register";
@@ -38,7 +38,8 @@ export default function Login() {
       });
 
       const data = await response.json();
-
+      
+      
       if (response.ok) {
         localStorage.setItem("token", data.token);
         setMessage(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!");
@@ -47,21 +48,11 @@ export default function Login() {
         setPassword("");
         setName("");
 
-        if (isLogin) {
-          // تحويل حسب الرول
-          if (data.role === "admin") {
-            navigate("/admin/dashboard");
-          } else {
-            navigate("/");
-          }
-        } else {
-          // بعد التسجيل الناجح يحوله للوجين
-          navigate("/login");
-        }
 
       } else {
         setMessage(data.message || "حدث خطأ");
         setStatus("error");
+        navigate('/login')
       }
     } catch (error) {
       setMessage("حدث خطأ في الاتصال بالسيرفر");
@@ -76,16 +67,17 @@ export default function Login() {
 
   return (
     <Layout>
-      <div className="form">
+      <div className={style.form}>
         <form onSubmit={handleSubmit}>
-          <h2>
-            <FaMapMarkerAlt /> {isLogin ? "تسجيل الدخول" : "تواصل معنا"}
-          </h2>
+          <div className={style.img}>
+            <img src="/imgs/login.svg" alt="" />
+          </div>
+          <h2>{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h2>
 
           {!isLogin && (
-            <div className="name">
-              <label htmlFor="name">
-                <FaUser className="icon" /> الإسم كاملًا *
+            <div>
+              <label htmlFor={style.img}>
+                <FaUser className={style.icon} /> الإسم كاملًا *
               </label>
               <input
                 type="text"
@@ -97,9 +89,9 @@ export default function Login() {
             </div>
           )}
 
-          <div className="email">
+          <div className={style.email}>
             <label htmlFor="email">
-              <RiMailFill className="icon" /> الإيميل *
+              <RiMailFill className={style.icon} /> الإيميل *
             </label>
             <input
               type="email"
@@ -110,12 +102,12 @@ export default function Login() {
             />
           </div>
 
-          <div className="password">
+          <div className={style.password}>
             <label htmlFor="password">
-              <RiLockPasswordFill className="icon" /> كلمة السر *
+              <RiLockPasswordFill className={style.icon} /> كلمة السر *
             </label>
             <input
-              type="password"
+              type="text"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -125,14 +117,14 @@ export default function Login() {
             />
           </div>
 
-          <div className="submit">
+          <div className={style.submit}>
             <button type="submit">
               {isLogin ? "دخول" : "إرسال"}
-              <BsSendCheck className="icon" />
+              <BsSendCheck className={style.icon} />
             </button>
           </div>
 
-          <div className="login">
+          <div className={style.login}>
             {isLogin ? (
               <p>
                 <span>ليس لديك حساب ؟</span>
@@ -146,22 +138,18 @@ export default function Login() {
             )}
           </div>
 
-          <div className="social">
-            <FaFacebook className="icon" />
-            <FaTwitter className="icon" />
-            <FaInstagram className="icon" />
+          <div className={style.social}>
+            <FaFacebook className={style.icon} />
+            <FaTwitter className={style.icon} />
+            <FaInstagram className={style.icon} />
           </div>
 
           {message && (
             <p
-              className="status"
+              className={style.status}
               style={{
                 background: status === "success" ? "green" : "red",
-                color: "#fff",
-                padding: "8px",
-                borderRadius: "5px",
-                fontWeight: "bold",
-                marginTop: "10px",
+
               }}
             >
               {message}

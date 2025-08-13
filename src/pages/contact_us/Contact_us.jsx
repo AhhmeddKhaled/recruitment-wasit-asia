@@ -12,6 +12,7 @@ export default function Contact_us() {
             <div className="information container">
                 <div className="img">
                     <img src="/imgs/contact.webp" alt="" />
+                    
                 </div>
                 <div className="info-contact">
                     <h4> كن علي إتصال</h4>

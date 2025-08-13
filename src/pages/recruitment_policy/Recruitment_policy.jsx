@@ -2,6 +2,7 @@ import React from "react";
 import "./Recruitment_policy.css";
 import Layout from "../../layout/layout";
 import Contact from "../home/contact-home/Contact-home";
+import { FaFilePdf } from "react-icons/fa";
 
 export default function Recruitment_policy() {
 
@@ -18,11 +19,18 @@ export default function Recruitment_policy() {
                     </p>
 
                 <div className="pdf">
-                    <a href="">
+                    <a 
+                    href="./imgs/صاحب_العمل.pdf"
+                    download
+                    >
                          حقوق وواجبات صاحب العمل
+                         <FaFilePdf  className="i"/>
                     </a>
-                    <a href="">
-                         حقوق وواجبات العمالة المنزلية 
+                    <a   href="./imgs/العامل.pdf"
+                    download>
+                         حقوق وواجبات العمالة المنزلية
+                         <FaFilePdf className="i"/>
+
                     </a>
                 </div>
                 </div>

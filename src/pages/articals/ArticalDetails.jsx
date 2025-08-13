@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./Articals.css";
+import style from "./Articals.module.css";
 import { useParams } from "react-router-dom";
 import ShareArtical from "./shareArtical";
-import Header_routes from "../../components/header-routes/Header-routes";
+import '../../assets/styles/global.css';
 
 export default function ArticalDetails() {
 
@@ -45,17 +45,16 @@ export default function ArticalDetails() {
 
   return (
     <>
-    <Header_routes />
-    <div className="artical-dev">
+    <div className={` ${style.artical_dev} flex-center`}>
       
-    <div className='artical artical-d'>
-      <div className="img">
+    <div className={`${style.artical} ${style.artical_d}`}>
+      <div className={style.img}>
         <img
           src={`http://localhost:5000${artical.img}`}
           alt={artical.title}
         />
       </div>
-      <div className="info">
+      <div className={style.info}>
         <h3>{artical.title}</h3>
         <p>
           {artical.paragraph}

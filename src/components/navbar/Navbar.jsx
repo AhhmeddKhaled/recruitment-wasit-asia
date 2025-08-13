@@ -1,129 +1,125 @@
 import React, { useState } from "react";
+import "../../assets/styles/global.css";
+import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
-import "./Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
-import Button from "../button/Button";
-import ButtonFill from "../button/ButtonFill";
+import { ButtonFill } from "../button/Button";
 
 export default function Navbar() {
-  const [hovered, setHovered] = useState(null);
-  const [isOpen, setIsopen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleMouseEnter = (menu) => setHovered(menu);
-  const handleMouseLeave = () => setHovered(null);
+  const handleDropdownToggle = (menu) => {
+    setOpenDropdown((prev) => (prev === menu ? null : menu));
+  };
 
   return (
-    <header className="navbar">
-      <div className="navbar-container container">
-        <div className="logo">
+    <header className={`${style.navbar} p-t-b-12`}>
+      <div className="container flex">
+        <div className={style.logo}>
           <img src="/imgs/logo.png" alt="لوجو الموقع" />
         </div>
 
-        <ul className={`nav-links ${isOpen ? "open" : "close"}`}>
-            <li>
+        <ul
+          className={`${style.links} flex-align ${
+            isOpen ? style.open : style.close
+          }`}
+        >
+          <li>
             <Link to="/">الرئيسية</Link>
-            </li>
-
-        
-
-          <li
-            className="nav-link"
-            onMouseEnter={() => handleMouseEnter("services")}
-            onMouseLeave={handleMouseLeave}
-          >
-            خدماتنا
-            {hovered === "services" ? (
-              <FaChevronDown className="icon" />
-            ) : (
-              <FaChevronLeft className="icon" />
-            )}
-            <ul>
-              <li>
-                <Link to="/طلب_إستقدام">طلب استقدام</Link>
-              </li>
-
-              <li>
-                <Link to="/طلب_إستقدام">طلب نقل خادمين</Link>
-              </li>
-            </ul>
           </li>
 
-          <li
-            className="nav-item"
-            onMouseEnter={() => handleMouseEnter("journey")}
-            onMouseLeave={handleMouseLeave}
-          >
-            رحلة الاستقدام
-            {hovered === "journey" ? (
-              <FaChevronDown className="icon" />
+          <li onClick={() => handleDropdownToggle("services")}>
+            خدماتنا
+            {openDropdown === "services" ? (
+              <FaChevronDown className={style.icon} />
             ) : (
-              <FaChevronLeft className="icon" />
+              <FaChevronLeft className={style.icon} />
             )}
-              <ul>
+            {openDropdown === "services" && (
+              <ul className={style.dropdown}>
+                <li>
+                  <Link to="/طلب_إستقدام">طلب استقدام</Link>
+                </li>
+                <li>
+                  <Link to="/نقل_خدمات">طلب نقل خادمين</Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li onClick={() => handleDropdownToggle("journey")}>
+            <div className={style.menuItem}>
+              رحلة الاستقدام
+              {openDropdown === "journey" ? (
+                <FaChevronDown className={style.icon} />
+              ) : (
+                <FaChevronLeft className={style.icon} />
+              )}
+            </div>
+            {openDropdown === "journey" && (
+              <ul className={style.dropdown}>
                 <li>
                   <Link to="/عن_الإستقدام">عن الاستقدام</Link>
                 </li>
                 <li>
                   <Link to="/وصول_العمالة">وصول العمالة</Link>
                 </li>
-
                 <li>
                   <Link to="/إختيار_العمالة">اختيار العمالة</Link>
                 </li>
               </ul>
-            
+            )}
           </li>
 
-          <li
-            className="nav-item"
-            onMouseEnter={() => handleMouseEnter("policy")}
-            onMouseLeave={handleMouseLeave}
-          >
-            عن الاستقدام
-            {hovered === "policy" ? (
-              <FaChevronDown className="icon" />
-            ) : (
-              <FaChevronLeft className="icon" />
-            )}
-              <ul>
+          <li onClick={() => handleDropdownToggle("policy")}>
+            <div className={style.menuItem}>
+              عن الاستقدام
+              {openDropdown === "policy" ? (
+                <FaChevronDown className={style.icon} />
+              ) : (
+                <FaChevronLeft className={style.icon} />
+              )}
+            </div>
+            {openDropdown === "policy" && (
+              <ul className={style.dropdown}>
                 <li>
                   <Link to="/سياسات_الإستقدام">سياسات الإستقدام</Link>
                 </li>
               </ul>
+            )}
           </li>
 
-          <li
-            className="nav-item"
-            onMouseEnter={() => handleMouseEnter("support")}
-            onMouseLeave={handleMouseLeave}
-          >
+          <li onClick={() => handleDropdownToggle("support")}>
             الدعم
-            {hovered === "support" ? (
-              <FaChevronDown className="icon" />
+            {openDropdown === "support" ? (
+              <FaChevronDown className={style.icon} />
             ) : (
-              <FaChevronLeft className="icon" />
+              <FaChevronLeft className={style.icon} />
             )}
-            
-              <ul>
+            {openDropdown === "support" && (
+              <ul className={style.dropdown}>
                 <li>
                   <Link to="/articals">مقالات تهمك</Link>
                 </li>
-                                <li>
+                <li>
                   <Link to="/تواصل_معنا">تواصل معنا</Link>
                 </li>
-
                 <li>
                   <Link to="/خدمة_العملاء">خدمة العملاء</Link>
                 </li>
               </ul>
-            
+            )}
           </li>
 
-          <ButtonFill to="/register">تسجيل الدخول</ButtonFill>
+            <ButtonFill to="/register">تسجيل الدخول</ButtonFill>
         </ul>
 
-        <span className="toggle-mobile" onClick={() => setIsopen(!isOpen)}>
+        <span
+          className={style.toggle_mobile}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </span>
       </div>
