@@ -31,8 +31,9 @@ body {
 section {
   padding-top: 60px;
 }
+
 .container {
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 
@@ -97,6 +98,11 @@ ul {
   margin-bottom: 16px;
 }
 
+@media (max-width: 768px) {
+.header-section h2 {
+  font-size: 1.5rem;
+}
+}
 .page-header .container p {
   font-size: 1.2rem;
   line-height: 1.7;

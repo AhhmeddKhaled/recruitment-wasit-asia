@@ -12,6 +12,7 @@ import Support from "./support-home/Support-home";
 import Statistics from "./statistics-home/Statistics-home";
 import Contact from "./contact-home/Contact-home";
 import Button, { ButtonFill } from "../../components/button/Button";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -28,7 +29,6 @@ export default function Home() {
             <h1> مرحبًا بك في <br />وسيط أسيا  </h1>
             <p className="m-b-16">
               استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية
-              <br />
               لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
             </p>
 
@@ -54,6 +54,10 @@ export default function Home() {
       <Contact />
 
       <Footer />
+
+      <a href="tel:25232322" className={style.whatsappIcon}>
+      <FaWhatsapp className={style.icon} />
+      </a>
     </div>
   );
 }

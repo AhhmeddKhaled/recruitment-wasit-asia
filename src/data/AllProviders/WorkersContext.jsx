@@ -12,8 +12,9 @@ export function WorkersProvider({ children }) {
       .catch((err) => console.log(err));
   }, []);
 
+
   return (
-    <WorkersContext.Provider value={{ getWorkers, setGetWorkers }}>
+    <WorkersContext.Provider value={{ getWorkers, setGetWorkers}}>
       {children}
     </WorkersContext.Provider>
   );

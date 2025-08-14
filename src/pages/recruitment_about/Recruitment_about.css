@@ -101,21 +101,11 @@
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: var(--secondary-color);
-  width: 300px;
 }
 
 @media (max-width: 1738px) {
-.rec-proc .rec-grid > div:nth-child(5) {
-  grid-column: 2 / 3;
-}
-.rec-proc .rec-grid > div:last-child {
-  grid-column: 3 / -1;
-}
 }
 @media (min-width: 1738px) and (max-width: 2089px) {
-.rec-proc .rec-grid > div:last-child {
-  grid-column: 3 / -1;
-}
 }
 
 .rec-proc .rec-grid > div h4 {

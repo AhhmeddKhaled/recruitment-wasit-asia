@@ -38,14 +38,14 @@ export default function Support() {
             </header>
 
             <div className="support-cards">
-                {contact.map(contact => (
-                    <div className="support-card">
+                {contact.map((contact, i) => (
+                    <div className="support-card" key={i}>
                 <div className="support-img">
                     <img src="/imgs/support.webp" alt="support img" />
                 </div>
                 <div>
                     <h3>
-                        أ.نهال عنبر
+                        {contact.name}
                     </h3>
                 </div>
                 <div className="contact-icons">

@@ -41,7 +41,7 @@ export default function Login() {
       
       
       if (response.ok) {
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.parse(data));
         setMessage(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!");
         setStatus("success");
         setEmail("");

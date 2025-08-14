@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import style from "./Contact-home.module.css";
 import '../../../assets/styles/global.css'
-import { contactForm } from "../../../future/contactForm";
+import { contactForm } from "../../../data/contactForm";;
 
 import {
   FaUser,

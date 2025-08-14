@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Recruitment_about from './pages/recruitment_about/Recruitment_about';
 import Recruitment_request from './pages/Recruitment_request/Recruitment-request';
@@ -11,11 +11,11 @@ import Workers_arrival from './pages/workers_arrival/Workers_arrival';
 import Login from './pages/login/Login';
 import AdminDashboard from './admin/admin_dashboard/AdminDashboard';
 import ArticalDetails from './pages/articals/ArticalDetails';
-import { WorkersProvider } from './components/WorkerInput.jsx/WorkerContext';
-
+import AllProviders  from './data/AllProviders/AllProviders';
 function App() {
+
   return (
-    <WorkersProvider>
+   
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/طلب_إستقدام" element={<Recruitment_request />} />
@@ -32,7 +32,6 @@ function App() {
       <Route path="/articals" element={<Articals />} />
       <Route path="/articals/:slug" element={<ArticalDetails />} />
     </Routes>
-    </WorkersProvider>
   );
 }
 

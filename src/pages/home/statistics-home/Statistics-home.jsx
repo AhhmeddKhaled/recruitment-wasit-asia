@@ -33,9 +33,9 @@ export default function Statistics() {
                 </p>
             </header>
             <div className="Statistics-boxs">
-                {StatisticsList.map(Statistic => (
+                {StatisticsList.map((Statistic,i) => (
 
-                    <div className="box">
+                    <div className="box" key={i}>
                     <span className="icon">
                         {Statistic.icon}
                     </span>

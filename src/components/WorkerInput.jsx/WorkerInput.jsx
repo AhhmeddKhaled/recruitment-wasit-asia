@@ -1,15 +1,19 @@
 import "./WorkerInput.css";
 import React, { useEffect, useState, useContext } from "react";
-import { FaBriefcase, FaChartLine, FaFlag, FaHourglassHalf } from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaChartLine,
+  FaFlag,
+  FaHourglassHalf,
+} from "react-icons/fa";
 import { GiStarKey } from "react-icons/gi";
 import FilterSelect from "./FilterSelect";
 import { useLocation } from "react-router-dom";
-import {WorkersContext} from './WorkerContext.jsx';
+import { WorkersContext } from "../../data/AllProviders/WorkersContext";
 
 export default function WorkerInput() {
-  
-      const { setGetWorkers } = useContext(WorkersContext);
-  
+  const { setGetWorkers } = useContext(WorkersContext);
+
   const [age, setAge] = useState("");
   const [job, setJob] = useState("");
   const [religion, setReligion] = useState("");
@@ -18,7 +22,7 @@ export default function WorkerInput() {
   const location = useLocation();
 
   const url = decodeURIComponent(location.pathname);
-  
+
   useEffect(() => {
     fetch("http://localhost:5000/api/workers")
       .then((res) => res.json())
@@ -70,32 +74,35 @@ export default function WorkerInput() {
         ]}
       />
 
-      {url === '/طلب_إستقدام' || url ===  '/إختيار_العمالة'? 
-      <FilterSelect
-      label="الديانة"
-      icon={GiStarKey}
-      value={religion}
-      onChange={(e) => setReligion(e.target.value)}
-      options={[
-        { value: "مسلم", label: "مسلم/ة" },
-        { value: "مسيحي", label: "مسيحي/ة" },
-      ]}
-      />
-      : ''
-    }
+      {url === "/طلب_إستقدام" || url === "/إختيار_العمالة" ? (
+        <FilterSelect
+          label="الديانة"
+          icon={GiStarKey}
+          value={religion}
+          onChange={(e) => setReligion(e.target.value)}
+          options={[
+            { value: "مسلم", label: "مسلم/ة" },
+            { value: "مسيحي", label: "مسيحي/ة" },
+          ]}
+        />
+      ) : (
+        ""
+      )}
 
-      {url === '/طلب_إستقدام' || url ===  '/إختيار_العمالة' ? 
-      <FilterSelect
-        label="الخبرة"
-        icon={FaChartLine}
-        value={experience}
-        onChange={(e) => setExperience(e.target.value)}
-        options={[
-          { value: "لديه خبرة سابقة", label: "لديه خبرة سابقة" },
-          { value: "قادم جديد", label: "قادم جديد" },
-        ]}
-      />
-      : ''}
+      {url === "/طلب_إستقدام" || url === "/إختيار_العمالة" ? (
+        <FilterSelect
+          label="الخبرة"
+          icon={FaChartLine}
+          value={experience}
+          onChange={(e) => setExperience(e.target.value)}
+          options={[
+            { value: "لديه خبرة سابقة", label: "لديه خبرة سابقة" },
+            { value: "قادم جديد", label: "قادم جديد" },
+          ]}
+        />
+      ) : (
+        ""
+      )}
 
       <FilterSelect
         label="الجنسية"

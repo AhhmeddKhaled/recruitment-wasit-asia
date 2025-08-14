@@ -1,14 +1,15 @@
+.support {
+    margin: auto;
+}
 .support-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: 16px;
-    margin-top: 60px;
+    margin: 60px auto;
     justify-items: center;
 }
 
-.support-cards .support-card > div {
-    margin-bottom: 16px;
-}
+
 .support-card {
     display: flex;
     flex-direction: column;
@@ -20,9 +21,16 @@
     width: 400px;
 }
 
+.support-cards .support-card > div {
+    margin-bottom: 16px;
+}
 @media (max-width: 900px) {
+.support-cards {
+    grid-template-columns: 1fr;
+}
 .support-card {
     width: 100%;
+    padding: 8px 16px;
 }
 }
 @media (min-width: 1370px) and (max-width: 1831px) {

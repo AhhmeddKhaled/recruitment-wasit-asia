@@ -1,119 +1,116 @@
 .services {
-    position: relative;
-}
-::-webkit-scrollbar {
-    display: none;
+  position: relative;
 }
 
 .services header {
-    margin-bottom: 30px;
-}
-
-.services header h4 {
-    font-size: 3rem;
-    color: var(--main-color);
-}
-
-.services header p {
-    font-size: 1.5rem;
-    color: var(--text-color)
+  margin-bottom: 30px;
 }
 
 .services_cards {
-    max-width: 640px;
-    margin: auto;
-    overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 24px;
 }
 
-.services_cards .scroll {
-    display: flex;
-    transform: translateX(0px);
-    transition: .5s ease;
-    width: 100%;
+.services_cards::-webkit-scrollbar {
+  display: none; /* اخفاء الاسكرول */
 }
 
 .left,
 .right {
-    position: absolute;
-    font-size: 60px;
-    top: 300px;
+  position: absolute;
+  font-size: 60px;
+  top: 100px;
+  cursor: pointer;
 }
 
+.left.hide,
 .right.hide {
-    opacity: .5;
-}
-
-.left.hide {
-    opacity: .5;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .left {
-    left: 200px;
+  left: 0;
 }
 
 .right {
-    right: 200px;
+  right: 0;
 }
 
 .services_cards .card {
-  position: relative;
-  transition: all .5s ease;
-  flex: 0 0 640px;
-  height: 240px;
   padding: 30px;
   border: 1px solid var(--main-color);
   border-radius: var(--l-radius);
+  transition: all 0.5s ease;
+  scroll-snap-align: start;
 }
 
 .services_cards .card h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-color);
 }
 
 .services_cards .card p {
-    font-size: 1.1rem;
-    color: var(--text-color);
+  font-size: 1.1rem;
+  color: var(--text-color);
 }
 
 .services_cards .card img {
-    width: 200px;
+  width: 200px;
 }
 
 .bullits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
 }
 
 .bullits span {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid var(--main-color);
-    transition: .5s ease;
-    cursor: pointer;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--main-color);
+  transition: 0.5s ease;
+  cursor: pointer;
 }
 
 .bullits span.active {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
 
-@media (max-width: 900px) {
-      .left,
-      .right {
-        display: none;
-      }
-} 
+/* media query */
 
-@media (max-width: 1300px) {
-    .left {
-        left: 0;
-    }
-    .right {
-        right: 0;
-    }
+/* mobile media */
+@media (max-width: 768px) {
+  .services_cards .card {
+    height: 200px;
+    padding: 20px;
+  }
+
+  .services_cards .card h4 {
+    font-size: 1.2rem;
+  }
+
+  .services_cards .card p {
+    font-size: 1rem;
+  }
+
+  .left,
+  .right {
+    font-size: 30px;
+  }
+
+  .services_cards .card img {
+    width: 160px;
+  }
+}
+@media (max-width: 900px) {
+  .services_cards .card {
+    flex: 0 0 calc(100% - 24px);
+  }
 }
