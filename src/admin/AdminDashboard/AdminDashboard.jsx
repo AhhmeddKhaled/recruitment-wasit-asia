@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import style from "./AdminDashboard.module.css";
 import "../../assets/styles/global.css";
 import DashboardAside from "../layout/aside/DashboardAside";
 import DashboardHeader from "../layout/header/DashboardHeader";
