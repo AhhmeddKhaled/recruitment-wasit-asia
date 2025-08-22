@@ -36,6 +36,7 @@ header.navbar .links li .icon {
 header.navbar .links li + button {
   border: 1px solid var(--bg-color);
 }
+
 header.navbar .dropdown {
   flex-direction: column;
   align-items: flex-start;
@@ -44,7 +45,7 @@ header.navbar .dropdown {
   left: 0%;
   z-index: 10000;
   width: 200px;
-  background-color: var(--bg-color);
+  background-color: var(--secondary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   padding: var(--space-2) 0;

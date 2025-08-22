@@ -2,7 +2,9 @@
 .contactPage {
   padding: 60px 5%;
   background: linear-gradient(to right, #f9fafc, #eef4ff);
-  height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+  position: relative;
 }
 
 /* الهيدر */
@@ -88,8 +90,8 @@
 
 .contactPage > div:last-child {
   position: absolute;
-  bottom: 24px;
-  right: 24px;
+  bottom: 0;
+  right: 10%;
 }
 
 @keyframes FadeInRight {
@@ -122,4 +124,7 @@
   .detailBox {
     justify-content: center;
   }
+.contactPage > div:last-child {
+  display: none;
+}
 }

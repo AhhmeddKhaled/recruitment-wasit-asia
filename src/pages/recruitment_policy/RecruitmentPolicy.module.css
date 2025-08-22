@@ -1,7 +1,8 @@
 
 .recHeader {
-    height: 400px;
+    min-height: 400px;
     position: relative;
+    padding: var(--space-4) 0;
 }
 
 .recHeader::after {
@@ -54,4 +55,10 @@
 .recHeader .grid .pdf {
     margin-top: var(--space-8);
     gap: var(--space-8);
+}
+
+@media (max-width: 768px) {
+    .recHeader .grid .pdf {
+        flex-direction: column;
+    }
 }
