@@ -1,9 +1,9 @@
-import React from "react";
-import "./Recruitment_about.css";
+import React, { useState, useEffect } from "react";
+import style from "./RecruitmentAbout.module.css";
 import Layout from "../../layout/layout";
 import Statistics from "../home/statistics-home/Statistics-home";
-import { Link } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi"; // سهم لليسار
+import '../../assets/styles/global.css';
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function Recruitment_about() {
   const list = [
@@ -38,11 +38,47 @@ export default function Recruitment_about() {
       disk: "نضمن لك العمالة لمدة 3 شهور",
     },
   ];
+
+const messages = [
+  { from: "user", text: "💬 عايز أعرف الراتب بيتحدد إزاي؟" },
+  { from: "office", text: "💼 يتم الإتفاق على الراتب بالتنسيق مع صاحب العمل والعاملة المنزلية." },
+
+  { from: "user", text: "💬 هل المكتب بيتابع العقد؟" },
+  { from: "office", text: "📝 المكتب يتابع الملف دوريًا للتأكد من التزام الجميع بالعقد المبرم." },
+
+  { from: "user", text: "💬 هل فيه شروط إضافية؟" },
+  { from: "office", text: "📄 تم توضيح كافة الشروط والأحكام مع الحفاظ على حقوق وواجبات كل الأطراف." },
+
+  { from: "user", text: "💬 طيب بعد كده أعمل إيه؟" },
+  { from: "office", text: "✅ كل ما عليك فعله فقط اختيار العاملة المناسبة لك." },
+];
+
+  const [chat, setChat] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [typing, setTyping] = useState(false);
+  const [progres,setProgres] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < messages.length) {
+      setTyping(true);
+
+      const timer = setTimeout(() => {
+        setChat((prev) => [...prev, messages[currentIndex]]);
+        setTyping(false);
+        setCurrentIndex((prev) => prev + 1);
+        setProgres(progres + 100 / messages.length);
+        console.log(progres);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex]);
+
   return (
     <Layout>
-      <div className="Recruitment_about">
-        <header className="page-header rec-header">
-          <div className="container">
+      <div className={style.RecruitmentAbout}>
+        <header className={`page-header ${style.recHeader} `}>
+          <div className={` ${style.row} container `}>
             <h2>تعاقد الإستقدام</h2>
             <p>
               مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
@@ -56,28 +92,42 @@ export default function Recruitment_about() {
             </p>
           </div>
         </header>
+        <section className='container s-padding'>
+          <div className={style.chatBox}>
+            <div className={style.progres}>
+            <span style={{width: `${progres}%`}}>
+            </span>
+              </div>
+            {chat.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`${style.message} ${msg.from === "office" ? style.office : style.user
+                  }`}
+              >
+                {msg.text}
+              </div>
+            ))}
 
-        <div className="rec-start">
-          <div className="container">
-            <div className="info">
-              <p>
-                يتم الإتفاق على الراتب بالتنسيق مع صاحب العمل والعمالة المنزلية,
-                كما يتم توضيح كافة الشروط والأجكام للحفاظ على حقوق وواجبات كل
-                الأطراف, والمكتب يقم بصورة دورية بمتابعة الطلب للتأكد من التزام
-                الجميع بالعقد المبرم, كل ما عليك فعله فقط إختيار العمالة
-                المنزلية الملائمة لك.
-              </p>
-            </div>
-            <div className="img">
-              <img src="/imgs/تعاقد2.webp" alt="" />
-            </div>
+            {typing && (
+              <div className={`${style.message} ${style.office}`}>
+                <span className={style.typing}>...</span>
+              </div>
+            )}
           </div>
-        </div>
 
-        <div className="rec-proc">
-          <div className="container">
+          {currentIndex === messages.length && (
+            <div className={style.finalStep}>
+              <button className={style.btn}>
+                <FaCheckCircle /> إصدار العقد الآن
+              </button>
+            </div>
+          )}
+        </section>
+
+        <div className={style.recProc}>
+          <div className={` ${style.row} container `}>
             <h3> عمليات الإستقدام </h3>
-            <div className="rec-grid">
+            <div className={style.recGrid}>
               {list.map((box) => (
                 <div>
                   <h4> {box.number} </h4>

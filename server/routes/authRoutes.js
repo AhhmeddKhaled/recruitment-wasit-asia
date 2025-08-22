@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 const { register, login } = require('../controllers/authController');
-const { protect, adminOnly } = require('../middlewares/authMiddleware');
+const { protect, adminOnly, authorize } = require('../middlewares/authMiddleware');
 
 router.post('/register', register);
 router.post('/login', login);
@@ -27,7 +27,7 @@ router.get("/api/workers/:id/cv", protect, (req, res) => {
 });
 
 // مثال: مسار الأدمن
-router.get('/admin-dashboard', protect, adminOnly, (req, res) => {
+router.get('/admin-dashboard', protect, authorize('admin'), (req, res) => {
   res.json({ message: 'Welcome Admin!' });
 });
 

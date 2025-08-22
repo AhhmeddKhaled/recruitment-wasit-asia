@@ -15,12 +15,10 @@ require("dotenv").config();
       return mongoose.connection.close();
     }
 
-    const hashedPassword = await bcrypt.hash("admin123", 10);
-
     const admin = await User.create({
       name: "Super Admin",
       email: "ahmedkhaled7229@gmail.com",
-      password: hashedPassword,
+      password: 'admin123',
       role: "admin"
     });
 

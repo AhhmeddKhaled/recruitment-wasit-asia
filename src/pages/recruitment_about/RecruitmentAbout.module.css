@@ -1,0 +1,203 @@
+.recHeader::after {
+  background: url("../../../public/imgs/تعاقد.webp");
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.recHeader::before,
+.recHeader::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.recHeader::before {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.RecruitmentAbout .recStart {
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  .recStart img {
+    display: none;
+  }
+}
+
+.recProc {
+  padding: var(--space-8) 0 0;
+}
+
+.recProc h3 {
+  text-align: center;
+}
+
+.recProc .recGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.recProc .recGrid > div {
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-8);
+  justify-content: center;
+  transition: 0.5s ease;
+  border-radius: var(--radius-sm);
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.recProc .recGrid > div h4 {
+  width: 30px;
+  height: 30px;
+  padding: var(--space-2);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: var(--primary);
+  color: var(--bg-color);
+}
+
+.recProc .recGrid > div span {
+  margin: var(--space-4) 0;
+  display: block;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.recProc .recGrid > div p {
+  text-align: center;
+}
+
+.recProc .recGrid > div:hover {
+  transform: scale(1.02);
+  background-color: var(--primary);
+  color: var(--bg-color);
+}
+
+.recProc .recGrid > div:hover span {
+  color: var(--bg-color);
+}
+
+.recProc .recGrid > div:hover h4 {
+  background-color: var(--bg-color);
+  color: var(--primary);
+}
+
+.recProc .recGrid > div:hover p {
+  color: var(--bg-color);
+}
+
+.recProc svg {
+  margin-top: 100px;
+}
+
+.RecruitmentAbout .statistics {
+  margin-top: -140px;
+}
+
+.chatBox {
+  padding: 15px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progres {
+  height: 8px;
+  width: 100%;
+  background-color: #eee;
+  border-radius: var(--radius-sm);
+  opacity: .6;
+}
+
+.progres span {
+  display: block;
+  background-color: #4caf50;
+  height: 100%;
+  transition: .5s ease-in-out;
+  border-radius: inherit;
+}
+
+.message {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  animation: fadeIn 0.4s ease;
+}
+
+.office {
+  background: #e1f5fe;
+  align-self: flex-start;
+}
+
+.user {
+  background: #dcedc8;
+  align-self: flex-end;
+}
+
+.typing {
+  display: inline-block;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.finalStep {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

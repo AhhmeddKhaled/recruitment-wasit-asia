@@ -1,42 +1,153 @@
-a.button  {
-  display: flex;
+.btn {
+  font-family: sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
-  padding: 8px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  background: var(--main-color);
-  border: 1px solid #999;
-  border-radius: var(--s-radius);
-  letter-spacing: 6px;
-  cursor: pointer;
   position: relative;
+  gap: 0.5rem;
+  transition: all 0.2s ease-in-out;
 }
 
-a.fill {
-  color: inherit;
-  background: transparent;
+/* Sizes */
+.btn-sm {
+  font-size: var(--font-size-tiny);
+  padding: var(--space-1) var(--space-2);
 }
 
-a.fill:hover {
-  color: #fff;
+.btn-md {
+  font-size: var(--font-size-small);
+  padding: var(--space-2) var(--space-4);
 }
 
-a.fill:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: var(--main-color);
-    border-radius: inherit;
-    z-index: -1;
-    transition: .5s;
+.btn-lg {
+  font-size: var(--font-size-body);
+  padding: var(--space-3) var(--space-6);
 }
 
-a.fill:hover:after {
+.btn-hero {
+  font-size: var(--font-size-h5);
+  padding: var(--space-4) var(--space-8);
+}
+
+.btn-full {
   width: 100%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Variants */
+.btn-contained {
+  color: var(--text-light);
+}
+
+.btn-outlined {
+  background: transparent;
+  border: 0.1rem solid currentColor;
+}
+
+.btn-text {
+  background: transparent;
+  border: none;
+}
+
+/* Colors */
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+.btn-contained.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+.btn-primary:hover,
+.btn-contained.btn-primary:hover,
+.btn-outlined.btn-primary:hover {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+}
+
+.btn-outlined.btn-primary {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.btn-text.btn-primary {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text-light);
+}
+
+.btn-outlined.btn-secondary {
+  background-color: transparent;
+  color: var(--secondary);
+}
+
+.btn-secondary:hover,
+.btn-outlined.btn-secondary:hover {
+  background: var(--secondary);
+  color: var(--bg-color);
+}
+
+.btn-text.btn-secondary {
+  background-color: transparent;
+  color: var(--secondary);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: var(--text-light);
+}
+
+.btn-contained.btn-danger {
+  background-color: var(--danger);
+  color: var(--text-light);
+}
+
+.btn-outlined.btn-danger {
+  background-color: transparent;
+  border: 1px solid currentColor;
+  color: var(--danger);
+}
+
+.btn-danger:hover,
+.btn-outlined.btn-danger:hover,
+.btn-text.btn-danger {
+  background: var(--danger-dark);
+  color: var(--text-light);
+}
+
+.btn-text.btn-danger {
+  background-color: transparent;
+  color: var(--danger);
+}
+
+/* Disabled */
+.btn:disabled {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+/* Buttton Link*/
+.btn a {
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

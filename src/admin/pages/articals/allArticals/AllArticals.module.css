@@ -1,0 +1,33 @@
+.articalsTable {
+    padding: var(--space-8);
+}
+
+.articalsTable table {
+    width: 100%;
+    border-radius: var(--radius-md);
+}
+
+.articalsTable table thead,
+.articalsTable table tbody {
+    border-radius: inherit;
+}
+.articalsTable table thead {
+    background-color: var(--primary);
+    color: var(--bg-color);
+}
+
+.articalsTable table tr th,
+.articalsTable table tr td {
+    font-size: var(--font-size-body);
+    padding: var(--space-2);
+}
+
+.articalsTable table thead tr th {
+    font-weight: var(--font-weight-bold);
+}
+
+.articalsTable table tbody tr td {
+    border: 1px solid var(--primary);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}

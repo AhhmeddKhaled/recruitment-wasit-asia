@@ -1,4 +1,4 @@
-const Artical = require("../models/artical");
+const Artical = require("../models/artical").default;
 
 exports.getArticals = async (req, res) => {
   try {
@@ -9,9 +9,10 @@ exports.getArticals = async (req, res) => {
   }
 };
 
+
 exports.getArticalById = async (req, res) => {
   try {
-    const articalId = req.params.id; // جلب الـ id من الرابط
+    const articalId = req.params.id;
 
     const artical = await Artical.findById(articalId);
 
@@ -20,11 +21,10 @@ exports.getArticalById = async (req, res) => {
     }
 
     res.json(artical);
-
   } catch (error) {
     res.status(500).json({
       message: "خطأ في جلب المقال",
-      error: error.message
+      error: error.message,
     });
   }
 };

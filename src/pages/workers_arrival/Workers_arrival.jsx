@@ -1,13 +1,14 @@
 import React from "react";
-import "./Workers_arrival.css";
+import style from "./Workers_arrival.module.css";
 import Layout from "../../layout/layout";
 import Button from "../../components/button/Button";
+import { Link } from "react-router-dom";
 
 export default function Workers_arrival() {
   return (
     <Layout>
-      <div className="arrival">
-        <header className="page-header arr-header">
+      <div className={style.arrival}>
+        <header className={`page-header`}>
           <div className="container">
             <h2>وصول العمالة</h2>
             <p>
@@ -16,15 +17,17 @@ export default function Workers_arrival() {
               بداية من طلب الاستشارة وحتى استلام وثائق الاستقدام وبدء العمل بشكل
               كامل
             </p>
-            <Button to='/طلب_إستقدام'>
-            طلب إستقدام في ثواني
+            <Button variant="contained" size="lg"
+            >
+              <Link to='/طلب_إستقدام'></Link>
+            طلب إستقدام  
             </Button>
           </div>
         </header>
 
-        <div className="rec-about">
-          <div className="container">
-            <div className="info">
+        <div className={style.recAbout}>
+          <div className={` ${style.row} container `}>
+            <div className={style.info}>
               <h3>وصول العمالة</h3>
               <p>
                 يحرص فريق عمل مكتب وسيط أسيا للاستقدام على توفير السرعة والجودة
@@ -37,18 +40,18 @@ export default function Workers_arrival() {
                 يوفر وسيط أسيا  ضمان الاستبدال فى حال التغيب أو رفض العمل
               </span>
             </div>
-            <div className="img">
+            <div className={style.img}>
               <img src="/imgs/وصول1.avif" alt="" />
             </div>
           </div>
         </div>
 
-        <div className="rec-about serv">
-          <div className="container">
-            <div className="img">
+        <div className={` ${style.recAbout}  ${style.serv}`}>
+          <div className={` ${style.row} container `}>
+            <div className={style.img}>
               <img src="/imgs/خدمة.jpg" alt="" />
             </div>
-            <div className="info">
+            <div className={style.info}>
               <h3>خدمة العملاء</h3>
               <p>
                 دائما ما نتبنى أحدث الأساليب والتقنيات للتعامل مع العملاء وضمان

@@ -1,25 +1,21 @@
-import "./WorkerInput.css";
 import React, { useEffect, useState, useContext } from "react";
-import {
-  FaBriefcase,
-  FaChartLine,
-  FaFlag,
-  FaHourglassHalf,
-} from "react-icons/fa";
+import style from "./WorkerInput.module.css";
+import { FaBriefcase, FaChartLine, FaFlag, FaHourglassHalf,} from "react-icons/fa";
 import { GiStarKey } from "react-icons/gi";
 import FilterSelect from "./FilterSelect";
 import { useLocation } from "react-router-dom";
 import { WorkersContext } from "../../data/AllProviders/WorkersContext";
+import Button from "../button/Button";
 
 export default function WorkerInput() {
+  const location = useLocation();
+  
   const { setGetWorkers } = useContext(WorkersContext);
-
   const [age, setAge] = useState("");
   const [job, setJob] = useState("");
   const [religion, setReligion] = useState("");
   const [experience, setExperience] = useState("");
   const [nationality, setNationality] = useState("");
-  const location = useLocation();
 
   const url = decodeURIComponent(location.pathname);
 
@@ -49,7 +45,7 @@ export default function WorkerInput() {
   };
 
   return (
-    <div className="inputs">
+    <section className={` ${style.inputs} s-padding`}>
       <FilterSelect
         label="العمر"
         icon={FaHourglassHalf}
@@ -118,10 +114,9 @@ export default function WorkerInput() {
           { value: "برولدي", label: "برولدي" },
         ]}
       />
-
-      <div className="send">
-        <button onClick={handleFilter}>تطبيق</button>
-      </div>
-    </div>
+  <div className={style.send}>
+              <Button variant="contained" color="primary" size="lg" fullWidth onClick={handleFilter}>تطبيق</Button>
+            </div>
+    </section>
   );
 }

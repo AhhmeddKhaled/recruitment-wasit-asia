@@ -1,14 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './assets/styles/global.css';
-import AllProviders from './data/AllProviders/AllProviders.jsx';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./assets/styles/global.css";
+import { UserProvider } from "./data/AllProviders/UsersContext.jsx";
+import { WorkersProvider } from "./data/AllProviders/WorkersContext.jsx";
+import { ArticalsProvider } from "./data/AllProviders/ArticalsContext.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <UserProvider>
+      <WorkersProvider>
+          <ArticalsProvider>
+            <App />
+          </ArticalsProvider>
+      </WorkersProvider>
+    </UserProvider>
   </React.StrictMode>
 );

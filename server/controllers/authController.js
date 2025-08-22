@@ -6,13 +6,13 @@ const generateToken = (id, role) => {
 };
 
 exports.register = async (req, res) => {
-  const { name, email, password, role } = req.body;
-
+  
   try {
+    const { name, email, password, role } = req.body;
     const exists = await User.findOne({ email });
     if (exists)
       return res.status(400).json({ message: " هذا الحساب موجود, يمكنك تسجيل الدخول" });
-
+      
     const user = await User.create({ name, email, password, role });
     res.status(201).json({
       _id: user.id,
@@ -21,15 +21,17 @@ exports.register = async (req, res) => {
       role: user.role,
       token: generateToken(user._id, user.role),
     });
+    
   } catch (error) {
+  console.error("Register error:", error);
     res.status(500).json({ message: error.message });
   }
 };
 
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
-
+  
   try {
+    const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user)
       return res.status(400).json({ message: "لا يوجد حساب, قم بالتسجيل " });
@@ -42,10 +44,12 @@ exports.login = async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      role: user.role, // علشان الفرونت يعرف نوع الحساب
+      role: user.role,
       token: generateToken(user._id, user.role),
     });
   } catch (error) {
+    console.error('Login Error', error);
+    
     res.status(500).json({ message: error.message });
   }
 };

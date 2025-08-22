@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import  style from  "./Login.module.css";
+import React, { useContext, useState } from "react";
+import style from "./Login.module.css";
 import Layout from "../../layout/layout";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import { BsSendCheck } from "react-icons/bs";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Button from "../../components/button/Button";
+import { UsersContext } from "../../data/AllProviders/UsersContext";
 
 export default function Login() {
+
+  const { login, user } = useContext(UsersContext);  // استدعاء الـ login من الكونتكست
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -33,26 +38,30 @@ export default function Login() {
 
       const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          'authorization': `Bearer ${user}`
+        },
         body: JSON.stringify(bodyData),
       });
 
       const data = await response.json();
-      
-      
+
       if (response.ok) {
-        localStorage.setItem("user", JSON.parse(data));
+        login(data);
+
         setMessage(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!");
         setStatus("success");
         setEmail("");
         setPassword("");
         setName("");
 
-
+        setTimeout(() => {
+          navigate("/")
+        },500)
       } else {
         setMessage(data.message || "حدث خطأ");
         setStatus("error");
-        navigate('/login')
       }
     } catch (error) {
       setMessage("حدث خطأ في الاتصال بالسيرفر");
@@ -67,12 +76,12 @@ export default function Login() {
 
   return (
     <Layout>
-      <div className={style.form}>
+      <section className={` ${style.form} s-padding flex-center`}>
         <form onSubmit={handleSubmit}>
-          <div className={style.img}>
-            <img src="/imgs/login.svg" alt="" />
+          <div className={` ${style.img} flex-center `}>
+            <img src="/imgs/login.svg" alt="login image" />
           </div>
-          <h2>{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h2>
+          <h2 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h2>
 
           {!isLogin && (
             <div>
@@ -118,10 +127,10 @@ export default function Login() {
           </div>
 
           <div className={style.submit}>
-            <button type="submit">
+            <Button variant="contained" color="primary" size="lg" type="submit" fullWidth>
               {isLogin ? "دخول" : "إرسال"}
               <BsSendCheck className={style.icon} />
-            </button>
+            </Button>
           </div>
 
           <div className={style.login}>
@@ -138,15 +147,15 @@ export default function Login() {
             )}
           </div>
 
-          <div className={style.social}>
-            <FaFacebook className={style.icon} />
-            <FaTwitter className={style.icon} />
-            <FaInstagram className={style.icon} />
+          <div className={` ${style.social} flex-center`}>
+            <FaFacebook className={style.icon} size={30} />
+            <FaTwitter className={style.icon} size={30} />
+            <FaInstagram className={style.icon} size={30} />
           </div>
 
           {message && (
             <p
-              className={style.status}
+              className={` ${style.status} flex-center `}
               style={{
                 background: status === "success" ? "green" : "red",
 
@@ -156,7 +165,7 @@ export default function Login() {
             </p>
           )}
         </form>
-      </div>
+      </section>
     </Layout>
   );
 }

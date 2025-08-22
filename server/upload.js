@@ -2,14 +2,12 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-// تأكد إن الفولدر موجود أو اعمله
 function ensureDirExists(dir) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
 }
 
-// إعداد مكان حفظ الملفات
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let folderPath;
@@ -20,7 +18,6 @@ const storage = multer.diskStorage({
       folderPath = path.join(__dirname, "uploads/cvs");
     }
 
-    // إنشاء الفولدر لو مش موجود
     ensureDirExists(folderPath);
 
     cb(null, folderPath);
@@ -31,7 +28,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// فلترة أنواع الملفات المسموح بها
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === "application/pdf" || file.mimetype.startsWith("image/")) {
     cb(null, true);

@@ -2,15 +2,15 @@ import React, { useRef } from "react";
 import style from "./Contact-home.module.css";
 import '../../../assets/styles/global.css'
 import { contactForm } from "../../../data/contactForm";;
-
 import {
   FaUser,
   FaPhoneAlt,
   FaPen,
   FaComment,
-  FaPaperPlane,   
+  FaPaperPlane,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import Button from "../../../components/button/Button";
 
 export default function Contact() {
   const form = useRef();
@@ -23,69 +23,77 @@ export default function Contact() {
     if (success) {
       form.current.reset();
     } else {
-      console.error("📛 EmailJS Error:", error);
+      console.error("📛 EmailJS Error:");
     }
   };
 
   return (
-    <section className={`${style.login} container`}>
-      <div className={style.login_form}>
-        <header>
-          <h4> تواصل معنا </h4>
-          <p>
-            فريق الدعم الفنى معك على مدار الساعة لخدمتك وللأجابة عن أسئلتكم
-            واستفساراتكم
-          </p>
-        </header>
-        <form className={style.contact} ref={form} onSubmit={handleSubmit}>
-          <div className={style.name}>
-            <label htmlFor="name">
-              {" "}
-              <FaUser /> الأسم كاملاً *{" "}
-            </label>
-            <input type="text" id="name" name="name" required />
-          </div>
+    <section className={`${style.login} s-padding`}>
 
-          <div className={style.phone}>
-            <label htmlFor="number">
-              {" "}
-              <FaPhoneAlt /> رقم الهاتف *{" "}
-            </label>
-            <input type="phone" id="number" name="phone" required />
-          </div>
-          <div className={style.select}>
-            <label htmlFor="select">
-              {" "}
-              <FaComment /> الموضوع *{" "}
-            </label>
-            <select id="select" name="subject">
-              <option> إختار </option>
-              <option> إستفسار </option>
-              <option> خدمة </option>
-              <option> شكوي </option>
-            </select>
-          </div>
-          <div className={style.mass}>
-            <label htmlFor="mass">
-              {" "}
-              <FaPen /> أكتب رسالتك *{" "}
-            </label>
-            <textarea id="mass" name="message"></textarea>
-
-            <div className={style.submit}>
-              <button type="submit">
-                إرسال
-                <FaPaperPlane className={style.icon} />
-              </button>
+      <header className="container header-section">
+        <h2> تواصل معنا </h2>
+        <p>
+          فريق الدعم الفنى معك على مدار الساعة لخدمتك وللأجابة عن أسئلتكم
+          واستفساراتكم
+        </p>
+      </header>
+      <div className={` ${style.grid} container`}>
+        <div className={style.login_form}>
+          <form className={style.contact} ref={form} onSubmit={handleSubmit}>
+            <div className={style.name}>
+              <label htmlFor="name">
+                {" "}
+                <FaUser /> الأسم كاملاً *{" "}
+              </label>
+              <input type="text" id="name" name="name" required />
             </div>
-          </div>
-        </form>
-      </div>
-      <div className={style.login_map}>
-        <img src="/imgs/login.jpg" />
-      </div>
 
-      <div className={style.map}>
+            <div className={style.phone}>
+              <label htmlFor="number">
+                {" "}
+                <FaPhoneAlt /> رقم الهاتف *{" "}
+              </label>
+              <input type="phone" id="number" name="phone" required />
+            </div>
+            <div className={style.select}>
+              <label htmlFor="select">
+                {" "}
+                <FaComment /> الموضوع *{" "}
+              </label>
+              <select id="select" name="subject">
+                <option> إختار </option>
+                <option> إستفسار </option>
+                <option> خدمة </option>
+                <option> شكوي </option>
+              </select>
+            </div>
+            <div className={style.mass}>
+              <label htmlFor="mass">
+                {" "}
+                <FaPen /> أكتب رسالتك *{" "}
+              </label>
+              <textarea id="mass" name="message"></textarea>
+
+              <div className={style.submit}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="lg"
+                  endIcon={<FaPaperPlane className={style.icon} />
+                  }>
+                  إرسال
+                </Button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className={style.login_map}>
+          <img src="/imgs/login.jpg" />
+        </div>
+
+      </div>
+      <div className={` ${style.map} m-t-16 m-b-16 container`}>
         <h5>
           {" "}
           يمكنك الوصول إلينا بكل سهولة <FaMapMarkerAlt className={style.icon} />{" "}

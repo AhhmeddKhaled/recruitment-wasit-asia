@@ -4,7 +4,7 @@ import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
-import { ButtonFill } from "../button/Button";
+import Button from "../button/Button";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -22,14 +22,12 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`${style.links} flex-align ${
-            isOpen ? style.open : style.close
-          }`}
+          className={`${style.links} flex-align ${isOpen ? style.open : style.close
+            }`}
         >
           <li>
             <Link to="/">الرئيسية</Link>
           </li>
-
           <li onClick={() => handleDropdownToggle("services")}>
             خدماتنا
             {openDropdown === "services" ? (
@@ -48,7 +46,6 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
           <li onClick={() => handleDropdownToggle("journey")}>
             <div className={style.menuItem}>
               رحلة الاستقدام
@@ -72,7 +69,6 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
           <li onClick={() => handleDropdownToggle("policy")}>
             <div className={style.menuItem}>
               عن الاستقدام
@@ -90,7 +86,6 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
           <li onClick={() => handleDropdownToggle("support")}>
             الدعم
             {openDropdown === "support" ? (
@@ -113,7 +108,16 @@ export default function Navbar() {
             )}
           </li>
 
-            <ButtonFill to="/register">تسجيل الدخول</ButtonFill>
+          <Button
+            variant="contained"
+            color="primary"
+            size="lg"
+          >
+            تسجيل الدخول
+            <Link to='/login'>
+            </Link>
+
+          </Button>
         </ul>
 
         <span

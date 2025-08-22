@@ -5,28 +5,20 @@
 }
 
 .offers header h2 {
-  font-size: 3rem;
-  color: var(--main-color);
-  margin-bottom: 12px;
-}
-
-.offers header p {
-  color: var(--text-color);
-  font-size: 1rem;
+  color: var(--primary);
 }
 
 .offers .offers_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 60px;
+  gap: var(--space-6);
 }
 
 .offers .offer_card {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
-  padding: 20px;
-  border-radius: var(--l-radius);
+  background-color: var(--secondary);
+  color: var(--text-dark);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
   text-align: center;
   transition: 0.5s;
 }
@@ -34,60 +26,56 @@
 .offers .offer_card img {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   margin-top: -70px;
 }
 
 .offers .offer_card h4 {
-  font-size: 2rem;
-  color: var(--main-color);
+  color: var(--primary)
 }
 
 .offers .offer_card p {
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 16px 0;
+  margin: var(--space-4) 0;
 }
 
 .offers .offer_card span {
   display: block;
-  border-radius: var(--s-radius);
-  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-4);
 }
 
 .offers .offer_card a {
-  padding: 8px 20px;
-  border-radius: var(--m-radius);
-  font-weight: bold;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
   width: 100%;
-  background-color: var(--main-color);
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--bg-color);
   transition: inherit;
 }
 
 .offers .offer_card:hover {
-  background-color: var(--main-color);
+  background-color: var(--primary);
   transform: scale(1.02);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .offers .offer_card:hover h4,
 .offers .offer_card:hover p,
 .offers .offer_card:hover span {
-  color: #fff;
+  color: var(--bg-color);
 }
 
 .offers .offer_card:hover a {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  background-color: var(--secondary);
+  color: var(--text-dark);
 }
 
 .offers .why {
-  background-color: var(--main-color);
-  background: linear-gradient(135deg, #1d4e89, #0f1c2e);
-  color: #fff;
-  margin-top: 30px;
-  padding: 60px 0;
+  background-color: var(--bg-color-alt);
+  margin-top: var(--space-6);
+  padding: var(--space-8);
+  color: var(--text-dark);
 }
 
 .offers .why .container {
@@ -103,29 +91,28 @@
 }
 
 .offers .why h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--text-shadow);
+  color: inherit;
 }
 
 .offers .why p {
   text-align: center;
-  line-height: 1.7;
-  margin-bottom: 30px;
+  color: inherit;
 }
 
 .offers .why .future {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 30px;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
 }
 
 .offers .why .future span {
   display: flex;
   align-items: center;
-  font-size: 1rem;
-  padding-left: 12px;
+  font-size: var(--font-size-body);
+  padding-left: var(--space-3);
+  transition: .3s ease;
 }
 
 .offers .why .future span:not(:last-child) {
@@ -133,7 +120,7 @@
 }
 
 .offers .why .future span:hover {
-  color: var(--secondary-color);
+  color: var(--primary-dark);
 }
 
 .offers .why .future span .icon {
@@ -145,44 +132,39 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
-}
-
-.offers .why a.link {
-  background-color: var(--main-color);
-  border: none;
-  width: 300px;
-  background-color: var(--secondary-color);
-  margin-bottom: 30px;
-}
-
-.offers .why a {
-  color: inherit;
-  padding: 12px 16px;
-  font-size: 0.8rem;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  font-weight: bold;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: var(--space-8);
 }
 
 .offers .why .contact a {
-  border-top-left-radius: 24px;
+  color: var(--text-light);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  place-items: center;
+  gap: var(--space-2);
+  transition: .3s ease;
 }
 
 .offers .why .contact a:first-child {
-  padding: 12px 30px;
-  background-color: green;
+  color: green;
+  border: 1px solid currentColor;
 }
 
+.offers .why .contact a:first-child:hover {
+  background-color: rgb(2, 87, 2);
+  color: var(--bg-color);
+}
 .offers .why .contact a:last-child {
-  background-color: rgb(14, 164, 233);
+  color: var(--primary);
+   border: 1px solid currentColor;
 }
 
-.offers .why .contact a .icon {
-  margin-right: 8px;
+.offers .why .contact a:last-child:hover {
+  background-color: var(--primary-dark);
+  color: var(--bg-color);
 }
 
 @media (max-width: 900px) {
@@ -194,22 +176,16 @@
   }
 
   .offers .why h2 {
-    font-size: 2rem;
     text-align: center;
   }
 
-  .offers .why p {
-    font-size: 0.8rem;
-  }
-
   .offers .why .future span {
-    font-size: .8rem;
     padding-left: 4px;
     flex-direction: column;
     border: 0;
   }
 
   .offers .why .contact a {
-  font-size: .5rem;
+  padding: 10px;
   }
 }

@@ -1,18 +1,18 @@
 import React from "react";
 import style from "./About-home.module.css";
-import { RiTeamFill, RiCustomerServiceLine } from "react-icons/ri";
-import { MdOutlineVideoLabel } from "react-icons/md";
+import { RiTeamFill, RiCustomerService2Fill } from "react-icons/ri";
 import "../../../assets/styles/global.css";
+import { BsFillTabletFill } from "react-icons/bs";
 
 export default function About() {
   return (
-    <section className={`${style.about} container`}>
-  
+    <section className={` ${style.about}`}>
+      <div className="container">
       <div className={style.about_cards}>
         <div className={style.card}>
           <span>
             {" "}
-            <RiTeamFill />{" "}
+            <RiTeamFill className={style.icon} size={30}/>{" "}
           </span>
           <h4> المتابعة المستمرة والتطوير الشامل </h4>
           <p>
@@ -25,20 +25,20 @@ export default function About() {
         <div className={style.card}>
           <span>
             {" "}
-            <MdOutlineVideoLabel />
+            <BsFillTabletFill className={style.icon} size={30}/>
           </span>
           <h4> خدمات استقدام رقمية متكامل</h4>
           <p>
             {" "}
-            خطوات بسيطة تفصلك عن استقدام العمالة المنزلية التي تحتاجها. 
-            لخدمات استقدام عمالة منزلية بمعايير الجودة العالمية.
+            خطوات بسيطة تفصلك عن استقدام العمالة المنزلية التي تحتاجها. لخدمات
+            استقدام عمالة منزلية بمعايير الجودة العالمية.
           </p>
         </div>
 
         <div className={style.card}>
           <span>
             {" "}
-            <RiCustomerServiceLine />{" "}
+            <RiCustomerService2Fill className={style.icon} size={30}/>{" "}
           </span>
           <h4> خدمة عملاء مميزة</h4>
           <p>
@@ -47,6 +47,7 @@ export default function About() {
             حتى وصول العمالة إليكم.
           </p>
         </div>
+      </div>
       </div>
     </section>
   );

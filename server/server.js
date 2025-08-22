@@ -25,8 +25,9 @@ app.use("/api/users", userRoutes);
 const countryRoutes = require("./routes/country");
 app.use("/api/countries", countryRoutes);
 
-const workerRoutes = require("./routes/Worker");
-app.use('/api/workers', workerRoutes);
+
+const workerRoutes = require('./routes/Workers')
+app.use("/api/workers/:type", workerRoutes);
 
 const articalRoutes = require('./routes/artical');
 app.use("/api/articals", articalRoutes)

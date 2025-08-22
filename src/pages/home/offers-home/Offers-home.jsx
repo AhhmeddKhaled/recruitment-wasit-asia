@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import style from "./Offers-home.module.css";
 import { Link } from "react-router-dom";
+import Button from "../../../components/button/Button";
 import "../../../assets/styles/global.css";
 import {
   FaPhone,
   FaWhatsapp,
-  FaCheck,
   FaTachometerAlt,
   FaShieldAlt,
   FaHeadset,
@@ -40,43 +40,53 @@ export default function Offers() {
               <h4> {country.name} </h4>
               <p> {country.description} </p>
               <span> {country.salary} ريال </span>
-              <Link to="/"> أطلب الأن </Link>
+              <Link to="/طلب_إستقدام"> أطلب الأن </Link>
             </div>
           ))}
         </div>
       </div>
       <div className={` ${style.why}`}>
         <div className={style.container}>
-          <h2 className="font-b">لماذا تختار وسيط أسيا ؟</h2>
+          <h2>لماذا تختار وسيط أسيا ؟</h2>
           <p>
             في وسيط آسيا، نحرص على أن تحصل على أفضل خدمة استقدام في أسرع وقت
-            وبأعلى درجات الأمان. <br />فريقنا ملتزم بالشفافية التامة، وضمان حقوقك من
-            بداية الطلب حتى وصول العمالة إليك.{" "}
+            وبأعلى درجات الأمان. <br />
+            فريقنا ملتزم بالشفافية التامة، وضمان حقوقك من بداية الطلب حتى وصول
+            العمالة إليك.{" "}
           </p>
 
-          <div className={ style.future}>
+          <div className={style.future}>
             <span>
-               <FaTachometerAlt className={style.icon} />
-               سرعة الإنجاز
-               
-               </span>
+              <FaTachometerAlt className={style.icon} />
+              سرعة الإنجاز
+            </span>
             <span>
-               <FaHeadset className={style.icon} />
-              
-               دعم على مدار الساعة</span>
+              <FaHeadset className={style.icon} />
+              دعم على مدار الساعة
+            </span>
             <span>
-               <FaShieldAlt className={style.icon} />
-              
-               ضمان الحقوق</span>
+              <FaShieldAlt className={style.icon} />
+              ضمان الحقوق
+            </span>
           </div>
-            <Link className={` ${style.link} m-t-16`} to="./طلب_إستقدام">إحجز استقدامك</Link>
-          <div className={` ${style.contact} m-t-16`}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="lg"
+            fullWidth={true}
+
+          >
+            <Link to={'/طلب_إستقدام'}></Link>
+            طلب إستقدام
+          </Button>
+
+          <div className={` ${style.contact}`}>
+                <a href="">
+                  تواصل عبر وتس أب
+                  <FaWhatsapp className={style.icon} />
+                </a>
             <a href="">
-              تواصل  عبر وتس أب
-              <FaWhatsapp className={style.icon} />
-            </a>
-            <a href="">
-              تواصل  عبر الهاتف
+              تواصل عبر الهاتف
               <FaPhone className={style.icon} />
             </a>
           </div>

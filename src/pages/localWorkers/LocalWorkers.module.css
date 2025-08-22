@@ -1,0 +1,85 @@
+.card {
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  width: 400px;
+  background-color: var(--bg-color);
+  border-top: 16px solid var(--main-color);
+}
+
+.header {
+    border-bottom: 1px solid #eee;
+    padding: 30px;
+}
+
+.header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name {
+  color: #1b4d3e;
+  font-weight: bold;
+  font-size: 16px;
+  max-width: 70%;
+  text-transform: uppercase;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.workerNumber {
+  color: var(--main-color);
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.details {
+  margin-top: 16px;
+    padding: 30px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.detailRow span:first-child {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.detailRow span:last-child {
+    background-color: #eee;
+    padding: 8px 16px;
+    border-radius: var(--s-radius);
+}
+
+.detailRow:last-child {
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  padding: 0 30px 30px;
+}
+
+.bookButton {
+  flex: 1;
+  background: linear-gradient(45deg, #1b4d3e, #0a2d22);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}

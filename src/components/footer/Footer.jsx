@@ -2,12 +2,17 @@ import React from "react";
 import style from "./Footer.module.css";
 import "../../assets/styles/global.css";
 import { Link } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
+import { BsInstagram, BsSnapchat } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import SocialMedia from "../socialMedia/SocialMedia";
 export default function Footer() {
   return (
     <footer>
       <div className={`${style.container} container`}>
+          <img src="/imgs/logo.png" alt="logo image" />
         <div className={`${style.footer_section}  ${style.about}`}>
-          <h4 className="m-b-16 font-b"> وسيط أسيا </h4>
+          <h4> وسيط أسيا </h4>
           <p>
             أفضل مكتب استقدام العمالة المنزلية بمعايير دولية ومهنية عالية. نوفر
             أيدى عاملة مميزة ومدربة بحرفية.
@@ -15,7 +20,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.links}`}>
-          <h4 className="m-b-16 font-b">خدمتنا</h4>
+          <h4>خدمتنا</h4>
           <ul>
             <li>
               <Link to="/إختيار_العمالة">اختيار العمالة</Link>
@@ -39,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.contact}`}>
-          <h4 className="m-b-16 font-b">معلومات التواصل</h4>
+          <h4>معلومات التواصل</h4>
           <ul>
             <li>
               مدير نقل الخدمات:
@@ -73,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.external}`}>
-          <h4 className="m-b-16 font-b">روابط هامة</h4>
+          <h4>روابط هامة</h4>
           <ul>
             <li>
               <a href="https://maroof.sa/" target="_blank">
@@ -92,10 +97,13 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+        
       </div>
 
-      <div className={style.copy}>
+      <div className={` ${style.end} flex container`}>
         <p>© 2025 جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
+        <SocialMedia />
       </div>
     </footer>
   );

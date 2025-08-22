@@ -1,11 +1,12 @@
 import React from "react";
+import style from './WorkerInput.module.css';
 
 export default function FilterSelect({ label, icon: Icon, value, onChange, options }) {
   return (
-    <div className="input-head">
-      <h4>
-        <Icon className="icon" /> {label}
-      </h4>
+    <div className={style.inputHead}>
+      <span>
+        <Icon className={style.icon} /> {label}
+      </span>
       <select value={value} onChange={onChange}>
         <option value="">الكل</option>
         {options.map((opt) => (
