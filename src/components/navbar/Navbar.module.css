@@ -24,6 +24,7 @@ header.navbar .logo img {
 
 header.navbar .links li {
   position: relative;
+
   font-size: var(--font-size-body);
   padding: var(--space-2) var(--space-4);
 }
@@ -47,7 +48,7 @@ header.navbar .dropdown {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   padding: var(--space-2) 0;
-  animation: fadeIn .5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -60,7 +61,6 @@ header.navbar .dropdown {
 }
 
 header.navbar .dropdown li {
-  color: var(--text-dark);
   text-align: center;
 }
 
@@ -68,7 +68,7 @@ header.navbar .dropdown li a {
   padding: var(--space-2) 0;
   display: block;
   color: inherit;
-  transition: .1s ease;
+  transition: 0.1s ease;
 }
 
 header.navbar .dropdown li a:hover {
@@ -89,8 +89,8 @@ header.navbar .dropdown li a:hover {
     top: 100%;
     width: 100%;
     padding: 5%;
-    background-color: #fff;
     transition: 0.5s;
+    background-color: var(--primary);
   }
 
   .close {

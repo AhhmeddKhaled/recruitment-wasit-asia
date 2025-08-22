@@ -54,51 +54,6 @@ export default function Services() {
           ))}
         </div>
       </div>
-
-      <section className={` ${style.panner} s-padding`}>
-        <div className={` ${style.grid} flex container`}>
-          <div className={style.info}>
-            <h2 className={style.hero}>وسيط أسيا</h2>
-            <ul className={style.list}>
-              <li>
-               <FaCheck />
-                إستقدام من جميع الدول
-              </li>
-              <li>
-               <FaCheck />
-                أسعار مناسبة
-              </li>
-              <li>
-               <FaCheck />
-                سرعة في نقل الكفالة
-              </li>
-                <li>
-               <FaCheck />
-              ضمان الحقوق
-              </li>
-                <li>
-               <FaCheck />
-               الشفافية في التعامل
-              </li>
-            </ul>
-
-            <div className={style.action}>
-              <Button variant="contained" color="primary" size="lg">
-                <Link to='./طلب_إستقدام'></Link>
-                طلب إستقدام
-              </Button>
-              <Button variant="outlined" color="primary" size="lg">
-                <Link to='./نقل_خدمات'></Link>
-                نقل خدمات
-              </Button>
-            </div>
-          </div>
-
-          <div className={style.img}>
-            <img src="/imgs/سياسات.jpg" alt="panner image" />
-          </div>
-        </div>
-      </section>
     </section>
   );
 }
