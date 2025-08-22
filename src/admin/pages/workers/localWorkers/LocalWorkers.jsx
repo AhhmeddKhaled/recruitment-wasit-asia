@@ -63,7 +63,7 @@ export default function LocalWorker() {
   ];
 
   const hendleDelete = (id) => {
-        deleteWorker(id, getWorkers={getWorkers}, setGetWorkers={setGetWorkers}, setMessage);
+        deleteWorker(id,getWorkers, setGetWorkers,setMessage);
       };
     return (
         <section>
