@@ -1,51 +1,43 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import style from "./WorkerInput.module.css";
-import { FaBriefcase, FaChartLine, FaFlag, FaHourglassHalf,} from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaChartLine,
+  FaFlag,
+  FaHourglassHalf,
+} from "react-icons/fa";
 import { GiStarKey } from "react-icons/gi";
 import FilterSelect from "./FilterSelect";
-import { useLocation } from "react-router-dom";
 import { WorkersContext } from "../../data/AllProviders/WorkersContext";
 import Button from "../button/Button";
 
-export default function WorkerInput() {
-  const location = useLocation();
-  
-  const { setGetWorkers } = useContext(WorkersContext);
+export default function WorkerInput({ type }) {
+  const { fetchWorkers } = useContext(WorkersContext);
+
   const [age, setAge] = useState("");
   const [job, setJob] = useState("");
   const [religion, setReligion] = useState("");
   const [experience, setExperience] = useState("");
   const [nationality, setNationality] = useState("");
 
-  const url = decodeURIComponent(location.pathname);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/workers")
-      .then((res) => res.json())
-      .then((data) => setGetWorkers(data))
-      .catch((err) => console.log(err));
-  }, []);
-
   const handleFilter = () => {
-    const params = new URLSearchParams();
+    if (!type) return;
 
+    console.log(type);
+    
+    const params = new URLSearchParams();
     if (age) params.append("age", age);
     if (job) params.append("job", job);
     if (religion) params.append("religion", religion);
     if (experience) params.append("experience", experience);
     if (nationality) params.append("nationality", nationality);
 
-    const query = params.toString();
-    const url = `http://localhost:5000/api/workers${query ? `?${query}` : ""}`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setGetWorkers(data))
-      .catch((err) => console.log(err));
+    // هنا هنبعت طلب للفنكشن مع الـ query params
+    fetchWorkers(`${type}?${params.toString()}`);
   };
 
   return (
-    <section className={` ${style.inputs} s-padding`}>
+    <section className={`${style.inputs} s-padding`}>
       <FilterSelect
         label="العمر"
         icon={FaHourglassHalf}
@@ -70,34 +62,31 @@ export default function WorkerInput() {
         ]}
       />
 
-      {url === "/طلب_إستقدام" || url === "/إختيار_العمالة" ? (
-        <FilterSelect
-          label="الديانة"
-          icon={GiStarKey}
-          value={religion}
-          onChange={(e) => setReligion(e.target.value)}
-          options={[
-            { value: "مسلم", label: "مسلم/ة" },
-            { value: "مسيحي", label: "مسيحي/ة" },
-          ]}
-        />
-      ) : (
-        ""
-      )}
+      {/* لو النوع استقدام نظهر الدين و الخبرة */}
+      {type === "recruitment" && (
+        <>
+          <FilterSelect
+            label="الديانة"
+            icon={GiStarKey}
+            value={religion}
+            onChange={(e) => setReligion(e.target.value)}
+            options={[
+              { value: "مسلم", label: "مسلم/ة" },
+              { value: "مسيحي", label: "مسيحي/ة" },
+            ]}
+          />
 
-      {url === "/طلب_إستقدام" || url === "/إختيار_العمالة" ? (
-        <FilterSelect
-          label="الخبرة"
-          icon={FaChartLine}
-          value={experience}
-          onChange={(e) => setExperience(e.target.value)}
-          options={[
-            { value: "لديه خبرة سابقة", label: "لديه خبرة سابقة" },
-            { value: "قادم جديد", label: "قادم جديد" },
-          ]}
-        />
-      ) : (
-        ""
+          <FilterSelect
+            label="الخبرة"
+            icon={FaChartLine}
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+            options={[
+              { value: "لديه خبرة سابقة", label: "لديه خبرة سابقة" },
+              { value: "قادم جديد", label: "قادم جديد" },
+            ]}
+          />
+        </>
       )}
 
       <FilterSelect
@@ -114,9 +103,18 @@ export default function WorkerInput() {
           { value: "برولدي", label: "برولدي" },
         ]}
       />
-  <div className={style.send}>
-              <Button variant="contained" color="primary" size="lg" fullWidth onClick={handleFilter}>تطبيق</Button>
-            </div>
+
+      <div className={style.send}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="lg"
+          fullWidth
+          onClick={handleFilter}
+        >
+          تطبيق
+        </Button>
+      </div>
     </section>
   );
 }

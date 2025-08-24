@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import RecruimentWorkers from "../recruimentWorkers/RecruimentWorkers";
+import React from "react";
+import AdminRecruimentWorkers from "../adminRecruimentWorkers/AdminRecruimentWorkers";
 import LocalWorker from "../localWorkers/LocalWorkers";
 
 export default function AllWorkers() {
 
     return (
         <>
-        <RecruimentWorkers />
-        <hr />
+        <AdminRecruimentWorkers />
         <LocalWorker />
         </>
     )

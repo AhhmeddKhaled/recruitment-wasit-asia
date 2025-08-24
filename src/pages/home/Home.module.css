@@ -10,7 +10,7 @@
   gap: var(--space-10);
   padding: 160px 10% 60px;
   position: relative;
-  background: linear-gradient(135deg, #cce0ff 0%, #e6f2ff 50%, #ffffff 100%);
+  min-height: 100vh;
 }
 
 .hero .heroBackground {
@@ -63,9 +63,12 @@
   animation: fadeInRight 1s ease-in-out;
   animation-fill-mode: forwards;
   text-shadow: var(--text-shadow);
-  text-align: center;
 }
 
+.hero_text h1 span {
+  color: var(--primary);
+  display: block;
+}
 .hero_text p {
   opacity: 0;
   animation: fadeInRight 1s 0.5s ease-in-out;
@@ -131,26 +134,19 @@
   animation: fadeInRight 1s 2.5s ease-in-out;
   animation-fill-mode: forwards;
 }
+
 .hero .heroImg {
   opacity: 0;
   position: relative;
   animation: fadeInLeft 2s ease-in-out;
   animation-fill-mode: forwards;
+  text-align: center;
 }
 
 .hero .heroImg img {
+  height: 100%;
   max-width: 100%;
   object-fit: cover;
-}
-
-.hero .heroImg svg {
-  position: absolute;
-  top: 55%;
-  left: 55%;
-  width: 600px;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  transition: 0.2s ease-in-out;
 }
 
 .hero .heroImg + div {
@@ -196,85 +192,4 @@
   background-color: #fff;
   border-radius: 4px;
   padding: 8px;
-}
-
-/* Start Numbers Section Style */
-.numbers {
-  background: linear-gradient(135deg,#e8f5e9,#c8e6c9)
-}
-
-.numbers .grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-12);
-}
-
-.numbers ul {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: var(--space-12);
-  align-items: center;
-}
-
-.numbers ul li {
-  font-size: var(--font-size-h4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.numbers ul li span {
-  font-weight: 1000;
-  font-size: var(--font-size-h2);
-  color: var(--primary);
-  transition: 2s ease;
-}
-/* End Numbers Section Style */
-/* mobile media */
-@media (max-width: 768px) {
-.hero_text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero_text p {
-  text-align: center;
-}
-  .hero_text .btns {
-    flex-direction: column;
-    width: 100%;
-  }
-
-.hero_text .future {
-  flex-direction: column;
-  width: 100%;
-}
-.hero_text .future li {
-  font-size: var(--font-size-tiny);
-  flex-direction: row;
-}
-
-.hero_text .future li {
-  text-align: center;
-}
-.hero .heroImg + div {
-  display: none;
-}
-
-.hero .heroImg svg {
-  display: none;
-}
-}
-@media (max-width: 900px) {
-  .hero > svg {
-    display: none;
-  }
-  .hero_text {
-    color: var(--text-color);
-  }
-.numbers ul {
-  grid-template-columns: 1fr;
-}
 }

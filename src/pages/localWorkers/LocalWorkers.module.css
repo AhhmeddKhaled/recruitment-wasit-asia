@@ -1,3 +1,10 @@
+.localWorkers .workers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-4);
+  justify-items: center;
+}
+
 .card {
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
@@ -7,14 +14,14 @@
 }
 
 .header {
-    border-bottom: 1px solid #eee;
-    padding: 30px;
+  border-bottom: 1px solid #eee;
+  padding: 30px;
 }
 
 .header div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .name {
   color: #1b4d3e;
@@ -39,32 +46,48 @@
 
 .details {
   margin-top: 16px;
-    padding: 30px;
+  padding: 30px;
 }
 
 .detailRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--space-4);
   margin-bottom: 24px;
   border-bottom: 1px solid #eee;
   padding-bottom: 6px;
 }
 
 .detailRow span:first-child {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--main-color);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary);
 }
 
 .detailRow span:last-child {
-    background-color: #eee;
-    padding: 8px 16px;
-    border-radius: var(--s-radius);
+  background-color: #eee;
+  padding: 8px 16px;
+  border-radius: var(--s-radius);
 }
 
 .detailRow:last-child {
   margin-bottom: 15px;
+  flex-direction: column;
+}
+
+.detailRow:last-child span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.detailRow:last-child span strong {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
 }
 
 .buttons {
@@ -82,4 +105,14 @@
   padding: 10px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.not {
+  font-size: 4rem;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  color: red;
+  padding: var(--space-8);
+  border-radius: var(--radius-md);
 }

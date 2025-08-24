@@ -15,7 +15,7 @@ form.AddWorker {
 form.AddWorker header {
   width: 100%;
   padding: var(--space-1) var(--space-4);
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: var(--bg-color);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -38,6 +38,10 @@ form.AddWorker .form_group label {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  gap:  var(--space-2);
+  color: var(--text-dark);
 }
 
 form.AddWorker .form_group input,
@@ -60,6 +64,29 @@ form.AddWorker .form_group select:focus {
   box-shadow: var(--shadow-md);
 }
 
+form.AddWorker .skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+form.AddWorker .skills label {
+   display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #eee;
+}
+
+form.AddWorker .skills label:first-child {
+  color: var(--bg-color);
+  background-color: var(--secondary);
+  text-align: center;
+  cursor: auto;
+}
 form.AddWorker .form_group input[type="file"],
 form.AddWorker input[type="submit"] {
   position: absolute;

@@ -1,30 +1,49 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
 export const WorkersContext = createContext();
 
-export function WorkersProvider({ children, type }) {
-  const [getWorkers, setGetWorkers] = useState([]);
+export function WorkersProvider({ children }) {
+  const [localWorkers, setLocalWorkers] = useState([]);
+  const [recruitmentWorkers, setRecruitmentWorkers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!type) return;
+  const fetchWorkers = async (endpoint) => {
+    if (!endpoint) return;
 
-    fetch(`http://localhost:5000/api/workers/${type}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("📌 API response:", data);
+    setLoading(true);
+    setError(null);
 
-        // لو السيرفر بيرجع { workers: [...] }
-        if (data.workers) {
-          setGetWorkers(data.workers);
-        } else {
-          setGetWorkers(data); // fallback لو Array على طول
-        }
-      })
-      .catch((err) => console.log("❌ Fetch error:", err));
-  }, [type]);
+    try {
+      const res = await fetch(`http://localhost:5000/api/workers/${endpoint}`);
+      const data = await res.json();
+      const workersData = data.workers || data;
+
+      if (endpoint.startsWith("local")) {
+        setLocalWorkers(workersData);
+      } else if (endpoint.startsWith("recruitment")) {
+        setRecruitmentWorkers(workersData);
+      }
+    } catch (err) {
+      console.error("❌ Fetch error:", err);
+      setError(err.message || "حدث خطأ أثناء جلب البيانات");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <WorkersContext.Provider value={{ getWorkers, setGetWorkers, type}}>
+    <WorkersContext.Provider
+      value={{
+        recruitmentWorkers,
+        setRecruitmentWorkers,
+        localWorkers,
+        setLocalWorkers,
+        fetchWorkers,
+        loading,
+        error,
+      }}
+    >
       {children}
     </WorkersContext.Provider>
   );

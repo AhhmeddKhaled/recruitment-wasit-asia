@@ -2,10 +2,9 @@ import React, { useState, useContext } from "react";
 import style from "./AddWorker.module.css";
 import { FiX } from "react-icons/fi";
 import Button from "../../../../components/button/Button";
-import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
-
-export default function AddWorker({ setOpenForm }) {
-  const { setGetWorkers, type } = useContext(WorkersContext);
+import { FaUser, FaFlag, FaPrayingHands, FaHeart, FaBriefcase, FaStar, FaMoneyBillWave, FaTools, FaCalendarAlt } from 'react-icons/fa';
+import Message from "../../../../components/message/Message";
+export default function AddWorker({ setOpenForm, type }) {
 
   /* Worker Values */
   const [name, setName] = useState("");
@@ -16,6 +15,7 @@ export default function AddWorker({ setOpenForm }) {
   const [job, setJob] = useState("");
   const [experience, setExperience] = useState("لديه خبرة سابقة");
   const [recruitmentFee, setRecruitmentFee] = useState("");
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const [cv, setCv] = useState("");
   const [message, setMessage] = useState("");
 
@@ -35,6 +35,7 @@ export default function AddWorker({ setOpenForm }) {
     formData.append("job", job);
     formData.append("experience", experience);
     formData.append("recruitmentFee", recruitmentFee);
+    formData.append("skills", JSON.stringify(selectedSkills));
     formData.append("cv", cv);
 
     try {
@@ -43,12 +44,11 @@ export default function AddWorker({ setOpenForm }) {
         body: formData,
       });
 
-      const data = await response.json();
+      console.log(url);
 
+      const data = await response.json();
       if (response.ok) {
         setMessage(data.message || "✅ تمت إضافة العامل بنجاح");
-        setGetWorkers((prev) => [...prev, data.worker]); // تحديث الليستة مباشرة
-
         // reset form
         setName("");
         setAge("");
@@ -60,13 +60,27 @@ export default function AddWorker({ setOpenForm }) {
         setJob("");
         setCv("");
       } else {
-        setMessage(data.message || "❌ حدث خطأ أثناء الإضافة");
+        setMessage("❌ حدث خطأ أثناء الإضافة");
       }
     } catch (error) {
       console.error(error);
       setMessage("❌ مشكلة في الاتصال بالسيرفر");
     }
+
+    setTimeout(() => {
+      +
+        setMessage("")
+    }, 3000);
   };
+
+  /* Skills List */
+  const skillsList = [
+    "طبخ",
+    "تنظيف",
+    "غسيل الملابس",
+    "رعاية الأطفال",
+    "رعاية كبار السن"
+  ];
 
   return (
     <form className={style.AddWorker} onSubmit={handleAdd}>
@@ -77,11 +91,11 @@ export default function AddWorker({ setOpenForm }) {
         </span>
       </header>
 
-      {message && <p className={style.message}>{message}</p>}
+      {message && <Message status={"error"}> {message} </Message>}
 
       {/* Worker Name*/}
       <div className={style.form_group}>
-        <label htmlFor="name">الإسم</label>
+        <label htmlFor="name"> <FaUser /> الإسم</label>
         <input
           type="text"
           id="name"
@@ -94,7 +108,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Age*/}
       <div className={style.form_group}>
-        <label htmlFor="age">العمر</label>
+        <label htmlFor="age"> <FaCalendarAlt /> العمر</label>
         <input
           type="number"
           id="age"
@@ -109,7 +123,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Country*/}
       <div className={style.form_group}>
-        <label htmlFor="nationality">الدولة</label>
+        <label htmlFor="nationality"> <FaFlag /> الدولة </label>
         <select
           id="nationality"
           value={nationality}
@@ -130,7 +144,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Religion*/}
       <div className={style.form_group}>
-        <label htmlFor="religion">الديانة</label>
+        <label htmlFor="religion"> <FaPrayingHands /> الديانة</label>
         <select
           id="religion"
           value={religion}
@@ -143,7 +157,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker MaritalStatus*/}
       <div className={style.form_group}>
-        <label htmlFor="maritalStatus">الحالة الإجتماعية</label>
+        <label htmlFor="maritalStatus"> <FaHeart /> الحالة الإجتماعية</label>
         <select
           id="maritalStatus"
           value={maritalStatus}
@@ -157,7 +171,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Job*/}
       <div className={style.form_group}>
-        <label htmlFor="job">المهنة</label>
+        <label htmlFor="job"> <FaBriefcase /> المهنة</label>
         <select
           id="job"
           value={job}
@@ -173,7 +187,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Experience*/}
       <div className={style.form_group}>
-        <label htmlFor="ex">الخبرة</label>
+        <label htmlFor="ex"> <FaStar /> الخبرة</label>
         <select
           id="ex"
           value={experience}
@@ -187,7 +201,7 @@ export default function AddWorker({ setOpenForm }) {
 
       {/* Worker Salary */}
       <div className={style.form_group}>
-        <label htmlFor="salary">الراتب</label>
+        <label htmlFor="salary"> <FaMoneyBillWave /> الراتب</label>
         <input
           type="number"
           id="salary"
@@ -197,6 +211,31 @@ export default function AddWorker({ setOpenForm }) {
           required
         />
       </div>
+
+      {/* Worker Skilss */}
+      {type === "local" &&
+        <div className={` ${style.form_group} ${style.skills}`}>
+          <label> <FaTools /> المهارات</label>
+          {skillsList.map(skill => (
+            <label key={skill}>
+              <input
+                type="checkbox"
+                value={skill}
+                checked={selectedSkills.includes(skill)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedSkills([...selectedSkills, skill]);
+                  } else {
+                    setSelectedSkills(selectedSkills.filter(s => s !== skill));
+                  }
+                }}
+              />
+              {skill}
+            </label>
+          ))}
+
+        </div>
+      }
 
       {/* Worker CV */}
       <div className={style.form_group}>

@@ -14,11 +14,8 @@ aside.show {
   transform: translateX(0);
 }
 
-aside header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-4);
+aside ul.mainList {
+  margin-top: var(--space-12);
 }
 
 aside ul.mainList > li {

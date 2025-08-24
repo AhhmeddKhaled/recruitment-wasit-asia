@@ -7,7 +7,7 @@ const transferWorkerSchema = new mongoose.Schema(
     nationality: { type: String, required: true },
     job: { type: String, required: true },
     religion: { type: String, required: true },
-    transferFee: { type: Number, required: true }, // بدل recruitmentFee
+    recruitmentFee: { type: Number, required: true }, // بدل recruitmentFee
     maritalStatus: {
       type: String,
       enum: ["أعزب", "متزوج", "مطلق"],

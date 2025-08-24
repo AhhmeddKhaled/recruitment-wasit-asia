@@ -1,34 +1,32 @@
-import { useContext } from "react";
-import { UsersContext } from "../data/AllProviders/UsersContext";
-import { messageTime } from "./messageTime";
+export const handleDownload = async (worker, user, setMessage) => {
+  if (!user) {
+    setMessage({message: "من فضلك قم بتسجيل الدخول لحجز السيرة الذاتية",success: "error"});
+    return;
+  }
 
-  export const handleDownload = (workerId) => {
-      const { user } = useContext(UsersContext);
-      const [message, setMessage] = useState('');
-    
-    if (!user) {
-      setMessage("من فضلك قم بتسجيل الدخول لحجز السيرة الذاتية");
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
-      return;
-    }
-
-    fetch(`/api/workers/${workerId}/cv`, {
+  try {
+    const response = await fetch("http://localhost:5000/api/notify-owner", {
+      method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
       },
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Unauthorized");
-        return res.blob();
-      })
-      .then((blob) => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `${workerId}.pdf`;
-        a.click();
-      })
-      .catch(() => alert("غير مصرح لك بتحميل السيرة الذاتية"));
-  };
+      body: JSON.stringify({
+        worker,
+        user: {
+          name: user.name,
+          email: user.email,
+          phone: user.phone,
+        },
+      }),
+    });
+
+    if (response.ok) {
+      setMessage({message: "تم إرسال البيانات لصاحب الموقع بنجاح",success: "success"});
+    } else {
+      setMessage({message: "حدث خطأ أثناء إرسال البيانات",success: "error"});
+    }
+  } catch (error) {
+      setMessage({message: "حدث خطأ في الاتصال بالسيرفر",success: "error"});
+  }
+};

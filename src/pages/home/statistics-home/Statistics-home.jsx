@@ -2,7 +2,6 @@ import React from "react";
 import style from "./Statistics-home.module.css";
 import '../../../assets/styles/global.css';
 import { FaCheckCircle, FaHandshake , FaClock } from "react-icons/fa";
-import Counter from "../../../logic/Counter";
 
 export default function Statistics() {
 
@@ -41,7 +40,7 @@ export default function Statistics() {
                     <span className={style.icon}>
                         {Statistic.icon}
                     </span>
-                    <Counter target={Statistic.number} duration={3000} />
+                   <span> {Statistic.number} </span>
                     <span className={style.name}>
                         {Statistic.name}
                     </span>

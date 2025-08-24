@@ -1,20 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./RecruimentWorkers.module.css";
 import "../../../../assets/styles/global.css";
-import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
 import { deleteWorker } from "../../../services/workers/deleteWorker";
 import Button from "../../../../components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddWorker from "../addWorker/AddWorker";
 import Table from "../../../../components/table/Table";
 import Message from "../../../../components/message/Message";
+import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
 
-export default function RecruimentWorkers() {
+export default function AdminRecruimentWorkers() {
   const [message, setMessage] = useState({});
   const [openForm, setOpenForm] = useState(false);
-  const { getWorkers, setGetWorkers } = useContext(WorkersContext);
-  console.log(getWorkers);
-  
+  const { recruitmentWorkers, setRecruitmentWorkers, fetchWorkers } = useContext(WorkersContext);
+
   const headers = [
     {
       key: "name",
@@ -60,17 +59,24 @@ export default function RecruimentWorkers() {
   const actions = [
     {
       key: "إجراء",
-      label: "تعديل",
+      label: "حذف",
       color: "danger",
-      onClick: (row) => hendleDelete(row._id)
+      onClick: (row) => handleDelete(row._id)
     },
   ];
 
-  const hendleDelete = (id) => {
-      deleteWorker(id, getWorkers, setGetWorkers, setMessage);
-    };
-  
-  
+  useEffect(() => {
+    fetchWorkers('recruitment');
+    
+  }, [])
+  const handleDelete = (id) => {
+    // Remove the worker from the recruitmentWorkers state
+    deleteWorker(id, "recruitment", setMessage);
+  setRecruitmentWorkers(recruitmentWorkers.filter((worker) => worker._id !== id));
+
+  };
+
+
   return (
     <section className={style.workersTable}>
       <header className="flex">
@@ -85,15 +91,15 @@ export default function RecruimentWorkers() {
           إضافة خادمة
         </Button>
       </header>
-      {getWorkers.length >= 1 ? (
-        <Table headers={headers} data={getWorkers} actions={actions}/>
+      {recruitmentWorkers.length >= 1 ? (
+        <Table headers={headers} data={recruitmentWorkers} actions={actions} />
       ) : (
         <p className={style.noWorkers}>لا يوجد خادمات, قم بإضافة خادمة جديدة</p>
       )}
-      {openForm && <AddWorker setOpenForm={setOpenForm} type='recruitment'/>}
+      {openForm && <AddWorker setOpenForm={setOpenForm} type='recruitment' />}
       {message.message && (
         <Message status={message.success ? "success" : "error"}>
-            {message.message}
+          {message.message}
         </Message>
       )}
     </section>

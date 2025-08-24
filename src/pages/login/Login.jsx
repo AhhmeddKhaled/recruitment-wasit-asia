@@ -22,6 +22,7 @@ export default function Login() {
     : "http://localhost:5000/api/auth/register";
 
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -34,7 +35,7 @@ export default function Login() {
     try {
       const bodyData = isLogin
         ? { email, password }
-        : { email, password, name };
+        : { email, password, name , phone};
 
       const response = await fetch(url, {
         method: "POST",
@@ -55,7 +56,7 @@ export default function Login() {
         setEmail("");
         setPassword("");
         setName("");
-
+        setPhone("")
         setTimeout(() => {
           navigate("/")
         },500)
@@ -84,8 +85,9 @@ export default function Login() {
           <h2 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h2>
 
           {!isLogin && (
+            <>
             <div>
-              <label htmlFor={style.img}>
+              <label htmlFor="name">
                 <FaUser className={style.icon} /> الإسم كاملًا *
               </label>
               <input
@@ -96,6 +98,19 @@ export default function Login() {
                 required
               />
             </div>
+               <div>
+              <label htmlFor="phone">
+                <FaUser className={style.icon} />   رقم الهاتف *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                />
+            </div>
+                </>
           )}
 
           <div className={style.email}>

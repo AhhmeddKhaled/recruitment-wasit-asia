@@ -56,7 +56,7 @@ export default function Footer() {
             </li>
             <li>
               البريد الإلكتروني:
-              <a href="mailto:info@rawafdnajd.sa">info@rawafdnajd.sa</a>
+              <a href="mailto:iwasitasia1@gmail.com">wasitasia1@gmail.com</a>
             </li>
             <li>
               المبيعات:

@@ -18,17 +18,17 @@ const ContactUs = () => {
         <div className={styles.contactDetails}>
           <div className={styles.detailBox}>
             <FaMapMarkerAlt className={styles.icon} />
-            <span>الرياض - حي النزهة - الرمز البريدي 13231</span>
+            <a href="https://www.google.com/maps?q=سيارتنا" target="_blank">الرياض - حي النزهة - الرمز البريدي 13231</a>
           </div>
 
           <div className={styles.detailBox}>
             <FaPhone className={styles.icon} />
-            <span>8003030909</span>
+            <a href="tel:">8003030909</a>
           </div>
 
           <div className={styles.detailBox}>
             <FaEnvelope className={styles.icon} />
-            <span>wasit_asia@gmail.com</span>
+            <a href="mailto:wasitasis1@gmail.com">wasitasis1@gmail.com</a>
           </div>
         </div>
 

@@ -1,0 +1,45 @@
+.stepsSection {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-6);
+}
+
+.stepCard {
+  background: var(--bg-color);
+  padding: var(--space-6);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 3s ease;
+}
+
+.stepCard.animate {
+  opacity: 1;
+    transform: translateY(0);
+}
+
+.stepCard img {
+  width: 200px;
+  height: 60px;
+}
+
+.stepDescription {
+  color: #666;
+}
+
+.stepButton {
+  display: block;
+  color: var(--tertiary);
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-bold);
+}

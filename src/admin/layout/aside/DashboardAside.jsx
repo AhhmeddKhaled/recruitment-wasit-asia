@@ -30,10 +30,10 @@ export default function DashboardAside({ openMenu }) {
                                 <Link to="/dashboard/جميع_العاملات"> جميع العاملات</Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/جميع_العاملات/عاملات_الإستقدام"> عاملات الإستقدام </Link>
+                                <Link to="/dashboard/عاملات_الإستقدام"> عاملات الإستقدام </Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/جميع_العاملات/عاملات_نقل_الكفالة"> عاملات نقل الكفالة </Link>
+                                <Link to="/dashboard/نقل_خدمات"> عاملات نقل الكفالة </Link>
                             </li>
                         </ul>
                     }

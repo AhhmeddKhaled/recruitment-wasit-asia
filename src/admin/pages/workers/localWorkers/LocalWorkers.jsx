@@ -1,14 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import '../../../../assets/styles/global.css';
 import Button from "../../../../components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddWorker from "../addWorker/AddWorker";
 import Table from "../../../../components/table/Table";
 import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
+import { deleteWorker } from "../../../services/workers/deleteWorker";
 
 export default function LocalWorker() {
 
-  const {getWorkers, setGetWorkers} = useContext(WorkersContext)
+  const {localWorkers, setLocalWorkers, fetchWorkers} = useContext(WorkersContext);
+  
     const [message, setMessage] = useState({});
     const [openForm, setOpenForm] = useState(false);
   const headers = [
@@ -58,13 +60,19 @@ export default function LocalWorker() {
       key: "إجراء",
       label: "حذف",
       color: "danger",
-      onclick: (row) => hendleDelete(row._id)
+      onClick: (row) => handleDelete(row._id)
     },
   ];
 
-  const hendleDelete = (id) => {
-        deleteWorker(id,getWorkers, setGetWorkers,setMessage);
-      };
+  useEffect(() => {
+    fetchWorkers('local');
+  },[])
+
+  const handleDelete = (id) => {
+  deleteWorker(id, "local", setMessage);
+  setLocalWorkers(localWorkers.filter((worker) => worker._id !== id));
+};
+
     return (
         <section>
             <header className="flex">
@@ -78,14 +86,14 @@ export default function LocalWorker() {
                     إضافة خادمة
                 </Button>
             </header>
-            {getWorkers.length >= 1 ?
-            <Table headers={headers} data={getWorkers} actions={actions}/>
+            {localWorkers.length >= 1 ?
+            <Table headers={headers} data={localWorkers} actions={actions}/>
                 : <p>
                     لا يوجد خادمات, قم بإضافة خادمة جديدة
                 </p>
 
             }
-            {openForm && <AddWorker setOpenForm={setOpenForm} type='local'/>}
+            {openForm && <AddWorker setOpenForm={setOpenForm} type='local' />}
             {message.message &&
                 <p>
                     {message.message}

@@ -1,6 +1,6 @@
 /*import react hooks*/
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 /* import css files*/
 import style from "./RecruitmentWorkers.module.css";
 /*import components*/
@@ -11,23 +11,45 @@ import { WorkersContext } from '../../data/AllProviders/WorkersContext';
 import Button from "../../components/button/Button";
 import Message from "../../components/message/Message";
 import { handleDownload } from "../../logic/handleDownload";
+import { UsersContext } from "../../data/AllProviders/UsersContext";
 /*======================================================================*/
 
 export default function RecruitmentWorkers() {
+
   const location = useLocation();
   const url = decodeURIComponent(location.pathname);
-  const { getWorkers } = useContext(WorkersContext);
+  const { recruitmentWorkers, fetchWorkers } = useContext(WorkersContext);
+  const { user } = useContext(UsersContext);
+  const [message, setMessage] = useState({});
+  
+  useEffect(() => {
+    fetchWorkers('recruitment');
+  }, [url]);
 
+   useEffect(() => {
+    if (!message) return;
+
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message]);
   return (
     <Layout>
       <div className={style.RecruitmentRequest}>
         <div className={` ${style.cvInputs} container`}>
           <h3> بحث متقدم </h3>
 
-          <WorkerInput />
+          <WorkerInput type="recruitment" />
 
+          {message.message &&
+          <Message status={message.success}>
+            {message.message}
+          </Message>
+          }
           <div className={style.allCv}>
-            {getWorkers.map((worker) => {
+            {recruitmentWorkers.map((worker) => {
               return (
                 <div className={style.cv} key={worker._id}>
                   <div className={style.img}>
@@ -83,7 +105,7 @@ export default function RecruitmentWorkers() {
                       variant="outlined"
                       color="primary"
                       size="md"
-                      onClick={() => handleDownload(worker._id)}>
+                      onClick={() => handleDownload(worker,user,setMessage)}>
                       حجز السيرة الذاتية
                     </Button>
                   </div>
@@ -91,11 +113,7 @@ export default function RecruitmentWorkers() {
               );
             })}
 
-            {getWorkers.length === 0 ? (
-              <p className={style.not}> لا يوجد عمال بهذه البيانات </p>
-            ) : (
-              ""
-            )}
+            {recruitmentWorkers.length === 0 && <p className={style.not}> لا يوجد عمال بهذه البيانات </p>}
           </div>
 
         </div>

@@ -13,12 +13,12 @@ import Contact from "./contact-home/Contact-home";
 import Button from "../../components/button/Button";
 import { FaHardHat, FaHeadset, FaTools, FaUser, FaUsersCog, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
-import Counter from "../../logic/Counter";
+import Steps from "./steps/Steps";
+import FAQ from "./faq/Faq";
 
-  
+
 export default function Home() {
   return (
     <div className={style.home}>
@@ -33,7 +33,8 @@ export default function Home() {
           <MdEngineering size={45} className={style.icon} />
         </div>
         <div className={style.hero_text}>
-          <h1> مرحبًا بك في وسيط أسيا  </h1>
+          <h1>مرحبًا بك في <span>وسيط أسيا</span>
+          </h1>
           <p>
             استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية
             لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
@@ -41,28 +42,28 @@ export default function Home() {
           <ul className={style.future}>
             <li>
               <span>
-              <FaUser className={style.icon} size={18} />
+                <FaUser className={style.icon} size={18} />
                 <strong>
                   10,000
                 </strong>
               </span>
-                عميل سعيد
+              عميل سعيد
             </li>
             <li>
               <span>
-              <MdWork className={style.icon} size={18} />
+                <MdWork className={style.icon} size={18} />
                 <strong> 10 </strong>
               </span>
-                سنوات خبرة  في مجال الإستقدام
+              سنوات خبرة  في مجال الإستقدام
             </li>
             <li>
               <span>
-              <FaHeadset className={style.icon} size={18} />
+                <FaHeadset className={style.icon} size={18} />
                 <strong>
                   7/24
                 </strong>
               </span>
-                خدمة عملاء
+              خدمة عملاء
             </li>
           </ul>
           <div className={style.btns}>
@@ -83,40 +84,17 @@ export default function Home() {
           </div>
         </div>
         <div className={style.heroImg}>
-          <img src="/imgs/hero.png" alt="hero image" />
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#00BBD9" d="M56.6,-56.4C71.4,-41.8,80.2,-20.9,78.8,-1.3C77.5,18.2,66,36.4,51.2,49.7C36.4,63.1,18.2,71.6,-2.3,73.9C-22.9,76.2,-45.7,72.4,-59.2,59.1C-72.7,45.7,-76.9,22.9,-74.5,2.4C-72.2,-18.2,-63.3,-36.3,-49.8,-51C-36.3,-65.6,-18.2,-76.7,1.4,-78.1C20.9,-79.5,41.8,-71,56.6,-56.4Z" transform="translate(100 100)" />
-          </svg>
+          <img src="/heroImgs/hero.svg" alt="hero image" />
         </div>
-        <SocialMedia />
       </section>
 
       <About />
 
-      <section className={` ${style.numbers} s-padding`}>
-        <div className={` ${style.grid} container`}>
+      <Steps />
 
-        <h2> إنجازات نفتخر بها</h2>
-        <ul>
-          <li>
-            <Counter target={5000} duration={3000} />
-          عميل سعيد
-          </li>
-
-          <li>
-           <Counter target={15} duration={6000} />
-        سنين خبرة في مجال الإستقدام 
-          </li>
-
-          <li>
-         
-        <Counter target={100000} duration={3000} />
-          عملية إستقدام
-          </li>
-        </ul>
-        </div>
-      </section>
       <Services />
+
+      <FAQ />
 
       <Support />
 

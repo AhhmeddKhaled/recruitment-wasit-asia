@@ -25,7 +25,6 @@ exports.protect = async (req, res, next) => {
   }
 };
 
-// flexible roles middleware
 exports.authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
