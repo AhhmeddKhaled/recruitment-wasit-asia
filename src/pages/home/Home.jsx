@@ -16,8 +16,7 @@ import { Link } from "react-router-dom";
 import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
-import FAQ from "./faq/Faq";
-
+import FAQ from "./FAQ/FAQ";
 
 export default function Home() {
   return (
