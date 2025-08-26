@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 import style from "./FAQ.module.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Button from "../../../components/button/Button";

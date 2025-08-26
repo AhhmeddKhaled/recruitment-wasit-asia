@@ -11,13 +11,13 @@ import Support from "./support-home/Support-home";
 import Statistics from "./statistics-home/Statistics-home";
 import Contact from "./contact-home/Contact-home";
 import Button from "../../components/button/Button";
-import { FaHardHat,FaUsersCog, FaWhatsapp } from "react-icons/fa";
+import { FaHardHat, FaUsersCog, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
 import CTASection from "./ctaSection/CTASection";
-import Faq from "./faq/faq";
+import Faq from "./faq/Faq";
 
 export default function Home() {
   return (
