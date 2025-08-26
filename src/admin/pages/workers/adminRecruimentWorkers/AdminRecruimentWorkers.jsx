@@ -67,18 +67,15 @@ export default function AdminRecruimentWorkers() {
 
   useEffect(() => {
     fetchWorkers('recruitment');
-    
   }, [])
   const handleDelete = (id) => {
-    // Remove the worker from the recruitmentWorkers state
     deleteWorker(id, "recruitment", setMessage);
-  setRecruitmentWorkers(recruitmentWorkers.filter((worker) => worker._id !== id));
-
+    setRecruitmentWorkers(recruitmentWorkers.filter((worker) => worker._id !== id));
   };
 
 
   return (
-    <section className={style.workersTable}>
+    <section className={` ${style.workersTable} s-padding`}>
       <header className="flex">
         <h2> خادمات الإستقدام</h2>
         <Button

@@ -32,7 +32,7 @@ export default function FAQ() {
     };
 
     return (
-        <section className={style.faqSection}>
+        <section className={` ${style.faqSection} s-padding`}>
             <div className={` container ${style.faqContainer}`}>
                 <header className="header-section">
                     <h2 className={style.sectionTitle}>الأسئلة الشائعة</h2>

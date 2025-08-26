@@ -1,0 +1,97 @@
+.setting {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1000;
+  transform: translateY(-50%);
+  transform: translateX(-100%);
+}
+
+.setting label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transform: translate(40px, -100%);
+}
+
+.setting input {
+  opacity: 0;
+}
+
+.setting label .icon {
+  transition: transform 0.2s ease;
+  color: var(--text-dark);
+}
+
+.setting input:checked ~ label .icon {
+  transform: rotate(60deg);
+}
+
+.setting .box {
+    top: 0;
+    transform: translateX(-100px);
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow-primary);
+    color: var(--bg-color);
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    width: 40px;
+    transition: .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  
+.setting input:checked ~ label + .box {
+    transform: translateX(110%);
+}
+
+
+/* Setting Row Style */
+.setting .box .settingRow {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: var(--space-2);
+
+}
+
+.setting .box .settingRow span.theem {
+  color: var(--text-dark);
+}
+
+.setting .box .settingRow ul.colors {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.setting .box .settingRow ul.colors li {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-round);
+  background-color: #eee;
+}
+
+.setting .box .settingRow ul.colors li:first-child {
+  background-color: #3898ec;
+}
+
+.setting .box .settingRow ul.colors li:nth-child(2) {
+  background-color: #154D71;
+}
+
+.setting .box .settingRow ul.colors li:nth-child(3) {
+  background-color: #FF9B00;
+}
+
+.setting .box .settingRow ul.colors li:nth-child(4) {
+  background-color: #EA2264;
+}
+
+.setting .box .settingRow ul.colors li:nth-child(5) {
+  background-color: #4caf50;
+}

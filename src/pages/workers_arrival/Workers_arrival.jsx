@@ -3,73 +3,99 @@ import style from "./Workers_arrival.module.css";
 import Layout from "../../layout/layout";
 import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
+import { FaCheck } from "react-icons/fa";
+import { MdMessage, MdRequestPage } from "react-icons/md";
+import { BiArrowToLeft, BiSend } from "react-icons/bi";
+import { BsSendArrowDown } from "react-icons/bs";
 
 export default function Workers_arrival() {
   return (
     <Layout>
-      <div className={style.arrival}>
-        <header className={`page-header`}>
+      <main>
+        <section className="s-padding">
           <div className="container">
-            <h2>وصول العمالة</h2>
-            <p>
-              يحرص فريق عمل مكتب وسيط أسيا للاستقدام على توفير السرعة والجودة في
-              الأداء، ويقم بالإشراف على وصول العمالة المدربة واستقبالها، <br />وذلك
-              بداية من طلب الاستشارة وحتى استلام وثائق الاستقدام وبدء العمل بشكل
-              كامل
-            </p>
-            <Button variant="contained" size="lg"
-            >
-              <Link to='/طلب_إستقدام'></Link>
-            طلب إستقدام  
-            </Button>
-          </div>
-        </header>
-
-        <div className={style.recAbout}>
-          <div className={` ${style.row} container `}>
-            <div className={style.info}>
-              <h3>وصول العمالة</h3>
-              <p>
-                يحرص فريق عمل مكتب وسيط أسيا للاستقدام على توفير السرعة والجودة
-                في الأداء،  ويقم بالإشراف على وصول العمالة المدربة واستقبالها،
-                وذلك بداية من طلب الاستشارة وحتى استلام وثائق الاستقدام وبدء
-                العمل بشكل كامل
-              </p>
-
-              <span>
-                يوفر وسيط أسيا  ضمان الاستبدال فى حال التغيب أو رفض العمل
-              </span>
-            </div>
-            <div className={style.img}>
-              <img src="/imgs/وصول1.avif" alt="" />
+            <div className={style.arrivalGrid}>
+              <div className={style.arrivalInfo}>
+                <h2>
+                  <span> وصول عمالة</span> سريع وأمن وموثوق
+                </h2>
+                <p>
+                  يحرص فريق عمل مكتب وسيط أسيا للاستقدام على توفير السرعة والجودة في
+                  الأداء، ويقم بالإشراف على وصول العمالة المدربة واستقبالها، وذلك
+                  بداية من طلب الاستشارة وحتى استلام وثائق الاستقدام وبدء العمل بشكل
+                  كامل
+                </p>
+                <Button variant="contained" size="hero" endIcon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" /></svg>}>
+                  <Link to='/طلب_إستقدام'></Link>
+                  طلب إستقدام
+                </Button>
+              </div>
+              <div className={style.arrivalImg}>
+                <img src="/arrivalImgs/arrival.svg" alt="arrival image" />
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className={` ${style.recAbout}  ${style.serv}`}>
-          <div className={` ${style.row} container `}>
-            <div className={style.img}>
-              <img src="/imgs/خدمة.jpg" alt="" />
-            </div>
-            <div className={style.info}>
-              <h3>خدمة العملاء</h3>
-              <p>
-                دائما ما نتبنى أحدث الأساليب والتقنيات للتعامل مع العملاء وضمان
-                جودة عالية في الخدمات المقدمة في مكتب  <strong>
-                وسيط أسيا
-                  </strong> للاستقدام كما
-                أننا نوفر جميع الأدوات لدراسة السوق لتطوير وتوفير خدمات ذات جودة
-                عالية لاستقدام العمالة المنزلية وللتواصل مع العملاء قبل وبعد
-                وصول العمالة المنزلية , نلتزم بشكل تام لخدمة مختلف الاحتياجات
-                بمصداقية عالية وشفافية مطلقة حيث أننا نطمح لتجاوز توقعات عملائنا
-                وبناء علاقة طويلة المدى مع كافة العملاء لمعرفة كافة احتياجاتهم
-                ومتطلباتهم.
-              </p>
+        <section className={` ${style.customerService} s-padding`}>
+          <div className={`container `}>
 
+            <div className={style.customerGrid}>
+              <div className={style.info}>
+                <h2>
+                  <span>
+                     خدمة العملاء  
+                   </span> 
+                   فريق عمل متكامل في انتظارك
+                </h2>
+                <ul>
+                  <li>
+                    <span>
+                      <FaCheck size={20}/>
+                    </span>
+                  دائما ما نتبنى أحدث الأساليب والتقنيات للتعامل مع العملاء وضمان
+                  جودة عالية في الخدمات المقدمة في مكتب وسيط أسيا للاستقدام.
+                  </li>
+                  <br />
+                  <li>
+                     <span>
+                      <FaCheck size={20}/>
+                    </span>
+                   كما أننا نوفر جميع الأدوات لدراسة السوق لتطوير وتوفير خدمات ذات جودة
+                  عالية لاستقدام العمالة المنزلية وللتواصل مع العملاء قبل وبعد
+                  وصول العمالة المنزلية.
+                  </li>
+                  <br />
+                  <li>
+                     <span>
+                      <FaCheck size={20}/>
+                    </span>
+                   نلتزم بشكل تام لخدمة مختلف الاحتياجات
+                  بمصداقية عالية وشفافية مطلقة حيث أننا نطمح لتجاوز توقعات عملائنا
+                  وبناء علاقة طويلة المدى مع كافة العملاء لمعرفة كافة احتياجاتهم
+                  ومتطلباتهم.
+                  </li>
+                </ul>
+
+                <div className={style.buttons}>
+                  <Button variant="contained" size="lg" endIcon={<MdMessage />}>
+                    <Link to='/'></Link>
+                    تواصل مع فريق الدعم 
+                  </Button>
+                    <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />}>
+                    <Link to='/'></Link>
+                    طلب إستقدام
+                  </Button>
+                </div>
+              </div>
+              <div className={style.customerImg}>
+                <img src="/customerImgs/customer.svg" alt="customer image" />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+
+      </main>
     </Layout>
   );
 }

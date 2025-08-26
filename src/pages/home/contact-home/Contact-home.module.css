@@ -1,21 +1,22 @@
 /* header style*/
 .login .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     gap: var(--space-6);
     margin: auto;
 }
 
 form.contact {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-2);
     width: 460px;
-    max-width: 100%;
+    padding: 0 var(--space-2);
 }
 
+
 .login h2 {
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: var(--space-4);
     margin-top: 0;
 }
@@ -27,17 +28,12 @@ form.contact > div {
 }
 
 form.contact > div label {
-    font-size: var(--font-size-body);
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-20%, 20%);
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    font-size: var(--font-size-body);
+    color: var(--text-dark);
     transition: .3s ease-in-out;
-    padding: var(--space-1) var(--space-3);
-    color: var(--triary);
 }
 
 form.contact .name,
@@ -59,15 +55,6 @@ form.contact > div textarea {
     border: none;
     outline: none;
     height: fit-content;
-}
-
-
-form.contact > div input:focus ~ label,
-form.contact > div select:focus ~ label,
-form.contact > div textarea:focus ~ label {
-    top: 0;
-    transform: translate(-20%,-50%);
-    background-color: var(--bg-color);
 }
 
 form.contact > div select option {
@@ -97,14 +84,15 @@ label {
 .login form.contact .submit button {
     border-radius: 40px;
 }
-.login_map {
+
+.contactImg {
     display: flex;
     justify-content: center;
 }
 
-.login_map img {
-    max-width: 100%;
-    max-height: 100%;
+.contactImg img {
+    width: 100%;
+    height: 560px;
 }
 
 .login .map h5 {
@@ -130,6 +118,10 @@ label {
 @media (max-width: 768px) {
 .login .grid {
     grid-template-columns: 1fr;
+}
+
+form.contact {
+    width: 100%;
 }
 }
 @media (max-width: 900px) {

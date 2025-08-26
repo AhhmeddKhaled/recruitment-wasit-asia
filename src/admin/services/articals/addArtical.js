@@ -12,11 +12,10 @@ export async function addArtical({ title, paragraph, img, setMessage }) {
     const data = await res.json();
  
     if (res.ok) {
-      setMessage({ success: true, message: "تم إضافة المقال بنجاح" });
-      console.log("تم الاضافة بنجاح");
+      setMessage({ success: 'success', message: "تم إضافة المقال بنجاح" });
       return data
     } else {
-      setMessage({ success: false, message: "خطأ في إضافة المقال " });
+      setMessage({ success: 'error', message: "خطأ في إضافة المقال " });
     }
   } catch (error) {
     console.error(error);

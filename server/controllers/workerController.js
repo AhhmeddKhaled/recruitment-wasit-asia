@@ -34,7 +34,6 @@ exports.createWorker = async (req, res) => {
 exports.getWorkers = async (req, res) => {
   try {
     const Model = getModel(req.params.type);
-    console.log(req.params.type);
     
     const filter = {};
 

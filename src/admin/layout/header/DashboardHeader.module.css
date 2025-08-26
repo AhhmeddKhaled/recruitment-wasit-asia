@@ -1,33 +1,11 @@
 /* Start Header Style */
-header.header {
-  position: sticky;
+header.dashboardHeader {
   height: fit-content;
   left: 0;
   top: 0;
-  z-index: 1000;
-  width: 100%;
 }
 
-header .menu input {
-  display: none;
-}
-
-header .menu label {
-  margin: 0;
-}
-
-header .menu .icon {
-  cursor: pointer;
-  font-size: var(--font-size-h1);
-  color: var(--text-dark);
-  transition: 1s ease;
-  background-color: inherit;
-  display: none;
-}
-
-@media (max-width: 1200px) {
-header .menu .icon {
-  display: block;
-}
+header.dashboardHeader h2 {
+  color: var(--primary);
 }
 /*End Header Style */

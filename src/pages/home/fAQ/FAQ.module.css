@@ -2,7 +2,7 @@
 
 .faqItem {
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
   margin-bottom: 15px;
   overflow: hidden;
 }
@@ -47,7 +47,7 @@
 
 .faqAnswer {
   padding: var(--space-4);
-  color: #555;
+  color: var(--text-dark);
 }
 
 .faqButton {

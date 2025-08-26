@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./About-home.module.css";
 import { RiTeamFill, RiCustomerService2Fill } from "react-icons/ri";
-import "../../../assets/styles/global.css";
 import { BsFillTabletFill } from "react-icons/bs";
 
 export default function About() {
@@ -14,7 +13,7 @@ export default function About() {
             {" "}
             <RiTeamFill className={style.icon} size={30}/>{" "}
           </span>
-          <h4> المتابعة المستمرة والتطوير الشامل </h4>
+          <h4> متابعة مستمرة وتطوير شامل </h4>
           <p>
             {" "}
             نوفر كافة الإمكانيات لمتابعة احتياجات العملاء وتسهيل عملهم بسرعة
@@ -43,8 +42,10 @@ export default function About() {
           <h4> خدمة عملاء مميزة</h4>
           <p>
             {" "}
-            فريق خدمة العملاء معكم خطوة بخطوة بدءاَ من طلب استقدام عمالة منزلية
+       فريق خدمة العملاء معكم خطوة بخطوة  <br />  بدءاَ من طلب استقدام عمالة منزلية
+              <br /> 
             حتى وصول العمالة إليكم.
+
           </p>
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function Offers() {
   }, []);
 
   return (
-    <section className={` ${style.offers}`}>
+    <section id="countries" className={` ${style.offers}`}>
       <div className="container">
         <header className="header-section">
           <h2> عروضنا </h2>

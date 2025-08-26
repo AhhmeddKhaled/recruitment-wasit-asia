@@ -49,7 +49,7 @@ export default function AddWorker({ setOpenForm, type }) {
       const data = await response.json();
       if (response.ok) {
         setMessage(data.message || "✅ تمت إضافة العامل بنجاح");
-        // reset form
+        
         setName("");
         setAge("");
         setNationality("");
@@ -91,7 +91,7 @@ export default function AddWorker({ setOpenForm, type }) {
         </span>
       </header>
 
-      {message && <Message status={"error"}> {message} </Message>}
+      {message && <Message status={message.success}> {message} </Message>}
 
       {/* Worker Name*/}
       <div className={style.form_group}>
@@ -238,7 +238,7 @@ export default function AddWorker({ setOpenForm, type }) {
       }
 
       {/* Worker CV */}
-      <div className={style.form_group}>
+      <div className={` ${style.form_group} ${style.cv}`}>
         <Button variant="outlined" color="primary" size="lg" fullWidth>
           <input
             type="file"
@@ -251,7 +251,7 @@ export default function AddWorker({ setOpenForm, type }) {
       </div>
 
       {/* Submit */}
-      <div className={`${style.form_group} submit`}>
+      <div className={`${style.form_group} ${style.submit}`}>
         <Button variant="contained" color="primary" size="lg" fullWidth>
           إضافة خادمة
           <input type="submit" hidden />

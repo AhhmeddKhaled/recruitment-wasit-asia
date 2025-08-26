@@ -4,11 +4,12 @@ import Button from "../../../../components/button/Button";
 import { BiUpload } from "react-icons/bi";
 import { FiX } from "react-icons/fi";
 import { addArtical } from "../../../services/articals/addArtical";
+import Message from "../../../../components/message/Message";
 
 export default function AddArtical({ setOpenForm }) {
 
-    const [title, setTitle] = useState("fgfzgf");
-    const [paragraph, setParagraph] = useState('fgfgf');
+    const [title, setTitle] = useState("");
+    const [paragraph, setParagraph] = useState('');
     const [img, setImg] = useState(null);
     const [message, setMessage] = useState({});
 
@@ -17,21 +18,15 @@ export default function AddArtical({ setOpenForm }) {
     formData.append('paragraph', paragraph);
     formData.append('img', img);
 
-    const hundleSubmit = async (e) => {
-
-        console.log({title,paragraph,img});
-        
+    const hundleSubmit = async (e) => {        
         e.preventDefault();
 
         try{
             const newArtical = await addArtical({title,paragraph,img,setMessage});
-            console.log(newArtical);
-
-            setOpenForm(false)
-            
+            setTimeout(() => {setMessage('')}, 3000);
+            window.location.reload()
         } catch(err) {
             console.error(err);
-            
         }
     }
     return (
@@ -42,6 +37,11 @@ export default function AddArtical({ setOpenForm }) {
                     <FiX size={30} onClick={() => setOpenForm(false)} />
                 </span>
             </header>
+                {message.message &&
+                <Message status={message.success}>
+                    {message.message}
+                </Message>
+                }
             <form onSubmit={hundleSubmit}>
                 <div className={style.form_group}>
                     <label htmlFor="title">

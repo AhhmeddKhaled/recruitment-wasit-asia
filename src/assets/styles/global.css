@@ -44,10 +44,12 @@
   --disabled-bg: rgba(0, 0, 0, 0.12);
   --disabled-text: rgba(0, 0, 0, 0.26);
   --bg-color: #ffffff;
+  --bg-dark: #1a1e23;
   --bg-color-alt: #eee;
-  --text-dark: #333333;
-  --text-dark-hover: #f8f8f8;;
-  --text-light: #fff;
+  --text-dark: #666;
+
+  /* Color Effect */
+  --blue-effect: rgba(25, 118, 210, 0.08);
 
   /* Borders */
   --radius-sm: 0.4rem;
@@ -76,12 +78,16 @@ html {
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
+  color: var(--text-dark);
   direction: rtl;
   height: 100vh;
   width: 100vw;
   font-family: var(--font-family-base);
   overflow-x: hidden;
+}
+
+body *:not(select) {
+  color: inherit;
 }
 
 .container {
@@ -94,16 +100,13 @@ body {
     display: none;
   }
 }
+
 section.s-padding {
-  padding: 60px 0;
+  padding: calc(10 * var(--space-2)) 0;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: var(--space-4) 0;
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
   color: var(--text-dark);
   font-weight: var(--font-weight-bold);
 }
@@ -177,7 +180,7 @@ ul {
 .header-section {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .header-section h2 {
@@ -188,7 +191,10 @@ ul {
 
 .header-section p {
   text-align: center;
+  font-size: var(--font-size-h6);
+  color: var(--text-dark);
 }
+
 .page-header {
   height: 400px;
   display: flex;

@@ -50,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--space-8);
+  gap: var(--space-4);
   color: var(--text-dark);
 }
 
@@ -63,6 +63,7 @@
   animation: fadeInRight 1s ease-in-out;
   animation-fill-mode: forwards;
   text-shadow: var(--text-shadow);
+  margin: 0;
 }
 
 .hero_text h1 span {
@@ -75,63 +76,23 @@
   animation-fill-mode: forwards;
 }
 
-.hero_text .future {
-  display: flex;
-  gap: var(--space-6);
-  margin-top: var(--space-6);
-}
-
-.hero_text .future li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-small);
-}
-
-.hero_text .future li span {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.hero_text .future li .icon {
-  color: var(--secondary);
-}
-
-.hero_text .future li:first-child {
-  opacity: 0;
-  animation: fadeInRight 1s 1s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.hero_text .future li:nth-child(2) {
-  opacity: 0;
-  animation: fadeInRight 1s 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.hero_text .future li:nth-child(3) {
-  opacity: 0;
-  animation: fadeInRight 1s 2s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
 .hero_text .btns {
   display: flex;
-  gap: var(--space-6);
+  flex-direction: column;
+  gap: var(--space-4);
   margin-top: var(--space-6);
 
 }
 
 .hero_text .btns button:first-child {
   opacity: 0;
-  animation: fadeInRight 1s 3s ease-in-out;
+  animation: fadeInRight 1s 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 
 .hero_text .btns button:last-child {
   opacity: 0;
-  animation: fadeInRight 1s 2.5s ease-in-out;
+  animation: fadeInRight 1s 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 

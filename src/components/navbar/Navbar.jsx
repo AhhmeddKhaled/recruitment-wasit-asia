@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../assets/styles/global.css";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import { FaChevronDown, FaChevronLeft } from "react-icons/fa";
+import { FaChevronDown, FaChevronLeft, FaUser } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import Button from "../button/Button";
 import { UsersContext } from '../../data/AllProviders/UsersContext';
@@ -11,9 +11,13 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const { user, loading } = useContext(UsersContext);
-
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkingAdmin, setCheckingAdmin] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+
+  window.onscroll = function() {
+    setScrollY(window.scrollY);
+  }
 
   useEffect(() => {
     
@@ -47,7 +51,7 @@ export default function Navbar() {
   if (loading || checkingAdmin) return <div>جار التحميل...</div>;
 
   return (
-    <header className={`${style.navbar} p-t-b-12`}>
+    <header className={`${style.navbar} ${scrollY > 50 ? style.scroll : ''} p-t-b-12`}>
       <div className="container flex">
         <div className={style.logo}>
           <img src="/imgs/logo.png" alt="لوجو الموقع" />
@@ -105,7 +109,7 @@ export default function Navbar() {
             )}
           </li>
 
-          <Button variant="contained" color="primary" size="md">
+          <Button variant="contained" color="primary" size="md" endIcon={<FaUser />}>
             <Link to='/login'></Link>
             تسجيل الدخول
           </Button>

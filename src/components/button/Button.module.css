@@ -1,21 +1,23 @@
 .btn {
-  font-weight: 500;
-  border: none;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-transform: uppercase;
+  --hero-size: 360px;
+  --color: #fff;
+  font-weight: bold;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   gap: 0.5rem;
+  width: fit-content;
+  position: relative;
   transition: all 0.2s ease-in-out;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: none;
 }
 
 /* Sizes */
 .btn-sm {
   font-size: var(--font-size-tiny);
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-1) var(--space-8);
 }
 
 .btn-md {
@@ -25,12 +27,13 @@
 
 .btn-lg {
   font-size: var(--font-size-body);
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-3) var(--space-8);
 }
 
 .btn-hero {
-  font-size: var(--font-size-h5);
-  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-body);
+  padding: var(--space-2) var(--space-8);
+  width: var(--hero-size);
 }
 
 .btn-full {
@@ -44,7 +47,7 @@
 
 /* Variants */
 .btn-contained {
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-outlined {
@@ -52,6 +55,9 @@
   border: 0.1rem solid currentColor;
 }
 
+.btn-outlined:hover {
+  border-color: transparent;
+}
 .btn-text {
   background: transparent;
   border: none;
@@ -60,19 +66,19 @@
 /* Colors */
 .btn-primary {
   background: var(--primary);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-contained.btn-primary {
   background-color: var(--primary);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-primary:hover,
 .btn-contained.btn-primary:hover,
 .btn-outlined.btn-primary:hover {
   background-color: var(--primary-dark);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-outlined.btn-primary {
@@ -87,7 +93,7 @@
 
 .btn-secondary {
   background: var(--secondary);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-outlined.btn-secondary {
@@ -98,7 +104,7 @@
 .btn-secondary:hover,
 .btn-outlined.btn-secondary:hover {
   background: var(--secondary);
-  color: var(--bg-color);
+  color: var(--color);
 }
 
 .btn-text.btn-secondary {
@@ -108,12 +114,12 @@
 
 .btn-danger {
   background: var(--danger);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-contained.btn-danger {
   background-color: var(--danger);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-outlined.btn-danger {
@@ -126,7 +132,7 @@
 .btn-outlined.btn-danger:hover,
 .btn-text.btn-danger {
   background: var(--danger-dark);
-  color: var(--text-light);
+  color: var(--color);
 }
 
 .btn-text.btn-danger {
@@ -145,7 +151,7 @@
 .btn a {
   width: 100%;
   height: 100%;
-  color: inherit;
+  color: var(--color);
   position: absolute;
   left: 0;
   top: 0;

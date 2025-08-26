@@ -14,10 +14,7 @@ function AdminWorkersRouter() {
       {type === "عاملات_الإستقدام" && <AdminRecruimentWorkers />}
       {type === "نقل_خدمات" && <LocalWorker />}
       {type === "جميع_العاملات" && <AllWorkers />}
-      {!["عاملات_الإستقدام","جميع_العاملات","نقل_خدمات"].includes(type) && (
-        <h2>⚠️ النوع غير موجود</h2>
-      )}
-    </WorkersProvider>
+      </WorkersProvider>
   );
 }
 

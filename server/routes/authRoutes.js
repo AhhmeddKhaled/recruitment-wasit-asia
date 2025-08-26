@@ -3,11 +3,12 @@ const router = express.Router();
 const path = require("path");
 const fs = require("fs");
 
-const { register, login } = require('../controllers/authController');
+const { register, login, getUsers} = require('../controllers/authController');
 const { protect, authorize } = require('../middlewares/authMiddleware');
 
 router.post('/register', register);
 router.post('/login', login);
+router.get('/', getUsers);
 
 // API لتحميل CV محمي
 router.get("/api/workers/:id/cv", protect, (req, res) => {

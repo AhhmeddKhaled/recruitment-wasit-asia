@@ -28,47 +28,46 @@ export default function Contact() {
   };
 
   return (
-    <section className={`${style.login} s-padding`}>
+    <section id="contact" className={`${style.login} s-padding`}>
 
       <div className={` ${style.grid} container`}>
         <div className={style.login_form}>
         <h2> تواصل معنا </h2>
           <form className={style.contact} ref={form} onSubmit={handleSubmit}>
             <div className={style.name}>
-              <input type="text" id="name" name="name" required />
               <label htmlFor="name">
                 <FaUser /> الأسم كاملاً
               </label>
+              <input type="text" id="name" name="name" required />
             </div>
 
             <div className={style.phone}>
-              <input type="phone" id="number" name="phone" required />
               <label htmlFor="number">
                 {" "}
                 <FaPhoneAlt /> رقم الهاتف
               </label>
+              <input type="phone" id="number" name="phone" required />
             </div>
 
             <div className={style.select}>
+              <label htmlFor="select">
+                {" "}
+                <FaComment /> الموضوع
+              </label>
               <select id="select" name="subject">
                 <option disabled selected value={' '}>  </option>
                 <option> إستفسار </option>
                 <option> خدمة </option>
                 <option> شكوي </option>
               </select>
-              <label htmlFor="select">
-                {" "}
-                <FaComment /> الموضوع
-              </label>
             </div>
 
             <div className={style.mass}>
-              <textarea id="mass" name="message"></textarea>
-
               <label htmlFor="mass">
                 {" "}
                 <FaPen /> أكتب رسالتك
               </label>
+              <textarea id="mass" name="message"></textarea>
             </div>
             <div className={style.submit}>
               <Button
@@ -84,8 +83,8 @@ export default function Contact() {
             </div>
           </form>
         </div>
-        <div className={style.login_map}>
-          <img src="/imgs/contact.svg" />
+        <div className={style.contactImg}>
+          <img src="/contactImgs/contact.svg" />
         </div>
 
       </div>

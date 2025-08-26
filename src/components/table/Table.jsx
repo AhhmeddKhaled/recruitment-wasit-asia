@@ -13,14 +13,6 @@ export default function Table({ headers, data, actions }) {
     });
 
   
-  
-  if (!Array.isArray(headers) || headers.length === 0) {
-    return <p>⚠️ لازم تبعت headers كـ Array</p>;
-  }
-
-  if (!Array.isArray(data) || data.length === 0) {
-    return <p>⚠️ لا توجد بيانات</p>;
-  }
 
   const formatValue = (value) => {
 
@@ -91,7 +83,6 @@ export default function Table({ headers, data, actions }) {
                 {actions.map((col) => (
                   <Button
                     key={col.key}
-                    fullWidth
                     variant="contained"
                     color={col.color}
                     size="sm"

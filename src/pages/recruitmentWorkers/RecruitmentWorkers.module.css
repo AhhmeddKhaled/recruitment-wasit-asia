@@ -16,6 +16,7 @@
 .cvInputs .allCv .cv {
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
+  color: var(--text-dark);
   width: 400px;
 }
 

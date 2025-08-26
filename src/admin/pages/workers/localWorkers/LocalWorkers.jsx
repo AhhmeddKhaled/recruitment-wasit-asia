@@ -74,7 +74,7 @@ export default function LocalWorker() {
 };
 
     return (
-        <section>
+        <section className="s-padding">
             <header className="flex">
                 <h2> خادمات نقل الكفالة</h2>
                 <Button

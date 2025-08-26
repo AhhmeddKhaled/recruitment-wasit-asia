@@ -5,11 +5,13 @@ table {
   padding: var(--space-4) 0;
 }
 table thead th {
+  background-color: var(--blue-effect);
 }
 table tr th,
 table tr td {
   font-size: var(--font-size-small);
   border: 1px solid #999;
+  padding: var(--space-2);
 }
 table tr th {
   font-weight: var(--font-weight-bold);
@@ -29,8 +31,9 @@ table tbody td img {
 /* Mobile Style */
 .mobileGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+  justify-items: flex-start;
 }
 
 .mobileGrid .cardItem {
@@ -39,8 +42,13 @@ table tbody td img {
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-1);
   width: 300px;
+  display: -webkit-box;
+  line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; 
+  overflow: hidden;
 }
 
 .mobileGrid .cardItem .cardRow {
@@ -53,9 +61,11 @@ table tbody td img {
 }
 
 .mobileGrid .cardItem .cardRow:first-child {
-  background-color: var(--secondary);
+  background-color: var(--primary);
   border-top-right-radius: inherit;
   border-top-left-radius: inherit;
+  display: flex;
+  justify-content: center;
 }
 
 .mobileGrid .cardItem .cardRow:first-child span:first-child {

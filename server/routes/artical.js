@@ -6,5 +6,5 @@ const upload = require("../upload");
 router.get("/",artical.getArticals);
 router.get("/:id",artical.getArticalById);
 router.post("/",upload.single("img"), artical.createArtical);
-
+router.delete("/:id",artical.deleteArtical)
 module.exports = router;

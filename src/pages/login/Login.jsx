@@ -77,7 +77,7 @@ export default function Login() {
 
   return (
     <Layout>
-      <section className={` ${style.form} s-padding flex-center`}>
+      <section id="login" className={` ${style.form} s-padding flex-center`}>
         <form onSubmit={handleSubmit}>
           <div className={` ${style.img} flex-center `}>
             <img src="/imgs/login.svg" alt="login image" />

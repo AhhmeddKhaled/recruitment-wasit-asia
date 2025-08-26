@@ -54,3 +54,11 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.getUsers = async (req,res) => {
+
+  const users = await User.find();
+  console.log(users);
+  res.json(users);
+
+} 

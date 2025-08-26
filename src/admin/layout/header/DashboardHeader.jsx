@@ -3,23 +3,13 @@ import style from './DashboardHeader.module.css';
 import '../../../assets/styles/global.css';
 import { FiMenu, FiX } from "react-icons/fi";
 
-export default function DashboardHeader({openMenu, setOpenMenu}) {
+export default function DashboardHeader() {
     
     return (
-        <header className={style.header}>
-                <div className={style.menu}>
-                  <input type="checkbox" />
-                  <label>
-                    {openMenu ? <FiX className={style.icon}
-                      onClick={() => setOpenMenu(!openMenu)} /> :
-                      <FiMenu
-                      className={style.icon}
-                      onClick={() => setOpenMenu(!openMenu)}
-                      />
-                      
-                    }
-                  </label>
-                </div>
-              </header>
+        <header className={style.dashboardHeader}>
+          <h2>
+            لوحة التحكم
+          </h2>
+        </header>
     );
 }

@@ -1,0 +1,22 @@
+
+.ctaSection {
+  flex-direction: column;
+  gap: var(--space-6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(33, 150, 243, 0.1)
+  );
+}
+
+.ctaSection h2 {
+    margin: 0;
+}
+.ctaSection h2 span {
+    color: var(--primary);
+}
+.ctaSection p {
+  font-size: var(--font-size-body);
+  text-align: center;
+}
+

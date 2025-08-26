@@ -8,7 +8,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 const ContactUs = () => {
   return (
     <Layout>
-    <section className={` ${styles.contactPage} `}>
+    <section id="ditails" className={` ${styles.contactPage} `}>
       <div className={styles.contactHeader}>
         <h1>تواصل معنا</h1>
         <p>يسعدنا تواصلكم معنا عبر القنوات التالية</p>

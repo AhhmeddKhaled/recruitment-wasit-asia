@@ -19,9 +19,6 @@ mongoose
 .then(() => console.log("✅ Connected to MongoDB"))
 .catch((err) => console.log("❌ DB Error: ", err));
 
-const userRoutes = require("./routes/user");
-app.use("/api/users", userRoutes);
-
 const countryRoutes = require("./routes/country");
 app.use("/api/countries", countryRoutes);
 

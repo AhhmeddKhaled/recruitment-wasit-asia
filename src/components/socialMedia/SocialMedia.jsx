@@ -8,10 +8,10 @@ export default function SocialMedia() {
 
     return (
          <div className={style.social}>
-          <span> <FaFacebook size={20} className={style.icon}/> </span>
-          <span> <BsSnapchat size={20} className={style.icon}/> </span>
-          <span> <BsInstagram size={20} className={style.icon}/> </span>
-          <span> <MdEmail size={20} className={style.icon}/> </span>
+          <span arr="Facebook"> <FaFacebook size={20} className={style.icon}/> </span>
+          <span arr="Snapchat"> <BsSnapchat size={20} className={style.icon}/> </span>
+          <span arr="Instagram"> <BsInstagram size={20} className={style.icon}/> </span>
+          <span arr="Email"> <MdEmail size={20} className={style.icon}/> </span>
         </div>
     )
 }

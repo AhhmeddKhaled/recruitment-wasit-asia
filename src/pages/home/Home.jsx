@@ -17,6 +17,7 @@ import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
 import FAQ from "./faq/Faq";
+import CTASection from "./ctaSection/CTASection";
 
 export default function Home() {
   return (
@@ -32,39 +33,13 @@ export default function Home() {
           <MdEngineering size={45} className={style.icon} />
         </div>
         <div className={style.hero_text}>
-          <h1>مرحبًا بك في <span>وسيط أسيا</span>
+          <h1> <span>وسيط أسيا</span> خطوتك نحو الإستقدام
           </h1>
           <p>
             استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية
             لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
           </p>
-          <ul className={style.future}>
-            <li>
-              <span>
-                <FaUser className={style.icon} size={18} />
-                <strong>
-                  10,000
-                </strong>
-              </span>
-              عميل سعيد
-            </li>
-            <li>
-              <span>
-                <MdWork className={style.icon} size={18} />
-                <strong> 10 </strong>
-              </span>
-              سنوات خبرة  في مجال الإستقدام
-            </li>
-            <li>
-              <span>
-                <FaHeadset className={style.icon} size={18} />
-                <strong>
-                  7/24
-                </strong>
-              </span>
-              خدمة عملاء
-            </li>
-          </ul>
+
           <div className={style.btns}>
             <Button
               variant="contained"
@@ -76,7 +51,7 @@ export default function Home() {
               طلب إستقدام
             </Button>
 
-            <Button variant="outlined" color="secondary" size="hero" startIcon={<BiTransfer />}>
+            <Button variant="outlined" size="hero" startIcon={<BiTransfer />}>
               <Link to='نقل_خدمات'></Link>
               نقل خدمات
             </Button>
@@ -93,6 +68,7 @@ export default function Home() {
 
       <Services />
 
+      <CTASection />
       <FAQ />
 
       <Support />

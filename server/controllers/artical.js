@@ -46,3 +46,13 @@ exports.createArtical = async (req, res) => {
       .json({ message: "خطا في إنشاء المقال", error: error.message });
   }
 };
+
+exports.deleteArtical = async (req,res) => {
+  try {
+    await Artical.findByIdAndDelete(req.params.id);
+    res.status(200).json({message: "تم حذف المقال بنجاح"})
+  }
+  catch(err) {
+    res.status(500).json({ message: "خطأ في الحذف", err });
+  }
+}

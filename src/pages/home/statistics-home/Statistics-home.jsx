@@ -35,7 +35,6 @@ export default function Statistics() {
             </header>
             <div className={style.Statistics_boxs}>
                 {StatisticsList.map((Statistic,i) => (
-
                     <div className={style.box} key={i}>
                     <span className={style.icon}>
                         {Statistic.icon}

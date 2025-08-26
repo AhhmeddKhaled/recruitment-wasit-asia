@@ -16,9 +16,6 @@ function WorkersRouter() {
       {type === "طلب_إستقدام" && <RecruitmentWorkers />}
       {type === "نقل_خدمات" && <LocalWorkers />}
       {type === "عاملات_الإستقدام" && <AdminRecruimentWorkers />}
-      {!["recruitment", "local"].includes(type) && (
-        <h2>⚠️ النوع غير موجود</h2>
-      )}
     </WorkersProvider>
   );
 }

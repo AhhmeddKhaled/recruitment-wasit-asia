@@ -2,7 +2,7 @@ footer {
   background-color: var(--primary);
   color: var(--bg-color);
   padding: var(--space-10) 0;
-  color: var(--bg-color);
+  color: #fff;
 }
 
 footer * {
@@ -13,6 +13,7 @@ footer .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: var(--space-6);
+  color: #fff;
 }
 
 footer .container a {
@@ -31,8 +32,10 @@ transform: translateX(20px);
 grid-column: 1 / -1;
 }
 /* End Footer Style*/
+
 footer .end p {
   margin: 0;
+  color: #fff;
 }
 
 @media (max-width: 900px) {
