@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import "../../assets/styles/global.css";
 
 
-import style from './AdminDashboard.module.css';
+import style from './adminDashboard.module.css';
 import DashboardAside from "../layout/aside/DashboardAside";
 import DashboardHeader from "../layout/header/DashboardHeader";
 import { Outlet } from "react-router-dom";
