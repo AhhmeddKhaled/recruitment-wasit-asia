@@ -3,6 +3,7 @@ import style from "./FAQ.module.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Button from "../../../components/button/Button";
 import { Link } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const faqData = [
     {
@@ -45,22 +46,21 @@ export default function Faq() {
                             >
                                 <span>{item.question}</span>
                                 {activeIndex === index ? (
-                                    <FaMinus className={style.icon} size={30}/>
+                                    <FaMinus className={style.icon} size={30} />
                                 ) : (
-                                    <FaPlus className={style.icon} size={30}/>
+                                    <FaPlus className={style.icon} size={30} />
                                 )}
                             </button>
-                            {activeIndex === index && (
                                 <p className={style.faqAnswer}>{item.answer}</p>
-                            )}
                         </div>
                     ))}
 
                     <div className={style.faqButton}>
-                    <Button variant="contained" color="primary" size="hero">
-                        <Link to="/تواصل_معنا"></Link>
-                        إسأل وسيط أسيا
-                    </Button>
+                        <Button variant="text" color="primary" size="hero" endIcon={<IoIosArrowRoundBack size={30}/>
+}>
+                            <Link to="/تواصل_معنا"></Link>
+                           تواصل معنا لمزيد من الأسئلة
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import { BsFillTabletFill } from "react-icons/bs";
 
 export default function About() {
   return (
-    <section className={` ${style.about}`}>
+    <section className={`s-padding ${style.about}`}>
       <div className="container">
       <div className={style.about_cards}>
         <div className={style.card}>

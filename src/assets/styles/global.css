@@ -42,7 +42,7 @@
   --warning-color: #ed6c02;
   --disabled-bg: rgba(0, 0, 0, 0.12);
   --disabled-text: rgba(0, 0, 0, 0.26);
-  --bg-color: #ffffff;
+  --bg-color: #eee;
   --bg-dark: #1a1e23;
   --bg-color-alt: #eee;
   --text-dark: #666;
@@ -101,7 +101,7 @@ body *:not(select) {
 }
 
 section.s-padding {
-  padding: calc(10 * var(--space-2)) 0;
+  padding: calc(10 * var(--space-1)) 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -34,7 +34,7 @@ export default function Support() {
 
                 <header className='header-section flex-center'>
                     <h2>
-                        خدمة العملاء والمبيعات
+                       فريقنا متواجد لدعمك ومساعدتك
                     </h2>
                     <p>
                         يمكنك التواصل مع طاقمنا المميز بكل سهولة ويسر

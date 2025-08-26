@@ -1,16 +1,17 @@
 
 .ctaSection {
-  flex-direction: column;
-  gap: var(--space-6);
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(33, 150, 243, 0.1)
+  135deg,
+  rgba(255, 255, 255, 0.9),
+  rgba(33, 150, 243, 0.1)
   );
+  padding: 100px 0;
 }
 
-.ctaSection h2 {
-    margin: 0;
+.ctaSection .grid {
+  flex-direction: column;
+  gap: var(--space-6);
+
 }
 .ctaSection h2 span {
     color: var(--primary);

@@ -71,6 +71,7 @@ export default function Home() {
       <CTASection />
 
       <Faq />
+      
       <Support />
 
       <Offers />

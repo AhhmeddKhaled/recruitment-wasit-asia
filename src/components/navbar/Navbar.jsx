@@ -6,6 +6,7 @@ import { FaChevronDown, FaChevronLeft, FaUser } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import Button from "../button/Button";
 import { UsersContext } from '../../data/AllProviders/UsersContext';
+import { MdDashboard } from "react-icons/md";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -109,17 +110,19 @@ export default function Navbar() {
             )}
           </li>
 
-          <Button variant="contained" color="primary" size="md" endIcon={<FaUser />}>
+          <div className={style.btn}>
+          <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={24}/>}>
             <Link to='/login'></Link>
             تسجيل الدخول
           </Button>
 
           {isAdmin && (
-            <Button variant="contained" color="primary" size="md">
+            <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={24}/>}>
               <Link to='/dashboard'></Link>
               لوحة التحكم
             </Button>
           )}
+          </div>
         </ul>
 
         <span className={style.toggle_mobile} onClick={() => setIsOpen(!isOpen)}>

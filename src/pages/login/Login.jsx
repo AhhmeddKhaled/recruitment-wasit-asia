@@ -4,14 +4,15 @@ import Layout from "../../layout/layout";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import { BsSendCheck } from "react-icons/bs";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { UsersContext } from "../../data/AllProviders/UsersContext";
+import SocialMedia from "../../components/socialMedia/SocialMedia";
+import Message  from '../../components/message/Message';
 
 export default function Login() {
 
-  const { login, user } = useContext(UsersContext);  // استدعاء الـ login من الكونتكست
+  const { login, user } = useContext(UsersContext); 
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,8 +26,7 @@ export default function Login() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,8 +51,7 @@ export default function Login() {
       if (response.ok) {
         login(data);
 
-        setMessage(isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!");
-        setStatus("success");
+        setMessage({message: isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!",success: 'success'});
         setEmail("");
         setPassword("");
         setName("");
@@ -61,17 +60,20 @@ export default function Login() {
           navigate("/")
         },500)
       } else {
-        setMessage(data.message || "حدث خطأ");
-        setStatus("error");
+        setMessage({
+          message: data.message || "حدث خطأ",
+          success: 'error'
+        })
       }
     } catch (error) {
-      setMessage("حدث خطأ في الاتصال بالسيرفر");
-      setStatus("error");
+       setMessage({
+          message: "حدث خطأ في الاتصال بالسيرفر",
+          success: 'success'
+        })
     }
 
     window.messageTimer = setTimeout(() => {
-      setMessage("");
-      setStatus("");
+      setMessage({});
     }, 3000);
   };
 
@@ -162,22 +164,12 @@ export default function Login() {
             )}
           </div>
 
-          <div className={` ${style.social} flex-center`}>
-            <FaFacebook className={style.icon} size={30} />
-            <FaTwitter className={style.icon} size={30} />
-            <FaInstagram className={style.icon} size={30} />
-          </div>
-
-          {message && (
-            <p
-              className={` ${style.status} flex-center `}
-              style={{
-                background: status === "success" ? "green" : "red",
-
-              }}
-            >
-              {message}
-            </p>
+          <SocialMedia />
+          
+          {message.message && (
+            <Message status={message.success}>
+              {message.message}
+            </Message>
           )}
         </form>
       </section>

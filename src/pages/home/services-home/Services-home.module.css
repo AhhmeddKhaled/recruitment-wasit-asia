@@ -28,10 +28,13 @@
   grid-column: 1/-1;
 }
 
+.servicesGrid .servicesCards header p {
+  color: inherit;
+}
 .servicesGrid .servicesCards .card {
-  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: var(--space-2);
   padding: var(--space-4);
   color: #fff;
@@ -63,10 +66,6 @@
   margin-top: var(--space-4);
 }
 
-.servicesGrid .servicesCards .card > p {
-  min-height: 80px;
-}
-
 .servicesGrid .servicesCards .card button {
   width: fit-content;
 }
@@ -75,14 +74,11 @@
   transition: .3s ease;
 }
 
-.servicesGrid .servicesCards .card button a:hover  {
-  transform: translateX(8px);
-}
-
 .servicesImg {
   display: flex;
   align-items: flex-end;
 }
+
 .servicesImg img {
   object-fit: cover;
   height: 80%;
@@ -94,7 +90,7 @@
 
 @media (max-width: 768px) {
 .servicesGrid .servicesCards {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 .servicesImg {
   display: none;

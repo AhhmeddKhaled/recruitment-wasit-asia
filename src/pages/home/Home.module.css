@@ -8,9 +8,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-10);
-  padding: 160px 10% 60px;
+  padding: 160px 10% 0;
   position: relative;
-  min-height: 100vh;
 }
 
 .hero .heroBackground {

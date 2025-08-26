@@ -15,6 +15,7 @@ header.navbar.scroll {
 header.navbar * {
   color: inherit;
 }
+
 header.navbar .logo {
   height: 80px;
   width: 300px;
@@ -35,14 +36,14 @@ header.navbar .links li {
 header.navbar .links li:hover {
   color: var(--primary);
 }
+
 header.navbar .links li .icon {
   margin-right: var(--space-3);
 }
 
-header.navbar .links li + button,
-header.navbar .links li + button + button {
-  border: 1px solid var(--bg-color);
-  margin-right: var(--space-2);
+header.navbar .links .btn  {
+  display: flex;
+  gap: var(--space-2);
 }
 
 header.navbar .dropdown {
@@ -81,7 +82,7 @@ header.navbar .dropdown li a {
 }
 
 header.navbar .dropdown li a:hover {
-  background-color: var(--light-effect);
+  background-color: var(--blue-effect);
 }
 
 .toggle_mobile {
