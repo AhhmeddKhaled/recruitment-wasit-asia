@@ -1,5 +1,4 @@
 .recHeader::after {
-  background: url("../../../public/imgs/تعاقد.webp");
   z-index: -1;
   background-position: center;
   background-repeat: no-repeat;

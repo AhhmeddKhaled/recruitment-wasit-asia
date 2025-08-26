@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./Home.module.css";
 import '../../assets/styles/global.css'
 import Navbar from "../../components/navbar/Navbar";
@@ -11,13 +11,13 @@ import Support from "./support-home/Support-home";
 import Statistics from "./statistics-home/Statistics-home";
 import Contact from "./contact-home/Contact-home";
 import Button from "../../components/button/Button";
-import { FaHardHat, FaHeadset, FaTools, FaUser, FaUsersCog, FaWhatsapp } from "react-icons/fa";
+import { FaHardHat,FaUsersCog, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
-import FAQ from "./faq/Faq";
 import CTASection from "./ctaSection/CTASection";
+import Faq from "./faq/FAQ";
 
 export default function Home() {
   return (
@@ -69,8 +69,8 @@ export default function Home() {
       <Services />
 
       <CTASection />
-      <FAQ />
 
+      <Faq />
       <Support />
 
       <Offers />

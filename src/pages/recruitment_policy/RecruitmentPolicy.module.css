@@ -6,7 +6,6 @@
 }
 
 .recHeader::after {
-    background: url('../../../public/imgs/سياسات.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
