@@ -17,7 +17,7 @@ import { MdEngineering, MdWork } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
 import CTASection from "./ctaSection/CTASection";
-import Faq from "./faq/FAQ";
+import Faq from "./faq/faq";
 
 export default function Home() {
   return (
