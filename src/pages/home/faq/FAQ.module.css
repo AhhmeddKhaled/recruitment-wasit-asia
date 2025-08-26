@@ -1,5 +1,3 @@
-
-
 .faqItem {
   border-radius: 8px;
   box-shadow: var(--shadow-md);
@@ -51,6 +49,10 @@
 }
 
 .faqButton {
-    text-align: center;
-    padding: var(--space-6) 0;
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+.faqButton button {
+  max-width: 100%;
 }

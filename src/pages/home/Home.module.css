@@ -6,7 +6,7 @@
 /* Start Hero Style */
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-10);
   padding: 160px 10% 60px;
   position: relative;
@@ -81,19 +81,21 @@
   flex-direction: column;
   gap: var(--space-4);
   margin-top: var(--space-6);
-
+  max-width: 100%;
 }
 
 .hero_text .btns button:first-child {
   opacity: 0;
   animation: fadeInRight 1s 1s ease-in-out;
   animation-fill-mode: forwards;
+  max-width: inherit;
 }
 
 .hero_text .btns button:last-child {
   opacity: 0;
   animation: fadeInRight 1s 1s ease-in-out;
   animation-fill-mode: forwards;
+  max-width: inherit;
 }
 
 .hero .heroImg {
@@ -153,4 +155,19 @@
   background-color: #fff;
   border-radius: 4px;
   padding: 8px;
+}
+
+/* Media Mobile */
+@media (max-width: 900px) {
+.hero_text {
+  align-items: center;
+}
+
+.hero_text :is(h1,p) {
+  text-align: center;
+}
+
+.hero .heroImg {
+  display: none;
+}
 }

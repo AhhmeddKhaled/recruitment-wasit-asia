@@ -28,7 +28,7 @@
   gap: var(--space-4);
   color: var(--text-dark);
   background-color: var(--bg-color);
-  padding: var(--space-4) var(--space-8);
+  padding: clamp(2%,4vw, 20px);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   transition: 0.2s ease;
@@ -77,14 +77,3 @@
 }
 
 /* mobile media */
-@media (max-width: 578px) {
-  .about .about_cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1035px) {
-  .about .about_cards .card:last-child {
-    grid-column: 1 / -1;
-  }
-}

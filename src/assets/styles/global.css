@@ -1,19 +1,18 @@
 :root {
   /* Typography*/
-  --font-size-h1: 6rem;
-  --font-size-h2: 3.6rem;
-  --font-size-h3: 3.2rem;
-  --font-size-h4: 2.8rem;
-  --font-size-h5: 2.4rem;
-  --font-size-h6: 2rem;
-  --font-size-body: 1.6rem;
-  --font-size-small: 1.4rem;
-  --font-size-tiny: 1.2rem;
-  /*=====================*/
-  --font-family-base: "Tajawal", sans-serif;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
+--font-size-h1: clamp(2.8rem, 5vw, 6rem);
+--font-size-h2: clamp(2.4rem, 4vw, 5rem);
+--font-size-h3: clamp(2rem, 3vw, 3.2rem);
+--font-size-h4: clamp(1.8rem, 2.5vw, 2.8rem);
+--font-size-h5: clamp(1.6rem, 2vw, 2.4rem);
+--font-size-h6: clamp(1.4rem, 1.8vw, 2rem);
+--font-size-body: clamp(1.2rem, 1.5vw, 1.6rem);
+--font-size-small: clamp(1rem, 1.2vw, 1.4rem);
+--font-size-tiny: clamp(0.9rem, 1vw, 1.2rem);
+--font-family-base: "Tajawal", sans-serif; 
+--font-weight-regular: 400; 
+--font-weight-medium: 500; 
+--font-weight-bold: 700;
   /*====================*/
   --line-hght: 1.6;
 
@@ -145,25 +144,6 @@ p {
   margin-bottom: var(--space-4);
 }
 
-@media (max-width: 570px) {
-  h1 {
-    font-size: var(--font-size-h2);
-  }
-  h2 {
-    font-size: var(--font-size-h3);
-  }h3 {
-    font-size: var(--font-size-h4);
-  }h4 {
-    font-size: var(--font-size-h5);
-  }h5 {
-    font-size: var(--font-size-h6);
-  }h6 {
-    font-size: var(--font-size-body);
-  }
-  p {
-    font-size: var(--font-size-small);
-  }
-}
 a {
   text-decoration: none;
   cursor: pointer;
@@ -180,6 +160,7 @@ ul {
 .header-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: var(--space-8);
 }
 

@@ -14,7 +14,7 @@
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-6);
 }
 
@@ -26,9 +26,6 @@
 
 .servicesGrid .servicesCards header {
   grid-column: 1/-1;
-  align-items: flex-start;
-  background-color: red;
-  max-width: 100%;
 }
 
 .servicesGrid .servicesCards .card {
@@ -82,10 +79,30 @@
   transform: translateX(8px);
 }
 
+.servicesImg {
+  display: flex;
+  align-items: flex-end;
+}
 .servicesImg img {
   object-fit: cover;
+  height: 80%;
+  width: 100%;
 }
 /* ================ End Panner Style =================== */
 /* mobile media */
-@media (max-width: 900px) {
+
+
+@media (max-width: 768px) {
+.servicesGrid .servicesCards {
+  grid-template-columns: 1fr 1fr;
+}
+.servicesImg {
+  display: none;
+}
+}
+
+@media (min-width: 769px) {
+.servicesGrid .servicesCards {
+  grid-template-columns: repeat(2,1fr);
+}
 }
