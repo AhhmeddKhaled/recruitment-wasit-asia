@@ -78,11 +78,11 @@ export default function Workers_arrival() {
 
                 <div className={style.buttons}>
                   <Button variant="contained" size="lg" endIcon={<MdMessage />}>
-                    <Link to='/'></Link>
+                    <a href="tel:25262525"></a>
                     تواصل مع فريق الدعم 
                   </Button>
                     <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />}>
-                    <Link to='/'></Link>
+                    <Link to='/طلب_إستقدام'></Link>
                     طلب إستقدام
                   </Button>
                 </div>
