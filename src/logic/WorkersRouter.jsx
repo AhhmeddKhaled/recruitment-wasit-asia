@@ -14,6 +14,7 @@ function WorkersRouter() {
   return (
     <WorkersProvider type={type}>
       {type === "طلب_إستقدام" && <RecruitmentWorkers />}
+      {type === "إختيار_العمالة" && <RecruitmentWorkers />}
       {type === "نقل_خدمات" && <LocalWorkers />}
       {type === "عاملات_الإستقدام" && <AdminRecruimentWorkers />}
     </WorkersProvider>

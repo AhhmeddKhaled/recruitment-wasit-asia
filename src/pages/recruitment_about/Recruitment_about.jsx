@@ -3,7 +3,9 @@ import style from "./RecruitmentAbout.module.css";
 import Layout from "../../layout/layout";
 import Statistics from "../home/statistics-home/Statistics-home";
 import '../../assets/styles/global.css';
-import { FaCheckCircle } from "react-icons/fa";
+import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
+import Button from "../../components/button/Button";
+import { Link } from "react-router-dom";
 
 export default function Recruitment_about() {
   const list = [
@@ -76,9 +78,9 @@ const messages = [
 
   return (
     <Layout>
-      <div className={style.RecruitmentAbout}>
-        <header className={`page-header ${style.recHeader} `}>
-          <div className={` ${style.row} container `}>
+      <section className={` ${style.RecruitmentAbout} s-padding`}>
+          <div className={` ${style.info} container `}>
+            <div className={style.text}>
             <h2>تعاقد الإستقدام</h2>
             <p>
               مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
@@ -90,8 +92,28 @@ const messages = [
               صورة، وحصوله في المقابل على حقوقه كاملة، وخدمات المكتب تُغطي جميع
               المدن بالمملكة العربية السعودية.{" "}
             </p>
+
+            <div className={style.btn}>
+            <Button variant="contained" size="lg">
+              <Link to='/طلب_إستقدام'></Link>
+              طلب إستقدام
+            </Button>
+             <Button variant="outlined" size="lg">
+              <Link to='/طلب_إستقدام'></Link>
+               نقل خدمات
+            </Button>
+            <Button variant="text" size="lg" endIcon={<FaArrowLeft />}>
+              <Link to=''></Link>
+              تواصل معنا لمزيد  من المعلومات
+            </Button>
+            </div>
+
+            </div>
+            <div className={style.img}>
+              <img src="/imgs/about.svg" alt="" />
+            </div>
           </div>
-        </header>
+       
         <section className='container s-padding'>
           <div className={style.chatBox}>
             <div className={style.progres}>
@@ -124,35 +146,25 @@ const messages = [
           )}
         </section>
 
-        <div className={style.recProc}>
-          <div className={` ${style.row} container `}>
-            <h3> عمليات الإستقدام </h3>
-            <div className={style.recGrid}>
+        <section className={` ${style.steps} s-padding`}>
+          <div className={` ${style.stepsContainer} container `}>
+            <h2> عمليات الإستقدام </h2>
+            <div className={style.stepsGrid}>
               {list.map((box) => (
                 <div>
-                  <h4> {box.number} </h4>
+                  <h3> {box.number} </h3>
                   <span> {box.title} </span>
                   <p> {box.disk} </p>
+                  <span></span>
                 </div>
               ))}
             </div>
           </div>
-          <svg xmlns="htpp://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#2D5C7F"
-              fill-Opacity=".5"
-              d="M0,224L1440,0L1440,0L0,0Z"
-            ></path>
-            <path
-              fill="#2D5C7F"
-              fill-Opacity=".5"
-              d="M0,32L1440,256L1440,0L0,0Z"
-            ></path>
-          </svg>
-        </div>
+      
+        </section>
 
         <Statistics />
-      </div>
+      </section>
     </Layout>
   );
 }

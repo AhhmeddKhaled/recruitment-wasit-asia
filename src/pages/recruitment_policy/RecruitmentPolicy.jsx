@@ -9,17 +9,22 @@ import Button from "../../components/button/Button";
 export default function Recruitment_policy() {
     return (
         <Layout>
-            <section className={style.RecruitmentPolicy}>
-                <header className={` ${style.recHeader} flex-center`}>
-                    <div className={` ${style.grid} container `}>
-                        <h2>سياسات وقوانين الإستقدام داخل الملكة</h2>
+            <section className={` ${style.policy} s-padding`}>
+                <section className={` ${style.grid} container `}>
+                    <div className={style.policyText}>
+                        <h2>
+                            <span>
+                            سياسات وقوانين
+                            </span>
+                             الإستقدام داخل الملكة
+                            </h2>
                         <p>
                             الدستور والقانون السعودي وضع أهم المعايير والمفاهيم الخاصة
                             بالعمالة المنزلية, التي تضمن جقوق وواجبات كلًا من العامل وصاحب
                             العمل, وإليك أهم سياسات وقوانين الإستقدام داخل المملكة :
                         </p>
 
-                        <div className={` ${style.pdf} flex-center`}>
+                        <div className={` ${style.pdf}`}>
                             <Button
                                 variant="contained"
                                 color="secondary"
@@ -45,7 +50,10 @@ export default function Recruitment_policy() {
 
                         </div>
                     </div>
-                </header>
+                    <div className={style.img}>
+                    <img src="/imgs/سياسات.webp" alt="polisy image" />
+                    </div>
+                </section>
                 <Contact />
             </section>
         </Layout>

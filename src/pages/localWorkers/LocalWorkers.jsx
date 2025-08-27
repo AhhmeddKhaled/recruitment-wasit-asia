@@ -6,7 +6,6 @@ import Layout from "../../layout/layout";
 import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
 import { WorkersContext } from "../../data/AllProviders/WorkersContext";
 import { FaCheck } from "react-icons/fa";
-import Message from "../../components/message/Message";
 
 export default function LocalWorkers() {
 

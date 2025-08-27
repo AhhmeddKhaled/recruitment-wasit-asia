@@ -1,6 +1,6 @@
 .localWorkers .workers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-4);
   justify-items: center;
 }
@@ -8,7 +8,6 @@
 .card {
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
-  width: 400px;
   background-color: var(--bg-color);
   border-top: 16px solid var(--main-color);
 }
