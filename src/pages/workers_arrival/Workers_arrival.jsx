@@ -11,7 +11,6 @@ import { BsSendArrowDown } from "react-icons/bs";
 export default function Workers_arrival() {
   return (
     <Layout>
-      <main>
         <section className="s-padding">
           <div className="container">
             <div className={style.arrivalGrid}>
@@ -94,8 +93,6 @@ export default function Workers_arrival() {
             </div>
           </div>
         </section>
-
-      </main>
     </Layout>
   );
 }
