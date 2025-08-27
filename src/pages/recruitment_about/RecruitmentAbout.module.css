@@ -23,7 +23,6 @@
           flex: 0 1 40%;
         }
         &:last-child {
-          width: fit-content;
           display: flex;
           gap: var(--space-4);
         }
@@ -108,15 +107,6 @@
   }
 }
 
-
-
-.recProc svg {
-  margin-top: 100px;
-}
-
-.RecruitmentAbout .statistics {
-  margin-top: -140px;
-}
 
 .chatBox {
   padding: 15px;
@@ -208,4 +198,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@media (max-width: 768px) {
+    .info .img {
+      display: none;
+    }
 }
