@@ -34,6 +34,9 @@ app.use('/api/auth', require('./routes/authRoutes'));
 const transporterEmailRoutes = require("./controllers/TransporterEmail");
 app.use("/api/notify-owner", transporterEmailRoutes);
 
+const contact = require("./routes/contact");
+app.use("/api/contact",contact);
+
 // استماع
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

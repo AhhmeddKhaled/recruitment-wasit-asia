@@ -1,11 +1,23 @@
 /* Start Header Style */
 header.dashboardHeader {
-  height: fit-content;
-  left: 0;
-  top: 0;
-}
-
-header.dashboardHeader h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h2 {
   color: var(--primary);
 }
+}
+
 /*End Header Style */
+
+/* Media */
+
+/* Mobile */
+@media (max-width: 768px) {
+  header.dashboardHeader {
+    justify-content: flex-end;
+    h2 {
+      display: none;
+    }
+  }
+}

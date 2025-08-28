@@ -54,7 +54,7 @@ export default function Contact() {
                 <FaComment /> الموضوع
               </label>
               <select id="select" name="subject">
-                <option disabled selected value={' '}>  </option>
+                <option disabled selected value=' '>  </option>
                 <option> إستفسار </option>
                 <option> خدمة </option>
                 <option> شكوي </option>

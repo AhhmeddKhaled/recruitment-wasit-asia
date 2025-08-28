@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import style from './DashboardAside.module.css';
 import { Link } from "react-router-dom";
-import { FaChevronDown, FaChevronLeft, FaHome, FaPlaneDeparture } from "react-icons/fa";
+import { FaHome, FaPlaneDeparture } from "react-icons/fa";
 import { GrTransaction, GrUserWorker } from "react-icons/gr";
 import { MdArticle, MdMenu, MdOutlineKeyboardDoubleArrowLeft, MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import { AiFillDelete } from "react-icons/ai";
-import { RiDashboardFill, RiFunctionAddFill } from "react-icons/ri";
-import { FiX } from "react-icons/fi";
+import { RiDashboardFill } from "react-icons/ri";
+import { BiSolidContact } from "react-icons/bi";
 
 export default function DashboardAside() {
 
@@ -59,16 +58,11 @@ export default function DashboardAside() {
                        </Link>
 
                 </li>
+             
                 <li>
-                    <Link to="/dashboard/إضافة_مقال">  
-                    إضافة مقال
-                    <RiFunctionAddFill size={30} />
-                      </Link>
-                </li>
-                <li>
-                    <Link to="/dashboard/حذف_مقال">  
-                    حذف مقال
-                    <AiFillDelete size={30} />
+                    <Link to="/dashboard/التواصل">  
+                   التواصل
+                    <BiSolidContact size={30}/>
                       </Link>
 
                 </li>

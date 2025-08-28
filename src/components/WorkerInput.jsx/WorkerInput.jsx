@@ -100,7 +100,9 @@ export default function WorkerInput({ type }) {
           { value: "كينيا", label: "كينيا" },
           { value: "أوغندا", label: "أوغندا" },
           { value: "الفلبين", label: "الفلبين" },
-          { value: "برولدي", label: "برولدي" },
+          { value: "بروندي", label: "بروندي" },
+          { value: "بنجلاديش", label: "بنجلاديش" },
+          { value: "سريلانكا", label: "سريلانكا" },
         ]}
       />
 

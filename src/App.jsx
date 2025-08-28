@@ -21,6 +21,7 @@ import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
 import AdminHome from "../src/admin/pages/home/Home";
 import AllArticals from "./admin/pages/articals/allArticals/AllArticals";
 import AdminWorkersRouter from "./logic/AdminWorkersRouter";
+import Contact from "./admin/pages/contact/Contacts";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             <Route path=":type" element={<AdminWorkersRouter />} />
 
           <Route path="المقالات" element={<AllArticals />} />
+          <Route path="التواصل" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>

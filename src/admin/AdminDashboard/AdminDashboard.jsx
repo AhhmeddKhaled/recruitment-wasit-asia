@@ -4,7 +4,6 @@ import "../../assets/styles/global.css";
 
 import style from './adminDashboard.module.css';
 import DashboardAside from "../layout/aside/DashboardAside";
-import DashboardHeader from "../layout/header/DashboardHeader";
 import { Outlet } from "react-router-dom";
 
 export default function AdminDashboard() {
@@ -14,7 +13,6 @@ export default function AdminDashboard() {
       <DashboardAside/>
 
       <div className={style.grid}>
-      <DashboardHeader/>
       <section className={style.content}>
         <Outlet />
       </section>
