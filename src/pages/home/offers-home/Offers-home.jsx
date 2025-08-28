@@ -45,52 +45,7 @@ export default function Offers() {
           ))}
         </div>
       </div>
-      <section className={` s-padding ${style.why}`}>
-        <div className={` ${style.grid} container`}>
-          <div className={style.info}>
-            <h2>
-                نقل كفالة مع
     
-               وسيط أسيا
-            </h2>
-            <p>
-              في وسيط آسيا، نحرص على أن تحصل على أفضل خدمة استقدام في أسرع وقت
-              وبأعلى درجات الأمان.
-              فريقنا ملتزم بالشفافية التامة، وضمان حقوقك من بداية الطلب حتى وصول
-              العمالة إليك.{" "}
-            </p>
-
-            <div className={style.future}>
-              <span>
-                <FaTachometerAlt className={style.icon} />
-                سرعة الإنجاز
-              </span>
-              <span>
-                <FaHeadset className={style.icon} />
-                دعم على مدار الساعة
-              </span>
-              <span>
-                <FaShieldAlt className={style.icon} />
-                ضمان الحقوق
-              </span>
-            </div>
-
-            <div className={style.btn}>
-              <Button variant="outlined" size="lg">
-                <Link to={'/طلب_إستقدام'}></Link>طلب إستقدام
-              </Button>
-                <Button variant="outlined" size="lg">
-                <Link to={'/طلب_إستقدام'}></Link> نقل كفالة
-              </Button>
-            </div>
-
-      
-          </div>
-          <div className={style.img}>
-            <img src="/imgs/why.webp" alt="img" />
-          </div>
-        </div>
-      </section>
     </section>
   );
 }

@@ -2,9 +2,6 @@ import React from "react";
 import style from "./Footer.module.css";
 import "../../assets/styles/global.css";
 import { Link } from "react-router-dom";
-import { FaFacebook } from "react-icons/fa";
-import { BsInstagram, BsSnapchat } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";
 import SocialMedia from "../socialMedia/SocialMedia";
 export default function Footer() {
   return (

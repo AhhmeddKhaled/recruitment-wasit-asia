@@ -9,10 +9,10 @@ import { deleteWorker } from "../../../services/workers/deleteWorker";
 
 export default function LocalWorker() {
 
-  const {localWorkers, setLocalWorkers, fetchWorkers} = useContext(WorkersContext);
-  
-    const [message, setMessage] = useState({});
-    const [openForm, setOpenForm] = useState(false);
+  const { localWorkers, setLocalWorkers, fetchWorkers } = useContext(WorkersContext);
+
+  const [message, setMessage] = useState({});
+  const [openForm, setOpenForm] = useState(false);
   const headers = [
     {
       key: "name",
@@ -66,39 +66,39 @@ export default function LocalWorker() {
 
   useEffect(() => {
     fetchWorkers('local');
-  },[])
+  }, [])
 
   const handleDelete = (id) => {
-  deleteWorker(id, "local", setMessage);
-  setLocalWorkers(localWorkers.filter((worker) => worker._id !== id));
-};
+    deleteWorker(id, "local", setMessage);
+    setLocalWorkers(localWorkers.filter((worker) => worker._id !== id));
+  };
 
-    return (
-        <section className="s-padding">
-            <header className="flex">
-                <h2> خادمات نقل الكفالة</h2>
-                <Button
-                    variant="conyained"
-                    color="primary"
-                    size="lg"
-                    endIcon={<FaPlus />}
-                    onClick={() => setOpenForm(true)}>
-                    إضافة خادمة
-                </Button>
-            </header>
-            {localWorkers.length >= 1 ?
-            <Table headers={headers} data={localWorkers} actions={actions}/>
-                : <p>
-                    لا يوجد خادمات, قم بإضافة خادمة جديدة
-                </p>
+  return (
+    <section className="s-padding">
+      <header className="flex">
+        <h2> خادمات نقل الكفالة</h2>
+        <Button
+          variant="conyained"
+          color="primary"
+          size="lg"
+          endIcon={<FaPlus />}
+          onClick={() => setOpenForm(true)}>
+          إضافة خادمة
+        </Button>
+      </header>
+      {localWorkers.length >= 1 ?
+        <Table headers={headers} data={localWorkers} actions={actions} />
+        : <p>
+          لا يوجد خادمات, قم بإضافة خادمة جديدة
+        </p>
 
-            }
-            {openForm && <AddWorker setOpenForm={setOpenForm} type='local' />}
-            {message.message &&
-                <p>
-                    {message.message}
-                </p>
-            }
-        </section>
-    )
+      }
+      {openForm && <AddWorker setOpenForm={setOpenForm} type='local' />}
+      {message.message &&
+        <p>
+          {message.message}
+        </p>
+      }
+    </section>
+  )
 }

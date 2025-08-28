@@ -6,7 +6,7 @@
 --font-size-h4: clamp(1.8rem, 2.5vw, 2.8rem);
 --font-size-h5: clamp(1.6rem, 2vw, 2.4rem);
 --font-size-h6: clamp(1.4rem, 1.8vw, 2rem);
---font-size-body: clamp(1.2rem, 1.5vw, 1.6rem);
+--font-size-body: clamp(1.6rem, 1.5vw, 1.6rem);
 --font-size-small: clamp(1rem, 1.2vw, 1.4rem);
 --font-size-tiny: clamp(0.9rem, 1vw, 1.2rem);
 --font-family-base: "Tajawal", sans-serif; 
@@ -42,7 +42,7 @@
   --warning-color: #ed6c02;
   --disabled-bg: rgba(0, 0, 0, 0.12);
   --disabled-text: rgba(0, 0, 0, 0.26);
-  --bg-color: #eee;
+  --bg-color: #fff;
   --bg-dark: #1a1e23;
   --bg-color-alt: #eee;
   --text-dark: #666;

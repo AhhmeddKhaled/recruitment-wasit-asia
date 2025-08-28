@@ -1,53 +1,65 @@
 /* header style*/
-.login .grid {
+.login {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-6);
     margin: auto;
+    background: hsl(from var(--primary) h s l / 0.7);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    color: var(--bg-color);
+    box-shadow: 0 0 100px rgb(0, 0, 0, 0.2);
+    h2 {
+      margin-bottom: var(--space-4);
+      margin-top: 0;
+    }
+    .contactImg {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 560px;
+      }
+    }
+  }
+  .map {
+    margin-top: var(--space-12);
+    iframe {
+      border: none;
+      border-radius: var(--l-radius);
+      width: 100%;
+      height: 400px;
+    }
+  }
 }
 
 form.contact {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-2);
-    width: 460px;
-    padding: 0 var(--space-2);
-}
-
-
-.login h2 {
-    color: var(--primary);
-    margin-bottom: var(--space-4);
-    margin-top: 0;
-}
-
-form.contact > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-2);
+  width: 460px;
+  padding: 0 var(--space-2);
+  div {
     margin-bottom: var(--space-3);
-    max-width: 100%;
-    position: relative;
-}
-
-form.contact > div label {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-body);
-    color: var(--text-dark);
-    transition: .3s ease-in-out;
-}
-
-form.contact .name,
-form.contact .mass,
-form.contact .submit {
+    label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-bold);
+      transition: 0.3s ease-in-out;
+      margin-bottom: var(--space-3);
+    }
+  }
+  :is(.name, .mass, .submit) {
     grid-column: 1 / -1;
-}
-
-
-form.contact > div input,
-form.contact > div select,
-form.contact > div textarea {
+  }
+  input,
+  select,
+  textarea {
     border-radius: var(--radius-lg);
-    background-color: rgba(237,246,253,255);
+    background-color: rgba(237, 246, 253, 255);
     text-decoration: none;
     padding: var(--space-4) var(--space-6);
     width: 100%;
@@ -55,78 +67,32 @@ form.contact > div textarea {
     border: none;
     outline: none;
     height: fit-content;
-}
-
-form.contact > div select option {
+    resize: none;
+    accent-color: red;
+  }
+  select option {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-body);
-}
-
-label {  
-    display: block;
-    margin-bottom: var(--space-1);
-    color: var(--main-color);
-    font-weight: var(--font-weight-bold);
-}
-
-.login form.contact > div textarea {
+  }
+  textarea {
     width: 100%;
     height: 160px;
-}
-
-.login form.contact .submit {
+  }
+  .submit {
     margin-top: var(--space-4);
     display: flex;
     justify-content: center;
-
-}
-
-.login form.contact .submit button {
-    border-radius: 40px;
-}
-
-.contactImg {
-    display: flex;
-    justify-content: center;
-}
-
-.contactImg img {
-    width: 100%;
-    height: 560px;
-}
-
-.login .map h5 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-}
-
-.login .map h5 .icon {
-    color: var(--main-color);
-}
-
-.login .map {
-    margin-top: var(--space-12);
-}
-
-.login .map iframe {
-    border: none;
-    border-radius: var(--l-radius);
-    width: 100%;
-    height: 400px;
+    button {
+      border-radius: 40px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
-.login .grid {
-    grid-template-columns: 1fr;
-}
-
-form.contact {
-    width: 100%;
-}
-}
-@media (max-width: 900px) {
-.login_map {
+  .grid .contactImg {
     display: none;
-}
-
+  }
+  form.contact {
+    max-width: 100%;
+  }
 }
