@@ -84,7 +84,7 @@ export default function Login() {
           <div className={` ${style.img} flex-center `}>
             <img src="/imgs/login.svg" alt="login image" />
           </div>
-          <h2 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h2>
+          <h3 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h3>
 
           {!isLogin && (
             <>
