@@ -16,6 +16,9 @@ footer .container {
   color: #fff;
 }
 
+footer .container h4 {
+  margin-bottom: var(--space-3);
+}
 footer .container a {
   font-weight: var(--font-weight-bold);
   margin-right: var(--space-2);
