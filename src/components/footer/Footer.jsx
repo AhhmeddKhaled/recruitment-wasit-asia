@@ -7,7 +7,6 @@ import { ContactContext } from '../../data/AllProviders/ContactContext'
 export default function Footer() {
 
   const { contact } = useContext(ContactContext);
-  console.log(contact);
 
   return (
     <footer>

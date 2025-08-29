@@ -89,8 +89,9 @@ form.contact {
 }
 
 @media (max-width: 768px) {
-  .grid .contactImg {
+  .login .grid .contactImg {
     display: none;
+    background-color: red;
   }
   form.contact {
     max-width: 100%;
