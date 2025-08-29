@@ -4,29 +4,11 @@ import '../../../assets/styles/global.css';
 import { MdOutlineEmail } from "react-icons/md";
 import { PiPhoneBold } from "react-icons/pi";
 import { BsSnapchat } from "react-icons/bs";
-import {ContactContext} from '../../../data/AllProviders/ContactContext'
+import { ContactContext } from '../../../data/AllProviders/ContactContext'
 export default function Support() {
 
     const { contact } = useContext(ContactContext);
-    
-    const contacts = [
-        {
-            icon: <MdOutlineEmail size={30}/>,
-            name: 'تواصل معنا عبر الإيميل',
-            text: "ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً الإتاحة: 24/7",
-        },
-        {
-            icon: <PiPhoneBold size={30}/>,
-            name: "إتصل بنا",
-            text: "ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً الإتاحة: 24/7",
-        },
-        {
-            icon: <BsSnapchat size={30}/>,
-            name: "تواصل معنا عبر سناب  شات",
-            text: "ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً الإتاحة: 24/7",
-        },
 
-    ]
     return (
         <section className={` ${style.support} s-padding`}>
 
@@ -34,7 +16,7 @@ export default function Support() {
 
                 <header className='header-section flex-center'>
                     <h2>
-                       فريقنا متواجد لدعمك ومساعدتك
+                        فريقنا متواجد لدعمك ومساعدتك
                     </h2>
                     <p>
                         يمكنك التواصل مع طاقمنا المميز بكل سهولة ويسر
@@ -42,22 +24,62 @@ export default function Support() {
                 </header>
 
                 <div className={style.support_cards}>
-                    {contacts.map((contact, i) => (
-                        <div className={style.card} key={i}>
+                        <div className={style.card}>
                             <div>
                                 <span>
-                                    {contact.icon}
+                                    <MdOutlineEmail size={30} />                           
                                 </span>
                                 <h3>
-                                    {contact.name}
+                                    تواصل معنا عبر الإيميل
                                 </h3>
                                 <p>
-                                    {contact.text}
+                                    ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً
                                 </p>
                             </div>
                             <div className={style.contact}>
-                                <a href={contact.phone}>
-                                    <span> {contact.contact} </span>
+                                <a href='mailto:wasitasia1@gmail.com'>
+                                    <span> wasitasia1@gmail.com </span>
+                                </a>
+                            </div>
+                        </div>
+                         <div className={style.card}>
+                            <div>
+                                <span>
+                                    <BsSnapchat size={30} />                           
+                                </span>
+                                <h3>
+                                    تواصل معنا عبر سناب
+                                </h3>
+                                <p>
+                                    ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً
+                                </p>
+                            </div>
+                            <div className={style.contact}>
+                              
+                                <a href=''>
+                                    <span> wasit_LD </span>
+                                </a>
+                            </div>
+                        </div>
+                    {contact.map((c, i) => (
+                        <div className={style.card} key={i}>
+                            <div>
+                                <span>
+                                    <PiPhoneBold size={30} />                           
+                                </span>
+                                <h3>
+                                    إتصل بنا
+                                </h3>
+                                <p>
+                                    ساعات العمل: الأحد - الخميس: 8 صباحًا إلى 8 مساءً | السبت: 8 صباحًا إلى 8 مساءً
+                                </p>
+                            </div>
+                            <div className={style.contact}>
+                                <span>
+                                    قسم : {c.role}
+                                </span>
+                                <a href={c.phone}>
+                                    <span> الهاتف : {c.phone} </span>
                                 </a>
                             </div>
                         </div>

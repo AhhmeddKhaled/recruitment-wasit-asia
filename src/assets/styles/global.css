@@ -73,6 +73,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -83,6 +84,22 @@ body {
   width: 100vw;
   font-family: var(--font-family-base);
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark); 
 }
 
 body *:not(select) {

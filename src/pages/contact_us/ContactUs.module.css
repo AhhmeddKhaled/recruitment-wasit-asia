@@ -2,7 +2,7 @@
 .contactPage {
   padding: 60px 5%;
   background: linear-gradient(to right, #f9fafc, #eef4ff);
-  max-height: 100vh;
+  min-height: 100vh;
   max-width: 100%;
   position: relative;
 }

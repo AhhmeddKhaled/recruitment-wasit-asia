@@ -35,8 +35,12 @@ export default function AddWorker({ setOpenForm, type }) {
     formData.append("job", job);
     formData.append("experience", experience);
     formData.append("recruitmentFee", recruitmentFee);
-    formData.append("skills", JSON.stringify(selectedSkills));
     formData.append("cv", cv);
+
+    selectedSkills.forEach(skill => {
+      formData.append("skills", skill);
+    });
+
 
     try {
       const response = await fetch(url, {
@@ -44,12 +48,10 @@ export default function AddWorker({ setOpenForm, type }) {
         body: formData,
       });
 
-      console.log(url);
 
       const data = await response.json();
       if (response.ok) {
         setMessage(data.message || "✅ تمت إضافة العامل بنجاح");
-        
         setName("");
         setAge("");
         setNationality("");
@@ -59,17 +61,17 @@ export default function AddWorker({ setOpenForm, type }) {
         setRecruitmentFee("");
         setJob("");
         setCv("");
+
       } else {
         setMessage("❌ حدث خطأ أثناء الإضافة");
       }
     } catch (error) {
-      console.error(error);
       setMessage("❌ مشكلة في الاتصال بالسيرفر");
     }
-
+    
     setTimeout(() => {
-      +
-        setMessage("")
+      setMessage("")
+      setOpenForm(false);
     }, 3000);
   };
 

@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Footer.module.css";
 import "../../assets/styles/global.css";
 import { Link } from "react-router-dom";
 import SocialMedia from "../socialMedia/SocialMedia";
+import { ContactContext } from '../../data/AllProviders/ContactContext'
 export default function Footer() {
+
+  const { contact } = useContext(ContactContext);
+  console.log(contact);
+
   return (
     <footer>
       <div className={`${style.container} container`}>
@@ -44,33 +49,20 @@ export default function Footer() {
           <h4>معلومات التواصل</h4>
           <ul>
             <li>
-              مدير نقل الخدمات:
-              <a href="tel:966555653289">966555653289</a>
-            </li>
-            <li>
               العنوان:
-              <a href="">   طريق رخيص تقاطع شارع عبد الله بن سعود  </a>
+              <a href="">   طريق خريص تقاطع شارع عبد الله بن سعود  </a>
             </li>
             <li>
               البريد الإلكتروني:
-              <a href="mailto:iwasitasia1@gmail.com">wasitasia1@gmail.com</a>
+              <a href="mailto:wasitasia1@gmail.com">wasitasia1@gmail.com</a>
             </li>
-            <li>
-              المبيعات:
-              <a href="tel:8003030309">8003030309</a>
+
+            {contact.map((c,i) => (
+              <li>
+              {c.role} :
+              <a href={`tel:${c.phone}`}>{c.phone}</a>
             </li>
-            <li>
-              الشكاوي:
-              <a href="tel:8003030309">8003030309</a>
-            </li>
-            <li>
-              سجل تجاري:
-              <a href="">1010595382</a>
-            </li>
-            <li>
-              رقم المنشأة
-              <a href="">41012064</a>
-            </li>
+            ))}
           </ul>
         </div>
 
@@ -102,6 +94,6 @@ export default function Footer() {
         <p>© 2025 جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
         <SocialMedia />
       </div>
-    </footer>
+    </footer >
   );
 }

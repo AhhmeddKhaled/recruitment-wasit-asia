@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./ContactUs.module.css";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import Layout from "../../layout/layout";
-import Contact from "../home/contact-home/Contact-home";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
+import { ContactContext } from "../../data/AllProviders/ContactContext";
 
 const ContactUs = () => {
+
+  const { contact } = useContext(ContactContext);
+
   return (
     <Layout>
     <section id="ditails" className={` ${styles.contactPage} `}>
@@ -18,13 +21,15 @@ const ContactUs = () => {
         <div className={styles.contactDetails}>
           <div className={styles.detailBox}>
             <FaMapMarkerAlt className={styles.icon} />
-            <a href="https://www.google.com/maps?q=سيارتنا" target="_blank">الرياض - حي النزهة - الرمز البريدي 13231</a>
+            <a href="https://www.google.com/maps?q=سيارتنا" target="_blank"> طريق خريص تقاطع شارع عبد الله بن سعود </a>
           </div>
 
-          <div className={styles.detailBox}>
+          {contact.map((c,i) => (
+            <div className={styles.detailBox} key={i}>
             <FaPhone className={styles.icon} />
-            <a href="tel:">8003030909</a>
+            <a href={`tel:${c.phone}`}> {c.role} : {c.phone}</a>
           </div>
+          ))}
 
           <div className={styles.detailBox}>
             <FaEnvelope className={styles.icon} />

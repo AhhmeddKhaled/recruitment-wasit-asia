@@ -22,9 +22,7 @@ import Faq from "./faq/FAQ";
 export default function Home() {
   return (
     <div className={style.home}>
-      <header>
         <Navbar />
-      </header>
 
       <section className={` ${style.hero} `}>
         <div className={style.heroBackground}>
@@ -82,7 +80,7 @@ export default function Home() {
 
       <Footer />
 
-      <a href="tel:25232322" className={style.whatsappIcon}>
+      <a href="tel:+201008890582" className={style.whatsappIcon}>
         <FaWhatsapp className={style.icon} />
       </a>
     </div>

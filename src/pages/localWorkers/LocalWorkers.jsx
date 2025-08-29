@@ -16,6 +16,8 @@ export default function LocalWorkers() {
         fetchWorkers('local');
     }, []);
 
+    
+
     return (
         <Layout>
             <section className={` ${style.localWorkers} s-padding`}>
@@ -24,8 +26,8 @@ export default function LocalWorkers() {
 
                     {localWorkers.length === 0 &&<p className={style.not}> لا يوجد عمال بهذه البيانات </p>}
                     <div className={style.workers}>
-                    {localWorkers.map((worker) => (
-                        <div className={style.card}>
+                    {localWorkers.map((worker,i) => (
+                        <div className={style.card} key={i}>
                             <div className={style.header}>
                                 <div>
                                     <img src={`/server${worker.cv}`} alt="img" className={style.avatar} />

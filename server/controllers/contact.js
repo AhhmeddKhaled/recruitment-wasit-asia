@@ -2,12 +2,12 @@ const Contact = require("../models/contact");
 
 exports.createContact = async (req, res) => {
   try {
-    const { name, phone } = req.body;
+    const { name, phone , role } = req.body;
     const exists = await Contact.findOne({ phone });
     if (exists)
       return res.status(400).json({ message: "هذا الرقم موجود بالفعل" });
 
-    const contact = await Contact.create({ name, phone });
+    const contact = await Contact.create({ name, phone , role});
     res.status(201).json(contact);
   } catch (err) {
     res.status(500).json({ message: err.message });

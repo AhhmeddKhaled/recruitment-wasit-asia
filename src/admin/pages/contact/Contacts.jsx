@@ -12,6 +12,7 @@ export default function Contact() {
     const { contact, setContact } = useContext(ContactContext);
     const [openForm, setOpenForm] = useState(false);
     const [message,setMessage] = useState({});
+    
 
 
     const handleDelete = async (id) => {
@@ -44,6 +45,7 @@ export default function Contact() {
                     <tr>
                         <th>الإسم</th>
                         <th>االرقم</th>
+                        <th>الدور</th>
                         <th>إجراءات</th>
                     </tr>
                 </thead>
@@ -55,6 +57,9 @@ export default function Contact() {
                             </td>
                             <td>
                                 {c.phone}
+                            </td>
+                            <td>
+                                {c.role}
                             </td>
                             <td>
                                 <Button variant="text" color="danger" size="md" onClick={() => handleDelete(c._id)}>

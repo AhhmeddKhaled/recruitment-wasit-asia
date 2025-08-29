@@ -25,6 +25,7 @@
         }
 
         .img {
+            text-align: center;
             img {
                 filter: grayscale(50%);
                 transition: .3s ease;

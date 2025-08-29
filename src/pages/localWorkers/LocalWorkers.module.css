@@ -1,8 +1,7 @@
 .localWorkers .workers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: var(--space-4);
-  justify-items: center;
 }
 
 .card {
@@ -10,6 +9,7 @@
   box-shadow: var(--shadow-md);
   background-color: var(--bg-color);
   border-top: 16px solid var(--main-color);
+  width: 360px;
 }
 
 .header {
@@ -114,4 +114,13 @@
   color: red;
   padding: var(--space-8);
   border-radius: var(--radius-md);
+}
+
+@media (max-width: 768px) {
+.localWorkers .workers {
+  grid-template-columns: 1fr;
+  .card {
+    width: 100%;
+  }
+}
 }
