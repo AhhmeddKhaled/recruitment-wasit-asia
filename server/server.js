@@ -19,6 +19,10 @@ mongoose
 .then(() => console.log("✅ Connected to MongoDB"))
 .catch((err) => console.log("❌ DB Error: ", err));
 
+app.get("/", (req, res) => {
+  res.send("✅ وسيط آسيا شغال على Railway!");
+});
+
 const countryRoutes = require("./routes/country");
 app.use("/api/countries", countryRoutes);
 
