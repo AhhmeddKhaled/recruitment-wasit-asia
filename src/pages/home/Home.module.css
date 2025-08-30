@@ -142,8 +142,8 @@
 /* End Hero Style */
 .whatsappIcon {
   position: fixed;
-  top: 600px;
-  left: 1%;
+  top: 500px;
+  right: 1%;
   padding: var(--space-2);
   z-index: 10000;
 }
@@ -151,9 +151,9 @@
 .whatsappIcon .icon {
   font-size: 60px;
   color: green;
-  background-color: #fff;
   border-radius: 4px;
   padding: 8px;
+  filter: drop-shadow( 0 0 12px green);
 }
 
 /* Media Mobile */

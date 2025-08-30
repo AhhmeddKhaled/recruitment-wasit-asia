@@ -40,16 +40,6 @@
   margin-bottom: var(--space-4);
 }
 
-.offers .offer_card a {
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  font-weight: var(--font-weight-bold);
-  width: 100%;
-  background-color: var(--primary);
-  color: var(--bg-color);
-  transition: inherit;
-}
-
 .offers .offer_card:hover {
   background-color: var(--blue-effect);
 }

@@ -61,7 +61,7 @@
   --shadow-md: 0 0px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 0px 16px rgba(0, 0, 0, 0.1);
   --shadow-primary: 0 0px 8px rgba(25, 118, 210, 0.5);
-  --text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  --text-shadow: -3px -3px 6px hsl(from var(--primary) h s l / .3);
 }
 
 * {
@@ -118,13 +118,14 @@ body *:not(select) {
 }
 
 section.s-padding {
-  padding: calc(10 * var(--space-1)) 0;
+  padding: calc(12 * var(--space-2)) 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   color: var(--text-dark);
   font-weight: var(--font-weight-bold);
+  text-shadow: var(--text-shadow);
 }
 
 h1 {

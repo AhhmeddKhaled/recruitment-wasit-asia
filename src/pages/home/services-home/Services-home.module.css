@@ -29,7 +29,7 @@
 }
 
 .servicesGrid .servicesCards header p {
-  color: inherit;
+  color: #fff;
 }
 .servicesGrid .servicesCards .card {
   display: flex;

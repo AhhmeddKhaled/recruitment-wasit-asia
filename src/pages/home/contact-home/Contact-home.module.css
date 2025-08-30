@@ -9,7 +9,8 @@
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     color: var(--bg-color);
-    box-shadow: 0 0 100px rgb(0, 0, 0, 0.2);
+    box-shadow: 0 0 100px hsl(from var(--primary) h s l / .3);
+    color: #fff;
     h2 {
       margin-bottom: var(--space-4);
       margin-top: 0;

@@ -15,13 +15,14 @@ export default function Navbar() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkingAdmin, setCheckingAdmin] = useState(true);
   const [scrollY, setScrollY] = useState(0);
+  const [active, setActive] = useState(false);
 
-  window.onscroll = function() {
+  window.onscroll = function () {
     setScrollY(window.scrollY);
   }
 
   useEffect(() => {
-    
+
     const checkAdmin = async () => {
       if (!user || !user.token) {
         setIsAdmin(false);
@@ -46,82 +47,91 @@ export default function Navbar() {
     }
   }, [user, loading]);
 
-  const handleDropdownToggle = (menu) => setOpenDropdown(prev => (prev === menu ? null : menu));
+  const handleDropdownToggle = (e) => {
+    const element = e.target;
+    const sibling = element.parentElement.children;
+    const isActive = element.classList.contains(style.active);
 
-  // عرض شاشة انتظار أثناء تحميل user أو التحقق من admin
+    for (let el of sibling) {
+      el.classList.remove(`${style.active}`)
+    }
+    if (isActive)
+      element.classList.remove(`${style.active}`)
+    else
+      element.classList.add(`${style.active}`)
+  }
+
   if (loading || checkingAdmin) return <div>جار التحميل...</div>;
 
   return (
     <header className={`${style.navbar} ${scrollY > 50 ? style.scroll : ''} p-t-b-12`}>
-      <div className="container flex">
+      <div className={` ${style.container} flex`}>
         <div className={style.logo}>
           <img src="/imgs/logo.png" alt="لوجو الموقع" />
         </div>
 
         <ul className={`${style.links} flex-align ${isOpen ? style.open : style.close}`}>
-          <li><Link to="/">الرئيسية</Link></li>
+          <li onClick={handleDropdownToggle}><Link to="/">الرئيسية</Link></li>
 
-          <li onClick={() => handleDropdownToggle("services")}>
+          <li onClick={handleDropdownToggle}>
             خدماتنا
-            {openDropdown === "services" ? <FaChevronDown className={style.icon} /> : <FaChevronLeft className={style.icon} />}
-            {openDropdown === "services" && (
-              <ul className={style.dropdown}>
+            <FaChevronLeft className={style.icon} />
+            <ul className={style.dropdown}>
+              <div>
                 <li><Link to="/طلب_إستقدام">طلب استقدام</Link></li>
                 <li><Link to="/نقل_خدمات">طلب نقل خادمين</Link></li>
-              </ul>
-            )}
+
+              </div>
+            </ul>
           </li>
 
-          <li onClick={() => handleDropdownToggle("journey")}>
-            <div className={style.menuItem}>
-              رحلة الاستقدام
-              {openDropdown === "journey" ? <FaChevronDown className={style.icon} /> : <FaChevronLeft className={style.icon} />}
-            </div>
-            {openDropdown === "journey" && (
-              <ul className={style.dropdown}>
+          <li onClick={handleDropdownToggle}>
+            رحلة الاستقدام
+            <FaChevronLeft className={style.icon} />
+            <ul className={style.dropdown}>
+              <div>
                 <li><Link to="/عن_الإستقدام">عن الاستقدام</Link></li>
                 <li><Link to="/وصول_العمالة">وصول العمالة</Link></li>
                 <li><Link to="/إختيار_العمالة">اختيار العمالة</Link></li>
-              </ul>
-            )}
+              </div>
+            </ul>
           </li>
 
-          <li onClick={() => handleDropdownToggle("policy")}>
-            <div className={style.menuItem}>
-              عن الاستقدام
-              {openDropdown === "policy" ? <FaChevronDown className={style.icon} /> : <FaChevronLeft className={style.icon} />}
-            </div>
-            {openDropdown === "policy" && (
-              <ul className={style.dropdown}>
+          <li onClick={handleDropdownToggle}>
+            عن الاستقدام
+            <FaChevronLeft className={style.icon} />
+            <ul className={style.dropdown}>
+              <div>
+
                 <li><Link to="/سياسات_الإستقدام">سياسات الإستقدام</Link></li>
-              </ul>
-            )}
+              </div>
+            </ul>
           </li>
 
-          <li onClick={() => handleDropdownToggle("support")}>
+          <li onClick={handleDropdownToggle}>
             الدعم
-            {openDropdown === "support" ? <FaChevronDown className={style.icon} /> : <FaChevronLeft className={style.icon} />}
-            {openDropdown === "support" && (
-              <ul className={style.dropdown}>
+            <FaChevronLeft className={style.icon} />
+            <ul className={style.dropdown}>
+              <div>
                 <li><Link to="/articals">مقالات تهمك</Link></li>
                 <li><Link to="/تواصل_معنا">تواصل معنا</Link></li>
                 <li><Link to="/خدمة_العملاء">خدمة العملاء</Link></li>
-              </ul>
-            )}
+              </div>
+            </ul>
           </li>
 
           <div className={style.btn}>
-          <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={24}/>}>
-            <Link to='/login'></Link>
-            تسجيل الدخول
-          </Button>
-
-          {isAdmin && (
-            <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={24}/>}>
-              <Link to='/dashboard'></Link>
-              لوحة التحكم
+            <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={24} />}>
+              <Link to='/login'></Link>
+              تسجيل الدخول
             </Button>
-          )}
+
+            {isAdmin && (
+              <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={24} />}>
+                <Link to='/dashboard'></Link>
+                لوحة التحكم
+              </Button>
+            )}
           </div>
         </ul>
 

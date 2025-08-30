@@ -40,12 +40,15 @@ export default function Offers() {
               <h4> {country.name} </h4>
               <p> {country.description} </p>
               <span> {country.salary} ريال </span>
-              <Link to="/طلب_إستقدام"> أطلب الأن </Link>
+              <Button variant="contained" size="md">
+                <Link to="/طلب_إستقدام"></Link>
+                أطلب الأن
+              </Button>
             </div>
           ))}
         </div>
       </div>
-    
+
     </section>
   );
 }

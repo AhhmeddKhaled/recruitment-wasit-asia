@@ -18,71 +18,73 @@ import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
 import CTASection from "./ctaSection/CTASection";
 import Faq from "./faq/FAQ";
-
+import Layout from '../../layout/layout';
 export default function Home() {
   return (
-    <div className={style.home}>
-        <Navbar />
 
-      <section className={` ${style.hero} `}>
-        <div className={style.heroBackground}>
-          <FaHardHat size={45} className={style.icon} />
-          <FaUsersCog size={45} className={style.icon} />
-          <MdEngineering size={45} className={style.icon} />
-        </div>
-        <div className={style.hero_text}>
-          <h1> <span>وسيط أسيا</span> خطوتك نحو الإستقدام
-          </h1>
-          <p>
-            استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية
-            لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
-          </p>
+    <Layout>
 
-          <div className={style.btns}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="hero"
-              startIcon={<FiShuffle />}
-            >
-              <Link to='/طلب_إستقدام'></Link>
-              طلب إستقدام
-            </Button>
+      <div className={style.home}>
 
-            <Button variant="outlined" size="hero" startIcon={<BiTransfer />}>
-              <Link to='نقل_خدمات'></Link>
-              نقل خدمات
-            </Button>
+        <section className={` ${style.hero} `}>
+          <div className={style.heroBackground}>
+            <FaHardHat size={45} className={style.icon} />
+            <FaUsersCog size={45} className={style.icon} />
+            <MdEngineering size={45} className={style.icon} />
           </div>
-        </div>
-        <div className={style.heroImg}>
-          <img src="/heroImgs/hero.svg" alt="hero image" />
-        </div>
-      </section>
+          <div className={style.hero_text}>
+            <h1> <span>وسيط أسيا</span> خطوتك نحو الإستقدام
+            </h1>
+            <p>
+              استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية
+              لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
+            </p>
 
-      <About />
+            <div className={style.btns}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="hero"
+                startIcon={<FiShuffle />}
+              >
+                <Link to='/طلب_إستقدام'></Link>
+                طلب إستقدام
+              </Button>
 
-      <Steps />
+              <Button variant="outlined" size="hero" startIcon={<BiTransfer />}>
+                <Link to='نقل_خدمات'></Link>
+                نقل خدمات
+              </Button>
+            </div>
+          </div>
+          <div className={style.heroImg}>
+            <img src="/heroImgs/hero.svg" alt="hero image" />
+          </div>
+        </section>
 
-      <Services />
+        <About />
 
-      <CTASection />
+        <Steps />
 
-      <Faq />
-      
-      <Support />
+        <Services />
 
-      <Offers />
+        <CTASection />
 
-      <Statistics />
+        <Faq />
 
-      <Contact />
+        <Support />
 
-      <Footer />
+        <Offers />
 
-      <a href="tel:+201008890582" className={style.whatsappIcon}>
-        <FaWhatsapp className={style.icon} />
-      </a>
-    </div>
+        <Statistics />
+
+        <Contact />
+
+
+        <a href="tel:+201008890582" className={style.whatsappIcon}>
+          <FaWhatsapp className={style.icon} />
+        </a>
+      </div>
+    </Layout>
   );
 }
