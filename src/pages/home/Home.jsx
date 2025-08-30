@@ -24,9 +24,9 @@ export default function Home() {
 
     <Layout>
 
-      <div className={style.home}>
+      <section className={` ${style.home} s-padding`}>
 
-        <section className={` ${style.hero} `}>
+        <section className={` ${style.hero} container`}>
           <div className={style.heroBackground}>
             <FaHardHat size={45} className={style.icon} />
             <FaUsersCog size={45} className={style.icon} />
@@ -84,7 +84,7 @@ export default function Home() {
         <a href="tel:+201008890582" className={style.whatsappIcon}>
           <FaWhatsapp className={style.icon} />
         </a>
-      </div>
+      </section>
     </Layout>
   );
 }
