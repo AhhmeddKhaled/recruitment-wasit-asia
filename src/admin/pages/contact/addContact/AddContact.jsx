@@ -61,7 +61,7 @@ export default function AddContact({ setOpenForm }) {
                         <option value="" disabled>اختر الدور</option>
                         <option value="الإدارة">الإدارة</option>
                         <option value="خدمة العملاء">حدمة العملاء</option>
-                        <option value="المبيعات">المبيعات</option>
+                        <option value="الشكاوي">الشكاوي</option>
                     </select>
                 </div>
 

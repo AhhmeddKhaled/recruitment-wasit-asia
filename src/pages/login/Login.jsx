@@ -12,7 +12,7 @@ import Message  from '../../components/message/Message';
 
 export default function Login() {
 
-  const { login, user } = useContext(UsersContext); 
+  const { login, userId } = useContext(UsersContext); 
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ export default function Login() {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          'authorization': `Bearer ${user}`
+          'authorization': `Bearer ${userId}`
         },
         body: JSON.stringify(bodyData),
       });
@@ -49,6 +49,8 @@ export default function Login() {
       const data = await response.json();
 
       if (response.ok) {
+        console.log(data);
+        
         login(data);
 
         setMessage({message: isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!",success: 'success'});

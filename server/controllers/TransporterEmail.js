@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   const { worker, user } = req.body;
-
+  
   try {
     // إعداد الإيميل
     const transporter = nodemailer.createTransport({

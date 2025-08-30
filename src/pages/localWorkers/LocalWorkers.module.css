@@ -23,7 +23,7 @@
   align-items: center;
 }
 .name {
-  color: #1b4d3e;
+  color: var(--primary);
   font-weight: bold;
   font-size: 16px;
   max-width: 70%;
@@ -65,7 +65,6 @@
 }
 
 .detailRow span:last-child {
-  background-color: #eee;
   padding: 8px 16px;
   border-radius: var(--s-radius);
 }

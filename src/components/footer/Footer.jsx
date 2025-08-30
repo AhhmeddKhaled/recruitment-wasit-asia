@@ -57,7 +57,7 @@ export default function Footer() {
             </li>
 
             {contact.map((c,i) => (
-              <li>
+              <li key={i}>
               {c.role} :
               <a href={`tel:${c.phone}`}>{c.phone}</a>
             </li>

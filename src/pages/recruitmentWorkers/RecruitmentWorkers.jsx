@@ -19,8 +19,9 @@ export default function RecruitmentWorkers() {
   const location = useLocation();
   const url = decodeURIComponent(location.pathname);
   const { recruitmentWorkers, fetchWorkers } = useContext(WorkersContext);
-  const { user } = useContext(UsersContext);
+  const { userId } = useContext(UsersContext);
   const [message, setMessage] = useState({});
+  
   
   useEffect(() => {
     fetchWorkers('recruitment');
@@ -105,7 +106,7 @@ export default function RecruitmentWorkers() {
                       variant="outlined"
                       color="primary"
                       size="md"
-                      onClick={() => handleDownload(worker,user,setMessage)}>
+                      onClick={() => handleDownload(worker,setMessage)}>
                       حجز السيرة الذاتية
                     </Button>
                   </div>

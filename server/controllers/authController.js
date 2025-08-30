@@ -44,6 +44,7 @@ exports.login = async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
       role: user.role,
       token: generateToken(user._id, user.role),
     });
@@ -55,8 +56,12 @@ exports.login = async (req, res) => {
 };
 
 exports.getUsers = async (req,res) => {
-
   const users = await User.find();
   res.json(users);
+} 
 
+exports.getOneUser = async (req,res) => {
+  const user = await User.findById(req.params.id);
+  console.log(user);
+  res.json(user);
 } 

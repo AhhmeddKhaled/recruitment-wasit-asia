@@ -1,34 +1,34 @@
 import React, { createContext, useState, useEffect } from "react";
 
-export const  UsersContext = createContext();
+export const UsersContext = createContext();
 
-export const  UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading,setLoading] = useState(true);
+  const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
+    const storedId = localStorage.getItem("userId");
+    if (storedId) {
+      try {
+        const parsedId = JSON.parse(storedId);
+        setUserId(parsedId);
+      } catch {
+        setUserId(storedId);
+      }
     }
-
-    setLoading(false)
+    setLoading(false);
   }, []);
 
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
+    localStorage.setItem("userId", userData._id);
+    setUserId(userData._id);
   };
 
   return (
-    <UsersContext.Provider value={{ user, login, logout, loading}}>
+    <UsersContext.Provider value={{ user, userId, login, loading }}>
       {children}
     </UsersContext.Provider>
   );
-}
+};
