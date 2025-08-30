@@ -121,11 +121,13 @@ section.s-padding {
   padding: calc(12 * var(--space-2)) 0;
 }
 
+h1,h2 {
+  text-shadow: var(--text-shadow);
+}
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   color: var(--text-dark);
   font-weight: var(--font-weight-bold);
-  text-shadow: var(--text-shadow);
 }
 
 h1 {
