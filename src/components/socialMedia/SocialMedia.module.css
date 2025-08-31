@@ -13,7 +13,6 @@
   padding: var(--space-2);
   border-radius: var(--radius-round);
   background-color: var(--bg-color-alt);
-  color: var(--primary);
   position: relative;
   transition: 0.3s ease;
 }
@@ -45,31 +44,31 @@
   transition: 0.1s ease-out;
 }
 
-.social span:first-child::before {
-  border-top-color: var(--primary-dark);
-}
-.social span:first-child::after {
-  background-color: var(--primary-dark);
+/* First Span*/
+.social span:first-child:hover {
+  background-color: #ccaa00;
+  color: #fff;
 }
 
-.social span:nth-child(2):before {
+.social span:first-child::before {
   border-top-color: #ccaa00;
 }
-.social span:nth-child(2)::after {
+
+.social span:first-child::after {
   background-color: #ccaa00;
 }
 
-.social span:nth-child(3)::before {
-  border-top-color: #c13584;
-}
-.social span:nth-child(3)::after {
-  background-color: #c13584;
+/* Last Span*/
+.social span:last-child:hover {
+  background-color: #ea4335;
+  color: #fff;
 }
 
-.social span:nth-child(4):before {
+.social span:last-child:before {
   border-top-color: #ea4335;
 }
-.social span:nth-child(4)::after {
+
+.social span:last-child::after {
   background-color: #ea4335;
 }
 
@@ -87,45 +86,23 @@
 }
 
 .social span:first-child:hover {
-  background-color: var(--primary-dark);
+  background-color: #ccaa00;
   transform: scale(1.2);
 }
 
-.social span:nth-child(2):hover {
-  background-color: #ccaa00;
-}
-
-.social span:nth-child(3):hover {
-  background-color: #c13584;
-}
-
-.social span:nth-child(4):hover {
-  background-color: #ea4335;
-}
 
 .social span:first-child {
   opacity: 0;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn .3s ease-in-out;
   animation-fill-mode: forwards;
 }
 
 .social span:nth-child(2) {
   opacity: 0;
-  animation: fadeIn 1s 0.5s ease-in-out;
+  animation: fadeIn .3s 0.5s ease-in-out;
   animation-fill-mode: forwards;
 }
 
-.social span:nth-child(3) {
-  opacity: 0;
-  animation: fadeIn 1s 1s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.social span:last-child {
-  opacity: 0;
-  animation: fadeIn 1s 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
 
 @keyframes fadeIn {
   from {

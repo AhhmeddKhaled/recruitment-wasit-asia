@@ -1,55 +1,40 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BsThreads } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import useInView from "../hooks/useInView";
 
 const Counter = ({ target, duration = 2000 }) => {
-    const [count, setCount] = useState(0);
-    const [hasAnimated, setHasAnimated] = useState(null);
-    const counterRef = useRef(null);
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
+  // 👇 نستعمل الهوك هنا
+  const { ref, inView } = useInView({ threshold: 0.5 });
 
-    useEffect(() => {
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const entry = entries[0];
-                if (entry.isIntersecting && !hasAnimated) {
-                    animationCount();
-                    setHasAnimated(true);
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        if (counterRef.current) {
-            observer.observe(counterRef.current)
-        }
-
-        return () => {
-            if (counterRef.current) observer.observe(counterRef.current)
-        }
-
-    }, [target, duration, hasAnimated]);
-    const animationCount = () => {
-
-        let start = 0;
-        const end = parseInt(target);
-        if (start === end) return;
-
-        let totalFrames = Math.round(duration / 16);
-        let increment = end / totalFrames;
-
-        let counter = setInterval(() => {
-            start += increment;
-            if (start >= end) {
-                clearInterval(counter);
-                setCount(end);
-            } else {
-                setCount(Math.floor(start));
-            }
-        }, 16);
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      animateCount();
+      setHasAnimated(true);
     }
+  }, [inView, hasAnimated]);
 
-    return <span ref={counterRef} >{count.toLocaleString()}</span>;
+  const animateCount = () => {
+    let start = 0;
+    const end = parseInt(target);
+    if (start === end) return;
+
+    const totalFrames = Math.round(duration / 16); // ~60fps
+    const increment = end / totalFrames;
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        clearInterval(counter);
+        setCount(end);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+  };
+
+  return <span ref={ref}>{count.toLocaleString()}</span>;
 };
 
 export default Counter;

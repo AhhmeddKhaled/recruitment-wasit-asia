@@ -1,7 +1,17 @@
+.faqSection {
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
 .faqItem {
   border-radius: var(--space-2);
   box-shadow: var(--shadow-md);
   margin-bottom: 15px;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  scale: 0;
+  &.animate {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
 .faqQuestion {
@@ -20,7 +30,7 @@
 .faqQuestion.active {
   color: var(--primary);
 }
-.faqQuestion.active ~ p{
+.faqQuestion.active ~ p {
   height: auto;
   padding: var(--space-4);
 }
@@ -30,7 +40,7 @@
   padding: var(--space-2);
   color: var(--bg-color);
   border-radius: var(--radius-round);
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .faqQuestion.active .icon {
@@ -45,7 +55,7 @@
   height: 0;
   overflow: hidden;
   border-right: 8px solid var(--primary);
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .faqButton {

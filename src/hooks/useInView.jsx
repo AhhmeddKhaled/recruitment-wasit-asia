@@ -1,26 +1,32 @@
-import { useState, useEffect, useRef } from "react";
+// useInView.js
+import { useEffect, useRef } from "react";
 
-export default function useInView(options = { threshold: 0.3 }) {
-    const [inView, setInView] = useState(false);
-    const elementRef = useRef(null);
+export default function useInView({ activeClass, threshold = 0.3 }) {
+  const refs = useRef([]);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                }
-            });
-        }, options);
+  const setRefs = (el, index) => {
+    if (el) refs.current[index] = el;
+  };
 
-        if (elementRef.current) {
-            observer.observe(elementRef.current);
-        }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(activeClass);
+            observerInstance.unobserve(entry.target); // 🔥 وقف المراقبة بعد أول دخول
+          }
+        });
+      },
+      { threshold }
+    );
 
-        return () => {
-            if (elementRef.current) observer.unobserve(elementRef.current);
-        };
-    }, [options]);
+    refs.current.forEach((el) => el && observer.observe(el));
 
-    return { ref: elementRef, inView };
+    return () => {
+      refs.current.forEach((el) => el && observer.unobserve(el));
+    };
+  }, [activeClass, threshold]);
+
+  return { setRefs };
 }

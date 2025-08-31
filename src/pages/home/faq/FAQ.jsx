@@ -4,6 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import Button from "../../../components/button/Button";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import useInView from "../../../hooks/useInView";
 
 const faqData = [
     {
@@ -25,6 +26,12 @@ const faqData = [
 ];
 
 export default function Faq() {
+    const { setRefs } = useInView({
+        activeClass: style.animate,
+        threshold: 1,
+        once: true,
+    });
+
     const [activeIndex, setActiveIndex] = useState(null);
 
     const toggleFAQ = (index) => {
@@ -39,7 +46,10 @@ export default function Faq() {
                 </header>
                 <div className={style.faqList}>
                     {faqData.map((item, index) => (
-                        <div key={index} className={style.faqItem}>
+                        <div key={index} className={style.faqItem}
+                            ref={(el) => setRefs(el, index)}
+
+                        >
                             <button
                                 className={`${style.faqQuestion} ${activeIndex === index ? style.active : ""}`}
                                 onClick={() => toggleFAQ(index)}
@@ -51,15 +61,15 @@ export default function Faq() {
                                     <FaPlus className={style.icon} size={30} />
                                 )}
                             </button>
-                                <p className={style.faqAnswer}>{item.answer}</p>
+                            <p className={style.faqAnswer}>{item.answer}</p>
                         </div>
                     ))}
 
                     <div className={style.faqButton}>
-                        <Button variant="text" color="primary" size="hero" endIcon={<IoIosArrowRoundBack size={30}/>
-}>
+                        <Button variant="text" color="primary" size="hero" endIcon={<IoIosArrowRoundBack size={30} />
+                        }>
                             <Link to="/تواصل_معنا"></Link>
-                           تواصل معنا لمزيد من الأسئلة
+                            تواصل معنا لمزيد من الأسئلة
                         </Button>
                     </div>
                 </div>

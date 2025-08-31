@@ -40,35 +40,33 @@ const stepsData = [
   }
 ];
 
-// كومبوننت منفصل للكارت
-function StepCard({ step }) {
-  const {ref, inView} = useInView({threshold: 0})
-
-  return (
-    <div
-      ref={ref}
-      className={`${style.stepCard} ${inView ? style.animate : ""}`}
-    >
-      <img src={step.icon} alt="img" />
-      <h5 className={style.stepTitle}>{step.title}</h5>
-      <p className={style.stepDescription}>{step.description}</p>
-      <a href={step.link} className={style.stepButton}>
-        {step.buttonText}
-      </a>
-    </div>
-  );
-}
-
 export default function Steps() {
+  const { setRefs } = useInView({
+    activeClass: style.animate,
+    threshold: 1,
+    once: true, // ✅ عشان الأنيميشن يشتغل مرة واحدة
+  });
+
   return (
     <section className={`${style.stepsSection} s-padding`}>
       <div className={`${style.stapsContainer} container`}>
-        <hedear className="header-section">
-        <h2 className={style.sectionTitle}>خطوات الاستقدام</h2>
-        </hedear>
+        <header className="header-section">
+          <h2 className={style.sectionTitle}>خطوات الاستقدام</h2>
+        </header>
         <div className={style.stepsGrid}>
           {stepsData.map((step, index) => (
-            <StepCard step={step} key={index} />
+            <div
+              key={index} // ✅ مهم
+              ref={(el) => setRefs(el, index)}
+              className={`${style.stepCard}`}
+            >
+              <img src={step.icon} alt={step.title} />
+              <h5 className={style.stepTitle}>{step.title}</h5>
+              <p className={style.stepDescription}>{step.description}</p>
+              <a href={step.link} className={style.stepButton}>
+                {step.buttonText}
+              </a>
+            </div>
           ))}
         </div>
       </div>
