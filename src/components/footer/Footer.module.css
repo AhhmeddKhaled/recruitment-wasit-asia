@@ -16,6 +16,9 @@ footer .container {
   color: #fff;
 }
 
+footer .container .about p {
+  text-wrap: balance;
+}
 footer .container h4 {
   margin-bottom: var(--space-3);
 }
