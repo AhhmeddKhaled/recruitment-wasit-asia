@@ -25,6 +25,8 @@ footer .container h4 {
 footer .container a {
   font-weight: var(--font-weight-bold);
   margin-right: var(--space-2);
+  text-wrap: balance;
+  
 }
 
 footer .container  ul li {
