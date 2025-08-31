@@ -102,6 +102,9 @@ body {
   background: var(--primary-dark);
 }
 
+::selection {
+  background-color: var(--primary-dark);
+}
 body *:not(select) {
   color: inherit;
 }
