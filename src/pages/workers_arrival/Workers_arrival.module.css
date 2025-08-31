@@ -82,6 +82,7 @@
   gap: var(--space-2);
   font-size: var(--font-size-body);
   color: hsl(215, 15%, 65%);
+  text-wrap: balance;
 }
 
 .customerService .customerGrid .info ul li span {
@@ -93,8 +94,10 @@
 .customerService .customerGrid .buttons {
   margin-top: var(--space-8);
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-4);
+  button {
+    flex: 1;
+  }
 }
 /* Img Style*/
 .customerService .customerGrid .customerImg img {
@@ -118,6 +121,10 @@
     display: none;
   }
 
+  
+}
+
+@media (max-width: 900px) {
   .customerService .customerGrid {
     .info {
       h2 {
@@ -127,6 +134,12 @@
     .customerImg {
       display: none;
     }
+    .buttons {
+      flex-direction: column;
+      button {
+        width: 100%;
+      }
+    }
   }
-
-}
+  
+} 

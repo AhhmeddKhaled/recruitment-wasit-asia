@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import { MdMessage, MdRequestPage } from "react-icons/md";
 import { BiArrowToLeft, BiSend } from "react-icons/bi";
-import { BsSendArrowDown } from "react-icons/bs";
 
 export default function Workers_arrival() {
   return (
