@@ -103,7 +103,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
+  color: #fff;
 }
 body *:not(select) {
   color: inherit;
