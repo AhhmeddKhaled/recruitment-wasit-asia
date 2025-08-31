@@ -1,18 +1,18 @@
 :root {
   /* Typography*/
---font-size-h1: clamp(2.8rem, 5vw, 6rem);
---font-size-h2: clamp(2.4rem, 4vw, 5rem);
---font-size-h3: clamp(2rem, 3vw, 3.2rem);
---font-size-h4: clamp(1.8rem, 2.5vw, 2.8rem);
---font-size-h5: clamp(1.6rem, 2vw, 2.4rem);
---font-size-h6: clamp(1.4rem, 1.8vw, 2rem);
---font-size-body: clamp(1.6rem, 1.5vw, 1.6rem);
---font-size-small: clamp(1rem, 1.2vw, 1.4rem);
---font-size-tiny: clamp(0.9rem, 1vw, 1.2rem);
---font-family-base: "Tajawal", sans-serif; 
---font-weight-regular: 400; 
---font-weight-medium: 500; 
---font-weight-bold: 700;
+  --font-size-h1: clamp(2.8rem, 5vw, 6rem);
+  --font-size-h2: clamp(2.4rem, 4vw, 5rem);
+  --font-size-h3: clamp(2rem, 3vw, 3.2rem);
+  --font-size-h4: clamp(1.8rem, 2.5vw, 2.8rem);
+  --font-size-h5: clamp(1.6rem, 2vw, 2.4rem);
+  --font-size-h6: clamp(1.4rem, 1.8vw, 2rem);
+  --font-size-body: clamp(1.6rem, 1.5vw, 1.6rem);
+  --font-size-small: clamp(1rem, 1.2vw, 1.4rem);
+  --font-size-tiny: clamp(0.9rem, 1vw, 1.2rem);
+  --font-family-base: "Tajawal", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
   /*====================*/
   --line-hght: 1.6;
 
@@ -61,7 +61,7 @@
   --shadow-md: 0 0px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 0px 16px rgba(0, 0, 0, 0.1);
   --shadow-primary: 0 0px 8px rgba(25, 118, 210, 0.5);
-  --text-shadow: -3px -3px 6px hsl(from var(--primary) h s l / .3);
+  --text-shadow: -3px -3px 6px hsl(from var(--primary) h s l / 0.3);
 }
 
 * {
@@ -95,11 +95,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary); 
+  background: var(--primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark); 
+  background: var(--primary-dark);
 }
 
 body *:not(select) {
@@ -111,21 +111,25 @@ body *:not(select) {
   margin: auto;
 }
 
-@media (max-width: 900px) {
-section.s-padding {
-  padding: calc(12 * var(--space-1)) 0;
-}
-  
-}
-
 section.s-padding {
   padding: calc(12 * var(--space-2)) 0;
 }
+@media (max-width: 900px) {
+  section.s-padding {
+    padding: calc(12 * var(--space-1)) 0;
+  }
+}
 
-h1,h2 {
+h1,
+h2 {
   text-shadow: var(--text-shadow);
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   color: var(--text-dark);
   font-weight: var(--font-weight-bold);
