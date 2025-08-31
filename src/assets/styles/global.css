@@ -112,9 +112,10 @@ body *:not(select) {
 }
 
 @media (max-width: 900px) {
-  .mobile-hide {
-    display: none;
-  }
+section.s-padding {
+  padding: calc(12 * var(--space-1)) 0;
+}
+  
 }
 
 section.s-padding {
