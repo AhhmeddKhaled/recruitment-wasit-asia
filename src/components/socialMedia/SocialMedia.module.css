@@ -5,7 +5,7 @@
   gap: var(--space-2);
 }
 
-.social span {
+.social a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,46 +54,46 @@
   }
 }
 
-.social span:first-child:hover,
-.social span:first-child:hover::after {
+.social a:first-child:hover,
+.social a:first-child:hover::after {
   background-color: green;
   color: #fff;
 }
 
-.social span:first-child::before {
+.social a:first-child::before {
   border-top-color: green;
 }
 
-.social span:nth-child(2):hover,
-.social span:nth-child(2)::after {
+.social a:nth-child(2):hover,
+.social a:nth-child(2)::after {
   background-color: #ccaa00;
   color: #fff;
 }
 
-.social span:nth-child(2)::before {
+.social a:nth-child(2)::before {
   border-top-color: #ccaa00;
 }
 
-.social span:last-child:hover,
-.social span:last-child::after {
+.social a:last-child:hover,
+.social a:last-child::after {
   background-color: #ea4335;
   color: #fff;
 }
 
-.social span:last-child:before {
+.social a:last-child:before {
   border-top-color: #ea4335;
 }
 
-.social span:hover::before,
-.social span:hover::after {
+.social a:hover::before,
+.social a:hover::after {
   opacity: 1;
 }
 
-.social span:hover::before {
+.social a:hover::before {
   transform: translate(-50%, -50%);
 }
 
-.social span:hover::after {
+.social a:hover::after {
   transform: translate(-50%, -150%);
 }
 

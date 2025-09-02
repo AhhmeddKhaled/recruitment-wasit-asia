@@ -7,10 +7,22 @@ import { MdEmail } from "react-icons/md";
 export default function SocialMedia() {
 
     return (
-         <div className={style.social}>
-          <span arr="WhatsUp"> <BsWhatsapp size={20} className={style.icon}/> </span>
-          <span arr="Snapchat"> <BsSnapchat size={20} className={style.icon}/> </span>
-          <span arr="Email"> <MdEmail size={20} className={style.icon}/> </span>
+        <div className={style.social}>
+            <a 
+            arr="WhatsUp" 
+            href="tel:+20 100 889 0582"
+            target="_blanck"
+            > <BsWhatsapp size={20} className={style.icon} /> </a>
+            <a 
+            arr="Snapchat"
+            href="https://www.snapchat.com/add/wasitasia?share_id=PySKLa_xTui_1BoszDj4Cw&locale=ar_SA@calendar=gregorian;numbers=latn"
+            target="_blanck"
+            > <BsSnapchat size={20} className={style.icon} /> </a>
+            <a 
+            arr="Email"
+            target="_blanck"
+            href="mailto:wasitasia1@gmail.com"
+            > <MdEmail size={20} className={style.icon} /> </a>
         </div>
     )
 }
