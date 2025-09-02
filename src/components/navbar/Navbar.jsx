@@ -80,7 +80,6 @@ export default function Navbar() {
               <div>
                 <li><Link to="/طلب_إستقدام">طلب استقدام</Link></li>
                 <li><Link to="/نقل_خدمات">طلب نقل خادمين</Link></li>
-
               </div>
             </ul>
           </li>

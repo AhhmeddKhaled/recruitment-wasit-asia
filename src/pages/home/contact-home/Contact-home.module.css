@@ -5,7 +5,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-6);
     margin: auto;
-    background: hsl(from var(--primary) h s l / 0.7);
+    background: var(--primary);
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     color: var(--bg-color);
