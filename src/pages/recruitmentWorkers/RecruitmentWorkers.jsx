@@ -54,7 +54,7 @@ export default function RecruitmentWorkers() {
               return (
                 <div className={style.cv} key={worker._id}>
                   <div className={style.img}>
-                    <img src={`http://localhost:5000${worker.cv}`} alt="CV" />
+                    <img src={`http://localhost:5000${worker.cv}`} alt="CV" loading="lazy"/>
                   </div>
                   <div className={style.cvInfo}>
                     <span>

@@ -67,7 +67,7 @@ export default function Navbar() {
     <header className={`${style.navbar} ${scrollY > 50 ? style.scroll : ''} p-t-b-12`}>
       <div className={` ${style.container} flex`}>
         <div className={style.logo}>
-          <img src="/imgs/logo.png" alt="لوجو الموقع" />
+          <img src="/imgs/logo.webp" alt="لوجو الموقع" loading="lazy"/>
         </div>
 
         <ul className={`${style.links} flex-align ${isOpen ? style.open : style.close}`}>

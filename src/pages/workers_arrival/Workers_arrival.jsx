@@ -29,7 +29,7 @@ export default function Workers_arrival() {
                 </Button>
               </div>
               <div className={style.arrivalImg}>
-                <img src="/arrivalImgs/arrival.svg" alt="arrival image" />
+                <img src="/arrivalImgs/arrival.svg" alt="arrival image"loading="lazy"/>
               </div>
             </div>
           </div>

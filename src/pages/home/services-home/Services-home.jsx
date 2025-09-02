@@ -61,7 +61,7 @@ export default function Services() {
           </div>
 
           <div className={style.servicesImg}>
-            <img src="/servicesImgs/service.svg" alt="services image" />
+            <img src="/servicesImgs/service.svg" alt="services image" loading="lazy"/>
           </div>
         </section>
       </div>

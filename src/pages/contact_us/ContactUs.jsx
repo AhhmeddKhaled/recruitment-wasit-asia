@@ -39,7 +39,7 @@ const ContactUs = () => {
 
         {/* العمود الثاني: صورة */}
         <div className={styles.contactIllustration}>
-          <img src='/imgs/contact.webp' alt="تواصل معنا" />
+          <img src='/imgs/contact.webp' alt="تواصل معنا" loading="lazy"/>
         </div>
       </div>
 

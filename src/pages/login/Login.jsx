@@ -84,7 +84,7 @@ export default function Login() {
       <section id="login" className={` ${style.form} s-padding flex-center`}>
         <form onSubmit={handleSubmit}>
           <div className={` ${style.img} flex-center `}>
-            <img src="/imgs/login.svg" alt="login image" />
+            <img src="/imgs/login.svg" alt="login image" loading="lazy"/>
           </div>
           <h3 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h3>
 

@@ -29,7 +29,7 @@ export default function Articals() {
             return (
               <div className={style.artical}>
                   <div className={style.img}>
-                    <img src={`http://localhost:5000${artical.img}`} alt="img" />
+                    <img src={`http://localhost:5000${artical.img}`} alt="img" loading="lazy"/>
                   </div>
                   <div className={style.info}>
                   <Link to={`/articals/${slugify(artical.title)}`} key={artical._id}>

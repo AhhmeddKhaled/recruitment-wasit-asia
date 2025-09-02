@@ -36,7 +36,7 @@ export default function Offers() {
         <div className={style.offers_grid}>
           {countries.map((country) => (
             <div className={style.offer_card} key={country._id}>
-              <img src={country.flag} alt="" />
+              <img src={country.flag} alt="flag img" loading="lazy"/>
               <h4> {country.name} </h4>
               <p> {country.description} </p>
               <span> {country.salary} ريال </span>

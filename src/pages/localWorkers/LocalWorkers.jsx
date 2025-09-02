@@ -30,7 +30,7 @@ export default function LocalWorkers() {
                         <div className={style.card} key={i}>
                             <div className={style.header}>
                                 <div>
-                                    <img src={`/server${worker.cv}`} alt="img" className={style.avatar} />
+                                    <img src={`/server${worker.cv}`} alt="img" className={style.avatar} loading="lazy" />
                                     <h3 className={style.name}>{worker.name}</h3>
                                 </div>
                                 <p className={style.workerNumber}>

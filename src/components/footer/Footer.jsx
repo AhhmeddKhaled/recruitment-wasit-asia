@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer>
       <div className={`${style.container} container`}>
-          <img src="/imgs/logo.png" alt="logo image" />
+          <img src="/imgs/logo.webp" alt="logo image" loading="lazy"/>
         <div className={`${style.footer_section}  ${style.about}`}>
           <h4> وسيط أسيا </h4>
           <p>

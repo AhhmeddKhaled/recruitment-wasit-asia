@@ -52,6 +52,7 @@ export default function ArticalDetails() {
         <img
           src={`http://localhost:5000${artical.img}`}
           alt={artical.title}
+          loading="lazy"
         />
       </div>
       <div className={style.info}>

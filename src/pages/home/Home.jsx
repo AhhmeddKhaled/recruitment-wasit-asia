@@ -58,7 +58,7 @@ export default function Home() {
             </div>
           </div>
           <div className={style.heroImg}>
-            <img src="/heroImgs/hero.svg" alt="hero image" />
+            <img src="/heroImgs/hero.svg" loading="lazy" alt="hero image" />
           </div>
         </section>
 

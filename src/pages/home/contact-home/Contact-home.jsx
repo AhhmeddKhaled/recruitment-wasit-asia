@@ -83,7 +83,7 @@ export default function Contact() {
           </form>
         </div>
         <div className={style.contactImg}>
-          <img src="/contactImgs/contact.svg" />
+          <img src="/contactImgs/contact.svg" loading="lazy"/>
         </div>
 
       </div>

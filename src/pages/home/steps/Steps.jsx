@@ -60,7 +60,7 @@ export default function Steps() {
               ref={(el) => setRefs(el, index)}
               className={`${style.stepCard}`}
             >
-              <img src={step.icon} alt={step.title} />
+              <img src={step.icon} alt={step.title} loading="lazy" />
               <h5 className={style.stepTitle}>{step.title}</h5>
               <p className={style.stepDescription}>{step.description}</p>
               <a href={step.link} className={style.stepButton}>
