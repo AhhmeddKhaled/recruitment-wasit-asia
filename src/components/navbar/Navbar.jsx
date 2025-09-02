@@ -7,16 +7,16 @@ import { FiMenu, FiX } from "react-icons/fi";
 import Button from "../button/Button";
 import { UsersContext } from '../../data/AllProviders/UsersContext';
 import { MdDashboard } from "react-icons/md";
+import SocialMedia from "../socialMedia/SocialMedia";
 
 export default function Navbar() {
-  const [openDropdown, setOpenDropdown] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const { user, loading } = useContext(UsersContext);
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkingAdmin, setCheckingAdmin] = useState(true);
   const [scrollY, setScrollY] = useState(0);
-  const [active, setActive] = useState(false);
 
+  const width = window.innerWidth;
   window.onscroll = function () {
     setScrollY(window.scrollY);
   }
@@ -132,12 +132,15 @@ export default function Navbar() {
                 لوحة التحكم
               </Button>
             )}
+          {width < 1200 && <SocialMedia />}
           </div>
+
         </ul>
 
         <span className={style.toggle_mobile} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </span>
+
       </div>
     </header>
   );

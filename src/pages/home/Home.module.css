@@ -141,17 +141,15 @@
 /* End Hero Style */
 .whatsappIcon {
   position: fixed;
-  top: 500px;
-  right: 1%;
-  padding: var(--space-2);
+  bottom: 2%;
+  right: 2%;
   z-index: 10000;
 }
 
 .whatsappIcon .icon {
-  font-size: 60px;
+  font-size: 40px;
   color: green;
   border-radius: 4px;
-  padding: 8px;
   filter: drop-shadow( 0 0 12px green);
 }
 

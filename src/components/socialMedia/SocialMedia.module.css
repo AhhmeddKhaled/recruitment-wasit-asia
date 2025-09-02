@@ -12,64 +12,76 @@
   cursor: pointer;
   padding: var(--space-2);
   border-radius: var(--radius-round);
-  background-color: var(--bg-color-alt);
   position: relative;
   transition: 0.3s ease;
-}
-
-.social span::after {
-  content: attr(arr);
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, -150%) rotate(-30deg);
-  color: #fff;
-  padding: var(--space-2) var(--space-8);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-bold);
-  box-shadow: var(--shadow-lg);
   opacity: 0;
-  transition: 0.1s ease-out;
+  animation: fadeIn 0.3s ease-in-out forwards;
+  overflow: hidden;
+  &:hover {
+    overflow: visible;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  &::after {
+    content: attr(arr);
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -150%) rotate(-30deg);
+    color: #fff;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transition: 0.1s ease-out;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    border: 20px solid transparent;
+    opacity: 0;
+    transition: 0.1s ease-out;
+  }
 }
 
-.social span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  border: 20px solid transparent;
-  opacity: 0;
-  transition: 0.1s ease-out;
-}
-
-/* First Span*/
-.social span:first-child:hover {
-  background-color: #ccaa00;
+.social span:first-child:hover,
+.social span:first-child:hover::after {
+  background-color: green;
   color: #fff;
 }
 
 .social span:first-child::before {
+  border-top-color: green;
+}
+
+.social span:nth-child(2):hover,
+.social span:nth-child(2)::after {
+  background-color: #ccaa00;
+  color: #fff;
+}
+
+.social span:nth-child(2)::before {
   border-top-color: #ccaa00;
 }
 
-.social span:first-child::after {
-  background-color: #ccaa00;
-}
-
-/* Last Span*/
-.social span:last-child:hover {
+.social span:last-child:hover,
+.social span:last-child::after {
   background-color: #ea4335;
   color: #fff;
 }
 
 .social span:last-child:before {
   border-top-color: #ea4335;
-}
-
-.social span:last-child::after {
-  background-color: #ea4335;
 }
 
 .social span:hover::before,
@@ -84,25 +96,6 @@
 .social span:hover::after {
   transform: translate(-50%, -150%);
 }
-
-.social span:first-child:hover {
-  background-color: #ccaa00;
-  transform: scale(1.2);
-}
-
-
-.social span:first-child {
-  opacity: 0;
-  animation: fadeIn .3s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.social span:nth-child(2) {
-  opacity: 0;
-  animation: fadeIn .3s 0.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
 
 @keyframes fadeIn {
   from {
