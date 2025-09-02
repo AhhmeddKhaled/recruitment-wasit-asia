@@ -8,4 +8,4 @@ Disallow: /login
 # منع أرشفة لوحة التحكم (Dashboard)
 Disallow: /dashboard/
 
-Sitemap: http://localhost:5173/sitemap.xml
+Sitemap: https://wasit-asia.netlify.app/sitemap.xml
