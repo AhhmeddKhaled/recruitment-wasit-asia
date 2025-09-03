@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 
 export default function Button({
   children,
-  variant = "contained", 
-  color = "primary",      
+  variant = "contained",
+  color = "primary",
   size = "md",
   disabled = false,
   startIcon,
   endIcon,
   fullWidth = false,
-  type,
   onClick,
+  link,
+  anchor = false
 }) {
   const classNames = [
     styles.btn,
@@ -23,15 +24,26 @@ export default function Button({
   ].join(" ");
 
   return (
-    <button
-      className={classNames}
-      disabled={disabled}
-      onClick={onClick}
-      type={type}
-    >
-      {startIcon && <span className={styles.icon}>{startIcon}</span>}
-      {children}
-      {endIcon && <span className={styles.icon}>{endIcon}</span>}
-    </button>
+    <>
+
+      {
+        anchor ? <a className={classNames} disabled={disabled} onClick={onClick} href={link}>
+          {startIcon && <span className={styles.icon}>{startIcon}</span>}
+          {children}
+          {endIcon && <span className={styles.icon}>{endIcon}</span>}
+        </a >
+          :
+          <Link
+            className={classNames}
+            disabled={disabled}
+            onClick={onClick}
+            to={`/${link}`}
+          >
+            {startIcon && <span className={styles.icon}>{startIcon}</span>}
+            {children}
+            {endIcon && <span className={styles.icon}>{endIcon}</span>}
+          </Link>
+      }
+    </>
   );
 }

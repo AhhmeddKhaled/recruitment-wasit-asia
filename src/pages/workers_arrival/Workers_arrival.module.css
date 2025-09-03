@@ -15,19 +15,19 @@
   display: block;
 }
 
-.arrivalGrid .arrivalInfo button {
+.arrivalGrid .arrivalInfo a {
   width: var(--hero-size);
 }
 
-.arrivalGrid .arrivalInfo button:hover svg {
+.arrivalGrid .arrivalInfo a:hover svg {
   transform: translatex(-4px);
 }
 
-.arrivalGrid .arrivalInfo button svg {
+.arrivalGrid .arrivalInfo a svg {
   transition: 0.3s ease;
 }
 
-.arrivalGrid .arrivalInfo button svg path {
+.arrivalGrid .arrivalInfo a svg path {
   fill: var(--bg-color);
 }
 

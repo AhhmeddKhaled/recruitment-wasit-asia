@@ -69,16 +69,10 @@ export default function Contact() {
               <textarea id="mass" name="message"></textarea>
             </div>
             <div className={style.submit}>
-              <Button
-                fullWidth
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="lg"
-                endIcon={<FaPaperPlane className={style.icon} />
-                }>
+              <button type="submit">
                 إرسال
-              </Button>
+                <FaPaperPlane className={style.icon} />
+              </button>
             </div>
           </form>
         </div>

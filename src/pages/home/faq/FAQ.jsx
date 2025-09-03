@@ -66,9 +66,8 @@ export default function Faq() {
                     ))}
 
                     <div className={style.faqButton}>
-                        <Button variant="text" color="primary" size="hero" endIcon={<IoIosArrowRoundBack size={30} />
+                        <Button variant="text" color="primary" size="hero" endIcon={<IoIosArrowRoundBack size={30} link="login"/>
                         }>
-                            <Link to="/تواصل_معنا"></Link>
                             تواصل معنا لمزيد من الأسئلة
                         </Button>
                     </div>

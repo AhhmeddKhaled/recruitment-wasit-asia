@@ -66,13 +66,6 @@
   margin-top: var(--space-4);
 }
 
-.servicesGrid .servicesCards .card button {
-  width: fit-content;
-}
-
-.servicesGrid .servicesCards .card button a {
-  transition: .3s ease;
-}
 
 .servicesImg {
   display: flex;

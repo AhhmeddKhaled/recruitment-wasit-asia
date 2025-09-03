@@ -120,14 +120,12 @@ export default function Navbar() {
           </li>
 
           <div className={style.btn}>
-            <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={24} />}>
-              <Link to='/login'></Link>
+            <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={24} />} link="login">
               تسجيل الدخول
             </Button>
 
             {isAdmin && (
-              <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={24} />}>
-                <Link to='/dashboard'></Link>
+              <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={24} />} link="dashboard">
                 لوحة التحكم
               </Button>
             )}

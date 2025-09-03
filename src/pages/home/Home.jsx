@@ -46,13 +46,12 @@ export default function Home() {
                 color="primary"
                 size="hero"
                 startIcon={<FiShuffle />}
+                link="طلب_إستقدام"
               >
-                <Link to='/طلب_إستقدام'></Link>
                 طلب إستقدام
               </Button>
 
-              <Button variant="outlined" size="hero" startIcon={<BiTransfer />}>
-                <Link to='نقل_خدمات'></Link>
+              <Button variant="outlined" size="hero" startIcon={<BiTransfer />} link="نقل_خدمات">
                 نقل خدمات
               </Button>
             </div>
@@ -81,7 +80,7 @@ export default function Home() {
         <Contact />
 
 
-        <a href="tel:+201008890582" className={style.whatsappIcon}>
+        <a href="tel:+201008890582" className={style.whatsappIcon} aria-label="whats us">
           <FaWhatsapp className={style.icon} />
         </a>
       </section>

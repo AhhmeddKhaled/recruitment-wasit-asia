@@ -30,19 +30,16 @@
     }
     .btn {
       display: flex;
+      align-items: center;
       gap: var(--space-4);
       flex-wrap: wrap;
-      button {
+      a {
         flex: 1;
         &:first-child {
           flex: 1 0 50%;
         }
         &:nth-child(2) {
           flex: 0 1 40%;
-        }
-        &:last-child {
-          display: flex;
-          gap: var(--space-4);
         }
       }
     }

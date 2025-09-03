@@ -5,7 +5,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-6);
     margin: auto;
-    background: var(--primary);
+    background: var(--bg-dark);
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     color: var(--bg-color);
@@ -69,7 +69,7 @@ form.contact {
     outline: none;
     height: fit-content;
     resize: none;
-    accent-color: red;
+    color: #333;
   }
   select option {
     font-weight: var(--font-weight-bold);
@@ -78,14 +78,25 @@ form.contact {
   textarea {
     width: 100%;
     height: 160px;
-    color: #333;
   }
   .submit {
     margin-top: var(--space-4);
     display: flex;
     justify-content: center;
     button {
-      border-radius: 40px;
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-bold);
+      background-color: var(--primary);
+      width: 100%;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      &:hover {
+        background: hsl(from var(--primary) h s l / .9);
+      }
     }
   }
 }

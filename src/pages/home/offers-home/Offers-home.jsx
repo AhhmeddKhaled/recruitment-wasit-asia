@@ -40,8 +40,7 @@ export default function Offers() {
               <h4> {country.name} </h4>
               <p> {country.description} </p>
               <span> {country.salary} ريال </span>
-              <Button variant="contained" size="md">
-                <Link to="/طلب_إستقدام"></Link>
+              <Button variant="contained" size="md" link="طلب_إستقدام">
                 أطلب الأن
               </Button>
             </div>

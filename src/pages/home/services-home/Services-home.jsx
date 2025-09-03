@@ -51,8 +51,7 @@ export default function Services() {
                 <span> {service.number} </span>
                 <strong>{service.title}</strong>
                 <p>{service.description}</p>
-                <Button variant="text" size="md" endIcon={<FaArrowLeft className={style.icon}/>}>
-                  <a href="#contact"></a>
+                <Button variant="text" size="md" endIcon={<FaArrowLeft className={style.icon}/>} link="#contact" anchor>
                   {service.btn}
                 </Button>
               </div>

@@ -17,6 +17,7 @@
 .ctaSection h2 {
   text-align: center;
 }
+
 .ctaSection h2 span {
     color: var(--primary);
 }
@@ -24,6 +25,5 @@
   font-size: var(--font-size-body);
   text-align: center;
 }
-
 
 

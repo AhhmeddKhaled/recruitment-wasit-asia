@@ -23,8 +23,7 @@ export default function Workers_arrival() {
                   بداية من طلب الاستشارة وحتى استلام وثائق الاستقدام وبدء العمل بشكل
                   كامل
                 </p>
-                <Button variant="contained" size="hero" endIcon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" /></svg>}>
-                  <Link to='/طلب_إستقدام'></Link>
+                <Button variant="contained" size="hero" link="طلب_إستقدام" endIcon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" /></svg>}>
                   طلب إستقدام
                 </Button>
               </div>
@@ -76,12 +75,10 @@ export default function Workers_arrival() {
                 </ul>
 
                 <div className={style.buttons}>
-                  <Button variant="contained" size="lg" endIcon={<MdMessage />}>
-                    <a href="tel:25262525"></a>
+                  <Button variant="contained" size="lg" endIcon={<MdMessage />} link="tel:25262525" anchor>
                     تواصل مع فريق الدعم 
                   </Button>
-                    <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />}>
-                    <Link to='/طلب_إستقدام'></Link>
+                    <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />} link="طلب_إستقدام">
                     طلب إستقدام
                   </Button>
                 </div>

@@ -109,16 +109,13 @@ export default function Recruitment_about() {
             </p>
 
             <div className={style.btn}>
-              <Button variant="contained" size="lg">
-                <Link to='/طلب_إستقدام'></Link>
+              <Button variant="contained" size="lg" link="طلب_إستقدام">
                 طلب إستقدام
               </Button>
-              <Button variant="outlined" size="lg">
-                <Link to='/نقل_خدمات'></Link>
+              <Button variant="outlined" size="lg" libk="نقل_خدمات">
                 نقل خدمات
               </Button>
-              <Button variant="text" size="lg" endIcon={<FaArrowLeft />}>
-                <a href='tel:+201008890582'></a>
+              <Button variant="text" size="lg" endIcon={<FaArrowLeft />} link="tel:+201008890582">
                 تواصل معنا لمزيد  من المعلومات
               </Button>
             </div>
