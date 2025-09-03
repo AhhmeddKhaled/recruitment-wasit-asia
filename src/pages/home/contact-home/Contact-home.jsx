@@ -31,7 +31,7 @@ export default function Contact() {
     <section id="contact" className={`${style.login} s-padding`}>
       <div className={` ${style.grid} container`}>
         <div className={style.login_form}>
-          <h2> تواصل معنا </h2>
+        <h2> تواصل معنا </h2>
           <form className={style.contact} ref={form} onSubmit={handleSubmit}>
             <div className={style.name}>
               <label htmlFor="name">
@@ -69,22 +69,26 @@ export default function Contact() {
               <textarea id="mass" name="message"></textarea>
             </div>
             <div className={style.submit}>
-              <button type="submit">
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="lg"
+                endIcon={<FaPaperPlane className={style.icon} />
+                }>
                 إرسال
-                <FaPaperPlane className={style.icon} />
-              </button>
+              </Button>
             </div>
           </form>
         </div>
         <div className={style.contactImg}>
-          <img src="/contactImgs/contact.svg" alt="صورة التواصل" loading="lazy" />
+          <img src="/contactImgs/contact.svg" alt="صورة" loading="lazy"/>
         </div>
 
       </div>
-      <div className={` ${style.map} container`}>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.603302434449!2d46.80751092512391!3d24.7404958500483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01eefec9bbb9%3A0x578ad66b7f81f0c!2z2LPZitin2LHYqtmG2Kc!5e0!3m2!1sar!2seg!4v1755955179466!5m2!1sar!2seg" loading="lazy"
-          title="موقع مكتب واسط آسيا على الخريطة"
-        ></iframe>
+      <div className={` ${style.map} m-t-16 m-b-16 container`}>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.603302434449!2d46.80751092512391!3d24.7404958500483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01eefec9bbb9%3A0x578ad66b7f81f0c!2z2LPZitin2LHYqtmG2Kc!5e0!3m2!1sar!2seg!4v1755955179466!5m2!1sar!2seg" loading="lazy"></iframe>
       </div>
     </section>
   );

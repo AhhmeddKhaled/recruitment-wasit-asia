@@ -83,21 +83,6 @@ form.contact {
     margin-top: var(--space-4);
     display: flex;
     justify-content: center;
-    button {
-      font-size: var(--font-size-body);
-      font-weight: var(--font-weight-bold);
-      background-color: var(--primary);
-      width: 100%;
-      padding: var(--space-3) var(--space-6);
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-      &:hover {
-        background: hsl(from var(--primary) h s l / .9);
-      }
-    }
   }
 }
 

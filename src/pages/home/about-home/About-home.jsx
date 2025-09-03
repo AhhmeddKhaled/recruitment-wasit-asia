@@ -32,7 +32,7 @@ export default function About() {
           {cards.map((card, i) => (
             <div className={style.card} key={i} ref={(el) => setRefs(el, i)}>
               <span>{card.icon}</span>
-              <h4>{card.title}</h4>
+              <h3>{card.title}</h3>
               <p>{card.text}</p>
             </div>
           ))}

@@ -61,7 +61,7 @@ export default function Steps() {
               className={`${style.stepCard}`}
             >
               <img src={step.icon} alt={step.title} loading="lazy" />
-              <h4 className={style.stepTitle}>{step.title}</h4>
+              <h3 className={style.stepTitle}>{step.title}</h3>
               <p className={style.stepDescription}>{step.description}</p>
               <a href={step.link} className={style.stepButton}>
                 {step.buttonText}
