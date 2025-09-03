@@ -13,10 +13,11 @@ export default function Footer() {
       <div className={`${style.container} container`}>
           <img src="/imgs/logo.webp" alt="logo image" loading="lazy"/>
         <div className={`${style.footer_section}  ${style.about}`}>
-          <h4> وسيط أسيا </h4>
+          <h2> وسيط أسيا </h2>
           <p>
             أفضل مكتب استقدام العمالة المنزلية بمعايير دولية ومهنية عالية. نوفر
             أيدى عاملة مميزة ومدربة بحرفية.
+            استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
           </p>
         </div>
 
@@ -45,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.contact}`}>
-          <h4>معلومات التواصل</h4>
+          <h3>معلومات التواصل</h3>
           <ul>
             <li>
               العنوان:
@@ -66,7 +67,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.external}`}>
-          <h4>روابط هامة</h4>
+          <h3>روابط هامة</h3>
           <ul>
             <li>
               <a href="https://maroof.sa/" target="_blank">
@@ -86,12 +87,16 @@ export default function Footer() {
           </ul>
         </div>
 
+        <div className={`${style.footer_section} ${style.social}`}>
+          <h3> منصاتنا </h3>
+        <SocialMedia />
+        </div>
+
         
       </div>
 
       <div className={` ${style.end} flex container`}>
         <p>© 2025 جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
-        <SocialMedia />
       </div>
     </footer >
   );

@@ -16,10 +16,13 @@ footer .container {
   color: #fff;
 }
 
+footer .container .about {
+  grid-column: 1 / -1;
+}
 footer .container .about p {
   text-wrap: balance;
 }
-footer .container h4 {
+footer .container h3 {
   margin-bottom: var(--space-3);
 }
 footer .container a {
@@ -38,6 +41,10 @@ footer .container img {
 max-width: 300px;
 transform: translateX(20px);
 grid-column: 1 / -1;
+}
+
+footer .container .social div  {
+  justify-content: flex-start;
 }
 /* End Footer Style*/
 
