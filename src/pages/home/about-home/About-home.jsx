@@ -28,6 +28,9 @@ export default function About() {
   return (
     <section className={`s-padding ${style.about}`}>
       <div className="container">
+        <header className="header-section">
+        <h2>خدماتنا </h2>
+        </header>
         <div className={style.about_cards}>
           {cards.map((card, i) => (
             <div className={style.card} key={i} ref={(el) => setRefs(el, i)}>

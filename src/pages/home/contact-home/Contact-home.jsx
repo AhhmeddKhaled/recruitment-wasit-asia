@@ -88,7 +88,11 @@ export default function Contact() {
 
       </div>
       <div className={` ${style.map} m-t-16 m-b-16 container`}>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.603302434449!2d46.80751092512391!3d24.7404958500483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01eefec9bbb9%3A0x578ad66b7f81f0c!2z2LPZitin2LHYqtmG2Kc!5e0!3m2!1sar!2seg!4v1755955179466!5m2!1sar!2seg" loading="lazy"></iframe>
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.603302434449!2d46.80751092512391!3d24.7404958500483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01eefec9bbb9%3A0x578ad66b7f81f0c!2z2LPZitin2LHYqtmG2Kc!5e0!3m2!1sar!2seg!4v1755955179466!5m2!1sar!2seg" 
+        loading="lazy"
+        title="خريطة مكتب وسيط أسيا للإستقدام"
+        ></iframe>
       </div>
     </section>
   );
