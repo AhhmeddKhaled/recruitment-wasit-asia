@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
 
         <div className={`${style.footer_section}  ${style.links}`}>
-          <h4>خدمتنا</h4>
+          <h3>خدماتنا</h3>
           <ul>
             <li>
               <Link to="/إختيار_العمالة">اختيار العمالة</Link>
