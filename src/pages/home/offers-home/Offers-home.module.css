@@ -7,7 +7,7 @@
 .offers .offers_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-8);
+  gap: var(--space-12);
 }
 
 .offers .offer_card {
@@ -32,6 +32,7 @@
 
 .offers .offer_card span {
   display: block;
+  font-size: var(--font-size-body);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-4);
 }

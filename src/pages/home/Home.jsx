@@ -1,24 +1,33 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+
+/* Import Style Files*/
 import style from "./Home.module.css";
 import '../../assets/styles/global.css'
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/footer/Footer";
+
+/* Import Icons */
 import { FiShuffle } from "react-icons/fi";
+import { FaHardHat, FaUsersCog, FaWhatsapp } from "react-icons/fa";
+import { MdEngineering } from "react-icons/md";
+import { BiTransfer } from "react-icons/bi";
+
+/* Import Layout */
+import Layout from '../../layout/layout';
+
+/* Import Pages */
 import About from "./about-home/About-home";
-import Offers from "./offers-home/Offers-home";
 import Services from "./services-home/Services-home";
 import Support from "./support-home/Support-home";
 import Statistics from "./statistics-home/Statistics-home";
 import Contact from "./contact-home/Contact-home";
-import Button from "../../components/button/Button";
-import { FaHardHat, FaUsersCog, FaWhatsapp } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { MdEngineering, MdWork } from "react-icons/md";
-import { BiTransfer } from "react-icons/bi";
 import Steps from "./steps/Steps";
 import CTASection from "./ctaSection/CTASection";
 import Faq from "./faq/FAQ";
-import Layout from '../../layout/layout';
+const Offers = lazy(() => import("./offers-home/Offers-home"));
+
+/* Import Components */
+import Button from "../../components/button/Button";
+
+
 export default function Home() {
   return (
 
@@ -73,7 +82,9 @@ export default function Home() {
 
         <Support />
 
-        <Offers />
+        <Suspense fallback={<div style={{ textAlign: "center" }}>جاري تحميل العروض...</div>}>
+          <Offers />
+        </Suspense>
 
         <Statistics />
 
