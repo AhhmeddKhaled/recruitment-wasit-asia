@@ -67,7 +67,7 @@ export default function AddContact({ setOpenForm }) {
 
                 {/* Send Data */}
                 <div className={style.submit}>
-                    <Button variant="contained" submit fullWidth>
+                    <Button variant="contained" type="submit" fullWidth>
                         إضافة
                     </Button>
                 </div>

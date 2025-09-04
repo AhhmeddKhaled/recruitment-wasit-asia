@@ -28,7 +28,7 @@ export default function Workers_arrival() {
                 </Button>
               </div>
               <div className={style.arrivalImg}>
-                <img src="/arrivalImgs/arrival.svg" alt="arrival image"loading="lazy"/>
+                <img src="/arrivalImgs/arrival.svg" alt="وصول العمالة"loading="lazy"/>
               </div>
             </div>
           </div>

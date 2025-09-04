@@ -68,6 +68,7 @@ export default function Contact() {
               </label>
               <textarea id="mass" name="message"></textarea>
             </div>
+            
             <div className={style.submit}>
               <Button
                 fullWidth
@@ -83,7 +84,7 @@ export default function Contact() {
           </form>
         </div>
         <div className={style.contactImg}>
-          <img src="/contactImgs/contact.svg" alt="صورة" loading="lazy"/>
+          <img src="/contactImgs/contact.svg" alt=" صورة التواصل" loading="lazy"/>
         </div>
 
       </div>

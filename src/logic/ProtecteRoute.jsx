@@ -3,16 +3,26 @@ import { Navigate } from "react-router-dom";
 import { UsersContext } from "../data/AllProviders/UsersContext";
 
 export default function ProtectRoute({ children, role }) {
-  const { user, loading } = useContext(UsersContext);
+  const { user, loading, token } = useContext(UsersContext);
   const [serverAuth, setServerAuth] = useState(null);
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
     const verifyWithServer = async () => {
-      if (!user) return;
+      if (!user) {
+        setServerAuth(false);
+        setChecking(false);
+        return;
+      }
 
       try {
-        const token = localStorage.getItem("token");
-        const res = await fetch("/api/admin-dashboard", {
+        if (!token) {
+          setServerAuth(false);
+          setChecking(false);
+          return;
+        }
+
+        const res = await fetch("http://localhost:5000/api/auth/admin-dashboard", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -24,18 +34,19 @@ export default function ProtectRoute({ children, role }) {
           setServerAuth(false);
         }
       } catch (err) {
+        console.error(err);
         setServerAuth(false);
+      } finally {
+        setChecking(false);
       }
     };
 
     verifyWithServer();
-  }, [user]);
+  }, [user, token]);
 
-  if (loading) return <div>جاري التحقق ...</div>;
+if (loading || checking) return <div>جاري التحقق...</div>;
 
-  if (!user) return <Navigate to="/login" />;
-
-  if (role && user.role !== role) return <Navigate to="/" />;
+if (!token) return <Navigate to="/login" />;
 
   return children;
 }

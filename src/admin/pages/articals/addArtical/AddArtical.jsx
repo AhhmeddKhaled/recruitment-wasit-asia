@@ -18,14 +18,14 @@ export default function AddArtical({ setOpenForm }) {
     formData.append('paragraph', paragraph);
     formData.append('img', img);
 
-    const hundleSubmit = async (e) => {        
+    const hundleSubmit = async (e) => {
         e.preventDefault();
 
-        try{
-            const newArtical = await addArtical({title,paragraph,img,setMessage});
-            setTimeout(() => {setMessage('')}, 3000);
+        try {
+            const newArtical = await addArtical({ title, paragraph, img, setMessage });
+            setTimeout(() => { setMessage('') }, 3000);
             window.location.reload()
-        } catch(err) {
+        } catch (err) {
             console.error(err);
         }
     }
@@ -37,11 +37,11 @@ export default function AddArtical({ setOpenForm }) {
                     <FiX size={30} onClick={() => setOpenForm(false)} />
                 </span>
             </header>
-                {message.message &&
+            {message.message &&
                 <Message status={message.success}>
                     {message.message}
                 </Message>
-                }
+            }
             <form onSubmit={hundleSubmit}>
                 <div className={style.form_group}>
                     <label htmlFor="title">
@@ -76,6 +76,7 @@ export default function AddArtical({ setOpenForm }) {
                         type='file'
                         size="md"
                         fullWidth
+                        submit
                         endIcon={<BiUpload />
                         }>
                         تحميل الصورة
@@ -90,11 +91,11 @@ export default function AddArtical({ setOpenForm }) {
 
                 <Button
                     variant="contained"
-                    color="primary" 
-                    size="lg" 
+                    color="primary"
+                    size="lg"
                     fullWidth
-                    type='submit'
-                    >
+                    type="submit"
+                >
                     إضافة
                 </Button>
             </form>

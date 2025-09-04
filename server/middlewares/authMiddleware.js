@@ -4,8 +4,10 @@ const User = require("../models/User");
 exports.protect = async (req, res, next) => {
   let token;
 
-  // check if token exists
-  if (!req.headers.authorization || !req.headers.authorization.startsWith("Bearer")) {
+  if (
+    !req.headers.authorization ||
+    !req.headers.authorization.startsWith("Bearer")
+  ) {
     return res.status(401).json({ message: "Not authorized, no token" });
   }
 
@@ -27,6 +29,7 @@ exports.protect = async (req, res, next) => {
 
 exports.authorize = (...roles) => {
   return (req, res, next) => {
+    console.log(req.user.role);
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: "Not authorized for this action" });
     }

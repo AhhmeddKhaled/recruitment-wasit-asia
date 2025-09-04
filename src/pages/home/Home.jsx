@@ -24,7 +24,7 @@ export default function Home() {
 
     <Layout>
 
-      <section className={` ${style.home} s-padding`}>
+      <section className={` ${style.home}`}>
 
         <section className={` ${style.hero} container`}>
           <div className={style.heroBackground}>
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
           <div className={style.heroImg}>
-            <img src="/heroImgs/hero.svg" loading="lazy" alt="hero image" />
+            <img src="/heroImgs/hero.svg" loading="lazy" alt="صورة الموقع" />
           </div>
         </section>
 
@@ -80,7 +80,7 @@ export default function Home() {
         <Contact />
 
 
-        <a href="tel:+201008890582" className={style.whatsappIcon} aria-label="whats us">
+        <a href="tel:+201008890582" className={style.whatsappIcon}>
           <FaWhatsapp className={style.icon} />
         </a>
       </section>

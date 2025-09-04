@@ -11,41 +11,24 @@ import SocialMedia from "../socialMedia/SocialMedia";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, loading } = useContext(UsersContext);
+  const { role} = useContext(UsersContext);
+  
   const [isAdmin, setIsAdmin] = useState(false);
-  const [checkingAdmin, setCheckingAdmin] = useState(true);
   const [scrollY, setScrollY] = useState(0);
-
+  
   const width = window.innerWidth;
   window.onscroll = function () {
     setScrollY(window.scrollY);
   }
+  
 
-  useEffect(() => {
-
-    const checkAdmin = async () => {
-      if (!user || !user.token) {
-        setIsAdmin(false);
-        setCheckingAdmin(false);
-        return;
-      }
-
-      try {
-        const res = await fetch('http://localhost:5000/api/auth/admin-dashboard', {
-          headers: { Authorization: `Bearer ${user.token}` }
-        });
-        setIsAdmin(res.status === 200);
-      } catch {
-        setIsAdmin(false);
-      } finally {
-        setCheckingAdmin(false);
-      }
-    }
-
-    if (!loading) {
-      checkAdmin();
-    }
-  }, [user, loading]);
+useEffect(() => {
+  if (role === 'admin') {
+    setIsAdmin(true);
+  } else {
+    setIsAdmin(false);
+  }
+}, [role]);
 
   const handleDropdownToggle = (e) => {
     const element = e.target;
@@ -60,8 +43,6 @@ export default function Navbar() {
     else
       element.classList.add(`${style.active}`)
   }
-
-  if (loading || checkingAdmin) return <div>جار التحميل...</div>;
 
   return (
     <header className={`${style.navbar} ${scrollY > 50 ? style.scroll : ''} p-t-b-12`}>
@@ -101,7 +82,6 @@ export default function Navbar() {
             <FaChevronLeft className={style.icon} />
             <ul className={style.dropdown}>
               <div>
-
                 <li><Link to="/سياسات_الإستقدام">سياسات الإستقدام</Link></li>
               </div>
             </ul>

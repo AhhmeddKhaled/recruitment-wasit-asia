@@ -59,6 +59,7 @@ export default function AllArticals() {
                     size="lg"
                     endIcon={<FaPlus />}
                     onClick={() => setOpenForm(true)}
+                    submit
                 >
                     إضافة مقال
                 </Button>

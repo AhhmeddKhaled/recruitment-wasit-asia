@@ -7,7 +7,7 @@
 .offers .offers_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 .offers .offer_card {
@@ -20,14 +20,10 @@
 }
 
 .offers .offer_card img {
-  width: 50px;
-  height: 50px;
   border-radius: var(--radius-round);
   margin-top: -70px;
-}
-
-.offers .offer_card h4 {
-  color: var(--primary);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .offers .offer_card p {

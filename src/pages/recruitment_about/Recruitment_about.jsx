@@ -122,7 +122,7 @@ export default function Recruitment_about() {
 
           </div>
           <div className={style.img}>
-            <img src="/imgs/about.svg" alt="about image" loading="lazy"/>
+            <img src="/imgs/about.svg" alt="من نحن" loading="lazy"/>
           </div>
         </div>
 

@@ -3,7 +3,6 @@ import style from "./Login.module.css";
 import Layout from "../../layout/layout";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
-import { BsSendCheck } from "react-icons/bs";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { UsersContext } from "../../data/AllProviders/UsersContext";
@@ -84,7 +83,7 @@ export default function Login() {
       <section id="login" className={` ${style.form} s-padding flex-center`}>
         <form onSubmit={handleSubmit}>
           <div className={` ${style.img} flex-center `}>
-            <img src="/imgs/login.svg" alt="login image" loading="lazy"/>
+            <img src="/imgs/login.svg" alt="صورة تسجيل الدخول" loading="lazy"/>
           </div>
           <h3 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h3>
 
@@ -148,7 +147,6 @@ export default function Login() {
           <div className={style.submit}>
             <Button variant="contained" color="primary" size="lg" type="submit" fullWidth>
               {isLogin ? "دخول" : "إرسال"}
-              <BsSendCheck className={style.icon} />
             </Button>
           </div>
 

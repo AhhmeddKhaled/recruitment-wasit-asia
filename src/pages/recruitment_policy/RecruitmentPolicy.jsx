@@ -51,7 +51,7 @@ export default function Recruitment_policy() {
                         </div>
                     </div>
                     <div className={style.img}>
-                    <img src="/imgs/سياسات.webp" alt="polisy image" />
+                    <img src="/imgs/سياسات.webp" alt="سياسات الإستقدام" />
                     </div>
                 </section>
                 <Contact />

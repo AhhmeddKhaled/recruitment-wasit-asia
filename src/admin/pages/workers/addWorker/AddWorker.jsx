@@ -17,7 +17,7 @@ export default function AddWorker({ setOpenForm, type }) {
   const [recruitmentFee, setRecruitmentFee] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [cv, setCv] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState({});
 
   /* API Url */
   const url = `http://localhost:5000/api/workers/${type}`;
@@ -51,7 +51,12 @@ export default function AddWorker({ setOpenForm, type }) {
 
       const data = await response.json();
       if (response.ok) {
-        setMessage(data.message || "✅ تمت إضافة العامل بنجاح");
+        setMessage(
+          {
+            message : data.message || "✅ تمت إضافة العامل بنجاح",
+            status: "success"
+          }
+        );
         setName("");
         setAge("");
         setNationality("");
@@ -93,7 +98,7 @@ export default function AddWorker({ setOpenForm, type }) {
         </span>
       </header>
 
-      {message && <Message status={message.success}> {message} </Message>}
+      {message.message && <Message status={message.status}> {message.message} </Message>}
 
       {/* Worker Name*/}
       <div className={style.form_group}>
@@ -254,9 +259,8 @@ export default function AddWorker({ setOpenForm, type }) {
 
       {/* Submit */}
       <div className={`${style.form_group} ${style.submit}`}>
-        <Button variant="contained" color="primary" size="lg" fullWidth>
+        <Button variant="contained" color="primary" size="lg" type="submit" fullWidth>
           إضافة خادمة
-          <input type="submit" hidden />
         </Button>
       </div>
     </form>

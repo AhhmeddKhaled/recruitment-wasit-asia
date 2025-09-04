@@ -6,6 +6,11 @@ const fs = require("fs");
 const { register, login, getUsers, getOneUser} = require('../controllers/authController');
 const { protect, authorize } = require('../middlewares/authMiddleware');
 
+// مثال: مسار الأدمن
+router.get('/admin-dashboard', protect, authorize('admin'), (req, res) => {
+  res.json({ message: 'Welcome Admin!' });
+});
+
 router.post('/register', register);
 router.post('/login', login);
 router.get('/:id', getOneUser);
@@ -23,9 +28,5 @@ router.get("/api/workers/:id/cv", protect, (req, res) => {
   res.download(filePath);
 });
 
-// مثال: مسار الأدمن
-router.get('/admin-dashboard', protect, authorize('admin'), (req, res) => {
-  res.json({ message: 'Welcome Admin!' });
-});
 
 module.exports = router;
