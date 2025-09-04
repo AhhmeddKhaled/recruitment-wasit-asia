@@ -80,7 +80,7 @@ export default function Home() {
         <Contact />
 
 
-        <a href="tel:+201008890582" className={style.whatsappIcon}>
+        <a href="tel:+201008890582" className={style.whatsappIcon} aria-label="أيقونة التواصل وتس أب">
           <FaWhatsapp className={style.icon} />
         </a>
       </section>
