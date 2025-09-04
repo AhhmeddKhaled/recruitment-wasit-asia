@@ -79,6 +79,7 @@ html {
   src: url('/fonts/Tajawal-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -86,6 +87,7 @@ html {
   src: url('/fonts/Tajawal-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -93,6 +95,7 @@ html {
   src: url('/fonts/Tajawal-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
