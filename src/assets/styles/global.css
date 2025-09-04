@@ -9,7 +9,6 @@
   --font-size-body: clamp(1.6rem, 1.5vw, 1.6rem);
   --font-size-small: clamp(1rem, 1.2vw, 1.4rem);
   --font-size-tiny: clamp(0.9rem, 1vw, 1.2rem);
-  --font-family-base: "Tajawal", sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
@@ -75,14 +74,34 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+@font-face {
+  font-family: 'Tajawal';
+  src: url('/fonts/Tajawal-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('/fonts/Tajawal-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  src: url('/fonts/Tajawal-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
+  font-family: 'Tajawal', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
   direction: rtl;
   height: 100vh;
   width: 100vw;
-  font-family: var(--font-family-base);
   overflow-x: hidden;
 }
 
