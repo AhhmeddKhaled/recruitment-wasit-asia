@@ -9,10 +9,10 @@ export default function SocialMedia() {
     return (
         <div className={style.social}>
             <a 
+            aria-label="موقع سناب شات الخاص بالمكتب"
             arr="WhatsUp" 
             href="tel:+20 100 889 0582"
             target="_blanck"
-            aria-label="موقع سناب شات الخاص بالمكتب"
             > <BsWhatsapp size={30} className={style.icon} /> </a>
             <a 
             arr="Snapchat"
