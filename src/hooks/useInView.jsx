@@ -1,7 +1,7 @@
 // useInView.js
 import { useEffect, useRef } from "react";
 
-export default function useInView({ activeClass, threshold = 0.3 }) {
+export default function useInView({ activeClass, threshold = 0.3, onEnter }) {
   const refs = useRef([]);
 
   const setRefs = (el, index) => {
@@ -13,8 +13,9 @@ export default function useInView({ activeClass, threshold = 0.3 }) {
       (entries, observerInstance) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(activeClass);
-            observerInstance.unobserve(entry.target); // 🔥 وقف المراقبة بعد أول دخول
+            if (activeClass) entry.target.classList.add(activeClass);
+            if (onEnter) onEnter(entry.target);
+            observerInstance.unobserve(entry.target);
           }
         });
       },
@@ -26,7 +27,7 @@ export default function useInView({ activeClass, threshold = 0.3 }) {
     return () => {
       refs.current.forEach((el) => el && observer.unobserve(el));
     };
-  }, [activeClass, threshold]);
+  }, [activeClass, threshold, onEnter]);
 
   return { setRefs };
 }

@@ -69,7 +69,6 @@ export default function Home() {
           <div className={style.heroImg}>
             <img
               src="/heroImgs/hero.svg"
-              loading="lazy"
               alt="صورة الموقع"
             />
           </div>
