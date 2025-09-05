@@ -48,7 +48,13 @@ useEffect(() => {
     <header className={`${style.navbar} ${scrollY > 50 ? style.scroll : ''} p-t-b-12`}>
       <div className={` ${style.container} flex`}>
         <div className={style.logo}>
-          <img src="/imgs/logo.webp" alt="لوجو الموقع" loading="lazy"/>
+          <img 
+          src="/imgs/logo.webp" 
+          alt="لوجو الموقع" 
+          loading="lazy"
+          width={300}
+          height={80}
+          />
         </div>
 
         <ul className={`${style.links} flex-align ${isOpen ? style.open : style.close}`}>
