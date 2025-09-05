@@ -70,7 +70,8 @@ export default function Home() {
             <img
               src="/heroImgs/hero.svg"
               alt="صورة الموقع"
-               fetchpriority="high"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         </section>
