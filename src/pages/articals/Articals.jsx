@@ -24,10 +24,10 @@ export default function Articals() {
         </header>
 
         <section className={` ${style.articals_grid} container`}>
-          {getArticals.map(artical => {
+          {getArticals.map((artical,i) => {
 
             return (
-              <div className={style.artical}>
+              <div className={style.artical} key={i}>
                   <div className={style.img}>
                     <img src={`http://localhost:5000${artical.img}`} alt="img" loading="lazy"/>
                   </div>
