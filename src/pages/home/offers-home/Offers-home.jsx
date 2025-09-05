@@ -14,7 +14,7 @@ export default function Offers() {
   };
 
   const { setRefs } = useInView({
-    threshold: 0,
+    threshold: 0.3,
     onEnter: fetchCountries,
   });
 

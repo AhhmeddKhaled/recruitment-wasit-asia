@@ -21,7 +21,7 @@ footer .container .about {
 }
 footer .container .about p {
   text-wrap: balance;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 footer .container h3 {
   margin-bottom: var(--space-3);
@@ -51,7 +51,7 @@ footer .container .social div  {
 footer .end p {
   margin: 0;
   color: #fff;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 @media (max-width: 900px) {
