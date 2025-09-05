@@ -60,6 +60,8 @@ export default function Setting() {
         <section className={style.setting}>
             <input id="setting" type="checkbox" />
             <label htmlFor="setting">
+                  <span className={style.srOnly}>فتح إعدادات الموقع</span>
+
                 <SlSettings size={40} className={style.icon} />
             </label>
             <div className={style.box}>
