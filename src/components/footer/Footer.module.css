@@ -38,8 +38,8 @@ footer .container  ul li {
 }
 
 footer .container img {
-max-width: 300px;
 transform: translateX(20px);
+object-fit: cover;
 grid-column: 1 / -1;
 }
 
