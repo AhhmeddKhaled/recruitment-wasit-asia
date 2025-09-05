@@ -72,7 +72,7 @@ export default function Home() {
               alt="صورة الموقع"
               fetchpriority="high"
               decoding="async"
-              width={500}
+              width={600}
               height={200}
             />
           </div>
