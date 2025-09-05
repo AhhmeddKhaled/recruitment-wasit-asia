@@ -140,11 +140,6 @@ body *:not(select) {
 section.s-padding {
   padding: calc(12 * var(--space-2)) 0;
 }
-@media (max-width: 900px) {
-  section.s-padding {
-    padding: calc(12 * var(--space-1)) 0;
-  }
-}
 
 h1,
 h2 {
