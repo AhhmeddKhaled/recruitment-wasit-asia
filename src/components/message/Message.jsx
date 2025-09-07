@@ -12,7 +12,7 @@ export default function Message({
             <p className={`flex-center ${style.msg} 
         ${status === "success" ? style.success
                     : status === "error" ? style.error
-                        : style.warning}`}>
+                        : ''}`}>
                 {children}
             </p>
         </div>

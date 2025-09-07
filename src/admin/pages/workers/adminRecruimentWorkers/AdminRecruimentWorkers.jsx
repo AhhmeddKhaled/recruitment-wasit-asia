@@ -79,7 +79,7 @@ export default function AdminRecruimentWorkers() {
       <header className="flex">
         <h2> خادمات الإستقدام</h2>
         <Button
-          variant="conyained"
+          variant="contained"
           color="primary"
           size="lg"
           endIcon={<FaPlus />}

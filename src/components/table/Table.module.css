@@ -1,12 +1,14 @@
 table {
-  min-width: 100%;
+  width: 100%;
   border-radius: var(--radius-md);
   color: var(--text-dark);
   padding: var(--space-4) 0;
 }
+
 table thead th {
   background-color: var(--blue-effect);
 }
+
 table tr th,
 table tr td {
   font-size: var(--font-size-small);
@@ -28,61 +30,10 @@ table tbody td img {
   box-shadow: var(--shadow-sm);
 }
 
-/* Mobile Style */
-.mobileGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-4);
-  justify-items: flex-start;
-}
 
-.mobileGrid .cardItem {
-  background-color: var(--bg-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  width: 300px;
-  display: -webkit-box;
-  line-clamp: 4; 
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis; 
-  overflow: hidden;
-}
-
-.mobileGrid .cardItem .cardRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--text-dark);
-  font-weight: var(--font-weight-bold);
-  padding: var(--space-2) var(--space-4);
-}
-
-.mobileGrid .cardItem .cardRow:first-child {
-  background-color: var(--primary);
-  border-top-right-radius: inherit;
-  border-top-left-radius: inherit;
-  display: flex;
-  justify-content: center;
-}
-
-.mobileGrid .cardItem .cardRow:first-child span:first-child {
-  display: none;
-}
-
-.mobileGrid .cardItem .cardRow:first-child span:last-child {
-  font-size: var(--font-size-h4);
-  color: var(--bg-color);
-}
-
-.mobileGrid .cardItem .cardRow:not(:first-child) span:last-child {
-  background-color: #eee;
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
-}
-
-.mobileGrid .cardItem .cardActions {
-  padding: var(--space-2) var(--space-4);
+@media (max-width: 900px) {
+  table thead :is(th:nth-child(10),th:nth-child(9),th:nth-child(5),th:nth-child(4)),
+  table tbody :is(td:nth-child(10),td:nth-child(9),td:nth-child(5),td:nth-child(4)) {
+    display: none;
+  }
 }

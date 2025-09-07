@@ -9,7 +9,7 @@
 
 .cvInputs .allCv {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-6);
 }
 
@@ -37,7 +37,7 @@
 
 .cvInputs .allCv .cv .cvInfo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   padding: var(--space-3);
   gap: var(--space-2);
 }
@@ -71,4 +71,14 @@
   color: red;
   padding: var(--space-8);
   border-radius: var(--radius-md);
+}
+
+@media (max-width: 768px) {
+.cvInputs .allCv {
+  grid-template-columns: 1fr;
+}
+.cvInputs .allCv .cv .cvInfo {
+  grid-template-columns: 1fr 1fr;
+}
+
 }

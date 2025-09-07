@@ -1,5 +1,6 @@
 .workersTable {
     position: relative;
+    overflow-x: auto;
 }
 
 .workersTable header {

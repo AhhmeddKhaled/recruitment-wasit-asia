@@ -3,17 +3,7 @@ import style from './Table.module.css';
 import Button from "../button/Button";
 
 export default function Table({ headers, data, actions }) {
-
-  const [width, setWidth] = React.useState(window.innerWidth);
-
-
-    window.addEventListener('resize', () => {
-      setWidth(window.innerWidth);
-      console.log(width);
-    });
-
   
-
   const formatValue = (value) => {
 
     if (typeof value === 'string' && !isNaN(Date.parse(value))) {
@@ -28,8 +18,6 @@ export default function Table({ headers, data, actions }) {
   }
 
   return (
-    <>
-    {width > 900 ?
       <table>
         <thead>
           <tr>
@@ -70,31 +58,5 @@ export default function Table({ headers, data, actions }) {
           ))}
         </tbody>
       </table>
-      : <section className={style.mobileGrid}>
-          {data.map((row, idx) => (
-            <div key={idx} className={style.cardItem}>
-              {headers.map((col) => (
-                <div key={col.key} className={style.cardRow}>
-                  <span className={style.cardLabel}>{col.label}: </span>
-                  <span className={style.cardValue}>{formatValue(row[col.key])}</span>
-                </div>
-              ))}
-              <div className={style.cardActions}>
-                {actions.map((col) => (
-                  <Button
-                    key={col.key}
-                    variant="contained"
-                    color={col.color}
-                    size="sm"
-                    onClick={() => col.onClick(row)}>
-                    {col.label}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          ))}
-      </section>
-    }
-    </>
   );
 }
