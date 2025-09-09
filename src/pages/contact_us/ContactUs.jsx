@@ -3,11 +3,11 @@ import styles from "./ContactUs.module.css";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import Layout from "../../layout/layout";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import { ContactContext } from "../../data/AllProviders/ContactContext";
+import { ContactContext } from "../../context/ContactContext";
 
 const ContactUs = () => {
 
-  const { contact } = useContext(ContactContext);
+  const { data } = useContext(ContactContext);
 
   return (
     <Layout>
@@ -24,7 +24,7 @@ const ContactUs = () => {
             <a href="https://www.google.com/maps?q=سيارتنا" target="_blank"> طريق خريص تقاطع شارع عبد الله بن سعود </a>
           </div>
 
-          {contact.map((c,i) => (
+          {data.map((c,i) => (
             <div className={styles.detailBox} key={i}>
             <FaPhone className={styles.icon} />
             <a href={`tel:${c.phone}`}> {c.role} : {c.phone}</a>

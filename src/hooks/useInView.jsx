@@ -14,8 +14,6 @@ export default function useInView({ activeClass, threshold = 0.3, onEnter }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (activeClass) entry.target.classList.add(activeClass);
-            if (onEnter) onEnter(entry.target);
-            observerInstance.unobserve(entry.target);
           }
         });
       },
@@ -24,9 +22,6 @@ export default function useInView({ activeClass, threshold = 0.3, onEnter }) {
 
     refs.current.forEach((el) => el && observer.observe(el));
 
-    return () => {
-      refs.current.forEach((el) => el && observer.unobserve(el));
-    };
   }, [activeClass, threshold, onEnter]);
 
   return { setRefs };

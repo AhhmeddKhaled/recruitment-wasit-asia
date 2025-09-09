@@ -32,8 +32,8 @@ export default function Home() {
     <Layout>
       <section className={` ${style.home}`}>
         {/* Hero Section */}
-        <section className={` ${style.hero} container`}>
-          <div className={style.heroBackground}>
+        <section className={` ${style.heroSection} container`}>
+          <div className={` ${style.heroBackground} layer`}>
             <FaHardHat size={45} className={style.icon} />
             <FaUsersCog size={45} className={style.icon} />
             <MdEngineering size={45} className={style.icon} />
@@ -50,15 +50,16 @@ export default function Home() {
               <Button
                 variant="contained"
                 color="primary"
-                size="hero"
+                size="lg"
                 startIcon={<FiShuffle />}
                 link="طلب_إستقدام"
+                rounde
               >
                 طلب إستقدام
               </Button>
               <Button
                 variant="outlined"
-                size="hero"
+                size="lg"
                 startIcon={<BiTransfer />}
                 link="نقل_خدمات"
               >
@@ -70,7 +71,7 @@ export default function Home() {
             <img
               src="/heroImgs/hero.svg"
               alt="صورة الموقع"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               width={600}
               height={200}

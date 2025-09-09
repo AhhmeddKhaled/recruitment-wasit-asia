@@ -1,17 +1,20 @@
 /*import react hooks*/
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
 /* import css files*/
 import style from "./RecruitmentWorkers.module.css";
+
 /*import components*/
 import Layout from "../../layout/layout";
 import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
+
 /* import context files*/
-import { WorkersContext } from '../../data/AllProviders/WorkersContext';
+import { WorkersContext } from '../../context/WorkersContext';
 import Button from "../../components/button/Button";
 import Message from "../../components/message/Message";
 import { handleDownload } from "../../logic/handleDownload";
-import { UsersContext } from "../../data/AllProviders/UsersContext";
+import { UsersContext } from "../../context/UsersContext";
 /*======================================================================*/
 
 export default function RecruitmentWorkers() {

@@ -5,6 +5,7 @@ import Button from "../../../components/button/Button";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import useInView from "../../../hooks/useInView";
+import HeaderSection from "../../../components/headerSection/HeaderSection";
 
 const faqData = [
     {
@@ -41,9 +42,8 @@ export default function Faq() {
     return (
         <section className={` ${style.faqSection} s-padding`}>
             <div className={` container ${style.faqContainer}`}>
-                <header className="header-section">
-                    <h2 className={style.sectionTitle}>الأسئلة الشائعة</h2>
-                </header>
+                                <HeaderSection title='الأسئلة الشائعة'/>
+
                 <div className={style.faqList}>
                     {faqData.map((item, index) => (
                         <div key={index} className={style.faqItem}

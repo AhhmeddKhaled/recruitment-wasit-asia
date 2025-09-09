@@ -15,6 +15,7 @@ export default function Button({
   link,
   anchor = false,
   type = "button",
+  rounde
 }) {
   const classNames = [
     styles.btn,
@@ -23,6 +24,7 @@ export default function Button({
     styles[`btn-${size}`],
     fullWidth && styles["btn-full"],
     disabled && styles["btn-disabled"],
+    rounde && styles["btn-rounde"],
   ]
     .filter(Boolean)
     .join(" ");

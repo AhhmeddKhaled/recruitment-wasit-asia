@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import useInView from "../../../hooks/useInView";
 import style from "./Offers-home.module.css";
 import Button from "../../../components/button/Button";
+import { useFetchData } from "../../../hooks/useFetchData";
+import Container from "../../../components/container/Container";
+import HeaderSection from "../../../components/headerSection/HeaderSection";
 
 export default function Offers() {
-  const [countries, setCountries] = useState([]);
-
-  const fetchCountries = () => {
-    fetch("http://localhost:5000/api/countries")
-      .then((res) => res.json())
-      .then((data) => setCountries(data))
-      .catch((err) => console.error(err));
-  };
+  const { data } = useFetchData("http://localhost:5000/api/countries");
 
   const { setRefs } = useInView({
     threshold: 0.3,
-    onEnter: fetchCountries,
+    onEnter: data,
   });
 
   return (
@@ -24,36 +20,39 @@ export default function Offers() {
       className={style.offers}
       ref={(el) => setRefs(el, 0)}
     >
-      <div className="container">
-        <header className="header-section">
-          <h2> عروضنا </h2>
-          <p> اختر الدولة المناسبة واستمتع بأفضل الأسعار </p>
-        </header>
+      <Container>
+
+        {/* Header Component  */}
+        <HeaderSection title='عروضنا' paragraph='اختر الدولة المناسبة واستمتع بأفضل الأسعار' />
 
         <div className={style.offers_grid}>
-          {countries.length > 0 ? (
-            countries.map((country) => (
+          {data.length > 0 ? (
+            data.map((country) => (
               <div className={style.offer_card} key={country._id}>
+                <div className={style.cardImg}>
                 <img
                   src={country.flag}
                   alt="علم الدولة"
                   loading="lazy"
-                  width="100"
-                  height="100"
-                />
+                  width="60"
+                  height="60"
+                  />
+                  </div>
+                <div className={style.text}>
                 <h4>{country.name}</h4>
                 <p>{country.description}</p>
                 <span>{country.salary} ريال</span>
                 <Button variant="contained" size="md" link="طلب_إستقدام">
                   أطلب الآن
                 </Button>
+                </div>
               </div>
             ))
           ) : (
             <p style={{ textAlign: "center" }}>جاري التحميل...</p>
           )}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

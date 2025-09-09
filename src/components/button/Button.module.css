@@ -59,6 +59,7 @@
 .btn-outlined:hover {
   border-color: transparent;
 }
+
 .btn-text {
   background: transparent;
   border: none;
@@ -141,9 +142,13 @@
   color: var(--danger);
 }
 
+.btn.rounde {
+  border-radius: 1000px;
+}
 /* Disabled */
 .btn:disabled {
   background: var(--disabled-bg);
   color: var(--disabled-text);
   cursor: not-allowed;
 }
+

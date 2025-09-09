@@ -3,7 +3,7 @@ import style from './AddContact.module.css';
 import Button from "../../../../components/button/Button";
 import { FiX } from "react-icons/fi";
 import { addContact } from "../../../services/contact/addContact";
-import { ContactContext } from "../../../../data/AllProviders/ContactContext";
+import { ContactContext } from "../../../../context/ContactContext";
 import Message from '../../../../components/message/Message';
 
 export default function AddContact({ setOpenForm }) {
@@ -12,14 +12,14 @@ export default function AddContact({ setOpenForm }) {
     const [phone, setPhone] = useState('');
     const [role, setRole] = useState('');
     const [message, setMessage] = useState({});
-    const { contact, setContact } = useContext(ContactContext)
+    const { dats, setData } = useContext(ContactContext)
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const newContact = await addContact({ name, phone, role });
-            setContact([...contact, newContact]);
+            setData([...dats, newContact]);
             setName("");
             setPhone("");
             setMessage({ message: "تم إضافة الرقم بنجاح", success: "success" })

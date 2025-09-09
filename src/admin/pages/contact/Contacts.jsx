@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import style from './Contact.module.css';
-import { ContactContext } from "../../../data/AllProviders/ContactContext";
+import { ContactContext } from "../../../context/ContactContext";
 import Button from "../../../components/button/Button";
 import Header from "../../layout/header/Header";
 import AddContact from "./addContact/AddContact";
@@ -9,7 +9,7 @@ import Message from "../../../components/message/Message";
 
 export default function Contact() {
 
-    const { contact, setContact } = useContext(ContactContext);
+    const { data, setData } = useContext(ContactContext);
     const [openForm, setOpenForm] = useState(false);
     const [message,setMessage] = useState({});
     
@@ -19,7 +19,7 @@ export default function Contact() {
     const success = await deleteContact(id);
     if (success) {
         setMessage({message: "تم حذف الرقم",status: "success"});
-        setContact(prev => prev.filter(c => c._id !== id));
+        setData(prev => prev.filter(c => c._id !== id));
     } else {
         setMessage({message: "خطأ في حذف الرقم",status: "error"});
         console.log(id);
@@ -38,7 +38,7 @@ export default function Contact() {
             <Header heading="أرقام التواصل" button="إضافة مقال" onclick={() => setOpenForm(true)} />
             {message.message && <Message status={message.status}> {message.message} </Message>}
             {openForm && <AddContact setOpenForm={setOpenForm} />}
-            {contact.length === 0 ?
+            {data.length === 0 ?
              <h2 className={style.notContact}>لا توجد أرقام</h2> :
             <table>
                 <thead>
@@ -50,7 +50,7 @@ export default function Contact() {
                     </tr>
                 </thead>
                 <tbody>
-                    {contact.map((c,i) => (
+                    {data.map((c,i) => (
                         <tr key={i}>
                             <td>
                                 {c.name}

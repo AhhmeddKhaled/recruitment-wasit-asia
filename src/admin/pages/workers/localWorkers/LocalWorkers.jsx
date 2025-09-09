@@ -4,7 +4,7 @@ import Button from "../../../../components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddWorker from "../addWorker/AddWorker";
 import Table from "../../../../components/table/Table";
-import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
+import { WorkersContext } from "../../../../context/WorkersContext";
 import { deleteWorker } from "../../../services/workers/deleteWorker";
 
 export default function LocalWorker() {

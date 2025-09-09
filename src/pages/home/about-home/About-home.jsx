@@ -3,6 +3,8 @@ import style from "./About-home.module.css";
 import { RiTeamFill, RiCustomerService2Fill } from "react-icons/ri";
 import { BsFillTabletFill } from "react-icons/bs";
 import useInView from "../../../hooks/useInView";
+import HeaderSection from "../../../components/headerSection/HeaderSection";
+import Container from "../../../components/container/Container";
 
 export default function About() {
   const { setRefs } = useInView({ activeClass: style.fade_in, threshold: 0.5 });
@@ -27,10 +29,8 @@ export default function About() {
 
   return (
     <section className={`s-padding ${style.about}`}>
-      <div className="container">
-        <header className="header-section">
-        <h2>خدماتنا </h2>
-        </header>
+      <Container>
+        <HeaderSection title='خدماتنا' />
         <div className={style.about_cards}>
           {cards.map((card, i) => (
             <div className={style.card} key={i} ref={(el) => setRefs(el, i)}>
@@ -40,7 +40,7 @@ export default function About() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

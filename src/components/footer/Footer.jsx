@@ -3,25 +3,29 @@ import style from "./Footer.module.css";
 import "../../assets/styles/global.css";
 import { Link } from "react-router-dom";
 import SocialMedia from "../socialMedia/SocialMedia";
-import { ContactContext } from '../../data/AllProviders/ContactContext'
+import { ContactContext } from '../../context/ContactContext'
+import Button from "../button/Button";
+import useInView from "../../hooks/useInView";
+import { MdEmail } from "react-icons/md";
+import { FaAddressBook, FaPhone } from "react-icons/fa";
+import { BiPhoneCall } from "react-icons/bi";
 export default function Footer() {
 
-  const { contact } = useContext(ContactContext);
+  const { setRefs } = useInView({
+    activeClass: style.animate
+  });
+  console.log(setRefs.current);
+
+  const { data } = useContext(ContactContext);
+  const date = new Date();
+
+
 
   return (
     <footer>
       <div className={`${style.container} container`}>
-          <img src="/imgs/logo.webp" alt="logo image" loading="lazy" width={300} height={80}/>
-        <div className={`${style.footer_section}  ${style.about}`}>
-          <h2> وسيط أسيا </h2>
-          <p>
-            أفضل مكتب استقدام العمالة المنزلية بمعايير دولية ومهنية عالية. نوفر
-            أيدى عاملة مميزة ومدربة بحرفية.
-            استقدام العمالة المنزلية بكل سهولة وأمان، نعمل باحترافية لتوفير أفضل الكفاءات من مختلف الجنسيات وبشروط واضحة وعقود موثقة
-          </p>
-        </div>
 
-        <div className={`${style.footer_section}  ${style.links}`}>
+        <div ref={(el) => setRefs(el, 0)} className={`${style.row}  ${style.links}`}>
           <h3>خدماتنا</h3>
           <ul>
             <li>
@@ -34,39 +38,40 @@ export default function Footer() {
               <Link to="/وصول_العمالة">وصول العمالة</Link>
             </li>
             <li>
-              <Link to="/سياسات_الإستقدام">سياسات الاستقدام</Link>
-            </li>
-            <li>
               <Link
                 to='/articals'>
                 المقالات
               </Link>
             </li>
+            <li>
+              <Link to="/سياسات_الإستقدام">سياسات الاستقدام</Link>
+            </li>
           </ul>
         </div>
 
-        <div className={`${style.footer_section}  ${style.contact}`}>
+        <div ref={(el) => setRefs(el, 1)} className={`${style.row}  ${style.contact}`}>
           <h3>معلومات التواصل</h3>
           <ul>
             <li>
-              العنوان:
+              <FaAddressBook />
               <a href="">   طريق خريص تقاطع شارع عبد الله بن سعود  </a>
             </li>
             <li>
-              البريد الإلكتروني:
+              <MdEmail />
               <a href="mailto:wasitasia1@gmail.com">wasitasia1@gmail.com</a>
             </li>
 
-            {contact.map((c,i) => (
+            {data.map((c, i) => (
               <li key={i}>
-              {c.role} :
-              <a href={`tel:${c.phone}`}>{c.phone}</a>
-            </li>
+                <FaPhone />                
+                {c.role} :
+                <a href={`tel:${c.phone}`}>{c.phone}</a>
+              </li>
             ))}
           </ul>
         </div>
 
-        <div className={`${style.footer_section}  ${style.external}`}>
+        <div ref={(el) => setRefs(el, 2)} className={`${style.row}  ${style.external}`}>
           <h3>روابط هامة</h3>
           <ul>
             <li>
@@ -87,17 +92,21 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className={`${style.footer_section} ${style.social}`}>
-          <h3> منصاتنا </h3>
-        <SocialMedia />
+        <div ref={(el) => setRefs(el, 3)} className={`${style.row} ${style.sendMessage}`}>
+          <h3> تواصل معنا </h3>
+          <div className={style.form}>
+            <input type="text" />
+            <Button size="lg">
+              إرسال
+            </Button>
+          </div>
         </div>
 
-        
       </div>
-
-      <div className={` ${style.end} flex container`}>
-        <p>© 2025 جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
-      </div>
+        <div className={` ${style.copyRight} flex`}>
+          <p>© {date.getFullYear()} جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
+          <SocialMedia />
+        </div>
     </footer >
   );
 }

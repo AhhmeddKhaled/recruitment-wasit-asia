@@ -1,7 +1,7 @@
 export const handleDownload = async (worker, setMessage) => {
   try {
     const storedId = localStorage.getItem("userId");
-    const id = storedId ? storedId : null; // لو متخزن بـ JSON.stringify
+    const id = storedId ? storedId : null;
 
 
     if (!id) {
@@ -13,6 +13,7 @@ export const handleDownload = async (worker, setMessage) => {
     }
 
     const res = await fetch(`http://localhost:5000/api/auth/${id}`);
+    
     if (!res.ok) {
       throw new Error(`فشل في جلب المستخدم: ${res.status}`);
     }
@@ -22,7 +23,7 @@ export const handleDownload = async (worker, setMessage) => {
     
     
 
-    const response = await fetch("http://localhost:5000/api/notify-owner", {
+    const response = await fetch("http://localhost:5000/api/contact/resume", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

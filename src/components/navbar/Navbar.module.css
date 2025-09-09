@@ -6,76 +6,88 @@ header.navbar {
   backdrop-filter: blur(48px);
   color: var(--text-dark);
   transition: 1s ease;
-  padding: 0;
-  margin: 0;
-  .container {
-    width: 90%;
-    margin: auto;
-  }
   &.scroll {
     box-shadow: var(--shadow-lg);
   }
+
   * {
     color: inherit;
   }
+
   .logo {
     img {
       object-fit: cover;
     }
   }
-  .links li {
-    position: relative;
-    font-size: var(--font-size-body);
-    padding: var(--space-2) var(--space-4);
-    &:hover {
-      color: var(--primary);
-    }
-    .icon {
-      margin-right: var(--space-3);
-      transition: 0.3s ease;
-    }
-    &.active .icon {
-      transform: rotate(-90deg);
-    }
-    &.active .dropdown {
-      grid-template-rows: 1fr;
-    }
 
-    .dropdown {
-      display: grid;
-      grid-template-rows: 0fr;
-      position: absolute;
-      top: 100%;
-      left: 0%;
-      z-index: 10000;
-      width: 200px;
-      background-color: var(--bg-color);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-      animation: fadeIn 0.5s ease-in-out;
-      transition: 0.3s ease;
-      > div {
-        overflow: hidden;
-        li {
-          a {
-            text-align: center;
-            padding: var(--space-2) 0;
-            display: block;
-            transition: 0.3s ease;
-            color: var(--text-dark);
-            &:hover {
-              background: hsl(from var(--primary) h s l / 0.3);
-              border-radius: var(--radius-sm);
+  nav {
+    flex-basis: 75%;
+    .links {
+      flex-basis: 60%;
+      gap: var(--space-2);
+      li {
+        position: relative;
+        font-size: var(--font-size-small);
+        padding: var(--space-2) var(--space-4);
+        &:hover {
+          color: var(--primary);
+        }
+        span {
+          align-items: center;
+          display: flex;
+          &.active + .dropdown {
+          grid-template-rows: 1fr;
+        }
+          &.active .icon {
+          transform: rotate(-90deg);
+        }
+        }
+        .icon {
+          margin-right: var(--space-3);
+          transition: 0.3s ease;
+          position: relative;
+          z-index: 1;
+        }
+      
+        
+        .dropdown {
+          display: grid;
+          grid-template-rows: 0fr;
+          position: absolute;
+          top: 100%;
+          left: 0%;
+          z-index: 10000;
+          width: 200px;
+          background-color: var(--bg-color);
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-lg);
+          animation: fadeIn 0.5s ease-in-out;
+          transition: 0.3s ease;
+          > div {
+            overflow: hidden;
+            li {
+              a {
+                text-align: center;
+                padding: var(--space-2) 0;
+                display: block;
+                transition: 0.3s ease;
+                color: var(--text-dark);
+                &:hover {
+                  background: hsl(from var(--primary) h s l / 0.3);
+                  border-radius: var(--radius-sm);
+                }
+              }
             }
           }
         }
       }
     }
+
+    .btn {
+        gap: var(--space-2);
+      }
   }
-  .links .btn {
-    display: flex;
-    gap: var(--space-2);
-  }
+
   .toggle_mobile {
     display: none;
   }
@@ -91,50 +103,66 @@ header.navbar {
 }
 
 @media (max-width: 1200px) {
-header.navbar {
-
-  .links {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--space-4);
-    position: absolute;
-    left: 0;
-    top: 100%;
-    transform: translateX(-100%);
-    width: 100%;
-    padding: var(--space-4);
-    background-color: var(--bg-color);
-    box-shadow: var(--shadow-lg);
-    transition: .6s ease;
-    &.open {
-      transform: translateX(0);
-    }
-    li {
-      .dropdown {
-        position: relative;
-        left: 0;
-        top: 0;
-        box-shadow: none;
-      > div {
-
-        li {
-          a {
-            text-align: right;
-            padding: var(--space-2) var(--space-4);
+  header.navbar {
+    nav {
+      transform: translateX(-100%);
+      left: 0;
+      top: 100%;
+      position: absolute;
+      width: fit-content;
+      flex-direction: column;
+      background-color: var(--bg-color);
+      box-shadow: var(--shadow-lg);
+      padding: var(--space-4);
+      gap: var(--space-4);
+      transition: 0.6s ease;
+      &.open {
+        transform: translateX(0);
+      }
+      .links {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: var(--space-4);
+        > li {
+          font-size: var(--font-size-body);
+          display: block;
+          width: fit-content;
+          span {
+            justify-content: space-between;
+          }
+          .icon {
+            display: flex;
+            justify-items: flex-end;
+          }
+          .dropdown {
+            position: relative;
+            top: 0;
+            left: 0;
+            box-shadow: none;
+            > div {
+              li {
+                font-size: var(--font-size-body);
+                a {
+                  text-align: right;
+                  padding: var(--space-2) var(--space-4);
+                }
+              }
+            }
           }
         }
       }
-      } 
-    } 
-    .btn {
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
+      .btn {
+        width: 100%;
+        margin-top: var(--space-4);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+      }
     }
   }
-}
 
   header.navbar .toggle_mobile {
     display: block;

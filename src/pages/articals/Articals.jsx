@@ -4,14 +4,14 @@ import Layout from "../../layout/layout";
 import { Link } from "react-router-dom";
 import ShareArtical from "./shareArtical";
 import '../../assets/styles/global.css';
-import { ArticalsContext } from "../../data/AllProviders/ArticalsContext";
+import { ArticalsContext } from "../../context/ArticalsContext";
 
 export default function Articals() {
   const slugify = (title) => {
     return `${title.toLowerCase().replace(/\s+/g, '-')}`;
   }
 
-  const { getArticals } = useContext(ArticalsContext);
+  const { data } = useContext(ArticalsContext);
 
   return (
     <Layout>
@@ -24,7 +24,7 @@ export default function Articals() {
         </header>
 
         <section className={` ${style.articals_grid} container`}>
-          {getArticals.map((artical,i) => {
+          {data.map((artical,i) => {
 
             return (
               <div className={style.artical} key={i}>

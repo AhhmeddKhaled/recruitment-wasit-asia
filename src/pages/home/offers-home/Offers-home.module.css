@@ -6,38 +6,62 @@
 
 .offers .offers_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-12);
 }
 
 .offers .offer_card {
   background-color: var(--bg-color);
   color: var(--text-dark);
-  padding: var(--space-6);
   border-radius: var(--radius-lg);
-  text-align: center;
-  transition: 0.5s ease;
+  box-shadow: var(--shadow-md);
+  transition: .3s ease;
+  height: fit-content;
+  overflow: hidden;
 }
 
-.offers .offer_card img {
-  border-radius: var(--radius-round);
-  margin-top: -70px;
+.offers .offer_card .cardImg {
+  width: 100%;
+  height: 200px;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+  overflow: hidden;
+  img {
+    transition: 1s ease;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.offers .offer_card p {
-  margin: var(--space-4) 0;
+.offers .offer_card .text {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
-.offers .offer_card span {
+.offers .offer_card .text p {
+  text-wrap: balance;
+}
+
+.offers .offer_card .text span {
   display: block;
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-small);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-4);
+  background: hsl(from var(--primary) h s l / .2);
+  width: fit-content;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-lg);
 }
 
 .offers .offer_card:hover {
-  background-color: var(--blue-effect);
+  background: hsl(from var(--primary) h s l / .3);
+}
+
+.offers .offer_card:hover  img {
+  transform: scale(1.2) rotate(1deg);
 }
 

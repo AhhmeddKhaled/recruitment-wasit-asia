@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from './KPIS.module.css';
 import { FaUsers, FaFileAlt, FaBriefcase, FaChartLine, FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { WorkersContext } from "../../../../data/AllProviders/WorkersContext";
-import { ArticalsContext } from "../../../../data/AllProviders/ArticalsContext";
+import { WorkersContext } from "../../../../context/WorkersContext";
+import { ArticalsContext } from "../../../../context/ArticalsContext";
 
 export default function KPIS() {
 
   const { recruitmentWorkers, localWorkers, fetchWorkers } = useContext(WorkersContext);
-  const { getArticals } = useContext(ArticalsContext);
-  const [users,setUsers] = useState([])
+  const { dataLength } = useContext(ArticalsContext);
+  const [users,setUsers] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
       fetchWorkers('recruitmentWorkers');
@@ -25,7 +26,7 @@ export default function KPIS() {
     getData();
   }, []);
 
-  const data = [
+  const Data = [
     {
       title: "إستقدام",
       value: recruitmentWorkers.length,
@@ -38,7 +39,7 @@ export default function KPIS() {
     },
     {
       title: "المقالات",
-      value: getArticals.length,
+      value: dataLength,
       icon: <FaFileAlt size={24}/>,
     },
     {
@@ -54,7 +55,7 @@ export default function KPIS() {
         <h2> إحصائيات </h2>
       </header>
       <div className={style.grid}>
-        {data.map((kpi, index) => (
+        {Data.map((kpi, index) => (
           <div
             key={index}
             className={style.card}

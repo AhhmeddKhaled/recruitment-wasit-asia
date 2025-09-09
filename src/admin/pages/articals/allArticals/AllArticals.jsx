@@ -1,18 +1,19 @@
 import React, { act, useContext, useState } from "react";
 import style from './AllArticals.module.css';
 import '../../../../assets/styles/global.css';
-import { ArticalsContext } from "../../../../data/AllProviders/ArticalsContext";
+import { ArticalsContext } from "../../../../context/ArticalsContext";
 import Button from "../../../../components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddArtical from "../addArtical/AddArtical";
 import Table from "../../../../components/table/Table";
 import Message from "../../../../components/message/Message";
 import { deleteArtical } from "../../../services/articals/deleteArtical";
+
 export default function AllArticals() {
 
     const [openForm, setOpenForm] = useState(false);
     const [message,setMessage] = useState({});
-    const { getArticals, setArticals } = useContext(ArticalsContext);
+    const { data, setData } = useContext(ArticalsContext);
 
     const headers = [
         {
@@ -40,7 +41,7 @@ export default function AllArticals() {
 
      const handleDelete = (id) => {
         deleteArtical(id, setMessage);
-        setArticals(getArticals.filter((a) => a._id !== id))
+        setData(data.filter((a) => a._id !== id))
       };
     return (
         <section className={style.articalsTable}>
@@ -64,7 +65,7 @@ export default function AllArticals() {
                     إضافة مقال
                 </Button>
             </header>
-            <Table data={getArticals} headers={headers} actions={actions} />
+            <Table data={data} headers={headers} actions={actions} />
 
             {openForm && <AddArtical setOpenForm={setOpenForm} />}
         </section>

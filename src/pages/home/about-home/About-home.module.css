@@ -44,10 +44,10 @@
     transform: translateY(20%);
   }
   &:nth-child(2) {
-    transform: translateY(60%);
+    transform: translateY(40%);
   }
   &:last-child {
-    transform: translateY(100%);
+    transform: translateY(40%);
   }
   &.fade_in {
     opacity: 1;

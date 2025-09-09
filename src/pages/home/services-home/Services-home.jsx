@@ -4,6 +4,8 @@ import "../../../assets/styles/global.css";
 import { FaArrowLeft } from "react-icons/fa";
 import Button from "../../../components/button/Button";
 import { Link } from "react-router-dom";
+import Container from "../../../components/container/Container";
+import HeaderSection from "../../../components/headerSection/HeaderSection";
 
 export default function Services() {
 
@@ -38,8 +40,7 @@ export default function Services() {
 
   return (
     <section className={` ${style.services} s-padding`}>
-      <div className="container">
-
+      <Container>
         <section className={style.servicesGrid}>
           <div className={style.servicesCards}>
             <header className="header-section flex-center">
@@ -63,7 +64,7 @@ export default function Services() {
             <img src="/servicesImgs/service.svg" alt="صورة الخدمات" loading="lazy"/>
           </div>
         </section>
-      </div>
+      </Container>
     </section>
   );
 }

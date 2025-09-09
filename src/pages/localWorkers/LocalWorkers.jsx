@@ -4,7 +4,7 @@ import '../../assets/styles/global.css';
 import Button from "../../components/button/Button";
 import Layout from "../../layout/layout";
 import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
-import { WorkersContext } from "../../data/AllProviders/WorkersContext";
+import { WorkersContext } from "../../context/WorkersContext";
 import { FaCheck } from "react-icons/fa";
 
 export default function LocalWorkers() {

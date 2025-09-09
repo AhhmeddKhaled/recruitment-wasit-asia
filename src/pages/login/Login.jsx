@@ -5,13 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { UsersContext } from "../../data/AllProviders/UsersContext";
+import { UsersContext } from "../../context/UsersContext";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Message  from '../../components/message/Message';
+import Message from '../../components/message/Message';
 
 export default function Login() {
 
-  const { login, userId } = useContext(UsersContext); 
+  const { login, userId } = useContext(UsersContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,11 +34,11 @@ export default function Login() {
     try {
       const bodyData = isLogin
         ? { email, password }
-        : { email, password, name , phone};
+        : { email, password, name, phone };
 
       const response = await fetch(url, {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
           'authorization': `Bearer ${userId}`
         },
@@ -48,18 +48,17 @@ export default function Login() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
-        
+
         login(data);
 
-        setMessage({message: isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!",success: 'success'});
+        setMessage({ message: isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!", success: 'success' });
         setEmail("");
         setPassword("");
         setName("");
         setPhone("")
         setTimeout(() => {
           navigate("/")
-        },500)
+        }, 500)
       } else {
         setMessage({
           message: data.message || "حدث خطأ",
@@ -67,10 +66,10 @@ export default function Login() {
         })
       }
     } catch (error) {
-       setMessage({
-          message: "حدث خطأ في الاتصال بالسيرفر",
-          success: 'success'
-        })
+      setMessage({
+        message: "حدث خطأ في الاتصال بالسيرفر",
+        success: 'success'
+      })
     }
 
     window.messageTimer = setTimeout(() => {
@@ -83,37 +82,37 @@ export default function Login() {
       <section id="login" className={` ${style.form} s-padding flex-center`}>
         <form onSubmit={handleSubmit}>
           <div className={` ${style.img} flex-center `}>
-            <img src="/imgs/login.svg" alt="صورة تسجيل الدخول" loading="lazy"/>
+            <img src="/imgs/login.svg" alt="صورة تسجيل الدخول" loading="lazy" />
           </div>
           <h3 className="flex-center">{isLogin ? "تسجيل الدخول" : "سجل الأن"}</h3>
 
           {!isLogin && (
             <>
-            <div>
-              <label htmlFor="name">
-                <FaUser className={style.icon} /> الإسم كاملًا *
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-               <div>
-              <label htmlFor="phone">
-                <FaUser className={style.icon} />   رقم الهاتف *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
+              <div>
+                <label htmlFor="name">
+                  <FaUser className={style.icon} /> الإسم كاملًا *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
-            </div>
-                </>
+              </div>
+              <div>
+                <label htmlFor="phone">
+                  <FaUser className={style.icon} />   رقم الهاتف *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
+              </div>
+            </>
           )}
 
           <div className={style.email}>
@@ -165,7 +164,7 @@ export default function Login() {
           </div>
 
           <SocialMedia />
-          
+
           {message.message && (
             <Message status={message.success}>
               {message.message}

@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
+import { jwtDecode } from 'jwt-decode';
+
 export const UsersContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -8,16 +10,14 @@ export const UserProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState(null);
-  const [token, setToken] =  useState(null)
+
+  const storedId = localStorage.getItem("userId");
+  const token = localStorage.getItem("userToken");
+  const decode = jwtDecode(token);
 
   useEffect(() => {
-
-    const storedId = localStorage.getItem("userId");
-    const storedToken = localStorage.getItem("userToken");
-    
     if (storedId) {
       setUserId(storedId);
-      setToken(storedToken);
     }
     setLoading(false);
   }, []);
@@ -28,13 +28,11 @@ export const UserProvider = ({ children }) => {
       if (!userId) return;
 
       try {
-        console.log(token);
-        
+
         const res = await fetch(`${BASE_URL}${userId}`);
         const data = await res.json();
         if (res.ok) {
           setUser(data);
-          setRole(data.role);
         } else {
           setUser(null);
         }
@@ -56,8 +54,12 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem("userToken", userData.token);
   };
 
+  const getRole = async () => {
+    setRole(decode.role);
+  }
+
   return (
-    <UsersContext.Provider value={{ user, userId, login, loading, role, token }}>
+    <UsersContext.Provider value={{ user, userId, login, loading, role, token, getRole }}>
       {children}
     </UsersContext.Provider>
   );

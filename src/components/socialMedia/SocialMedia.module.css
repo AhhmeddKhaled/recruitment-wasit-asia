@@ -26,6 +26,9 @@
   &:nth-child(3) {
     animation-delay: 0.4s;
   }
+  &:last-child {
+    animation-delay: 0.8s;
+  }
   &::after {
     content: attr(arr);
     position: absolute;
@@ -74,14 +77,24 @@
   border-top-color: #ccaa00;
 }
 
-.social a:last-child:hover,
-.social a:last-child::after {
+.social a:nth-child(3):hover,
+.social a:nth-child(3)::after {
   background-color: #ea4335;
   color: #fff;
 }
 
-.social a:last-child:before {
+.social a:nth-child(3):before {
   border-top-color: #ea4335;
+}
+
+.social a:last-child:hover,
+.social a:last-child::after {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.social a:last-child:before {
+  border-top-color: var(--primary);
 }
 
 .social a:hover::before,

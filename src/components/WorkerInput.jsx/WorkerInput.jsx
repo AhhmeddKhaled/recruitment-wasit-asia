@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { GiStarKey } from "react-icons/gi";
 import FilterSelect from "./FilterSelect";
-import { WorkersContext } from "../../data/AllProviders/WorkersContext";
+import { WorkersContext } from "../../context/WorkersContext";
 import Button from "../button/Button";
 
 export default function WorkerInput({ type }) {

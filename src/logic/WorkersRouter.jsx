@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { WorkersProvider } from "../data/AllProviders/WorkersContext";
+import { WorkersProvider } from "../context/WorkersContext";
 
 // استيراد صفحات العمال
 import RecruitmentWorkers from "../pages/recruitmentWorkers/RecruitmentWorkers";

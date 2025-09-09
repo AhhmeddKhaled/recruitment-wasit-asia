@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import style from "./Contact-home.module.css";
 import '../../../assets/styles/global.css'
-import { contactForm } from "../../../data/contactForm";;
 import {
   FaUser,
   FaPhoneAlt,
@@ -11,66 +10,48 @@ import {
 } from "react-icons/fa";
 import Button from "../../../components/button/Button";
 import Message from '../../../components/message/Message';
+import { handleSend } from "../../../logic/handleSendContact";
 
 export default function Contact() {
-  const form = useRef();
-  const [message, setMessage] = useState({
-    message: '',
-    status: "success",
-  });
+  const [name,setName] = useState(''); 
+  const [phone,setPhone] = useState(''); 
+  const [subject,setSubject] = useState(''); 
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    const { success } = await contactForm(form);
-
-    if (success) {
-      form.current.reset();
-      setMessage({
-        message: 'تم الإرسال بنجاح',
-        status: "success",
-      })
-    } else {
-      setMessage({
-        message: 'خطأ في الإرسال, تأكد من البيانات',
-        status: "error"
-      })
-      console.error("📛 EmailJS Error:");
-    }
-
-    setTimeout(() => {
-      setMessage('')
-    }, 3000);
-  };
-
+    handleSend({name,phone,subject,message})
+  }
   return (
     <section id="contact" className={`${style.login} s-padding`}>
       <div className={` ${style.grid} container`}>
         <div className={style.login_form}>
           <h2> تواصل معنا </h2>
-          <form className={style.contact} ref={form} onSubmit={handleSubmit}>
+          <form className={style.contact} onSubmit={handleSubmit}>
             {message.message && <Message status={message.status}>{message.message}</Message>}
+
+            {/* Input Name */}
             <div className={style.name}>
               <label htmlFor="name">
                 <FaUser /> الأسم كاملاً
               </label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
 
+            {/* Input Phone  */}
             <div className={style.phone}>
               <label htmlFor="number">
-                {" "}
                 <FaPhoneAlt /> رقم الهاتف
               </label>
-              <input type="phone" id="number" name="phone" required />
+              <input type="phone" id="number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
             </div>
 
+            {/* Input Subject  */}
             <div className={style.select}>
               <label htmlFor="select">
-                {" "}
                 <FaComment /> الموضوع
               </label>
-              <select id="select" name="subject">
+              <select id="select" value={subject} onChange={(e) => setSubject(e.target.value)}>
                 <option disabled selected value=' '>  </option>
                 <option> إستفسار </option>
                 <option> خدمة </option>
@@ -78,12 +59,12 @@ export default function Contact() {
               </select>
             </div>
 
+            {/* Input Message  */}
             <div className={style.mass}>
               <label htmlFor="mass">
-                {" "}
                 <FaPen /> أكتب رسالتك
               </label>
-              <textarea id="mass" name="message"></textarea>
+              <textarea id="mass" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
             </div>
 
             <div className={style.submit}>
