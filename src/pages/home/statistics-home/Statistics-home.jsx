@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Statistics-home.module.css";
 import '../../../assets/styles/global.css';
 import { FaCheckCircle, FaHandshake, FaClock } from "react-icons/fa";
-import Counter from "../../../logic/Counter";
+import Counter from "../../../utilities/Counter";
 import Container from "../../../components/container/Container";
 import HeaderSection from "../../../components/headerSection/HeaderSection";
 

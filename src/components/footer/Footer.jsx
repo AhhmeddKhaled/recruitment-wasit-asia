@@ -6,15 +6,15 @@ import SocialMedia from "../socialMedia/SocialMedia";
 import { ContactContext } from '../../context/ContactContext'
 import Button from "../button/Button";
 import useInView from "../../hooks/useInView";
-import { MdEmail } from "react-icons/md";
-import { FaAddressBook, FaPhone } from "react-icons/fa";
+import { MdArticle, MdEmail, MdPolicy } from "react-icons/md";
+import { FaAddressBook, FaHandshake, FaPhone, FaPlaneArrival } from "react-icons/fa";
 import { BiPhoneCall } from "react-icons/bi";
+import { GrRadialSelected } from "react-icons/gr";
 export default function Footer() {
 
   const { setRefs } = useInView({
     activeClass: style.animate
   });
-  console.log(setRefs.current);
 
   const { data } = useContext(ContactContext);
   const date = new Date();
@@ -29,22 +29,35 @@ export default function Footer() {
           <h3>خدماتنا</h3>
           <ul>
             <li>
-              <Link to="/إختيار_العمالة">اختيار العمالة</Link>
+              <Link to="/إختيار_العمالة">
+                <GrRadialSelected />
+                اختيار العمالة
+              </Link>
             </li>
             <li>
-              <Link to="/عن_الإستقدام">تعاقد الاستقدام</Link>
+              <Link to="/عن_الإستقدام">
+                <FaHandshake />
+                تعاقد الاستقدام
+              </Link>
             </li>
             <li>
-              <Link to="/وصول_العمالة">وصول العمالة</Link>
+              <Link to="/وصول_العمالة">
+                <FaPlaneArrival />
+                وصول العمالة
+              </Link>
             </li>
             <li>
               <Link
                 to='/articals'>
+                <MdArticle />
                 المقالات
               </Link>
             </li>
             <li>
-              <Link to="/سياسات_الإستقدام">سياسات الاستقدام</Link>
+              <Link to="/سياسات_الإستقدام">
+                <MdPolicy />
+                سياسات الاستقدام
+              </Link>
             </li>
           </ul>
         </div>
@@ -63,7 +76,7 @@ export default function Footer() {
 
             {data.map((c, i) => (
               <li key={i}>
-                <FaPhone />                
+                <FaPhone />
                 {c.role} :
                 <a href={`tel:${c.phone}`}>{c.phone}</a>
               </li>
@@ -76,16 +89,19 @@ export default function Footer() {
           <ul>
             <li>
               <a href="https://maroof.sa/" target="_blank">
+                <img src='/footerImgs/معروف.svg' alt="منصة معروف" width={30} height={30} loading="lazy" />
                 منصة معروف
               </a>
             </li>
             <li>
               <a href="https://musaned.com.sa/home" target="_blank">
+                <img src='/footerImgs/مساند.webp' alt="منصة مساند" width={30} height={30} loading="lazy" />
                 مساند
               </a>
             </li>
             <li>
               <a href="https://www.tarafalamal.sa/" target="_blank">
+                <img src='/footerImgs/طرف.svg' alt="منصة طرف" width={30} height={30} loading="lazy" />
                 طرف الأعمال
               </a>
             </li>
@@ -103,10 +119,10 @@ export default function Footer() {
         </div>
 
       </div>
-        <div className={` ${style.copyRight} flex`}>
-          <p>© {date.getFullYear()} جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
-          <SocialMedia />
-        </div>
+      <div className={` ${style.copyRight} flex`}>
+        <p>© {date.getFullYear()} جميع الحقوق محفوظة – وسيط أسيا للإستقدام</p>
+        <SocialMedia />
+      </div>
     </footer >
   );
 }

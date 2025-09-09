@@ -13,8 +13,7 @@ import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
 import { WorkersContext } from '../../context/WorkersContext';
 import Button from "../../components/button/Button";
 import Message from "../../components/message/Message";
-import { handleDownload } from "../../logic/handleDownload";
-import { UsersContext } from "../../context/UsersContext";
+import { handleDownload } from "../../utilities/handleDownload";
 /*======================================================================*/
 
 export default function RecruitmentWorkers() {
@@ -22,7 +21,6 @@ export default function RecruitmentWorkers() {
   const location = useLocation();
   const url = decodeURIComponent(location.pathname);
   const { recruitmentWorkers, fetchWorkers } = useContext(WorkersContext);
-  const { userId } = useContext(UsersContext);
   const [message, setMessage] = useState({});
   
   

@@ -44,7 +44,7 @@ export default function Steps() {
   const { setRefs } = useInView({
     activeClass: style.animate,
     threshold: 1,
-    once: true, // ✅ عشان الأنيميشن يشتغل مرة واحدة
+    once: true,
   });
 
   return (
@@ -56,16 +56,25 @@ export default function Steps() {
         <div className={style.stepsGrid}>
           {stepsData.map((step, index) => (
             <div
-              key={index} // ✅ مهم
+              key={index}
               ref={(el) => setRefs(el, index)}
               className={`${style.stepCard}`}
             >
+
+              {/* Img  */}
+              <div className={style.img}>
               <img src={step.icon} alt={step.title} loading="lazy" />
+              </div>
+
+              {/* Text  */}
+              <div className={style.text}>
               <h3 className={style.stepTitle}>{step.title}</h3>
               <p className={style.stepDescription}>{step.description}</p>
               <a href={step.link} className={style.stepButton}>
                 {step.buttonText}
               </a>
+              </div>
+
             </div>
           ))}
         </div>

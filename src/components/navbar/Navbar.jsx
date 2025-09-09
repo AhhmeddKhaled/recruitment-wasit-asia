@@ -9,7 +9,7 @@ import { UsersContext } from '../../context/UsersContext';
 import { MdDashboard } from "react-icons/md";
 import SocialMedia from "../socialMedia/SocialMedia";
 import Container from "../container/Container";
-import { handleDropdownToggle } from "../../logic/handleDropdownToggle";
+import { handleDropdownToggle } from "../../utilities/handleDropdownToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

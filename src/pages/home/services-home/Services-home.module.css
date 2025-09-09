@@ -45,7 +45,7 @@
 
 .servicesGrid .servicesCards .card:hover {
   box-shadow: var(--shadow-primary);
-  background-color: rgba(25, 118, 210, 0.08);
+  background: hsl(from var(--primary) h s l / .1);
 }
 
 .servicesGrid .servicesCards .card > span {

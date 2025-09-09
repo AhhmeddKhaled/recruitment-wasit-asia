@@ -9,7 +9,7 @@ export default function Message({
 
     return (
         <div className={style.msgParent}>
-            <p className={`flex-center ${style.msg} 
+            <p className={` ${style.msg} 
         ${status === "success" ? style.success
                     : status === "error" ? style.error
                         : ''}`}>

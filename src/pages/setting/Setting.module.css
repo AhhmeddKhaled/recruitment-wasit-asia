@@ -38,8 +38,8 @@
 }
 
 .setting label .icon {
-  transition: transform 0.2s ease;
-  color: var(--text-dark);
+  transition: transform 0.3s ease;
+  color: var(--primary);
 }
 
 .setting input:checked ~ label .icon {

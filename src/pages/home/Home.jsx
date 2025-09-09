@@ -28,6 +28,11 @@ const Offers = lazy(() => import("./offers-home/Offers-home"));
 import Button from "../../components/button/Button";
 
 export default function Home() {
+
+  window.onload = () => {
+    console.log("window loading");
+  }
+  
   return (
     <Layout>
       <section className={` ${style.home}`}>

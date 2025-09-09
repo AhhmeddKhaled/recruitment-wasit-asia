@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 
@@ -11,19 +11,35 @@ import Customer_service from "./pages/customer_service/Customer_service";
 import Workers_arrival from "./pages/workers_arrival/Workers_arrival";
 import Contact_us from "./pages/contact_us/ContactUs";
 import ArticalDetails from "./pages/articals/ArticalDetails";
-import WorkersRouter from "./logic/WorkersRouter";
+import WorkersRouter from "./utilities/WorkersRouter";
 import Login from "./pages/login/Login";
-import ProtecteRoute from "./logic/ProtecteRoute";
+import ProtecteRoute from "./utilities/ProtecteRoute";
 
 
 /* صفحات الإدارة */
 import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
 import AdminHome from "../src/admin/pages/home/Home";
 import AllArticals from "./admin/pages/articals/allArticals/AllArticals";
-import AdminWorkersRouter from "./logic/AdminWorkersRouter";
+import AdminWorkersRouter from "./utilities/AdminWorkersRouter";
 import Contact from "./admin/pages/contact/Contacts";
+import Spinner from "./components/Spinner/Spinner";
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>

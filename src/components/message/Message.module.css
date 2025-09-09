@@ -12,15 +12,14 @@
     color: var(--bg-color);
     font-size: var(--font-size-tiny);
     font-weight: var(--font-weight-bold);
-    padding: var(--space-2);
-    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-6);
     box-shadow: var(--shadow-md);
-    width: fit-content;
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    bottom: 0;
+    width: 100%;
     text-shadow: var(--text-shadow);
-    text-align: center;
+    margin: 0;
 }
 
 .msg.success {

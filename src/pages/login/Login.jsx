@@ -8,6 +8,7 @@ import Button from "../../components/button/Button";
 import { UsersContext } from "../../context/UsersContext";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Message from '../../components/message/Message';
+import { sound } from "../../utilities/sound";
 
 export default function Login() {
 
@@ -50,12 +51,13 @@ export default function Login() {
       if (response.ok) {
 
         login(data);
-
         setMessage({ message: isLogin ? "تم تسجيل الدخول بنجاح!" : "تم التسجيل بنجاح!", success: 'success' });
         setEmail("");
         setPassword("");
         setName("");
         setPhone("")
+        sound("/sounds/successed.mp3");
+
         setTimeout(() => {
           navigate("/")
         }, 500)
@@ -64,12 +66,15 @@ export default function Login() {
           message: data.message || "حدث خطأ",
           success: 'error'
         })
+        sound("/sounds/error.mp3");
       }
     } catch (error) {
       setMessage({
         message: "حدث خطأ في الاتصال بالسيرفر",
-        success: 'success'
+        success: 'error'
       })
+        sound("/sounds/error.mp3");
+
     }
 
     window.messageTimer = setTimeout(() => {

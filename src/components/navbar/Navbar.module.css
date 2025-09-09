@@ -2,7 +2,7 @@ header.navbar {
   width: 100%;
   height: auto;
   position: fixed;
-  z-index: 10000;
+  z-index: 999;
   backdrop-filter: blur(48px);
   color: var(--text-dark);
   transition: 1s ease;
@@ -23,7 +23,7 @@ header.navbar {
   nav {
     flex-basis: 75%;
     .links {
-      flex-basis: 60%;
+      flex-basis: 75%;
       gap: var(--space-2);
       li {
         position: relative;

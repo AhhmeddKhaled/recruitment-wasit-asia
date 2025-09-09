@@ -10,17 +10,32 @@ import {
 } from "react-icons/fa";
 import Button from "../../../components/button/Button";
 import Message from '../../../components/message/Message';
-import { handleSend } from "../../../logic/handleSendContact";
+import { handleSend } from "../../../utilities/handleSendContact";
 
 export default function Contact() {
-  const [name,setName] = useState(''); 
-  const [phone,setPhone] = useState(''); 
-  const [subject,setSubject] = useState(''); 
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+  const [resultMessage, setResultMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleSend({name,phone,subject,message})
+    const result = await handleSend({ name, phone, subject, message });
+    setStatus(result.status);
+    setName('');
+    setPhone('');
+    setSubject('');
+    setMessage('');
+    if(status === 'success') {
+      setResultMessage('تم إرسال البيانات بنجاح')
+    } else {
+      setResultMessage('خطأ في إرسال البيانات')
+    }
+     setTimeout(() => {
+      setResultMessage('')
+     }, 3000);
   }
   return (
     <section id="contact" className={`${style.login} s-padding`}>
@@ -28,7 +43,7 @@ export default function Contact() {
         <div className={style.login_form}>
           <h2> تواصل معنا </h2>
           <form className={style.contact} onSubmit={handleSubmit}>
-            {message.message && <Message status={message.status}>{message.message}</Message>}
+            {resultMessage && <Message status={status}>{resultMessage}</Message>}
 
             {/* Input Name */}
             <div className={style.name}>

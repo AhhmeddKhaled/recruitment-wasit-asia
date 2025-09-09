@@ -56,10 +56,15 @@ export default function Setting() {
         applyTheme(newTheme);
     }
 
+    const handleClick = () => {
+    const audio = new Audio('/sounds/gear-click.mp3');
+    audio.play();
+  };
+
     return (
         <section className={style.setting}>
             <input id="setting" type="checkbox" />
-            <label htmlFor="setting">
+            <label htmlFor="setting" onClick={handleClick}>
                   <span className={style.srOnly}>فتح إعدادات الموقع</span>
                 <SlSettings size={40} className={style.icon} />
             </label>

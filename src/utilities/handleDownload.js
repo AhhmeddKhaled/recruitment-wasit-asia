@@ -1,8 +1,10 @@
+import { sound } from "./sound";
+
 export const handleDownload = async (worker, setMessage) => {
+
   try {
     const storedId = localStorage.getItem("userId");
     const id = storedId ? storedId : null;
-
 
     if (!id) {
       setMessage({
@@ -13,15 +15,11 @@ export const handleDownload = async (worker, setMessage) => {
     }
 
     const res = await fetch(`http://localhost:5000/api/auth/${id}`);
-    
+
     if (!res.ok) {
       throw new Error(`فشل في جلب المستخدم: ${res.status}`);
     }
     const user = await res.json();
-    console.log(user);
-    console.log(JSON.stringify(user));
-    
-    
 
     const response = await fetch("http://localhost:5000/api/contact/resume", {
       method: "POST",
@@ -34,14 +32,18 @@ export const handleDownload = async (worker, setMessage) => {
 
     if (response.ok) {
       setMessage({
-        message: "تم إرسال البيانات لصاحب الموقع بنجاح",
+        message: "تم إرسال البيانات بنجاح",
         success: "success",
       });
+
+      sound("/sounds/successed.mp3");
+
     } else {
       setMessage({
         message: "حدث خطأ أثناء إرسال البيانات",
         success: "error",
       });
+      sound("/sounds/error.mp3");
     }
   } catch (error) {
     console.error(error);
@@ -50,4 +52,5 @@ export const handleDownload = async (worker, setMessage) => {
       success: "error",
     });
   }
+
 };
