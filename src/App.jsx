@@ -22,7 +22,7 @@ import AdminHome from "../src/admin/pages/home/Home";
 import AllArticals from "./admin/pages/articals/allArticals/AllArticals";
 import AdminWorkersRouter from "./utilities/AdminWorkersRouter";
 import Contact from "./admin/pages/contact/Contacts";
-import Spinner from "./components/Spinner/Spinner";
+import Spinner from "./components/spinner/Spinner";
 
 function App() {
 
