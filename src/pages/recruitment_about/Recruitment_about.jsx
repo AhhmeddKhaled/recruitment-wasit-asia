@@ -6,7 +6,7 @@ import '../../assets/styles/global.css';
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
-import useInView from "../../hooks/useInView";
+import useInView from "../../../frontend/src/hooks/useInView";
 
 export default function Recruitment_about() {
 

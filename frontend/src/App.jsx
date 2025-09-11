@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+
+
+/* صفحات المستخدم */
+import Home from "../../frontend/src/pages/home/Home";
+import Recruitment_about from "../../frontend/src/pages/recruitment_about/Recruitment_about";
+import Recruitment_policy from "../../frontend/src/pages/recruitment_policy/RecruitmentPolicy";
+import Articals from "../../frontend/src/pages/articals/Articals";
+import Customer_service from "../../frontend/src/pages/customer_service/Customer_service";
+import Workers_arrival from "../../frontend/src/pages/workers_arrival/Workers_arrival";
+import Contact_us from "../../frontend/src/pages/contact_us/ContactUs";
+import ArticalDetails from "../../frontend/src/pages/articals/ArticalDetails";
+import WorkersRouter from "./utilities/WorkersRouter";
+import Login from "../../frontend/src/pages/login/Login";
+import ProtecteRoute from "./utilities/ProtecteRoute";
+
+
+/* صفحات الإدارة */
+import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
+import AdminHome from "../../frontend/src/admin/pages/home/Home";
+import AllArticals from "../../frontend/src/admin/pages/articals/allArticals/AllArticals";
+import AdminWorkersRouter from "./utilities/AdminWorkersRouter";
+import Contact from "../../frontend/src/admin/pages/contact/Contacts";
+import Spinner from "../../frontend/src/components/spinner/Spinner";
+
+function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/عن_الإستقدام" element={<Recruitment_about />} />
+        <Route path="/سياسات_الإستقدام" element={<Recruitment_policy />} />
+        <Route path="/تواصل_معنا" element={<Contact_us />} />
+        <Route path="/خدمة_العملاء" element={<Customer_service />} />
+        <Route path="/وصول_العمالة" element={<Workers_arrival />} />
+        <Route path="/register" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/articals" element={<Articals />} />
+        <Route path="/articals/:slug" element={<ArticalDetails />} />
+
+        <Route path="/:type" element={<WorkersRouter />} />
+        
+        <Route path="/dashboard" 
+        element={
+          <ProtecteRoute role="admin">
+            <AdminDashboard />
+          </ProtecteRoute>}>
+        
+          <Route index element={<AdminHome />} />
+
+            <Route path=":type" element={<AdminWorkersRouter />} />
+
+          <Route path="المقالات" element={<AllArticals />} />
+          <Route path="التواصل" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;

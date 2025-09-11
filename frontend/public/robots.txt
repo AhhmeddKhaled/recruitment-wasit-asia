@@ -1,0 +1,11 @@
+# السماح لجميع محركات البحث بالزحف
+User-agent: *
+Allow: /
+
+# منع أرشفة صفحة تسجيل الدخول
+Disallow: /login
+
+# منع أرشفة لوحة التحكم (Dashboard)
+Disallow: /dashboard/
+
+Sitemap: https://wasit-asia.netlify.app/sitemap.xml
