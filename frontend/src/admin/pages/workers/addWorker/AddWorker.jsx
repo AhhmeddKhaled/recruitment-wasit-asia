@@ -20,7 +20,7 @@ export default function AddWorker({ setOpenForm, type }) {
   const [message, setMessage] = useState({});
 
   /* API Url */
-  const url = `http://localhost:5000/api/workers/${type}`;
+  const url = `${import.meta.env.VITE_API_URL}/api/workers/${type}`;
 
   /* Add Worker */
   const handleAdd = async (e) => {

@@ -4,7 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 export const UsersContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const BASE_URL = "http://localhost:5000/api/auth/";
+  const BASE_URL = `${import.meta.env.VITE_API_URL}/api/auth/`;
 
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);

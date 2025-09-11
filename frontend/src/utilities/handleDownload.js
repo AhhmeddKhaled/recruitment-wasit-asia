@@ -14,14 +14,14 @@ export const handleDownload = async (worker, setMessage) => {
       return;
     }
 
-    const res = await fetch(`http://localhost:5000/api/auth/${id}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/${id}`);
 
     if (!res.ok) {
       throw new Error(`فشل في جلب المستخدم: ${res.status}`);
     }
     const user = await res.json();
 
-    const response = await fetch("http://localhost:5000/api/contact/resume", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact/resume`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

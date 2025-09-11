@@ -15,7 +15,7 @@ export function WorkersProvider({ children }) {
     setError(null);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/workers/${endpoint}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/workers/${endpoint}`);
       const data = await res.json();
       const workersData = data.workers || data;
 

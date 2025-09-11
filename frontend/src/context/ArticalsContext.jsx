@@ -4,7 +4,7 @@ import { useFetchData } from "../hooks/useFetchData";
 export const ArticalsContext = createContext();
 
 export const ArticalsProvider = ({ children }) => {
-  const BASE_URL = 'http://localhost:5000/api/articals';
+  const BASE_URL = `${import.meta.env.VITE_API_URL}/api/articals`;
   const { data, setData , dataLength } = useFetchData(BASE_URL);
 
   return (

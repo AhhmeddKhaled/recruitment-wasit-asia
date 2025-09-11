@@ -93,8 +93,8 @@ export default function LocalWorkers() {
                                     >
                                         احجز الآن
                                         <a
-                                            href={`http://localhost:5000${worker.cv}`}
-                                            download={`http://localhost:5000${worker.cv}`}
+                                            href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                            download={`${import.meta.env.VITE_API_URL}${worker.cv}`}
                                         >
                                         </a>
 
@@ -102,8 +102,8 @@ export default function LocalWorkers() {
 
                                     <Button variant="outlined" color="primary" size="lg">
                                         <a
-                                            href={`http://localhost:5000${worker.cv}`}
-                                            download={`http://localhost:5000${worker.cv}`}
+                                            href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                            download={`${import.meta.env.VITE_API_URL}{worker.cv}`}
                                         >
                                         </a>
 

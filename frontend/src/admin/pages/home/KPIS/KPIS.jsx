@@ -16,7 +16,7 @@ export default function KPIS() {
       fetchWorkers('localWorkers');
 
       try {
-        const res = await fetch('http://localhost:5000/api/auth');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth`);
         setUsers(await res.json());
       } catch (err) {
         console.error(err);

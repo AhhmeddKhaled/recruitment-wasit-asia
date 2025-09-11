@@ -55,7 +55,7 @@ export default function RecruitmentWorkers() {
               return (
                 <div className={style.cv} key={worker._id}>
                   <div className={style.img}>
-                    <img src={`http://localhost:5000${worker.cv}`} alt="السيرة الذاتية" loading="lazy"/>
+                    <img src={`${import.meta.env.VITE_API_URL}${worker.cv}`} alt="السيرة الذاتية" loading="lazy"/>
                   </div>
                   <div className={style.cvInfo}>
                     <span>
@@ -96,8 +96,8 @@ export default function RecruitmentWorkers() {
                   <div className={` ${style.cvDownload} flex-center`}>
                     <Button variant="outlined" color="primary" size="md">
                       <a
-                        href={`http://localhost:5000${worker.cv}`}
-                        download={`http://localhost:5000${worker.cv}`}
+                        href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                        download={`${import.meta.env.VITE_API_URL}{worker.cv}`}
                       >
                       </a>
                       تنزيل السيرة الذاتية

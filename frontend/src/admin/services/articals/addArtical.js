@@ -4,7 +4,7 @@ export async function addArtical({ title, paragraph, img, setMessage }) {
     formData.append("title", title);
     formData.append("paragraph", paragraph);
     formData.append("img", img);
-    const res = await fetch(`http://localhost:5000/api/articals`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/articals`, {
       method: "POST",
       body: formData,
     });

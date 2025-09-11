@@ -7,7 +7,7 @@ import Container from "../../../components/container/Container";
 import HeaderSection from "../../../components/headerSection/HeaderSection";
 
 export default function Offers() {
-  const { data } = useFetchData("http://localhost:5000/api/countries");
+  const { data } = useFetchData(`${import.meta.env.VITE_API_URL}/api/countries`);
 
   const { setRefs } = useInView({
     threshold: 0.3,

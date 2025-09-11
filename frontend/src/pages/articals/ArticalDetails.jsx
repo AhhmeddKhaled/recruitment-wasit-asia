@@ -23,7 +23,7 @@ export default function ArticalDetails() {
     const fetchArtical = async () => {
 
       try {
-        const res = await fetch(`http://localhost:5000/api/articals`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/articals`);
         const data = await res.json();
         
         const matched = data.find((a) => slugify(a.title) === slug);
@@ -50,7 +50,7 @@ export default function ArticalDetails() {
     <div className={`${style.artical} ${style.artical_d}`}>
       <div className={style.img}>
         <img
-          src={`http://localhost:5000${artical.img}`}
+          src={`${import.meta.env.VITE_API_URL}${artical.img}`}
           alt={artical.title}
           loading="lazy"
         />

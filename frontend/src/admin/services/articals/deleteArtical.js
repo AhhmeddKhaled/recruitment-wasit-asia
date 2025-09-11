@@ -1,6 +1,6 @@
 export async function deleteArtical(id, setMessage) {
   try {
-    const response = await fetch(`http://localhost:5000/api/articals/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/articals/${id}`, {
       method: "DELETE",
     });
 

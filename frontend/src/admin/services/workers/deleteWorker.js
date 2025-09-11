@@ -1,6 +1,6 @@
 export async function deleteWorker(id, type = "recruitment", setWorkers, setMessage) {
   try {
-    const response = await fetch(`http://localhost:5000/api/workers/${type}/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/workers/${type}/${id}`, {
       method: "DELETE",
     });
 
