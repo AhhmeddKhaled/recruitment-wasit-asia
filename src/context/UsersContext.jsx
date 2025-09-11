@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
 
   const storedId = localStorage.getItem("userId");
   const token = localStorage.getItem("userToken");
-  const decode = jwtDecode(token);
+  const decode = token ? jwtDecode(token) : null;
 
   useEffect(() => {
     if (storedId) {
