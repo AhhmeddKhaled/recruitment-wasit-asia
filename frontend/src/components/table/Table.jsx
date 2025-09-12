@@ -18,7 +18,7 @@ export default function Table({ headers, data, actions }) {
   }
 
   return (
-      <table>
+      <table className={style.table}>
         <thead>
           <tr>
             {headers.map((col) => (
