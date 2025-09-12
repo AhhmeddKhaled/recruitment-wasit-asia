@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Country = require("../models/Country");
+const Country = require("../models/country");
 
-// إرجاع كل الدول
 router.get("/", async (req, res) => {
   try {
     const countries = await Country.find();

@@ -1,0 +1,12 @@
+.workersTable {
+    position: relative;
+    overflow-x: auto;
+}
+
+.workersTable header {
+  margin-bottom: var(--space-4);
+}
+.workersTable h2 {
+   color: var(--text-dark);
+   text-shadow: var(--text-shadow);
+}
