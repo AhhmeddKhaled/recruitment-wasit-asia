@@ -40,7 +40,7 @@ export default function Contact() {
             {openForm && <AddContact setOpenForm={setOpenForm} />}
             {data.length === 0 ?
              <h2 className={style.notContact}>لا توجد أرقام</h2> :
-            <table>
+            <table className="_table_18iio_1">
                 <thead>
                     <tr>
                         <th>الإسم</th>
