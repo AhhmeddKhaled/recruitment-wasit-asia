@@ -17,12 +17,12 @@ import ProtecteRoute from "./utilities/ProtecteRoute";
 
 
 /* صفحات الإدارة */
-import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
-import AdminHome from "../../frontend/src/admin/pages/home/Home";
-import AllArticals from "../../frontend/src/admin/pages/articals/allArticals/AllArticals";
 import AdminWorkersRouter from "./utilities/AdminWorkersRouter";
-import Contact from "../../frontend/src/admin/pages/contact/Contacts";
 import Spinner from "../../frontend/src/components/spinner/Spinner";
+import Contact from '../../admin/pages/contact/Contacts'
+import AllArticals from '../../admin/pages/articals/allArticals/AllArticals';
+import AdminDashboard from '../../admin/AdminDashboard/AdminDashboard'
+import AdminHome from '../../admin/pages/home/Home';
 
 function App() {
 
