@@ -18,7 +18,6 @@ export default function Navbar() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
-  const width = window.innerWidth;
   window.onscroll = function () {
     setScrollY(window.scrollY);
   }
@@ -118,7 +117,7 @@ export default function Navbar() {
                 لوحة التحكم
               </Button>
             )}
-            {width < 1200 && <SocialMedia />}
+           
           </div>
         </nav>
 
