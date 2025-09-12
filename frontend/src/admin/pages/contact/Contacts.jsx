@@ -23,7 +23,6 @@ export default function Contact() {
     } else {
         setMessage({message: "خطأ في حذف الرقم",status: "error"});
         console.log(id);
-        
     }
 
     setTimeout(() => {
@@ -40,7 +39,7 @@ export default function Contact() {
             {openForm && <AddContact setOpenForm={setOpenForm} />}
             {data.length === 0 ?
              <h2 className={style.notContact}>لا توجد أرقام</h2> :
-            <table className="_table_18iio_1">
+            <table className={style.table}>
                 <thead>
                     <tr>
                         <th>الإسم</th>
