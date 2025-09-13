@@ -73,7 +73,7 @@ export default function Footer() {
               <a href="mailto:wasitasia1@gmail.com">wasitasia1@gmail.com</a>
             </li>
 
-            {data.map((c, i) => (
+            {data?.map((c, i) => (
               <li key={i}>
                 <FaPhone />
                 {c.role} :
