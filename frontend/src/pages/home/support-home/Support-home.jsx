@@ -9,7 +9,8 @@ import HeaderSection from "../../../components/headerSection/HeaderSection";
 export default function Support() {
 
     const { data } = useContext(ContactContext);
-
+    console.log(data);
+    
     return (
         <section className={` ${style.support} s-padding`}>
 
@@ -56,7 +57,7 @@ export default function Support() {
                             </a>
                         </div>
                     </div>
-                    {data.map((c, i) => (
+                    {data?.map((c, i) => (
                         <div className={style.card} key={i}>
                             <div>
                                 <span>
@@ -71,10 +72,10 @@ export default function Support() {
                             </div>
                             <div className={style.contact}>
                                 <span>
-                                    قسم : {c.role}
+                                    قسم : {c.name}
                                 </span>
                                 <a href={c.phone}>
-                                    <span> الهاتف : {c.phone} </span>
+                                    <span> الهاتف : {c.email} </span>
                                 </a>
                             </div>
                         </div>

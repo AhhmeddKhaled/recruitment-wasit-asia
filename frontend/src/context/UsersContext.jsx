@@ -20,6 +20,8 @@ export const UserProvider = ({ children }) => {
       setUserId(storedId);
     }
     setLoading(false);
+    console.log(userId);
+    
   }, []);
 
   useEffect(() => {
@@ -28,7 +30,6 @@ export const UserProvider = ({ children }) => {
       if (!userId) return;
 
       try {
-
         const res = await fetch(`${BASE_URL}${userId}`);
         const data = await res.json();
         if (res.ok) {

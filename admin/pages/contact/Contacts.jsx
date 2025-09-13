@@ -12,8 +12,9 @@ export default function Contact() {
     const { data, setData } = useContext(ContactContext);
     const [openForm, setOpenForm] = useState(false);
     const [message,setMessage] = useState({});
-    
 
+    console.log(data);
+    
 
     const handleDelete = async (id) => {
     const success = await deleteContact(id);
@@ -49,7 +50,7 @@ export default function Contact() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((c,i) => (
+                    {data?.map((c,i) => (
                         <tr key={i}>
                             <td>
                                 {c.name}

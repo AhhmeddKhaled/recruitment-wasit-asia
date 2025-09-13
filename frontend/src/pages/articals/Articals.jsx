@@ -36,7 +36,7 @@ export default function Articals() {
                     <h3> {artical.title} </h3>
               </Link>
                     <p>
-                      {artical.paragraph}
+                      {artical.content}
                     </p>
                     <ShareArtical />
                   </div>

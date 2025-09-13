@@ -14,13 +14,12 @@ exports.createContact = async (req, res) => {
   }
 };
 
-
 exports.getContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
     res.status(201).json(contacts);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json('خطأ في جلب الأرقام');
   }
 };
 

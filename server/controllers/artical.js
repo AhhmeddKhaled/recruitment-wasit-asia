@@ -2,7 +2,7 @@ const Artical = require("../models/artical").default;
 
 exports.getArticals = async (req, res) => {
   try {
-    const articals = await Artical.find().sort({ timestamp: -1 }); // الأحدث أولاً
+    const articals = await Artical.find().sort({ timestamp: -1 });
     res.json(articals);
   } catch (error) {
     res.status(500).json({ message: "خطأ في تحميل المقالات" });

@@ -13,8 +13,8 @@ export default function AddContact({ setOpenForm }) {
     const [role, setRole] = useState('');
     const [message, setMessage] = useState({});
     const { dats, setData } = useContext(ContactContext)
-
-
+    
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -30,6 +30,10 @@ export default function AddContact({ setOpenForm }) {
         } catch (err) {
             setMessage({ message: "خطأ في إضافة الرقم ", success: "error" });
         }
+
+        setTimeout(() => {
+            setMessage('')
+        }, 3000);
     };
     return (
         <div className={style.layer}>
