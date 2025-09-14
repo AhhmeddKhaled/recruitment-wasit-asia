@@ -5,7 +5,7 @@ import Statistics from "../home/statistics-home/Statistics-home";
 import '../../assets/styles/global.css';
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import Button from "../../components/button/Button";
-import useInView from "../../hooks/useInView";
+import useInView from "@shared/hooks/useInView";
 
 export default function Recruitment_about() {
 

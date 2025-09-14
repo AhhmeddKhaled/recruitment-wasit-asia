@@ -3,7 +3,7 @@ import style from './AddContact.module.css';
 import Button from "../../../../../frontend/src/components/button/Button";
 import { FiX } from "react-icons/fi";
 import { addContact } from "../../../services/contact/addContact";
-import { ContactContext } from "../../../../../frontend/src/context/ContactContext";
+import { ContactContext } from "@shared/context/ContactContext";
 import Message from '../../../../../frontend/src/components/message/Message';
 
 export default function AddContact({ setOpenForm }) {

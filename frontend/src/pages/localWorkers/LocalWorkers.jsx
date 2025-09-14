@@ -4,7 +4,7 @@ import '../../assets/styles/global.css';
 import Button from "../../components/button/Button";
 import Layout from "../../layout/layout";
 import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
-import { WorkersContext } from "../../context/WorkersContext";
+import { WorkersContext } from "@shared/context/WorkersContext";
 import { FaCheck } from "react-icons/fa";
 import { handleDownload } from "../../utilities/handleDownload";
 import Message from "../../components/message/Message";

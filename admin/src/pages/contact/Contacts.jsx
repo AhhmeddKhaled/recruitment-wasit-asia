@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import style from './Contact.module.css';
-import { ContactContext } from "../../../../frontend/src/context/ContactContext";
+import { ContactContext } from "@shared/context/ContactContext";
 import Button from "../../../../frontend/src/components/button/Button";
 import Header from "../../layout/header/Header";
 import AddContact from "@/pages/contact/addContact/AddContact";

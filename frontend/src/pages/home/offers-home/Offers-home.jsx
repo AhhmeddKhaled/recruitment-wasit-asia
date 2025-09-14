@@ -1,8 +1,8 @@
 import React from "react";
-import useInView from "../../../hooks/useInView";
+import useInView from "@shared/hooks/useInView";
 import style from "./Offers-home.module.css";
 import Button from "../../../components/button/Button";
-import { useFetchData } from "../../../hooks/useFetchData";
+import { useFetchData } from "@shared/hooks/useFetchData";
 import Container from "../../../components/container/Container";
 import HeaderSection from "../../../components/headerSection/HeaderSection";
 

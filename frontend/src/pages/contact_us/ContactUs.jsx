@@ -3,7 +3,7 @@ import styles from "./ContactUs.module.css";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import Layout from "../../layout/layout";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import { ContactContext } from "../../context/ContactContext";
+import { ContactContext } from "@shared/context/ContactContext";
 
 const ContactUs = () => {
 

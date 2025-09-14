@@ -10,7 +10,7 @@ import Layout from "../../layout/layout";
 import WorkerInput from "../../components/WorkerInput.jsx/WorkerInput";
 
 /* import context files*/
-import { WorkersContext } from '../../context/WorkersContext';
+import { WorkersContext } from '@shared/context/WorkersContext';
 import Button from "../../components/button/Button";
 import Message from "../../components/message/Message";
 import { handleDownload } from "../../utilities/handleDownload";

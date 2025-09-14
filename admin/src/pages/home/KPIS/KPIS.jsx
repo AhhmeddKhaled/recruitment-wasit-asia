@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from './KPIS.module.css';
 import { FaUsers, FaFileAlt, FaBriefcase, FaChartLine } from "react-icons/fa";
-import { WorkersContext } from "../../../../../frontend/src/context/WorkersContext";
-import { ArticalsContext } from "../../../../../frontend/src/context/ArticalsContext";
+import { WorkersContext } from "@shared/context/WorkersContext";
+import { ArticalsContext } from "@shared/context/ArticalsContext";
 
 export default function KPIS() {
 

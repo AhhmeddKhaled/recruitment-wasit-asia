@@ -2,7 +2,7 @@ import React from "react";
 import style from "./About-home.module.css";
 import { RiTeamFill, RiCustomerService2Fill } from "react-icons/ri";
 import { BsFillTabletFill } from "react-icons/bs";
-import useInView from "../../../hooks/useInView";
+import useInView from "@shared/hooks/useInView";
 import HeaderSection from "../../../components/headerSection/HeaderSection";
 import Container from "../../../components/container/Container";
 

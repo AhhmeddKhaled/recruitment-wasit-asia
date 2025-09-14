@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Steps.module.css";
-import useInView from "../../../hooks/useInView";
+import useInView from "@shared/hooks/useInView";
 
 const stepsData = [
   {

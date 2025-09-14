@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { WorkersProvider } from "../context/WorkersContext";
+import { WorkersProvider } from "@shared/context/WorkersContext";
 
 // استيراد صفحات العمال
-import RecruitmentWorkers from "../../../frontend/src/pages/recruitmentWorkers/RecruitmentWorkers";
-import LocalWorkers from "../../../frontend/src/pages/localWorkers/LocalWorkers";
+import RecruitmentWorkers from "@/pages/recruitmentWorkers/RecruitmentWorkers";
+import LocalWorkers from "@/pages/localWorkers/LocalWorkers";
 import AdminRecruimentWorkers from "../../../admin/src/pages/workers/adminRecruimentWorkers/AdminRecruimentWorkers";
 
 function WorkersRouter() {

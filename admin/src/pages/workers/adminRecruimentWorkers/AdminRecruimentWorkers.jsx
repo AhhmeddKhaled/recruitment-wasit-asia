@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa";
 import AddWorker from "../addWorker/AddWorker";
 import Table from "../../../../../frontend/src/components/table/Table";
 import Message from "../../../../../frontend/src/components/message/Message";
-import { WorkersContext } from "../../../../../frontend/src/context/WorkersContext";
+import { WorkersContext } from "@shared/context/WorkersContext";
 
 export default function AdminRecruimentWorkers() {
   const [message, setMessage] = useState({});

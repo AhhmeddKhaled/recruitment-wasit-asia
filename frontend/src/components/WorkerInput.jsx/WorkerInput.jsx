@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { GiStarKey } from "react-icons/gi";
 import FilterSelect from "./FilterSelect";
-import { WorkersContext } from "../../context/WorkersContext";
+import { WorkersContext } from "@shared/context/WorkersContext";
 import Button from "../button/Button";
 
 export default function WorkerInput({ type }) {
@@ -32,7 +32,6 @@ export default function WorkerInput({ type }) {
     if (experience) params.append("experience", experience);
     if (nationality) params.append("nationality", nationality);
 
-    // هنا هنبعت طلب للفنكشن مع الـ query params
     fetchWorkers(`${type}?${params.toString()}`);
   };
 

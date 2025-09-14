@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./assets/styles/global.css";
-import { UserProvider } from "./context/UsersContext.jsx";
-import { WorkersProvider } from "./context/WorkersContext.jsx";
-import { ArticalsProvider } from "./context/ArticalsContext.jsx";
-import ContactProvider from "./context/ContactContext.jsx";
+import { UserProvider } from "@shared/context/UsersContext.jsx";
+import { WorkersProvider } from "@shared/context/WorkersContext.jsx";
+import { ArticalsProvider } from "@shared/context/ArticalsContext.jsx";
+import ContactProvider from "@shared/context/ContactContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

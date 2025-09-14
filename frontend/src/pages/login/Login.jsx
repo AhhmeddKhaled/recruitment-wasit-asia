@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { UsersContext } from "../../context/UsersContext";
+import { UsersContext } from "@shared/context/UsersContext";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Message from '../../components/message/Message';
 // Play sound utility function

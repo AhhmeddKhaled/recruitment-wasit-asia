@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { UserProvider } from "../../frontend/src/context/UsersContext";
-import { WorkersProvider } from "../../frontend/src/context/WorkersContext";
-import { ArticalsProvider } from "../../frontend/src/context/ArticalsContext";
-import ContactProvider from "../../frontend/src/context/ContactContext";
+import { UserProvider } from "@shared/context/UsersContext";
+import { WorkersProvider } from "@shared/context/WorkersContext";
+import { ArticalsProvider } from "@shared/context/ArticalsContext";
+import ContactProvider from "@shared/context/ContactContext";
 import App from "./App";
 import "../../frontend/src/assets/styles/global.css"
 

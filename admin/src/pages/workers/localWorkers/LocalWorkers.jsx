@@ -3,7 +3,7 @@ import Button from "../../../../../frontend/src/components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddWorker from "../addWorker/AddWorker";
 import Table from "../../../../../frontend/src/components/table/Table";
-import { WorkersContext } from "../../../../../frontend/src/context/WorkersContext";
+import { WorkersContext } from "../../../../../shared/context/WorkersContext";
 import { deleteWorker } from "../../../services/workers/deleteWorker";
 
 export default function LocalWorker() {

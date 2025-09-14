@@ -2,20 +2,13 @@ import React, { useContext, useState } from "react";
 import style from "./Login.module.css";
 import Layout from "../layout/Layout";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 import Button from "../../../frontend/src/components/button/Button";
-import { UsersContext } from "../../../frontend/src/context/UsersContext";
+import { UsersContext } from "../../../shared/context/UsersContext";
 import Message from '../../../frontend/src/components/message/Message';
-// const sound = (src) => {
-//   const audio = new Audio(src);
-//   audio.play();
-// };
 
 export default function Login() {
 
   const { login, userId } = useContext(UsersContext);
-
-  const navigate = useNavigate();
 
   const url = `${import.meta.env.VITE_API_URL}/api/auth/login`
 
@@ -50,7 +43,6 @@ export default function Login() {
         setMessage({ message: "تم التسجيل بنجاح!", success: 'success' });
         setEmail("");
         setPassword("");
-        // sound("/sounds/successed.mp3");
 
         setTimeout(() => {
           navigate("/")
@@ -60,14 +52,12 @@ export default function Login() {
           message: data.message || "حدث خطأ",
           success: 'error'
         })
-        // sound("/sounds/error.mp3");
       }
     } catch (error) {
       setMessage({
         message: "حدث خطأ في الاتصال بالسيرفر",
         success: 'error'
       })
-        sound("/sounds/error.mp3");
     }
 
     window.messageTimer = setTimeout(() => {

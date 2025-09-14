@@ -4,7 +4,7 @@ import '../../../assets/styles/global.css';
 import { MdOutlineEmail } from "react-icons/md";
 import { PiPhoneBold } from "react-icons/pi";
 import { BsSnapchat } from "react-icons/bs";
-import { ContactContext } from '../../../context/ContactContext'
+import { ContactContext } from '@shared/context/ContactContext'
 import HeaderSection from "../../../components/headerSection/HeaderSection";
 export default function Support() {
 
