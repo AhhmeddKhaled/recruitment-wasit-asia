@@ -10,7 +10,6 @@ import AdminRecruimentWorkers from "@/pages/workers/adminRecruimentWorkers/Admin
 import LocalWorker from "./pages/workers/localWorkers/LocalWorkers";
 import Login from "./login/Login";
 import ProtectRoute from "./utilities/ProtecteRoute";
-import KPIS from "@/pages/home/KPIS/KPIS";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,10 +31,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
 
-        {/* حماية كل الداشبورد */}
         <Route element={<ProtectRoute role="admin" />}>
           <Route path="/" element={<AdminHome />}>
-            {/* index = الصفحة الرئيسية */}
             <Route path="articles" element={<AllArticals />} />
             <Route path="contact" element={<Contact />} />
             <Route path="workers" element={<AllWorkers />} />
