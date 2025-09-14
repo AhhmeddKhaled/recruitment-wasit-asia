@@ -50,24 +50,26 @@ export default function Contact() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data?.map((c, i) => (
+                        {data.length > 0 &&
+                        data.map((c, i) => (
                             <tr key={i}>
+                            <td>
+                            {c?.name}
+                            </td>
                                 <td>
-                                    {c.name}
-                                </td>
+                                    {c?.phone}
+                                    </td>
                                 <td>
-                                    {c.phone}
-                                </td>
-                                <td>
-                                    {c.role}
+                                {c?.role}
                                 </td>
                                 <td>
                                     <Button variant="text" color="danger" size="md" onClick={() => handleDelete(c._id)}>
-                                        حذف
+                                    حذف
                                     </Button>
-                                </td>
-                            </tr>
-                        ))}
+                                    </td>
+                                    </tr>
+                                ))
+                            }
                     </tbody>
                 </table>
             }

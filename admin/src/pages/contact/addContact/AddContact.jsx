@@ -12,29 +12,27 @@ export default function AddContact({ setOpenForm }) {
     const [phone, setPhone] = useState('');
     const [role, setRole] = useState('');
     const [message, setMessage] = useState({});
-    const { dats, setData } = useContext(ContactContext)
-    
-    
+    const { data, setData } = useContext(ContactContext)
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const newContact = await addContact({ name, phone, role });
-            setData([...dats, newContact]);
-            setName("");
-            setPhone("");
-            setMessage({ message: "تم إضافة الرقم بنجاح", success: "success" })
+            console.log(newContact);
+            
+            setData([...data, newContact]);
 
-            setTimeout(() => {
-                setOpenForm(false)
-            }, 3000);
+            setMessage({ message: "تم إضافة الرقم بنجاح", success: "success" });
+            setOpenForm(false);
         } catch (err) {
-            setMessage({ message: "خطأ في إضافة الرقم ", success: "error" });
+            setMessage({ message: err.message || "خطأ في إضافة الرقم", success: "error" });
         }
 
-        setTimeout(() => {
-            setMessage('')
-        }, 3000);
+
+        setTimeout(() => setMessage(''), 3000);
     };
+
     return (
         <div className={style.layer}>
             <form className={style.addContact} onSubmit={handleSubmit}>

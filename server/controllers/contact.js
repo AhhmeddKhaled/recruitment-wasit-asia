@@ -8,6 +8,7 @@ exports.createContact = async (req, res) => {
       return res.status(400).json({ message: "هذا الرقم موجود بالفعل" });
 
     const contact = await Contact.create({ name, phone , role});
+    
     res.status(201).json(contact);
   } catch (err) {
     res.status(500).json({ message: err.message });
