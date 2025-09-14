@@ -5,11 +5,12 @@ import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import Button from "../../../frontend/src/components/button/Button";
 import { UsersContext } from "@shared/context/UsersContext";
 import Message from '../../../frontend/src/components/message/Message';
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
   const { login, userId } = useContext(UsersContext);
-
+  const navigate = useNavigate()
   const url = `${import.meta.env.VITE_API_URL}/api/auth/login`
 
   const [email, setEmail] = useState("");
@@ -34,8 +35,6 @@ export default function Login() {
 
 
       const data = await response.json();
-      console.log(data);
-      console.log(userId);
       
       if (response.ok) {
 
