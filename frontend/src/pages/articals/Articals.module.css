@@ -86,6 +86,10 @@ main.articals {
   padding: 100px 0;
 }
 
+.artical {
+  max-width: 90%;
+}
+
 .artical_d {
   width: 500px;
 }
