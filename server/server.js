@@ -12,8 +12,10 @@ app.use(express.json());
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+const uri = "mongodb://appUser:AppStrongPass123@168.231.104.37:27017/myDatabase?authSource=myDatabase";
+
 mongoose
-.connect(process.env.MONGO_URI)
+.connect(uri)
 .then(() => console.log("✅ Connected to MongoDB"))
 .catch((err) => console.log("❌ DB Error: ", err));
 
