@@ -3,9 +3,9 @@ import style from "./Footer.module.css";
 import "../../assets/styles/global.css";
 import { Link } from "react-router-dom";
 import SocialMedia from "../socialMedia/SocialMedia";
-import { ContactContext } from '../../../../shared/context/ContactContext'
+import { ContactContext } from '@shared/context/ContactContext'
 import Button from "../button/Button";
-import useInView from "../../../../shared/hooks/useInView";
+import useInView from "@shared/hooks/useInView";
 import { MdArticle, MdEmail, MdPolicy } from "react-icons/md";
 import { FaAddressBook, FaHandshake, FaPhone, FaPlaneArrival } from "react-icons/fa";
 import { GrRadialSelected } from "react-icons/gr";

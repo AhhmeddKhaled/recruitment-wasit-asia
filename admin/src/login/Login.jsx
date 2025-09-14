@@ -3,7 +3,7 @@ import style from "./Login.module.css";
 import Layout from "../layout/Layout";
 import { RiLockPasswordFill, RiMailFill } from "react-icons/ri";
 import Button from "../../../frontend/src/components/button/Button";
-import { UsersContext } from "../../../shared/context/UsersContext";
+import { UsersContext } from "@shared/context/UsersContext";
 import Message from '../../../frontend/src/components/message/Message';
 
 export default function Login() {

@@ -4,7 +4,7 @@ import Layout from "../../layout/layout";
 import { Link } from "react-router-dom";
 import ShareArtical from "./shareArtical";
 import '../../assets/styles/global.css';
-import { ArticalsContext } from "../../../../shared/context/ArticalsContext";
+import { ArticalsContext } from "@shared/context/ArticalsContext";
 
 export default function Articals() {
   const slugify = (title) => {

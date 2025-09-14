@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import style from './AllArticals.module.css';
-import { ArticalsContext } from "../../../../../shared/context/ArticalsContext";
+import { ArticalsContext } from "@shared/context/ArticalsContext";
 import Button from "../../../../../frontend/src/components/button/Button";
 import { FaPlus } from "react-icons/fa";
 import AddArtical from "../addArtical/AddArtical";
