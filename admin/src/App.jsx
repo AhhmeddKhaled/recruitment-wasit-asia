@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename="/admin">
+    <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -36,7 +36,6 @@ function App() {
         <Route element={<ProtectRoute role="admin" />}>
           <Route path="/" element={<AdminHome />}>
             {/* index = الصفحة الرئيسية */}
-            <Route index element={<KPIS />} />
             <Route path="articles" element={<AllArticals />} />
             <Route path="contact" element={<Contact />} />
             <Route path="workers" element={<AllWorkers />} />
