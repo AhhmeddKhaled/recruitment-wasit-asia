@@ -10,7 +10,7 @@ export default function Support() {
 
     const { data } = useContext(ContactContext);
     console.log(data);
-    
+
     return (
         <section className={` ${style.support} s-padding`}>
 
@@ -52,12 +52,13 @@ export default function Support() {
                         </div>
                         <div className={style.contact}>
 
-                            <a href=''>
-                                <span> wasit_LD </span>
+                            <a href="https://www.snapchat.com/add/wasitasia?share_id=PySKLa_xTui_1BoszDj4Cw&locale=ar_SA@calendar=gregorian;numbers=latn"
+                                target="_blanck">
+                                <span> wasitasia </span>
                             </a>
                         </div>
                     </div>
-                    {data?.map((c, i) => (
+                    {data.map((c, i) => (
                         <div className={style.card} key={i}>
                             <div>
                                 <span>
@@ -71,11 +72,11 @@ export default function Support() {
                                 </p>
                             </div>
                             <div className={style.contact}>
-                                <span>
-                                    قسم : {c.name}
+                                 <span>
+                                    قسم : {c.role}
                                 </span>
-                                <a href={c.phone}>
-                                    <span> الهاتف : {c.email} </span>
+                                <a href={`tel:20${c.phone}`}>
+                                    <span> الهاتف : {c.phone} </span>
                                 </a>
                             </div>
                         </div>

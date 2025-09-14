@@ -36,10 +36,10 @@
       a {
         flex: 1;
         &:first-child {
-          flex: 1 0 50%;
+          flex-basis: 50%;
         }
         &:nth-child(2) {
-          flex: 0 1 40%;
+          flex-basis: 50%;
         }
       }
     }
@@ -220,6 +220,9 @@
   }
   .text {
     align-items: center;
+    p {
+      text-align: center;
+    }
   }
 }
 

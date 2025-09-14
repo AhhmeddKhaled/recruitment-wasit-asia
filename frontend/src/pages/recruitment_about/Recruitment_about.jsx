@@ -114,10 +114,10 @@ export default function Recruitment_about() {
               <Button variant="outlined" size="lg" libk="نقل_خدمات">
                 نقل خدمات
               </Button>
-              <Button variant="text" size="lg" endIcon={<FaArrowLeft />} link="tel:+201008890582">
+            </div>
+              <Button variant="text" size="lg" endIcon={<FaArrowLeft />} anchor link="tel:+201008890582">
                 تواصل معنا لمزيد  من المعلومات
               </Button>
-            </div>
 
           </div>
           <div className={style.img}>

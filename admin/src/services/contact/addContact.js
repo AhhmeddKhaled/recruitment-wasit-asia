@@ -1,9 +1,9 @@
-export async function addContact({ name, phone, role }) {
+export async function addContact({ phone, role }) {
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contacts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, role }),
+      body: JSON.stringify({ phone, role }),
     });
 
     const data = await res.json();
@@ -13,9 +13,9 @@ export async function addContact({ name, phone, role }) {
       throw new Error(data.message || "Failed to add contact");
     }
 
-    return data; // هيرجع دايمًا إذا الطلب نجح
+    return data;
   } catch (error) {
     console.error(error);
-    throw error; // ترمي الخطأ للخارج عشان handleSubmit يعرف يحصل خطأ
+    throw error; 
   }
 }

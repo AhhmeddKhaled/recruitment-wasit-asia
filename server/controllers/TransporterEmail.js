@@ -47,7 +47,11 @@ router.post("/resume", async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: "تم إرسال البيانات بنجاح" });
+    res.json({ success: true, message: 
+    
+  `تم حجز السيرة الذاتية بنجاح 
+  سيتواصل معك فريقنا في اقرب وقت,
+   شكرا لتعاملك مع وسيط أسيا` });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "حدث خطأ أثناء الإرسال" });

@@ -8,7 +8,6 @@ import Message from '../../../../../frontend/src/components/message/Message';
 
 export default function AddContact({ setOpenForm }) {
 
-    const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [role, setRole] = useState('');
     const [message, setMessage] = useState({});
@@ -18,11 +17,12 @@ export default function AddContact({ setOpenForm }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const newContact = await addContact({ name, phone, role });
+            const newContact = await addContact({ phone, role });
+            setData([...data,newContact]);
             console.log(newContact);
             
-            setData([...data, newContact]);
-
+            console.log(data);
+            
             setMessage({ message: "تم إضافة الرقم بنجاح", success: "success" });
             setOpenForm(false);
         } catch (err) {
@@ -39,14 +39,6 @@ export default function AddContact({ setOpenForm }) {
                 {message.message && <Message status={message.success}>{message.message}</Message>}
                 <div>
                     <FiX size={30} onClick={() => setOpenForm(false)} />
-                </div>
-
-                {/* Input Name  */}
-                <div className={style.name}>
-                    <label htmlFor="name">
-                        الإسم
-                    </label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" required />
                 </div>
 
                 {/* Input Phone  */}

@@ -12,10 +12,7 @@ export default function Contact() {
     const { data, setData } = useContext(ContactContext);
     const [openForm, setOpenForm] = useState(false);
     const [message, setMessage] = useState({});
-
-    console.log(data);
-
-
+    
     const handleDelete = async (id) => {
         const success = await deleteContact(id);
         if (success) {
@@ -23,7 +20,6 @@ export default function Contact() {
             setData(prev => prev.filter(c => c._id !== id));
         } else {
             setMessage({ message: "خطأ في حذف الرقم", status: "error" });
-            console.log(id);
         }
 
         setTimeout(() => {
@@ -50,8 +46,7 @@ export default function Contact() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.length > 0 &&
-                        data.map((c, i) => (
+                        {data.map((c, i) => (
                             <tr key={i}>
                             <td>
                             {c?.name}
@@ -68,8 +63,7 @@ export default function Contact() {
                                     </Button>
                                     </td>
                                     </tr>
-                                ))
-                            }
+                                ))}
                     </tbody>
                 </table>
             }

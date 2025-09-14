@@ -31,8 +31,11 @@ export const handleDownload = async (worker, setMessage) => {
     });
 
     if (response.ok) {
+      const message = await response.json();
+      console.log(message);
+      
       setMessage({
-        message: "تم إرسال البيانات بنجاح",
+        message: message.message,
         success: "success",
       });
 

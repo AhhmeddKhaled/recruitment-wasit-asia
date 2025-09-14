@@ -13,6 +13,7 @@ export default function Button({
   fullWidth = false,
   onClick,
   link,
+  download,
   anchor = false,
   type = "button",
   rounde
@@ -36,7 +37,9 @@ export default function Button({
           className={classNames}
           onClick={onClick}
           href={link}
+          download={download}
           aria-disabled={disabled}
+          target="_blanck"
         >
           {startIcon && <span className={styles.icon}>{startIcon}</span>}
           {children}

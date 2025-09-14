@@ -11,22 +11,21 @@ import Message from "../../components/message/Message";
 
 export default function LocalWorkers() {
 
-    const url = 'http://localhost:5000'
     const { localWorkers, fetchWorkers } = useContext(WorkersContext);
-    const [message,setMessage] = useState('');
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         fetchWorkers('local');
     }, []);
-   useEffect(() => {
-    if (!message) return;
+    useEffect(() => {
+        if (!message) return;
 
-    const timer = setTimeout(() => {
-      setMessage("");
-    }, 3000);
+        const timer = setTimeout(() => {
+            setMessage("");
+        }, 6000);
 
-    return () => clearTimeout(timer);
-  }, [message]);
+        return () => clearTimeout(timer);
+    }, [message]);
 
 
     return (
@@ -38,15 +37,15 @@ export default function LocalWorkers() {
                     {localWorkers.length === 0 && <p className={style.not}> لا يوجد عمال بهذه البيانات </p>}
                     <div className={style.workers}>
                         {message.message &&
-                        <Message status={message.success}>
-                            {message.message}
-                        </Message>
-                    }
+                            <Message status={message.success}>
+                                {message.message}
+                            </Message>
+                        }
                         {localWorkers.map((worker, i) => (
                             <div className={style.card} key={i}>
                                 <div className={style.header}>
                                     <div>
-                                        <img src={`${url}${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
+                                        <img src={`${import.meta.env.VITE_API_URL}${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
                                         <h3 className={style.name}>{worker.name}</h3>
                                     </div>
                                     <p className={style.workerNumber}>
@@ -90,7 +89,7 @@ export default function LocalWorkers() {
                                         variant="contained"
                                         color="primary"
                                         size="lg"
-                                        onClick={() => handleDownload(worker,setMessage)}
+                                        onClick={() => handleDownload(worker, setMessage)}
                                     >
                                         احجز الآن
                                         <a
@@ -101,13 +100,12 @@ export default function LocalWorkers() {
 
                                     </Button>
 
-                                    <Button variant="outlined" color="primary" size="lg">
-                                        <a
-                                            href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
-                                            download={`${import.meta.env.VITE_API_URL}{worker.cv}`}
-                                        >
-                                        </a>
-
+                                    <Button 
+                                    variant="outlined" 
+                                    color="primary" 
+                                    size="lg" 
+                                    download={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                    >
                                         تنزيل السيرة
 
                                     </Button>

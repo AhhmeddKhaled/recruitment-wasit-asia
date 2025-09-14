@@ -34,7 +34,7 @@ const transporterEmailRoutes = require("./controllers/TransporterEmail");
 app.use('/api/contact', transporterEmailRoutes);
 
 const contact = require("./routes/contact");
-app.use("/api/contact",contact);
+app.use("/api/contacts",contact);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
