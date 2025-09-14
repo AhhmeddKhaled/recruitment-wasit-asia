@@ -1,35 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../assets/styles/global.css";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaUser } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import Button from "../button/Button";
-import { UsersContext } from '../../context/UsersContext';
-import { MdDashboard } from "react-icons/md";
-import SocialMedia from "../socialMedia/SocialMedia";
 import Container from "../container/Container";
 import { handleDropdownToggle } from "../../utilities/handleDropdownToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { role, getRole } = useContext(UsersContext);
-
-  const [isAdmin, setIsAdmin] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   window.onscroll = function () {
     setScrollY(window.scrollY);
   }
-
-  useEffect(() => {
-    getRole();
-    if (role === 'admin') {
-      setIsAdmin(true);
-    } else {
-      setIsAdmin(false);
-    }
-  }, [role]);
 
 
 
@@ -111,12 +96,6 @@ export default function Navbar() {
             <Button variant="contained" color="primary" size="md" endIcon={<FaUser size={20} />} link="login">
               تسجيل الدخول
             </Button>
-
-            {isAdmin && (
-              <Button variant="contained" color="primary" size="md" endIcon={<MdDashboard size={20} />} link="dashboard">
-                لوحة التحكم
-              </Button>
-            )}
            
           </div>
         </nav>

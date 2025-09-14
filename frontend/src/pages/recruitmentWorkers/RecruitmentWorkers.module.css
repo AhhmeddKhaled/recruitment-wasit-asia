@@ -17,6 +17,7 @@
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
   color: var(--text-dark);
+  width: 460px;
 }
 
 .cvInputs .allCv .cv .img {
@@ -76,6 +77,10 @@
 @media (max-width: 768px) {
 .cvInputs .allCv {
   grid-template-columns: 1fr;
+}
+
+.cvInputs .allCv .cv  {
+  width: 100%;
 }
 .cvInputs .allCv .cv .cvInfo {
   grid-template-columns: 1fr 1fr;

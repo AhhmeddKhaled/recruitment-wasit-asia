@@ -5,6 +5,7 @@ import { WorkersProvider } from "../../frontend/src/context/WorkersContext";
 import { ArticalsProvider } from "../../frontend/src/context/ArticalsContext";
 import ContactProvider from "../../frontend/src/context/ContactContext";
 import App from "./App";
+import "../../frontend/src/assets/styles/global.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

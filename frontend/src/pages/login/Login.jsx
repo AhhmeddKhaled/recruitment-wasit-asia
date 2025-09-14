@@ -45,7 +45,6 @@ export default function Login() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'authorization': `Bearer ${userId}`
         },
         body: JSON.stringify(bodyData),
       });

@@ -1,19 +1,18 @@
+// admin/src/App.jsx
 import React, { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import ProtecteRoute from "../../frontend/src/utilities/ProtecteRoute";
-
-
-/* صفحات الإدارة */
-import AdminWorkersRouter from "../../frontend/src/utilities/AdminWorkersRouter";
-import Spinner from "../../frontend/src/components/spinner/Spinner";
-import Contact from '../pages/contact/Contacts'
-import AllArticals from '../pages/articals/allArticals/AllArticals';
-import AdminDashboard from '../AdminDashboard/AdminDashboard'
-import AdminHome from '../pages/home/Home';
+import Contact from "@/pages/contact/Contacts";
+import AllArticals from "@/pages/articals/allArticals/AllArticals";
+import AdminHome from "@/pages/home/Home";
+import AllWorkers from "@/pages/workers/allWorkers/AllWorkers";
+import AdminRecruimentWorkers from "@/pages/workers/adminRecruimentWorkers/AdminRecruimentWorkers";
+import LocalWorker from "./pages/workers/localWorkers/LocalWorkers";
+import Login from "./login/Login";
+import ProtectRoute from "./utilities/ProtecteRoute";
+import KPIS from "@/pages/home/KPIS/KPIS";
 
 function App() {
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,24 +24,25 @@ function App() {
   }, []);
 
   if (loading) {
-    return <Spinner />;
+    return <div style={{ textAlign: "center", padding: "50px" }}>جارٍ التحميل...</div>;
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/admin">
       <Routes>
-         <Route path="/" 
-        element={
-          <ProtecteRoute role="admin">
-            <AdminDashboard />
-          </ProtecteRoute>}>
-        
-          <Route index element={<AdminHome />} />
+        <Route path="/login" element={<Login />} />
 
-            <Route path=":type" element={<AdminWorkersRouter />} />
-
-          <Route path="المقالات" element={<AllArticals />} />
-          <Route path="التواصل" element={<Contact />} />
+        {/* حماية كل الداشبورد */}
+        <Route element={<ProtectRoute role="admin" />}>
+          <Route path="/" element={<AdminHome />}>
+            {/* index = الصفحة الرئيسية */}
+            <Route index element={<KPIS />} />
+            <Route path="articles" element={<AllArticals />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="workers" element={<AllWorkers />} />
+            <Route path="recruitment" element={<AdminRecruimentWorkers />} />
+            <Route path="transfer" element={<LocalWorker />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

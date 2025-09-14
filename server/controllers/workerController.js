@@ -1,17 +1,14 @@
 const Worker = require("../models/Worker");
 const LocalWorker = require("../models/localWorker");
 
-// دالة مساعدة لتحديد أي موديل هنستخدم
 const getModel = (type) => {
   if (type === "local") return LocalWorker;
-  return Worker; // default الاستقدام
+  return Worker;
 };
 
-// إنشاء عامل جديد
 exports.createWorker = async (req, res) => {
   try {
     const Model = getModel(req.params.type);
-    console.log(req.params.type);
     
     const cv = req.file ? `/uploads/cvs/${req.file.filename}` : null;
 
@@ -30,45 +27,37 @@ exports.createWorker = async (req, res) => {
   }
 };
 
-// الحصول على كل العمال مع فلترة
 exports.getWorkers = async (req, res) => {
   try {
     const Model = getModel(req.params.type);
     
     const filter = {};
 
-    // العمر (كـ range)
     if (req.query.age) {
       const [minAge, maxAge] = req.query.age.split("-").map(Number);
       filter.age = { $gte: minAge, $lte: maxAge };
     }
 
-    // الوظيفة
     if (req.query.job && req.query.job !== "الكل") {
       filter.job = req.query.job;
     }
 
-    // الديانة
     if (req.query.religion && req.query.religion !== "الكل") {
       filter.religion = req.query.religion;
     }
 
-    // الخبرة
     if (req.query.experience && req.query.experience !== "الكل") {
       filter.experience = req.query.experience;
     }
 
-    // الجنسية
     if (req.query.nationality && req.query.nationality !== "الكل") {
       filter.nationality = req.query.nationality;
     }
 
-    // المهارات (خاص بعُمال نقل الكفالة)
     if (req.query.skills && req.query.skills !== "الكل") {
       filter.skills = req.query.skills;
     }
 
-    // فقط المتاحين
     filter.isAvailable = true;
 
     const workers = await Model.find(filter);
@@ -78,7 +67,6 @@ exports.getWorkers = async (req, res) => {
   }
 };
 
-// حذف عامل
 exports.deleteWorker = async (req, res) => {
   try {
     const Model = getModel(req.params.type);
@@ -90,7 +78,6 @@ exports.deleteWorker = async (req, res) => {
   }
 };
 
-// تعديل حالة التوفر
 exports.setWorkerUnavailable = async (req, res) => {
   try {
     const Model = getModel(req.params.type);

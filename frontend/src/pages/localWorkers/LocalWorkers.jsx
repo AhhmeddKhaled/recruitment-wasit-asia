@@ -11,6 +11,7 @@ import Message from "../../components/message/Message";
 
 export default function LocalWorkers() {
 
+    const url = 'http://localhost:5000'
     const { localWorkers, fetchWorkers } = useContext(WorkersContext);
     const [message,setMessage] = useState('');
 
@@ -45,7 +46,7 @@ export default function LocalWorkers() {
                             <div className={style.card} key={i}>
                                 <div className={style.header}>
                                     <div>
-                                        <img src={`/server${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
+                                        <img src={`${url}${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
                                         <h3 className={style.name}>{worker.name}</h3>
                                     </div>
                                     <p className={style.workerNumber}>

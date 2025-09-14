@@ -13,16 +13,10 @@ import Contact_us from "../../frontend/src/pages/contact_us/ContactUs";
 import ArticalDetails from "../../frontend/src/pages/articals/ArticalDetails";
 import WorkersRouter from "./utilities/WorkersRouter";
 import Login from "../../frontend/src/pages/login/Login";
-import ProtecteRoute from "./utilities/ProtecteRoute";
 
 
 /* صفحات الإدارة */
-import AdminWorkersRouter from "./utilities/AdminWorkersRouter";
 import Spinner from "../../frontend/src/components/spinner/Spinner";
-import Contact from '../../admin/pages/contact/Contacts'
-import AllArticals from '../../admin/pages/articals/allArticals/AllArticals';
-import AdminDashboard from '../../admin/AdminDashboard/AdminDashboard'
-import AdminHome from '../../admin/pages/home/Home';
 
 function App() {
 
@@ -56,19 +50,7 @@ function App() {
 
         <Route path="/:type" element={<WorkersRouter />} />
         
-        <Route path="/dashboard" 
-        element={
-          <ProtecteRoute role="admin">
-            <AdminDashboard />
-          </ProtecteRoute>}>
-        
-          <Route index element={<AdminHome />} />
-
-            <Route path=":type" element={<AdminWorkersRouter />} />
-
-          <Route path="المقالات" element={<AllArticals />} />
-          <Route path="التواصل" element={<Contact />} />
-        </Route>
+      
       </Routes>
     </BrowserRouter>
   );

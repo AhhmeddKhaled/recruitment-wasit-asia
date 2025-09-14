@@ -6,7 +6,7 @@ import { WorkersProvider } from "../context/WorkersContext";
 // استيراد صفحات العمال
 import RecruitmentWorkers from "../../../frontend/src/pages/recruitmentWorkers/RecruitmentWorkers";
 import LocalWorkers from "../../../frontend/src/pages/localWorkers/LocalWorkers";
-import AdminRecruimentWorkers from "../../../admin/pages/workers/adminRecruimentWorkers/AdminRecruimentWorkers";
+import AdminRecruimentWorkers from "../../../admin/src/pages/workers/adminRecruimentWorkers/AdminRecruimentWorkers";
 
 function WorkersRouter() {
   const { type } = useParams();
