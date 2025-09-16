@@ -4,7 +4,7 @@ import { useFetchData } from "../hooks/useFetchData";
 export const ContactContext = createContext();
 
 export default function ContactProvider({children}) {
-    const BASE_URL = `${import.meta.env.VITE_API_URL}/api/contacts`;
+    const BASE_URL = `${import.meta.env.VITE_API_URL}/api/contact`;
 
     const {data,setData} = useFetchData(BASE_URL);
 

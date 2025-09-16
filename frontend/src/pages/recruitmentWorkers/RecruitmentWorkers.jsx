@@ -89,8 +89,7 @@ export default function RecruitmentWorkers() {
                     </span>
                     <p>
                       {" "}
-                      لضمان حقك, لا تم سداد أي رسوم بعد الحجز إلا من خلال وسيط
-                      أسيا{" "}
+                      لضمان حقك, لا تم سداد أي رسوم بعد الحجز إلا من خلال منصة مساند
                     </p>
                   </div>
                   <div className={` ${style.cvDownload} flex-center`}>

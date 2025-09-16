@@ -6,8 +6,12 @@ const path = require("path");
 require("dotenv").config();
 const app = express();
 
-// Test 
-app.use(cors());
+app.use(cors({
+  origin: ["https://wasitasiaa.com", "https://admin.wasitasiaa.com"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
