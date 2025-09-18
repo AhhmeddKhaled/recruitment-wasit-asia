@@ -6,6 +6,7 @@ import '../../assets/styles/global.css';
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import Button from "../../components/button/Button";
 import useInView from "@shared/hooks/useInView";
+import { Helmet } from "react-helmet-async";
 
 export default function Recruitment_about() {
 
@@ -84,12 +85,24 @@ export default function Recruitment_about() {
   }, [currentIndex]);
 
   return (
-    <Layout>
-      <section className={` ${style.RecruitmentAbout} s-padding`}>
-        <div className={` ${style.info} container `}>
-          <div className={style.text}>
-            <h2>تعاقد الإستقدام</h2>
-            <p ref={(el) => setRefs(el, 0)} data-content="مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
+    <>
+      <Helmet>
+        <title>عن الاستقدام | وسيط آسيا</title>
+        <meta
+          name="description"
+          content="معلومات شاملة عن خدمات الاستقدام التي يقدمها وسيط آسيا وخطوات الحصول على العمالة المناسبة."
+        />
+        <meta
+          name="keywords"
+          content="عن الاستقدام, خدمات الاستقدام, وسيط آسيا"
+        />
+      </Helmet>
+      <Layout>
+        <section className={` ${style.RecruitmentAbout} s-padding`}>
+          <div className={` ${style.info} container `}>
+            <div className={style.text}>
+              <h2>تعاقد الإستقدام</h2>
+              <p ref={(el) => setRefs(el, 0)} data-content="مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
               مراعاة القوانين والتشريعات المحلية والدولية، فقد تعاون المكتب مع
               عدد كبير من أمهر الخبراء بمكاتب الاستقدام الإقليمية والعالمية، كما
               يلتزم المكتب بالقوانين والتشريعات التي نصت عليها وزارة العمل،
@@ -97,85 +110,87 @@ export default function Recruitment_about() {
               المواطن السعودي، وللتأكد من أداء العامل المنزلي لواجباته بأفضل
               صورة، وحصوله في المقابل على حقوقه كاملة، وخدمات المكتب تُغطي جميع
               المدن بالمملكة العربية السعودية.">
-              مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
-              مراعاة القوانين والتشريعات المحلية والدولية، فقد تعاون المكتب مع
-              عدد كبير من أمهر الخبراء بمكاتب الاستقدام الإقليمية والعالمية، كما
-              يلتزم المكتب بالقوانين والتشريعات التي نصت عليها وزارة العمل،
-              ووزارة الموارد البشرية والتنمية الاجتماعية، وذلك لتغطية احتياجات
-              المواطن السعودي، وللتأكد من أداء العامل المنزلي لواجباته بأفضل
-              صورة، وحصوله في المقابل على حقوقه كاملة، وخدمات المكتب تُغطي جميع
-              المدن بالمملكة العربية السعودية.
-            </p>
+                مكتب أسيا للاستقدام يُقدم لك خدمات العمالة المنزلية بأفضل جودة، مع
+                مراعاة القوانين والتشريعات المحلية والدولية، فقد تعاون المكتب مع
+                عدد كبير من أمهر الخبراء بمكاتب الاستقدام الإقليمية والعالمية، كما
+                يلتزم المكتب بالقوانين والتشريعات التي نصت عليها وزارة العمل،
+                ووزارة الموارد البشرية والتنمية الاجتماعية، وذلك لتغطية احتياجات
+                المواطن السعودي، وللتأكد من أداء العامل المنزلي لواجباته بأفضل
+                صورة، وحصوله في المقابل على حقوقه كاملة، وخدمات المكتب تُغطي جميع
+                المدن بالمملكة العربية السعودية.
+              </p>
 
-            <div className={style.btn}>
-              <Button variant="contained" size="lg" link="طلب_إستقدام">
-                طلب إستقدام
-              </Button>
-              <Button variant="outlined" size="lg" libk="نقل_خدمات">
-                نقل خدمات
-              </Button>
-            </div>
+              <div className={style.btn}>
+                <Button variant="contained" size="lg" link="طلب_إستقدام">
+                  طلب إستقدام
+                </Button>
+                <Button variant="outlined" size="lg" libk="نقل_خدمات">
+                  نقل خدمات
+                </Button>
+              </div>
               <Button variant="text" size="lg" endIcon={<FaArrowLeft />} anchor link="tel:+201008890582">
                 تواصل معنا لمزيد  من المعلومات
               </Button>
 
-          </div>
-          <div className={style.img}>
-            <img src="/imgs/about.svg" alt="من نحن" loading="lazy"/>
-          </div>
-        </div>
-
-        <section className='container s-padding'>
-          <div className={style.chatBox}>
-            <div className={style.progres}>
-              <span style={{ width: `${progres}%` }}>
-              </span>
             </div>
-            {chat.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`${style.message} ${msg.from === "office" ? style.office : style.user
-                  }`}
-              >
-                {msg.text}
-              </div>
-            ))}
-
-            {typing && (
-              <div className={`${style.message} ${style.office}`}>
-                <span className={style.typing}>...</span>
-              </div>
-            )}
+            <div className={style.img}>
+              <img src="/imgs/about.svg" alt="من نحن" loading="lazy" />
+            </div>
           </div>
 
-          {currentIndex === messages.length && (
-            <div className={style.finalStep}>
-              <button className={style.btn}>
-                <FaCheckCircle /> إصدار العقد الآن
-              </button>
-            </div>
-          )}
-        </section>
-
-        <section className={` ${style.steps} s-padding`}>
-          <div className={` ${style.stepsContainer} container `}>
-            <h2> عمليات الإستقدام </h2>
-            <div className={style.stepsGrid}>
-              {list.map((box) => (
-                <div>
-                  <h3> {box.number} </h3>
-                  <span> {box.title} </span>
-                  <p> {box.disk} </p>
-                  <span></span>
+          <section className='container s-padding'>
+            <div className={style.chatBox}>
+              <div className={style.progres}>
+                <span style={{ width: `${progres}%` }}>
+                </span>
+              </div>
+              {chat.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`${style.message} ${msg.from === "office" ? style.office : style.user
+                    }`}
+                >
+                  {msg.text}
                 </div>
               ))}
+
+              {typing && (
+                <div className={`${style.message} ${style.office}`}>
+                  <span className={style.typing}>...</span>
+                </div>
+              )}
             </div>
-          </div>
 
+            {currentIndex === messages.length && (
+              <div className={style.finalStep}>
+                <button className={style.btn}>
+                  <FaCheckCircle /> إصدار العقد الآن
+                </button>
+              </div>
+            )}
+          </section>
+
+          <section className={` ${style.steps} s-padding`}>
+            <div className={` ${style.stepsContainer} container `}>
+              <h2> عمليات الإستقدام </h2>
+              <div className={style.stepsGrid}>
+                {list.map((box) => (
+                  <div>
+                    <h3> {box.number} </h3>
+                    <span> {box.title} </span>
+                    <p> {box.disk} </p>
+                    <span></span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </section>
+
+          <Statistics />
         </section>
+      </Layout>
+    </>
 
-        <Statistics />
-      </section>
-    </Layout>
   );
 }

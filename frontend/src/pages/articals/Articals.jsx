@@ -18,8 +18,8 @@ export default function Articals() {
     <>
       <Helmet>
         <title> المقالات | وسيط آسيا</title>
-        <meta name="description" content="تعرف على خدمات وسيط آسيا وخبرتنا في الاستقدام." />
-        <meta name="keywords" content="وسيط آسيا, استقدام, من نحن" />
+        <meta name="description" content="مقالات تهمك وتساعك في الاستقام" />
+        <meta name="keywords" content="وسيط آسيا, استقدام, المقالات" />
       </Helmet>
       <Layout>
         <main className={style.articals}>

@@ -8,6 +8,7 @@ import { WorkersContext } from "@shared/context/WorkersContext";
 import { FaCheck } from "react-icons/fa";
 import { handleDownload } from "../../utilities/handleDownload";
 import Message from "../../components/message/Message";
+import { Helmet } from "react-helmet-async";
 
 export default function LocalWorkers() {
 
@@ -29,92 +30,106 @@ export default function LocalWorkers() {
 
 
     return (
-        <Layout>
-            <section className={` ${style.localWorkers} s-padding`}>
-                <div className={`container`}>
-                    <WorkerInput type={'local'} />
+        <>
+            <Helmet>
+                <title>نقل خدمات | وسيط آسيا</title>
+                <meta
+                    name="description"
+                    content="خدمة نقل خدمات العمالة بسرعة واحترافية مع وسيط آسيا. سهولة في الإجراءات ودعم مستمر."
+                />
+                <meta
+                    name="keywords"
+                    content="نقل خدمات, وسيط آسيا, عمالة, استقدام"
+                />
+            </Helmet>
+            <Layout>
+                <section className={` ${style.localWorkers} s-padding`}>
+                    <div className={`container`}>
+                        <WorkerInput type={'local'} />
 
-                    {localWorkers.length === 0 && <p className={style.not}> لا يوجد عمال بهذه البيانات </p>}
-                    <div className={style.workers}>
-                        {message.message &&
-                            <Message status={message.success}>
-                                {message.message}
-                            </Message>
-                        }
-                        {localWorkers.map((worker, i) => (
-                            <div className={style.card} key={i}>
-                                <div className={style.header}>
-                                    <div>
-                                        <img src={`${import.meta.env.VITE_API_URL}${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
-                                        <h3 className={style.name}>{worker.name}</h3>
+                        {localWorkers.length === 0 && <p className={style.not}> لا يوجد عمال بهذه البيانات </p>}
+                        <div className={style.workers}>
+                            {message.message &&
+                                <Message status={message.success}>
+                                    {message.message}
+                                </Message>
+                            }
+                            {localWorkers.map((worker, i) => (
+                                <div className={style.card} key={i}>
+                                    <div className={style.header}>
+                                        <div>
+                                            <img src={`${import.meta.env.VITE_API_URL}${worker.cv}`} alt="السيرة الذاتية" className={style.avatar} loading="lazy" />
+                                            <h3 className={style.name}>{worker.name}</h3>
+                                        </div>
+                                        <p className={style.workerNumber}>
+                                            رقم العامل: <span>0102103225</span>
+                                        </p>
                                     </div>
-                                    <p className={style.workerNumber}>
-                                        رقم العامل: <span>0102103225</span>
-                                    </p>
-                                </div>
 
-                                <div className={style.details}>
-                                    <div className={style.detailRow}>
-                                        <span>الجنسية</span>
-                                        <span>{worker.nationality
-                                        }</span>
+                                    <div className={style.details}>
+                                        <div className={style.detailRow}>
+                                            <span>الجنسية</span>
+                                            <span>{worker.nationality
+                                            }</span>
+                                        </div>
+                                        <div className={style.detailRow}>
+                                            <span>الديانة</span>
+                                            <span>{worker.religion}</span>
+                                        </div>
+                                        <div className={style.detailRow}>
+                                            <span>العمر</span>
+                                            <span>{worker.age}</span>
+                                        </div>
+                                        <div className={style.detailRow}>
+                                            <span>الحالة</span>
+                                            <span>{worker.maritalStatus}</span>
+                                        </div>
+                                        <div className={style.detailRow}>
+                                            <span>المهارات</span>
+                                            <span>
+                                                {worker.skills.map((skill, index) => (
+                                                    <strong key={index}>
+                                                        <FaCheck />
+                                                        {skill}
+                                                    </strong>
+                                                ))}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className={style.detailRow}>
-                                        <span>الديانة</span>
-                                        <span>{worker.religion}</span>
-                                    </div>
-                                    <div className={style.detailRow}>
-                                        <span>العمر</span>
-                                        <span>{worker.age}</span>
-                                    </div>
-                                    <div className={style.detailRow}>
-                                        <span>الحالة</span>
-                                        <span>{worker.maritalStatus}</span>
-                                    </div>
-                                    <div className={style.detailRow}>
-                                        <span>المهارات</span>
-                                        <span>
-                                            {worker.skills.map((skill, index) => (
-                                                <strong key={index}>
-                                                    <FaCheck />
-                                                    {skill}
-                                                </strong>
-                                            ))}
-                                        </span>
-                                    </div>
-                                </div>
 
-                                <div className={` ${style.buttons} flex-center`}>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        size="lg"
-                                        onClick={() => handleDownload(worker, setMessage)}
-                                    >
-                                        احجز الآن
-                                        <a
-                                            href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                    <div className={` ${style.buttons} flex-center`}>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            size="lg"
+                                            onClick={() => handleDownload(worker, setMessage)}
+                                        >
+                                            احجز الآن
+                                            <a
+                                                href={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                                download={`${import.meta.env.VITE_API_URL}${worker.cv}`}
+                                            >
+                                            </a>
+
+                                        </Button>
+
+                                        <Button
+                                            variant="outlined"
+                                            color="primary"
+                                            size="lg"
                                             download={`${import.meta.env.VITE_API_URL}${worker.cv}`}
                                         >
-                                        </a>
+                                            تنزيل السيرة
 
-                                    </Button>
-
-                                    <Button 
-                                    variant="outlined" 
-                                    color="primary" 
-                                    size="lg" 
-                                    download={`${import.meta.env.VITE_API_URL}${worker.cv}`}
-                                    >
-                                        تنزيل السيرة
-
-                                    </Button>
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
-        </Layout>
+                </section>
+            </Layout>
+        </>
+
     )
 }

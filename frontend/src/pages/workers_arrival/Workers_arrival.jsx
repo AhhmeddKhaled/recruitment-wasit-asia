@@ -2,14 +2,26 @@ import React from "react";
 import style from "./Workers_arrival.module.css";
 import Layout from "../../layout/layout";
 import Button from "../../components/button/Button";
-import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
-import { MdMessage, MdRequestPage } from "react-icons/md";
-import { BiArrowToLeft, BiSend } from "react-icons/bi";
+import { MdMessage } from "react-icons/md";
+import { BiArrowToLeft } from "react-icons/bi";
+import { Helmet } from "react-helmet-async";
 
 export default function Workers_arrival() {
   return (
-    <Layout>
+    <>
+      <Helmet>
+        <title>وصول العمالة | وسيط آسيا</title>
+        <meta
+          name="description"
+          content="متابعة وصول العمالة إلى المملكة وضمان استلامها بسهولة مع خدمات وسيط آسيا."
+        />
+        <meta
+          name="keywords"
+          content="وصول العمالة, استقدام, وسيط آسيا"
+        />
+      </Helmet>
+      <Layout>
         <section className="s-padding">
           <div className="container">
             <div className={style.arrivalGrid}>
@@ -28,7 +40,7 @@ export default function Workers_arrival() {
                 </Button>
               </div>
               <div className={style.arrivalImg}>
-                <img src="/arrivalImgs/arrival.svg" alt="وصول العمالة"loading="lazy"/>
+                <img src="/arrivalImgs/arrival.svg" alt="وصول العمالة" loading="lazy" />
               </div>
             </div>
           </div>
@@ -41,44 +53,44 @@ export default function Workers_arrival() {
               <div className={style.info}>
                 <h2>
                   <span>
-                     خدمة العملاء  
-                   </span> 
-                   فريق عمل متكامل في انتظارك
+                    خدمة العملاء
+                  </span>
+                  فريق عمل متكامل في انتظارك
                 </h2>
                 <ul>
                   <li>
                     <span>
-                      <FaCheck size={20}/>
+                      <FaCheck size={20} />
                     </span>
-                  دائما ما نتبنى أحدث الأساليب والتقنيات للتعامل مع العملاء وضمان
-                  جودة عالية في الخدمات المقدمة في مكتب وسيط أسيا للاستقدام.
+                    دائما ما نتبنى أحدث الأساليب والتقنيات للتعامل مع العملاء وضمان
+                    جودة عالية في الخدمات المقدمة في مكتب وسيط أسيا للاستقدام.
                   </li>
                   <br />
                   <li>
-                     <span>
-                      <FaCheck size={20}/>
+                    <span>
+                      <FaCheck size={20} />
                     </span>
-                   كما أننا نوفر جميع الأدوات لدراسة السوق لتطوير وتوفير خدمات ذات جودة
-                  عالية لاستقدام العمالة المنزلية وللتواصل مع العملاء قبل وبعد
-                  وصول العمالة المنزلية.
+                    كما أننا نوفر جميع الأدوات لدراسة السوق لتطوير وتوفير خدمات ذات جودة
+                    عالية لاستقدام العمالة المنزلية وللتواصل مع العملاء قبل وبعد
+                    وصول العمالة المنزلية.
                   </li>
                   <br />
                   <li>
-                     <span>
-                      <FaCheck size={20}/>
+                    <span>
+                      <FaCheck size={20} />
                     </span>
-                   نلتزم بشكل تام لخدمة مختلف الاحتياجات
-                  بمصداقية عالية وشفافية مطلقة حيث أننا نطمح لتجاوز توقعات عملائنا
-                  وبناء علاقة طويلة المدى مع كافة العملاء لمعرفة كافة احتياجاتهم
-                  ومتطلباتهم.
+                    نلتزم بشكل تام لخدمة مختلف الاحتياجات
+                    بمصداقية عالية وشفافية مطلقة حيث أننا نطمح لتجاوز توقعات عملائنا
+                    وبناء علاقة طويلة المدى مع كافة العملاء لمعرفة كافة احتياجاتهم
+                    ومتطلباتهم.
                   </li>
                 </ul>
 
                 <div className={style.buttons}>
                   <Button variant="contained" size="lg" endIcon={<MdMessage />} link="tel:25262525" anchor>
-                    تواصل مع فريق الدعم 
+                    تواصل مع فريق الدعم
                   </Button>
-                    <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />} link="طلب_إستقدام">
+                  <Button variant="outlined" size="lg" endIcon={<BiArrowToLeft />} link="طلب_إستقدام">
                     طلب إستقدام
                   </Button>
                 </div>
@@ -89,6 +101,8 @@ export default function Workers_arrival() {
             </div>
           </div>
         </section>
-    </Layout>
+      </Layout>
+    </>
+
   );
 }

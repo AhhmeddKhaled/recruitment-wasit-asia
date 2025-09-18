@@ -14,6 +14,7 @@ import { WorkersContext } from '@shared/context/WorkersContext';
 import Button from "../../components/button/Button";
 import Message from "../../components/message/Message";
 import { handleDownload } from "../../utilities/handleDownload";
+import { Helmet } from "react-helmet-async";
 /*======================================================================*/
 
 export default function RecruitmentWorkers() {
@@ -38,6 +39,18 @@ export default function RecruitmentWorkers() {
     return () => clearTimeout(timer);
   }, [message]);
   return (
+    <>
+     <Helmet>
+        <title>الاستقدام | وسيط آسيا</title>
+        <meta
+          name="description"
+          content="استقدام عمالة منزلية ومهنية من آسيا بسهولة وأمان عبر وسيط آسيا. خدمة سريعة ودعم متكامل."
+        />
+        <meta
+          name="keywords"
+          content="استقدام, عمالة منزلية, عمالة مهنية, وسيط آسيا"
+        />
+      </Helmet>
     <Layout>
       <div className={style.RecruitmentRequest}>
         <div className={` ${style.cvInputs} container`}>
@@ -120,5 +133,7 @@ export default function RecruitmentWorkers() {
         </div>
       </div>
     </Layout>
+    </>
+
   );
 }
