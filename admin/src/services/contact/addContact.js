@@ -3,7 +3,7 @@ export async function addContact({ phone, role }) {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contacts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone, role }),
+      body: JSON.stringify({ name, phone, role }),
     });
 
     const data = await res.json();

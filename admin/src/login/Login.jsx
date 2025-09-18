@@ -12,6 +12,8 @@ export default function Login() {
   const { login, userId } = useContext(UsersContext);
   const navigate = useNavigate()
   const url = `${import.meta.env.VITE_API_URL}/api/auth/login`
+  console.log(import.meta.env.VITE_API_URL)
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
