@@ -2,9 +2,6 @@
 User-agent: *
 Allow: /
 
-# منع أرشفة صفحة تسجيل الدخول
-Disallow: /login
-
 # منع أرشفة لوحة التحكم (Dashboard)
 Disallow: /dashboard/
 
