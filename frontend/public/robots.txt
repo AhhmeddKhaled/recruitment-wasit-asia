@@ -8,4 +8,5 @@ Disallow: /login
 # منع أرشفة لوحة التحكم (Dashboard)
 Disallow: /dashboard/
 
-Sitemap: https://wasit-asia.netlify.app/sitemap.xml
+Sitemap: https://wasitasiaa.com/sitemap.xml
+
