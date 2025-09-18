@@ -1,16 +1,17 @@
 .stepsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-6);
 }
 
 .stepCard {
   background: inherit;
-  box-shadow: var(--shadow-md);
   color: var(--text-dark);
   opacity: 0;
   transition: all 0.8s ease;
   transform: translateY(30px);
+  border: 2px solid #ddd;
+  border-radius: var(--radius-md);
   &.animate {
     opacity: 1;
     transform: translateY(0);
@@ -23,7 +24,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   .text {

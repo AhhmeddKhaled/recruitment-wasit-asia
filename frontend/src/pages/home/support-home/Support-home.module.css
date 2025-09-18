@@ -8,9 +8,9 @@
     flex-direction: column;
     justify-content: space-between;
     gap: var(--space-8);
-    border-radius: var(--radius-md);
     padding: var(--space-6);
-    border: 1px solid var(--primary);
+    border: 1px solid #eee;
+    border-radius: var(--radius-md);
     transition: 0.3s ease;
     position: relative;
     > div:first-child {
