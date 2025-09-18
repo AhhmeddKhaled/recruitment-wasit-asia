@@ -15,6 +15,7 @@ const links = [
   { url: '/articals', changefreq: 'weekly', priority: 0.8 },
   { url: '/تواصل_معنا', changefreq: 'weekly', priority: 0.8 },
   { url: '/خدمة_العملاء', changefreq: 'weekly', priority: 0.8 },
+  { url: '/login', changefreq: 'weekly', priority: 0.8 },
 ];
 
 // توليد السايت ماب
