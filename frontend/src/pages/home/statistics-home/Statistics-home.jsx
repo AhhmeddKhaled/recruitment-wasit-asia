@@ -15,12 +15,12 @@ export default function Statistics() {
         },
         {
             icon: <FaCheckCircle className="icon" />,
-            number: 645,
+            number: "90%",
             name: 'عقود تمت بنجاح',
         },
         {
             icon: <FaHandshake className="icon" />,
-            number: 8543,
+            number: "95%",
             name: 'عميل راضي عن الخدمة'
         }
     ]
