@@ -107,7 +107,7 @@ export default function Home() {
             <FaWhatsapp className={style.iconWhats} />
           </a>
               <a
-            href="tel:966555745003"
+            href="tel:+966555745003"
             className={style.whatsappIcon}
             aria-label="أيقونة التواصل"
           >
