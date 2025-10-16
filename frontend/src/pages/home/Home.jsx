@@ -100,7 +100,7 @@ export default function Home() {
         {/* Floating WhatsApp Icon */}
         <div className={style.contact}>
           <a
-            href="tel:+966555745003"
+            href="https://wa.me/+966555745003"
             className={style.whatsappIcon}
             aria-label="أيقونة التواصل وتس أب"
           >
