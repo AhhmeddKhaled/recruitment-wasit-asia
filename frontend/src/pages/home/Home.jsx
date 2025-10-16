@@ -6,7 +6,7 @@ import "../../assets/styles/global.css";
 
 /* Import Icons */
 import { FiShuffle } from "react-icons/fi";
-import { FaHardHat, FaUsersCog, FaWhatsapp } from "react-icons/fa";
+import { FaHardHat, FaPhone, FaUsersCog, FaWhatsapp } from "react-icons/fa";
 import { MdEngineering } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 
@@ -32,7 +32,7 @@ export default function Home() {
   window.onload = () => {
     console.log("window loading");
   }
-  
+
   return (
     <Layout>
       <section className={` ${style.home}`}>
@@ -98,13 +98,22 @@ export default function Home() {
         </Suspense>
 
         {/* Floating WhatsApp Icon */}
-        <a
-          href="tel:+966555745003"
-          className={style.whatsappIcon}
-          aria-label="أيقونة التواصل وتس أب"
-        >
-          <FaWhatsapp className={style.icon} />
-        </a>
+        <div className={style.contact}>
+          <a
+            href="tel:+966555745003"
+            className={style.whatsappIcon}
+            aria-label="أيقونة التواصل وتس أب"
+          >
+            <FaWhatsapp className={style.iconWhats} />
+          </a>
+              <a
+            href="tel:966555745003"
+            className={style.whatsappIcon}
+            aria-label="أيقونة التواصل"
+          >
+            <FaPhone className={style.iconPhone}/>
+          </a>
+        </div>
       </section>
     </Layout>
   );

@@ -108,22 +108,33 @@
 }
 /* End Hero Style */
 
-.whatsappIcon {
+.contact {
   position: fixed;
   bottom: 2%;
   right: 2%;
   z-index: 10000;
   padding: 0;
-  display: block;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-8);
 }
 
-
-.whatsappIcon .icon {
-  font-size: 40px;
-  color: green;
+.whatsappIcon .iconPhone,
+.whatsappIcon .iconWhats
+ {
+  font-size: 32px;
   border-radius: 4px;
-  filter: drop-shadow(0 0 12px green);
   position: relative;
+}
+
+.whatsappIcon .iconWhats {
+  filter: drop-shadow(0 0 12px green);
+  color: green;
+}
+
+.whatsappIcon .iconPhone {
+  filter: drop-shadow(0 0 12px  #3898ec);
+  color:  #3898ec;
 }
 
 @media (max-width: 900px) {
