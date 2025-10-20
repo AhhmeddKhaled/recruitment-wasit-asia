@@ -13,6 +13,7 @@ export default function Contact() {
     const [openForm, setOpenForm] = useState(false);
     const [message, setMessage] = useState({});
     
+    
     const handleDelete = async (id) => {
         const success = await deleteContact(id);
         if (success) {
@@ -39,7 +40,6 @@ export default function Contact() {
                 <table className={style.table}>
                     <thead>
                         <tr>
-                            <th>الإسم</th>
                             <th>االرقم</th>
                             <th>الدور</th>
                             <th>إجراءات</th>
@@ -48,9 +48,6 @@ export default function Contact() {
                     <tbody>
                         {data.map((c, i) => (
                             <tr key={i}>
-                            <td>
-                            {c?.name}
-                            </td>
                                 <td>
                                     {c?.phone}
                                     </td>

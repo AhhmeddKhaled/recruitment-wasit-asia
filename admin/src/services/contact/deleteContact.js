@@ -1,5 +1,5 @@
 export default async function deleteContact(id) {
-  const BASE_URL = `${import.meta.env.VITE_API_URL}/api/contacts/`;
+  const BASE_URL = `${import.meta.env.VITE_API_URL}/api/add_phone/`;
   try {
     const res = await fetch(`${BASE_URL}${id}`, {
       method: "DELETE",

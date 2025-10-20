@@ -12,7 +12,7 @@ export default function SocialMedia() {
             <a
                 aria-label="موقع سناب شات الخاص بالمكتب"
                 arr="WhatsUp"
-                href="tel:+20 100 889 0582"
+                href="https://wa.me/+0555872001"
                 target="_blanck"
             > <BsWhatsapp size={24} className={style.icon} /> </a>
             <a

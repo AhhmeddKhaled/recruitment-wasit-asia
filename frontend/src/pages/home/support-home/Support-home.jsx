@@ -9,7 +9,6 @@ import HeaderSection from "../../../components/headerSection/HeaderSection";
 export default function Support() {
 
     const { data } = useContext(ContactContext);
-    console.log(data);
 
     return (
         <section className={` ${style.support} s-padding`}>
