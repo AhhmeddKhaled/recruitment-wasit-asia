@@ -6,7 +6,6 @@ export default function AdminHome() {
 
     return (
         <Layout>
-            <KPIS />
             <Outlet />
         </Layout>
     )
