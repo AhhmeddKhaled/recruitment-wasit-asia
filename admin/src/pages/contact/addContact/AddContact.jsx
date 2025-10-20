@@ -19,10 +19,6 @@ export default function AddContact({ setOpenForm }) {
         try {
             const newContact = await addContact({ phone, role });
             setData([...data,newContact]);
-            console.log(newContact);
-            
-            console.log(data);
-            
             setMessage({ message: "تم إضافة الرقم بنجاح", success: "success" });
             setOpenForm(false);
         } catch (err) {

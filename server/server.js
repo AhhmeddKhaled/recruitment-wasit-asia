@@ -6,11 +6,7 @@ const path = require("path");
 require("dotenv").config();
 const app = express();
 
-app.use(cors({
-  origin: ["https://wasitasiaa.com", "https://admin.wasitasiaa.com"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 
@@ -40,7 +36,7 @@ const transporterEmailRoutes = require("./controllers/TransporterEmail");
 app.use('/api/contact', transporterEmailRoutes);
 
 const contact = require("./routes/contact");
-app.use("/api/contacts",contact);
+app.use("/api/add_phone",contact);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
