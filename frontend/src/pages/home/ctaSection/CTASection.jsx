@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./CTASection.module.css";
 import Button from "../../../components/button/Button";
-import { Link } from "react-router-dom";
 import { BsWhatsapp } from "react-icons/bs";
 
 export default function CTASection() {
@@ -16,7 +15,7 @@ export default function CTASection() {
         نحن في  وسيط آسيا نلتزم بتقديم أفضل خدمات الاستقدام بسرعة وأمان لتلبية احتياجاتك.
         <br /> اختَر العامل المناسب لك بخطوات بسيطة وسهلة.
       </p>
-      <Button variant="contained" color="primary" size="hero" link="tel:+966555872001" anchor>
+      <Button variant="contained" color="primary" size="hero" link="tel:00966555872001" anchor>
         تواصل معنا
         <BsWhatsapp />
       </Button>
