@@ -16,8 +16,7 @@ export default function CTASection() {
         <br /> اختَر العامل المناسب لك بخطوات بسيطة وسهلة.
       </p>
       <Button variant="contained" color="primary" size="hero" link="https://wa.me/00966555872001" anchor>
-      <Button variant="contained" color="primary" size="hero" link="tel:00966555872001" anchor>
-        تواصل معنا
+      تواصل معنا
         <BsWhatsapp />
       </Button>
       </div>
