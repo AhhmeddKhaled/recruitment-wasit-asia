@@ -74,7 +74,7 @@ export default function Support() {
                                  <span>
                                     قسم : {c.role}
                                 </span>
-                                <a href={`tel:20${c.phone}`}>
+                                <a href={`tel:${c.phone}`}>
                                     <span> الهاتف : {c.phone} </span>
                                 </a>
                             </div>
